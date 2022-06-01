@@ -13,6 +13,8 @@ import Expectation from '../component/site/Expectation'
 import User_setting from '../component/site/User_setting'
 import Single_profile3 from '../component/site/Single_profile3'
 
+import Search from '../component/site/Search'
+
 export default function  Router() {
   return (
     <div>
@@ -24,12 +26,13 @@ export default function  Router() {
     <Route path="" element={<Home/>}/> 
     <Route path="about" element={<About/>}/> 
     <Route path="contact" element={<Contact/>}/>
-    <Route path="single_profilr2" element={<Single_profile2/>}/>
+    <Route path="single_profile2" element={<Single_profile2/>}/>
      <Route path="details" element={<Details/>}/>
     <Route path="family" element={<Family/>}/>
     <Route path="expectation" element={<Expectation/>}/>
     <Route path="single_profile3" element={<Single_profile3/>}/>
     <Route path="user_setting" element={<User_setting/>}/>
+    <Route path="search" element={<Search/>}/>
     </Route>
 </Routes>
 </BrowserRouter>

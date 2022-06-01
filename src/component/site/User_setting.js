@@ -149,172 +149,137 @@ export default function User_setting() {
                     </div>
                     <div className="input-info-box mt-30">
                         <div className="header">
-                            About your Profile
+                        Personal Detail/वैयक्तिक माहिती
                         </div>
                         <div className="content">
                             <div className="row">
                                 <div className="col-md-6">
                                     <div className="my-input-box">
-                                        <label for="">Profile Name</label>
-                                        <input type="text" placeholder="Profile Name"/>
+                                    <label for="exampleInputname" className="form-label">
+                Name/नाव*
+              </label>
+              <input
+                type="text"
+                placeholder="Enter your full name/पूर्ण नाव"
+                className="my-form-control"
+                id="exampleInputname"
+              />
                                     </div>
                                 </div>
-                                <div className="col-md-6">
-                                    <div className="my-input-box">
-                                        <label for="">Contact No</label>
-                                        <input type="text" placeholder="Contact No"/>
+                                    <div className="col-md-6">
+                                        <div className="my-input-box">
+                                        <label for="exampleInputdate" className="form-label text-center">
+                Date Of Birth/जन्मतारीख
+              </label>
+              <input 
+                type="date"
+                className="my-form-control"
+                id="exampleInputdate"
+              />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="col-md-12">
-                                    <div className="my-input-box">
-                                        <textarea name=""
-                                            placeholder="Expectation/अपेक्षा"></textarea>
+                                    <div className="col-md-6">
+                                        <div className="my-input-box">
+                                        <label
+                for="exampleInputdatetime"
+                className="form-label text-center"
+              >
+                Birth time/जन्म वेळ
+              </label>
+              <input
+                type="time"
+                className="my-form-control"
+                id="exampleInputtime"
+              />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="my-input-box">
-                                        <label for="">Birthdate</label>
-                                        <input type="date"/>
-                                    </div>
-                                    </div>
+                                        <div className="col-md-6">
+                                            <div className="my-input-box">
+                                            <label for="exampleInputedu" className="form-label text-center">
+                Educational Qualification/शैक्षणिक पात्रता
+              </label>
+              <input
+                
+                type="text"
+                placeholder="Enter your Educational Qualification/शैक्षणिक पात्रता"
+                className="my-form-control"
+                id="exampleInputedu"
+              />
+              
+                                            </div>
+                                        </div>
+                                        <div className="col-md-6">
+                                            <div className="my-input-box">
+                                            <label for="exampleInputser" className="form-label text-center">
+                Service or Business/सेवा किंवा व्यवसाय
+              </label>
+              <input
+                
+                type="text"
+                placeholder="Enter your Service or Business/सेवा किंवा व्यवसाय"
+                className="my-form-control"
+                id="exampleInputser"
+              />
+                                            </div>
+                                        </div>
+                                            <div className="col-md-6">
+                                                <div className="my-input-box">
+                                                    <label for=""> Income/उत्पन्न</label>
+                                                    <input type="Number" />
+                                                </div>
+                                            </div>
 
-                                    <div className="col-md-6">
-                                        <div className="my-input-box">
-                                            <label for="">BirthPlace</label>
-                                            <input type="text" placeholder="Occupation"/>
-                                        </div>
-                                        </div>
-                                <div className="col-md-6">
-                                    <div className="my-input-box">
-                                         <label for="">Maternal Uncle/मामा</label>
-                                         <input type="text" placeholder=""/>
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="my-input-box">
-                                        <label for="">City</label>
-                                        <select name="" id="">
-                                            <option value="" disabled selected>Select City</option>
-                                            <option value="">Mumbai</option>
-                                            <option value="">Nashik</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                               
-                                <div className="col-md-6">
-                                    <div className="my-input-box">
-                                        <label for="">Marital Status</label>
-                                        <select name="" id="">
-                                            <option value="">Never married</option>
-                                            <option value="">Remarriage</option>
-                                            
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="my-input-box">
-                                        <label for="">Branch/शाखा</label>
-                                        <select name="" id="">
-                                            <option value="" disabled selected>Branch/शाखा</option>
-                                            <option value="">Wani</option>
-                                            <option value="">Dixi Wani</option>
-                                            <option value="">Pancham</option>
-                                            <option value="">Chaturth</option>
-                                            <option value="">Shivant</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="input-info-box mt-30">
-                        <div className="header">
-                           Education/शिक्षण
-                        </div>
-                        <div className="content">
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <div className="my-input-box">
-                                        <label for="">Qualification/शिक्षण</label>
-                                        <input type="text" placeholder="Qualification/शिक्षण"/>
-                                    </div>
-                                </div>
-                                <div className="col-md-12">
-                                    <div className="my-input-box">
-                                        <label for="">Service/Business</label>
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                                <div className="col-md-12">
-                                    <div className="my-input-box">
-                                        <label for="">Income/उत्पन्न</label>
-                                        <input type="text"/ >
-                                    </div>
-                                </div>
-                                <div className="col-md-12">
-                                    <div className="my-input-box">
-                                        <label for="">Service Name</label>
-                                        <input type="text" placeholder="Service Name"/>
-                                    </div>
-                                </div>
-                                {/* <!-- <div className="col-md-12">
-                                    <div className="my-input-box">
-                                        <label for="">Favourite Games </label>
-                                        <textarea name="" placeholder="Favourite Games "></textarea>
-                                    </div>
-                                </div>
-                                <div className="col-md-12">
-                                    <div className="my-input-box">
-                                        <label for="">Favourite Games </label>
-                                        <textarea name="" placeholder="Favourite Games"></textarea>
-                                    </div>
-                                </div> --> */}
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div className="input-info-box mt-30">
-                        <div className="header">
-                            Physical
-                        </div>
-                        <div className="content">
-                            <div className="row">
-                                <div className="col-md-6">
-                                    <div className="my-input-box">
-                                        <label for="">Height/उंची</label>
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                                    <div className="col-md-6">
-                                        <div className="my-input-box">
-                                            <label for="">Blood Group/रक्त गट</label>
-                                            <input type="text" />
-                                        </div>
-                                    </div>
+                                            <div className="col-md-6">
+                                                <div className="my-input-box">
+                                                    <label for="">Designation/हुद्दा</label>
+                                                    <input type="text" />
+                                                </div>
+                                            </div>
+                                                <div className="col-md-6">
+                                                    <div className="my-input-box">
+                                                        <label for=""> Workplace/कामाची जागा</label>
+                                                        <input type="Number" />
+                                                    </div>
+                                                </div>
+
                                     
                                         <div className="col-md-6">
                                             <div className="my-input-box">
-                                                <label for="">color/रंग</label>
-                                                <input type="text"/>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-6">
-                                            <div className="my-input-box">
-                                                <label for="">Weight/वजन</label>
+                                                <label for="">Height/उंची</label>
                                                 <input type="text" />
                                             </div>
                                         </div>
                                         <div className="col-md-6">
                                             <div className="my-input-box">
-                                                <label for="">BodyType/शरीर प्रकार</label>
+                                                <label for=""> Blood-Group/रक्त गट</label>
                                                 <input type="text" />
                                             </div>
                                         </div>
-                                
+                                        
+                                        <div className="col-md-6">
+                                            <div className="my-input-box">
+                                                <label for="">Color/रंग</label>
+                                                <input type="text" />
+                                            </div>
+                                        </div>
+                                        <div className="col-md-6">
+                                            <div className="my-input-box">
+                                                <label for=""> Weight/वजन</label>
+                                                <input type="text" />
+                                            </div>
+                                        </div> 
+                                        <div className="col-md-6">
+                                            <div className="my-input-box">
+                                                <label for="">Address/पत्ता</label>
+                                                <input type="text" />
+                                            </div>
+                                        </div>
+                                        
                             </div>
                         </div>
                     </div>
+             
+                    
                     <div className="input-info-box mt-30">
                         <div className="header">
                             Family Detalis/कौटुंबिक तपशील

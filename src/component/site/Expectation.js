@@ -163,18 +163,15 @@ export default function Expectation(){
             onSubmit={handleSubmit(onSubmit)}
            
           >
-            <h3 className="mt-3 text-center">
-             Expectation/अपेक्षा वधू/वर
-            </h3>
-
-            <div className="mx-5">
-              <label className="form-label">Expection</label>
+              <h4 className="content-title text-center">Expectation/अपेक्षा वधू/वर</h4>
+                       <div className="mx-5">
+              <label className="form-label">Expection/अपेक्षा वधू/वर</label>
               <textarea className="my-form-control"></textarea>
             </div>
          
                 <div className="mx-5 mt-3">
               <div classname="dropdown-menu">
-              <label for="">Marital status*</label>
+              <label for="">Marital status*/वैवाहिक स्थिती*</label>
               <select className="select-bar" id="branch" name="branch">
                         <option   className="dropdown-item" value="single">Single</option>
                         <option  className="dropdown-item"  value="married">Married</option>
@@ -184,7 +181,7 @@ export default function Expectation(){
             </div>
             <div className="mx-5 mt-3">
               <div classname="dropdown-menu">
-                <label htmlfor="branch" className="me-5">Branch</label>
+                <label htmlfor="branch" className="me-5">Branch/शाखा</label>
                 <select id="branch" name="branch">
                   <option className="dropdown-item" value="Lingayat-Wani">
                   Lingayat-Wani
@@ -199,31 +196,32 @@ export default function Expectation(){
               </div>
             </div>
             <div className="mx-5">
-              <label className="form-label ">Add Photo</label>
+              <label className="form-label ">Add Photo/फोटो जोडा</label>
               <div className="input-group">
-              <label className="form-label ">1.Passport Photo</label>
+              <label className="form-label ">1.Passport Photo/पासपोर्ट फोटो</label>
                 <input
                   type="file"
-                  className="my-form-control ms-3"
+                  className="my-form-control"
                   id="inputGroupFile04"
                   aria-describedby="inputGroupFileAddon04"
                   aria-label="Upload"
                 />
                 </div>
-                <div className="input-group mt-3">
-                  <label className="form-label me-5">2.Full Photo</label>
+                <div className="input-group">
+                  <label className="form-label me-5">2.Full Photo/पूर्ण फोटो</label>
                  <input
                   type="file"
-                  className="my-form-control ms-2"
+                  className="my-form-control"
                   id="inputGroupFile04"
                   aria-describedby="inputGroupFileAddon04"
                   aria-label="Upload"
                 />
               </div>
             </div>
-            <div className="button-wrapper d-grid gap-2 col-6 mx-auto mt-3 mb-3">
+           
+            <div className="button-wrapper d-grid gap-2 col-6 mx-auto mt-3">
                 <Link to="/single_profile2">
-                  <button type="submit" className="custom-button">Submit
+                  <button type="submit" className="custom-button ml-5"> Submit
                   </button>
                       </Link>
                    

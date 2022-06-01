@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link , NavLink} from 'react-router-dom'
 export default function Single_profile2() {
   return (
     <div>
-
+ 
 {/* <!-- ==========Breadcrumb-Section========== --> */}
     <section className="breadcrumb-area profile-bc-area">
         <div className="container">
@@ -154,57 +154,49 @@ export default function Single_profile2() {
                     <div className="profile-main-content">
                         <ul className="top-menu">
                         <li>
-                                <Link to="/single_profile2" className="active">
+                                <NavLink to="/single_profile2" activeClassName="active-link">
                                     Profile
-                                </Link>
+                                </NavLink>
                             </li>
                             <li>
-                                <Link to="/details">
+                                <NavLink to="/details" activeClassName="active-link">
                                     Add More Information
-                                </Link>
+                                </NavLink>
                             </li>
                            
                             <li>
-                                <Link to="/single_profile3">
+                                <NavLink to="/single_profile3" activeClassName="active-link">
                                     Members
                                   
-                                </Link>
+                                </NavLink>
                             </li>
                             <li>
-                                <Link to="/Search">
+                                <NavLink to="/search" activeClassName="active-link">
                                    search
                                     
-                                </Link>
+                                </NavLink>
                             </li>
                            
                         </ul>
                         <div className="info-box">
                             <div className="header">
                                 <h4 className="title">
-                                    Base
+                                Basic Detail/ माहिती
                                 </h4>
                             </div>
                             <div className="content">
                                 <ul className="infolist">
                                     <li>
                                         <span>
-                                            Name
+                                        Name/नाव:
                                         </span>
                                         <span>
                                             Albert Don
                                         </span>
                                     </li>
-                                    <li>
+                                      <li>
                                         <span>
-                                            Birthday
-                                        </span>
-                                        <span>
-                                            1998-01-19
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span>
-                                            I am a
+                                            I am a:
                                         </span>
                                         <span>
                                             Man
@@ -212,7 +204,7 @@ export default function Single_profile2() {
                                     </li>
                                     <li>
                                         <span>
-                                            Looking for a
+                                            Looking for a:
                                         </span>
                                         <span>
                                             Woman
@@ -220,197 +212,156 @@ export default function Single_profile2() {
                                     </li>
                                     <li>
                                         <span>
-                                            Marital status
+                                            Marital status/वैवाहिक स्थिती:
                                         </span>
                                         <span>
                                             single
                                         </span>
                                     </li>
-                                    {/* <!-- <li>
-                                        <span>
-                                            Country
-                                        </span>
-                                        <span>
-                                            France
-                                        </span>
-                                    </li> --> */}
+                                    
                                     <li>
                                         <span>
-                                            City
+                                            City/शहर:
                                         </span>
                                         <span>
                                             Paris
                                         </span>
                                     </li>
+                                    
                                 </ul>
                             </div>
                         </div>
                         <div className="info-box">
                             <div className="header">
                                 <h4 className="title">
-                                    Education
-                                </h4>
-                                {/* <!-- <h4 className="title">
-                                    Myself Summary
-                                </h4>
-                            </div>
-                            <div className="content">
-                                <p className="text">
-                                    I don`t like talk too much to be honest and
-                                    especially about myself. I am man of actions, I do a lot of sports, I adore to
-                                    travel and to see the world.
-                                </p> --> */}
-                                <div className="content"> 
-                                    <ul className="infolist">
-                                        <li>
-                                            <span>
-                                                Qualification
-                                            </span>
-                                            <span>
-                                                B.E
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span>
-                                                Service/Business
-                                            </span>
-                                            <span>
-                                                Business
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span>
-                                                Service Name
-                                            </span>
-                                            <span>
-                                                xyz2
-                                            </span>
-                                        </li>
-                                       
-                                    </ul>
-                            </div>
-                        </div>
-                        
-                        <div className="info-box">
-                            <div className="header">
-                                <h4 className="title">
-                                    Physical
+                                Personal Detail/वैयक्तिक माहिती
                                 </h4>
                             </div>
                             <div className="content">
                                 <ul className="infolist">
                                     <li>
                                         <span>
-                                            Height
+                                        Name/नाव:
                                         </span>
                                         <span>
-                                            5’10
+                                            Albert Don
                                         </span>
                                     </li>
                                     <li>
                                         <span>
-                                            Blood Group
+                                        Date Of Birth/जन्मतारीख:
                                         </span>
                                         <span>
-                                            o+ve
+                                            1998-01-19
                                         </span>
                                     </li>
                                     <li>
                                         <span>
-                                            Color
+                                        Birth Place/जन्मतारीख ठिकाण:
                                         </span>
                                         <span>
-                                            Nimgora
+                                          Nashik
                                         </span>
                                     </li>
                                     <li>
                                         <span>
-                                            Weight
+                                        Birth time/जन्म वेळ:
                                         </span>
                                         <span>
-                                            55kg
+                                            10:00
                                         </span>
                                     </li>
                                     <li>
                                         <span>
-                                            Body Type
+                                            Marital status/वैवाहिक स्थिती:
                                         </span>
                                         <span>
-                                            Tall
+                                            single
                                         </span>
                                     </li>
-                                    {/* <!-- <li>
+                                    
+                                    <li>
                                         <span>
-                                            Ethnicity
+                                        Educational Qualification/शैक्षणिक पात्रता:                                       </span>
+                                        <span>
+                                            BE
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                        Service or Business/सेवा किंवा व्यवसाय:
                                         </span>
                                         <span>
-                                            Middle Eastern
+                                            Engg
                                         </span>
-                                    </li> --> */}
+                                    </li>
+                                    <li>
+                                        <span>
+                                        Income/उत्पन्न:
+                                        </span>
+                                        <span>
+                                           400000
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                        Designation/हुद्दा:
+                                        </span>
+                                        <span>
+                                           worker
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                        Workplace/कामाची जागा:
+                                        </span>
+                                        <span>
+                                           Nashik
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                        Height/उंची:
+                                        </span>
+                                        <span>
+                                          5
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                        Blood-Group/रक्त गट:
+                                        </span>
+                                        <span>
+                                           B+ve
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                        Color/रंग:
+                                        </span>
+                                        <span>
+                                           fear
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                        Weight/वजन:
+                                        </span>
+                                        <span>
+                                           40
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                        Address/पत्ता:
+                                        </span>
+                                        <span>
+                                          Nashik
+                                        </span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
-                        <div className="info-box">
-                            <div className="header">
-                                <h4 className="title">
-                                    Family Info
-                                </h4>
-                            </div>
-                            <div className="content">
-                                <ul className="infolist">
-                                    <li>
-                                        <span>
-                                            Father Name
-                                        </span>
-                                        <span>
-                                            Billiards
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span>
-                                            Mother Name
-                                        </span>
-                                        <span>
-                                            xyz
-                                        </span>
-                                    </li>
-                                     <li>
-                                        <span>
-                                            Brother Name
-                                        </span>
-                                        <span>
-                                            abc
-                                        </span>
-                                    </li> 
-                                    <li>
-                                        <span>
-                                            Sister Name
-                                        </span>
-                                        <span>
-                                            xyz1
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span>
-                                            Family Income
-                                        </span>
-                                        <span>
-                                            15lkh
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span>
-                                            Property
-                                        </span>
-                                        <span>
-                                            abc
-                                        </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
                 </div>
                   
             </div>

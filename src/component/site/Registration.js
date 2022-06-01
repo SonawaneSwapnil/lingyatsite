@@ -54,7 +54,7 @@ export default function Registration() {
              <h4 className="content-title">Personal Detail/वैयक्तिक माहिती</h4>
               
              <div className="form-group">
-              <label for="exampleInputname" className="form-label">
+              <label htmlhtmlFor="exampleInputname" className="form-label">
                 Name/नाव*
               </label>
               <input
@@ -73,7 +73,7 @@ export default function Registration() {
               <br />
             </div>
             <div className="form-group">
-                <label for="contactno" className="form-label">
+                <label htmlhtmlFor="contactno" className="form-label">
                   Contact no/संपर्क क्रमांक*
                 </label>
                
@@ -94,7 +94,7 @@ export default function Registration() {
                 <br />
               </div>
               <div className="form-group">
-                <label for="exampleInputPassword1" className="form-label">
+                <label htmlhtmlFor="exampleInputPassword1" className="form-label">
                   Password/पासवर्ड*
                 </label>
                 <input
@@ -117,7 +117,7 @@ export default function Registration() {
                
                 <h4 className="content-title mt-5">Profile Details</h4>
                 <div className="form-group">
-              <label for="exampleInputdate" className="form-label text-center">
+              <label htmlhtmlFor="exampleInputdate" className="form-label text-center">
                 Date Of Birth/जन्मतारीख*
               </label>
               <input {...register("date", {
@@ -133,29 +133,29 @@ export default function Registration() {
               <br />
             </div>
                 <div className="form-group">
-                  <label for="">I am a*</label>
+                  <label htmlhtmlFor="">I am a*</label>
                   <div className="option">
                     <div className="s-input mr-3">
-                      <input type="radio" name="gender1" id="males1"/><label for="males1">Man</label>
+                      <input type="radio" name="gender1" id="males1"/><label htmlhtmlFor="males1">Man</label>
                     </div>
                     <div className="s-input">
-                      <input type="radio" name="gender1" id="females1"/><label for="females1">Woman</label>
+                      <input type="radio" name="gender1" id="females1"/><label htmlhtmlFor="females1">Woman</label>
                     </div>
                   </div>
                 </div>
                 <div className="form-group">
-                  <label for="">Looking for a*</label>
+                  <label htmlhtmlFor="">Looking for a*</label>
                   <div className="option">
                     <div className="s-input mr-3">
-                      <input type="radio" name="gender2" id="males"/><label for="males">Man</label>
+                      <input type="radio" name="gender2" id="males"/><label htmlhtmlFor="males">Man</label>
                     </div>
                     <div className="s-input">
-                      <input type="radio" name="gender2" id="females"/><label for="females">Woman</label>
+                      <input type="radio" name="gender2" id="females"/><label htmlhtmlFor="females">Woman</label>
                     </div>
                   </div>
                 </div>
                 <div className="form-group">
-                  <label for="">Marital status*</label>
+                  <label htmlhtmlFor="">Marital status*</label>
                   <div className="option">
                     <div className="s-input nice-select-wraper">
                       <select className="select-bar">
@@ -167,10 +167,10 @@ export default function Registration() {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label for="">City*</label>
-                  <input type="text" className="my-form-control" placeholder="Enter Your City"/>
+                  <label htmlhtmlFor="">City*</label>
+                  <input type="text" className="my-form-control mr-5" placeholder="Enter Your City"/>
                 </div>
-                <button className="custom-button" data-toggle="modal" data-target="#email-confirm" to="user-setting.html" onClick={()=>navigate("/login")}>
+                <button className="custom-button  ml-5" data-toggle="modal" data-target="#email-confirm" to="/user_setting" onClick={()=>navigate("/login")}>
                   Create Your Profile
                 </button>
               </form>

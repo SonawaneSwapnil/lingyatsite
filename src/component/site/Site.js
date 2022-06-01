@@ -6,6 +6,10 @@ export default function Site() {
  
   return (
     <div>
+     <div class="overlay"></div>
+    <a href="" class="scrollToTop">
+        <i class="fas fa-angle-up"></i>
+    </a>
             {/* <!-- ==========Header-Section========== --> */}
       
     <div className="header-section">
@@ -47,7 +51,7 @@ export default function Site() {
                                
                             </li>
                             <li>
-                                <Link to="/register">Register</Link>
+                                <Link to="/registration">Registration</Link>
                             </li>
                         </ul>
                     </li>

@@ -9,21 +9,20 @@ export default function Home() {
         <img className="img2 wow fadeInRight" src="assets/images/banner/aimg2.png" alt=""/>
         <div className="container">
             <div className="row">
-                <div className="col-xl-6 col-lg-7">
-                    <h1 className="main-title wow fadeInLeft">
-                        Find Love
-                        Your Life
-                    </h1>
+                <div className="col-xl-5 col-lg-5">
+                    <h3 className="main-title wow fadeInLeft">
+                        Find Love Your Life
+                    </h3>
                     <div className="join-now-box wow fadeInUp">
                         <div className="single-option">
                             <p className="title">
                                 I am a :
                             </p>
                             <div className="option">
-                                <div className="s-input mr-3">
+                                <div className="s-input mr-3 ml-5">
                                     <input type="radio" name="gender" id="male"/><label htmlFor="male">Male</label>
                                 </div>
-                                <div className="s-input ms-5">
+                                <div className="s-input ml-5">
                                     <input type="radio" name="gender" id="female"/><label htmlFor="female">Female</label>
                                 </div>
                             </div>
@@ -33,10 +32,10 @@ export default function Home() {
                                 Seeking a :
                             </p>
                             <div className="option">
-                                <div className="s-input mr-4">
+                                <div className="s-input mr-2 ml-4">
                                     <input type="radio" name="seeking" id="males"/><label htmlFor="males">Male</label>
                                 </div>
-                                <div className="s-input">
+                                <div className="s-input ml-5">
                                     <input type="radio" name="seeking" id="females"/><label htmlFor="females">Female</label>
                                 </div>
                             </div>
@@ -46,7 +45,7 @@ export default function Home() {
                                 Ages :
                             </p>
                             <div className="option">
-                                <div className="s-input mr-3">
+                                <div className="s-input mr-3 ml-5">
                                     <select className="select-bar">
                                         <option value="">18</option>
                                         <option value="">20</option>
@@ -56,7 +55,7 @@ export default function Home() {
                                 <div className="separator">
                                     -
                                 </div>
-                                <div className="s-input ml-3">
+                                <div className="s-input  mr-5  ml-5">
                                     <select className="select-bar">
                                         <option value="">30</option>
                                         <option value="">35</option>

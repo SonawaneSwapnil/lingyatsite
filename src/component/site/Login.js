@@ -26,6 +26,7 @@ export default function Login () {
           <div className="col-lg-7 ">
             <div className="logo">
               <img src="assets/images/logo/logo.png" className="w-50" alt="logo"/>
+              <h6> Note: Please Signin for finding your Dream Partner</h6>
             </div>
           </div>
         </div>
@@ -93,12 +94,12 @@ export default function Login () {
                 </p>
                 <div className="button-wrapper">
                 {/* <Link to="/single_profile2"> */}
-                  <button type="submit" className="custom-button" onClick={()=>navigate("/login")}>SignIn
+                  <button type="submit" className="custom-button mr-5" onClick={()=>navigate("/single_profile2")}>SignIn
                   </button>
                       {/* </Link> */}
                       
                     {/* <Link to="/registration"> */}
-                         <button type="submit" className="custom-button" onClick={()=>navigate("/registration")}>Registration
+                         <button type="submit" className="custom-button ml-4" onClick={()=>navigate("/registration")}>Registration
                       </button>
                       {/* </Link> */}
                 </div>

@@ -158,48 +158,47 @@ export default function Family() {
                             </li>
                            
                         </ul>
-                        <div classNameName="mt-4">
+                        <div className="mt-4">
             <form
                   onSubmit={handleSubmit(onSubmit)}
                  
                 >
-                  <h3 classNameName="mt-3 text-center">Family Information/कौटुंबिक माहिती</h3>                 
-                  <div className="row text-center">
+                  <h4 className="content-title text-center">Family Information/कौटुंबिक माहिती</h4>                 
+                
+            <div className="row">
               <label
                 for="inputincome"
-                className="col-sm-6 col-form-label"
+                className="col-sm-6 col-form-label text-center"
               >
                 {" "}
-                Father Name
+                Father Name/वडीलांचे नावं
               </label>
-              <label for="inputdesignation" className="col-sm-6 col-form-label ">
-                Contact Number
+              <label for="inputdesignation" className="col-sm-6 col-form-label text-center">
+              Contact Number/संपर्क क्रमांक
               </label>
             </div>
-            
-            <div classNameName="row justify-content-around">
+            <div className="row input-group ">
             <input
                 {...register("name", {
                   required: "Enter your Father Name name/वडीलांचे नाव",
                 })}
                 type="text"
                 placeholder="Enter your Father Name/वडीलांचे नाव"
-                classNameName="myform-control col-sm-5"
+                className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
                 id="exampleInputname"
               />
               {""}
               {errors.name && (
                 <span style={{ color: "red" }}>{errors.name.message}</span>
               )}
-              <br />
-              <input
+             <input
                   {...register("contact", {
                     required: "Please enter contact",
                     minLength: { value: 8, message: "At least 8 digit" },
                     maxLength: { value: 10, message: "Enter max 10 digit" },
                   })}
                   type="text"
-                  classNameName="my-form-control col-sm-5"
+                  className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
                   id="contactno"
                   placeholder="Enter your mobile no"
                 />
@@ -208,105 +207,97 @@ export default function Family() {
                 )}
                 <br />
             </div>
-            <div className="row text-center">
+            <div className="row">
               <label
                 for="inputincome"
-                className="col-sm-6 col-form-label"
+                className="col-sm-6 col-form-label text-center"
               >
                 {" "}
-                Mother Name
+                Mother Name/आईचे नाव
               </label>
-              <label for="inputdesignation" className="col-sm-6 col-form-label ">
-                Contact Number
+              <label for="inputdesignation" className="col-sm-6 col-form-label text-center">
+              Contact Number/संपर्क क्रमांक
               </label>
             </div>
-            <div classNameName="row justify-content-around">
-              <input
-                type="number"
-                classNameName="my-form-control col-sm-5 "
-                id="exampleInputdate"
+            <div className="row input-group ">
+            <input
+               
+                type="text"
+                placeholder="Enter your Mother Name/आईचे नाव"
+                className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
+                id="exampleInputname"
               />
-              <input
-                type="number"
-                classNameName="my-form-control col-sm-5"
-                id="exampleInputdate"
-              />
+             <input
+                  
+                  type="text"
+                  className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
+                  id="contactno"
+                  placeholder="Enter your mobile no"
+                />
+                
             </div>
-            <div className="row text-center">
+           
+            <div className="row">
               <label
                 for="inputincome"
-                className="col-sm-6 col-form-label"
+                className="col-sm-6 col-form-label text-center"
               >
                 {" "}
-               Brother Name
+                Brother Name/भावाचे नाव
               </label>
-              <label for="inputdesignation" className="col-sm-6 col-form-label ">
-                Contact Number
+              <label for="inputdesignation" className="col-sm-6 col-form-label text-center">
+              Contact Number/संपर्क क्रमांक
               </label>
             </div>
-            <div classNameName="row justify-content-around">
-              <input
-                type="number"
-                classNameName="my-form-control col-sm-5 "
-                id="exampleInputdate"
+            <div className="row input-group ">
+            <input
+               
+                type="text"
+                placeholder="Enter your Brother Name/भावाचे नाव"
+                className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
+                id="exampleInputname"
               />
-              <input
-                type="number"
-                classNameName="my-form-control col-sm-5"
-                id="exampleInputdate"
-              />
-            </div>
-            <div className="row text-center">
+             <input
+                  
+                  type="text"
+                  className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
+                  id="contactno"
+                  placeholder="Enter your mobile no"
+                />
+                
+            </div><div className="row">
               <label
                 for="inputincome"
-                className="col-sm-6 col-form-label"
+                className="col-sm-6 col-form-label text-center"
               >
                 {" "}
-               Sister Name
+                Sister Name/बहिणीचे नाव
               </label>
-              <label for="inputdesignation" className="col-sm-6 col-form-label ">
-                Contact Number
-              </label>
-            </div>
-            <div classNameName="row justify-content-around">
-              <input
-                type="number"
-                classNameName="my-form-control col-sm-5"
-                id="exampleInputdate"
-              />
-              <input
-                type="number"
-                classNameName="my-form-control col-sm-5"
-                id="exampleInputdate"
-              />
-            </div>
-            <div className="row text-center">
-              <label
-                for="inputincome"
-                className="col-sm-6 col-form-label "
-              >
-                {" "}
-              Family Income
-              </label>
-              <label for="inputdesignation" className="col-sm-6 col-form-label">
-                Property
+              <label for="inputdesignation" className="col-sm-6 col-form-label text-center">
+              Contact Number/संपर्क क्रमांक
               </label>
             </div>
-            <div classNameName="row justify-content-around from-group">
-              <input
-                type="number"
-                classNameName="my-form-control col-5"
-                id="exampleInputdate"
+            <div className="row input-group ">
+            <input
+               
+                type="text"
+                placeholder=" Enter Sister Name/बहिणीचे नाव"
+                className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
+                id="exampleInputname"
               />
-              <input
-                type="number"
-                classNameName="my-form-control col-5"
-                id="exampleInputdate"
-              />
+             <input
+                  
+                  type="text"
+                  className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
+                  id="contactno"
+                  placeholder="Enter your mobile no"
+                />
+                
             </div>
-            <div classNameName="button-wrapper d-grid gap-2 col-6 mx-auto mt-3 mb-3">
+            
+          <div className="button-wrapper d-grid gap-2 col-6 mx-auto mt-3">
                 <Link to="/expectation">
-                  <button type="submit" classNameName="custom-button">Save and Continue
+                  <button type="submit" className="custom-button ml-5">Save and Continue
                   </button>
                       </Link>
                    
