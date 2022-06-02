@@ -37,7 +37,7 @@ export default function Search() {
                     <div className="top-filter">
                         <div className="left">
                              <Link  to="" data-toggle="modal" data-target="#exampleModalCenter">
-                                <i className="fas fa-sliders-h"></i> Find your Perfect Partner
+                                <i className="fas fa-sliders-h"></i> Find Your Perfect Partner
                             </Link>
                         </div>
                         {/* <div className="right">
@@ -270,7 +270,7 @@ export default function Search() {
             <div className="modal-content">
                 <div className="modal-header justify-content-between">
                   
-                    <h6 className="modal-title text-center" id="exampleModalCenterTitle">Find your Perfect Partner</h6>
+                    <h6 className="modal-title text-center" id="exampleModalCenterTitle">Find Your Perfect Partner</h6>
                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

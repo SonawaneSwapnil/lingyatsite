@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom'
 export default function About() {
   return (
     <div>
-         
-
          {/* <!-- ==========Breadcrumb-Section========== --> */}
     <section className="breadcrumb-area profile-bc-area">
         <div className="container">

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link , NavLink} from 'react-router-dom'
 export default function Single_profile2() {
+
+
   return (
     <div>
  
@@ -154,24 +156,25 @@ export default function Single_profile2() {
                     <div className="profile-main-content">
                         <ul className="top-menu">
                         <li>
-                                <NavLink to="/single_profile2" activeClassName="active-link">
+                  
+                                <NavLink to="/single_profile2" className={({ isActive }) => (isActive ? 'text-warning' : 'bg-danger')}>
                                     Profile
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/details" activeClassName="active-link">
+                                <NavLink to="/details"   className={({ isActive }) => (isActive ? 'bg-warning' : 'bg-danger')}>
                                     Add More Information
                                 </NavLink>
                             </li>
                            
                             <li>
-                                <NavLink to="/single_profile3" activeClassName="active-link">
+                                <NavLink to="/single_profile3" className={({ isActive }) => (isActive ? 'bg-warning' : 'bg-danger')}>
                                     Members
                                   
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/search" activeClassName="active-link">
+                                <NavLink to="/search" className={({ isActive }) => (isActive ? 'bg-warning' : 'bg-danger')}>
                                    search
                                     
                                 </NavLink>

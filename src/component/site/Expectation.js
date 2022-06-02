@@ -145,17 +145,11 @@ export default function Expectation(){
                             </li>
                            
                             <li>
-                                <Link to="single-profile3.html">
-                                    Members
-                                  
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="profile-notfound.html">
-                                   Search
-                                    
-                                </Link>
-                            </li>
+                    <Link to="/single_profile3">Members</Link>
+                  </li>
+                  <li>
+                    <Link to="/Search">search</Link>
+                  </li>
                            
                         </ul>
                         <div className="mt-4">

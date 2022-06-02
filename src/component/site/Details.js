@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 export default function Details() {
@@ -152,19 +152,45 @@ export default function Details() {
               <div className="profile-main-content">
                 <ul className="top-menu">
                   <li>
-                    <Link to="/single_profile2" className="active">
+                    <NavLink
+                      to="/single_profile2"
+                      className={({ isActive }) =>
+                        isActive ? "bg-warning" : "bg-danger"
+                      }
+                    >
                       Profile
-                    </Link>
+                    </NavLink>
                   </li>
                   <li>
-                    <Link to="/details">Add More Information</Link>
+                    <NavLink
+                      to="/details"
+                      className={({ isActive }) =>
+                        isActive ? "bg-warning" : "bg-danger"
+                      }
+                    >
+                      Add More Information
+                    </NavLink>
                   </li>
 
                   <li>
-                    <Link to="/single_profile3">Members</Link>
+                    <Link
+                      to="/single_profile3"
+                      className={({ isActive }) =>
+                        isActive ? "bg-warning" : "bg-danger"
+                      }
+                    >
+                      Members
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/Search">search</Link>
+                    <Link
+                      to="/Search"
+                      className={({ isActive }) =>
+                        isActive ? "bg-warning" : "bg-danger"
+                      }
+                    >
+                      search
+                    </Link>
                   </li>
                 </ul>
                 <div className="mt-4">
@@ -179,10 +205,10 @@ export default function Details() {
                       </label>
                       <input
                         {...register("name", {
-                          required: "Enter your full name/पूर्ण नाव",
+                          required: "Enter Your FullName/पूर्ण नाव",
                         })}
                         type="text"
-                        placeholder="Enter your full name/पूर्ण नाव"
+                        placeholder="Enter Your FullName/पूर्ण नाव"
                         className="my-form-control"
                         id="exampleInputname"
                       />
@@ -204,7 +230,7 @@ export default function Details() {
                       </label>
                       <input
                         {...register("date", {
-                          required: "Enter your Date Of Birth/जन्मतारीख",
+                          required: "Enter Your Date Of Birth/जन्मतारीख",
                         })}
                         type="date"
                         className="my-form-control"
@@ -227,10 +253,10 @@ export default function Details() {
                       </label>
                       <input
                         {...register("place", {
-                          required: "Enter your Birth Place/जन्मतारीख ठिकाण",
+                          required: "Enter Your Birth Place/जन्मतारीख ठिकाण",
                         })}
                         type="text"
-                        placeholder="Enter your Birth Place/जन्मतारीख ठिकाण"
+                        placeholder="Enter Your Birth Place/जन्मतारीख ठिकाण"
                         className="my-form-control"
                         id="exampleInputplace"
                       />
@@ -252,7 +278,7 @@ export default function Details() {
                       </label>
                       <input
                         {...register("time", {
-                          required: "Enter your  Birth time/जन्म वेळ",
+                          required: "Enter Your  Birth time/जन्म वेळ",
                         })}
                         type="time"
                         className="my-form-control"
@@ -276,10 +302,10 @@ export default function Details() {
                       <input
                         {...register("edu", {
                           required:
-                            "Enter your Educational Qualification/शैक्षणिक पात्रता",
+                            "Enter Your Educational Qualification/शैक्षणिक पात्रता",
                         })}
                         type="text"
-                        placeholder="Enter your Educational Qualification/शैक्षणिक पात्रता"
+                        placeholder="Enter Your Educational Qualification/शैक्षणिक पात्रता"
                         className="my-form-control"
                         id="exampleInputedu"
                       />
@@ -301,10 +327,10 @@ export default function Details() {
                       <input
                         {...register("service", {
                           required:
-                            "Enter your Service or Business/सेवा किंवा व्यवसाय",
+                            "Enter Your Service or Business/सेवा किंवा व्यवसाय",
                         })}
                         type="text"
-                        placeholder="Enter your Service or Business/सेवा किंवा व्यवसाय"
+                        placeholder="Enter Your Service or Business/सेवा किंवा व्यवसाय"
                         className="my-form-control"
                         id="exampleInputser"
                       />
@@ -334,34 +360,41 @@ export default function Details() {
                     <div className="row input-group ">
                       <input
                         {...register("income", {
-                          required: "Enter your  Income/उत्पन्न",
+                          required: "Enter Your  Income/उत्पन्न",
                         })}
                         type="number"
-                        className="my-form-control col-sm-5 mr-5 ml-3"
+                        className="my-form-control col-sm-5  ml-2 mr-5"
+                        placeholder="Enter Your  Income/उत्पन्न"
                         id="exampleInputincome"
                       />
-                      {""}
-                      {errors.income && (
-                        <span style={{ color: "red" }}>
-                          {errors.income.message}
-                        </span>
-                      )}
-                      <br />
+
                       <input
-                        {...register("income", {
-                          required: "Enter your  Designation/हुद्दा",
+                        {...register("desig", {
+                          required: "Enter Your Designation/हुद्दा",
                         })}
-                        type="desig"
-                        className="my-form-control col-sm-5 ml-5 mr-2"
+                        type="text"
+                        className="my-form-control col-sm-5 ml-4 "
+                        placeholder="Enter Your Designation/हुद्दा"
                         id="exampleInputdesig"
                       />
-                      {""}
-                      {errors.desig && (
-                        <span style={{ color: "red" }}>
-                          {errors.desig.message}
-                        </span>
-                      )}
+
                       <br />
+                    </div>
+                    <div className="row">
+                      <div className="col-sm-5 ml-2 mr-5">
+                        {errors.income && (
+                          <span style={{ color: "red" }}>
+                            {errors.income.message}
+                          </span>
+                        )}
+                      </div>
+                      <div className="col-sm-5 ml-4">
+                        {errors.desig && (
+                          <div style={{ color: "red" }}>
+                            {errors.desig.message}
+                          </div>
+                        )}
+                      </div>
                     </div>
 
                     <div className="row">
@@ -381,17 +414,40 @@ export default function Details() {
                     </div>
                     <div className="row input-group ">
                       <input
-                        type="number"
-                        className="my-form-control col-sm-5 mr-5 ml-3"
+                        {...register("work", {
+                          required: "Enter Your  Workplace/कामाची जागा",
+                        })}
+                        type="text"
+                        className="my-form-control col-sm-5  ml-2 mr-5"
                         id="exampleInputdate"
+                        placeholder="Enter Your  Workplace/कामाची जागा"
                       />
                       <input
+                        {...register("height", {
+                          required: "Enter Your Height/उंची",
+                        })}
                         type="number"
-                        className="my-form-control col-sm-5 ml-5 mr-2"
+                        className="my-form-control col-sm-5 ml-4"
                         id="exampleInputdate"
+                        placeholder="Enter Your Height/उंची"
                       />
                     </div>
-
+                    <div className="row">
+                      <div className="col-sm-5 ml-2 mr-5">
+                        {errors.work && (
+                          <span style={{ color: "red" }}>
+                            {errors.work.message}
+                          </span>
+                        )}
+                      </div>
+                      <div className="col-sm-5 ml-4">
+                        {errors.height && (
+                          <div style={{ color: "red" }}>
+                            {errors.height.message}
+                          </div>
+                        )}
+                      </div>
+                    </div>
                     <div className="row">
                       <label
                         for="inputincome"
@@ -408,15 +464,39 @@ export default function Details() {
                     </div>
                     <div className="row input-group ">
                       <input
-                        type="number"
-                        className="my-form-control col-sm-5 mr-5 ml-3"
-                        id="exampleInputdate"
+                        {...register("blood", {
+                          required: "Enter Your Blood-Group/रक्त गट",
+                        })}
+                        type="text"
+                        className="my-form-control col-sm-5  ml-2 mr-5"
+                        id="exampleInputblood"
+                        placeholder="Enter Your Blood-Group/रक्त गट"
                       />
                       <input
-                        type="number"
-                        className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
-                        id="exampleInputdate"
+                        {...register("color", {
+                          required: "Enter Your Color/रंग",
+                        })}
+                        type="text"
+                        className="my-form-control col-sm-5 ml-4"
+                        id="exampleInputcolor"
+                        placeholder="Enter Your Color/रंग"
                       />
+                    </div>
+                    <div className="row">
+                      <div className="col-sm-5 ml-2 mr-5">
+                        {errors.blood && (
+                          <span style={{ color: "red" }}>
+                            {errors.blood.message}
+                          </span>
+                        )}
+                      </div>
+                      <div className="col-sm-5 ml-4">
+                        {errors.color && (
+                          <div style={{ color: "red" }}>
+                            {errors.color.message}
+                          </div>
+                        )}
+                      </div>
                     </div>
                     <div className="row">
                       <label
@@ -435,22 +515,45 @@ export default function Details() {
                     </div>
                     <div className="row input-group ">
                       <input
+                        {...register("weight", {
+                          required: "Enter Your Weight/वजन",
+                        })}
                         type="number"
-                        className="my-form-control col-sm-5 mr-5 ml-3"
+                        className="my-form-control col-sm-5  ml-2 mr-5"
                         id="exampleInputdate"
+                        placeholder="Enter Your Weight/वजन "
                       />
                       <input
-                        type="number"
-                        className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
+                        {...register("addr", {
+                          required: "Enter Your Address/पत्ता",
+                        })}
+                        type="text"
+                        className="my-form-control col-sm-5 ml-4"
                         id="exampleInputdate"
+                        placeholder="Enter Your Address/पत्ता"
                       />
                     </div>
-
-                    <div className="button-wrapper d-grid gap-2 col-6 mx-auto mt-3">
+                    <div className="row">
+                      <div className="col-sm-5 ml-2 mr-5">
+                        {errors.weight && (
+                          <span style={{ color: "red" }}>
+                            {errors.weight.message}
+                          </span>
+                        )}
+                      </div>
+                      <div className="col-sm-5 ml-4">
+                        {errors.addr && (
+                          <div style={{ color: "red" }}>
+                            {errors.addr.message}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    <div className="button-wrapper d-grid gap-2 col-6 col-sm-8 col-md-6 mx-auto mt-3">
                       <Link to="/family">
-                        <button type="submit" className="custom-button ml-5">
-                          Save and Continue
-                        </button>
+                      <button type="submit" className="custom-button ml-5">
+                        Save and Continue
+                      </button>
                       </Link>
                     </div>
                   </form>
