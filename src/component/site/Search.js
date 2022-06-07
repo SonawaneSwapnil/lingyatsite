@@ -1,7 +1,17 @@
 import React from 'react'
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom'
 
+
 export default function Search() {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+      } = useForm();
+      const onSubmit = (data) => {
+        console.log(data.name);
+      };
     
   return (
     <div>
@@ -278,9 +288,9 @@ export default function Search() {
                 <div className="modal-body">
                     <div className="join-now-box">
                         <div className="single-option">
-                            <p className="title">
+                            <label className="title ml-3">
                                 I am a :
-                            </p>
+                            </label>
                             <div className="option">
                                 <div className="s-input mr-3 ml-5">
                                     <input type="radio" name="gender" id="male"/><label for="male">Male</label>
@@ -291,9 +301,9 @@ export default function Search() {
                             </div>
                         </div>
                         <div className="single-option gender">
-                            <p className="title">
+                            <label className="title ml-3">
                                 Seeking a :
-                            </p>
+                            </label>
                             <div className="option">
                                 <div className="s-input mr-2 ml-4">
                                     <input type="radio" name="seeking" id="males"/><label for="males">Man</label>
@@ -304,9 +314,9 @@ export default function Search() {
                             </div>
                         </div>
                         <div className="single-option age">
-                            <p className="title">
+                            <label className="title ml-3">
                                 Ages :
-                            </p>
+                            </label>
                             <div className="option">
                                 <div className="s-input mr-3 ml-5">
                                     <select className="select-bar">
@@ -327,14 +337,75 @@ export default function Search() {
                                 </div>
                             </div>
                         </div>
-                        <div className="single-option last">
-                            <p className="title">
-                             City:
-                            </p>
-                            <input type="text"></input>
+                        <div className="single-option">
+                            <label className="title ml-3">
+                            Workplace [City]:
+                            </label><input
+                        {...register("work", {
+                          required: "Enter Your Workplace [City]:",
+                        })}
+                        type="number"
+                        className="my-form-control col-sm-7 ml-4"
+                        placeholder=" Enter Your Workplace [City]:"
+                        id="exampleInputwork"
+                      />
+                      {errors.work&& (
+                          <span style={{ color: "red" }}>
+                            {errors.work.message}
+                          </span>
+                        )}
+                            
                             
                         </div>
-                        
+                        <div className="single-option">
+                    
+                      <label
+                        htmlFor="inputincome"
+                        className=" ml-3 title"
+                      >
+                        {" "}
+                        Income/उत्पन्न:
+                      </label>
+                      <input
+                        {...register("income", {
+                          required: "Enter Your  Income/उत्पन्न",
+                        })}
+                        type="number"
+                        className="my-form-control col-sm-7 ml-4"
+                        placeholder="Enter Your  Income/उत्पन्न"
+                        id="exampleInputincome"
+                      />
+                      {errors.income && (
+                          <span style={{ color: "red" }}>
+                            {errors.income.message}
+                          </span>
+                        )}
+                    </div>
+                    <div className='single-option last'>
+                    <label
+                        htmlFor="exampleInputedu"
+                        className="title ml-2"
+                      >
+                        Qualification/शैक्षणिक पात्रता:
+                      </label>
+                    
+                     <input
+                      {...register("edu", {
+                        required:
+                          "Enter Your Educational Qualification/शैक्षणिक पात्रता",
+                      })}
+                      type="text"
+                      placeholder="Enter Your Educational Qualification/शैक्षणिक पात्रता"
+                      className="my-form-control col-sm-7 ml-4"
+                      id="exampleInputedu"
+                    />
+
+                        {errors.edu && (
+                          <span style={{ color: "red" }}>
+                            {errors.edu.message}
+                          </span>
+                        )}
+                      </div>
                         <div className="joun-button">
                             <button className="custom-button">Find</button>
                         </div>

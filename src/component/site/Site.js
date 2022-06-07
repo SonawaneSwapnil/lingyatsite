@@ -6,37 +6,37 @@ export default function Site() {
  
   return (
     <div>
-     <div class="overlay"></div>
-    <a href="" class="scrollToTop">
-        <i class="fas fa-angle-up"></i>
-    </a>
+     <div className="overlay"></div>
+    <Link to="" className="scrollToTop">
+        <i className="fas fa-angle-up"></i>
+    </Link>
             {/* <!-- ==========Header-Section========== --> */}
       
     <div className="header-section">
         <div className="container">
             <div className="header-wrapper">
                 <div className="logo">
-                    <NavLink to="">
+                    <Link to="">
                         <img src="./assets/images/logo/logo-old.png" alt="logo"/>
-                    </NavLink>
+                    </Link>
                 </div>
                 <ul className="menu">
                     <li>
-                        <NavLink to="" activeClassName="active-link">Home</NavLink>
+                        <Link to="" activeClassName="active">Home</Link>
                        </li> 
                     <li>
-                        <NavLink to="/about" activeClassName="active-link">About Us</NavLink>
+                        <Link to="/about" activeClassName="active">About Us</Link>
                     </li>
                     <li>
-                        <NavLink to="/contact" activeClassName="active-link">Contact</NavLink>
+                        <Link to="/contact" activeClassName="active">Contact</Link>
                     </li>
                     <li className="separator">
                         <span>|</span>
                     </li>
                     <li>
                         <div className="serch-icon">
-                        <NavLink to="/user_setting">
-                        <i className="fa fa-cog" aria-hidden="true"></i></NavLink>
+                        <Link to="/user_setting">
+                        <i className="fa fa-cog" aria-hidden="true"></i></Link>
                         </div>
                     </li>
                     

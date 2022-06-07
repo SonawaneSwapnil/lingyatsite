@@ -13,6 +13,7 @@ export default function Registration() {
         console.log(data.name);
       };
       let navigate=useNavigate();
+   
   return (
     <div>
 
@@ -120,12 +121,14 @@ export default function Registration() {
               <label htmlhtmlFor="exampleInputdate" className="form-label text-center">
                 Date Of Birth/जन्मतारीख*
               </label>
+              
               <input {...register("date", {
                   required: "Enter your Date Of Birth/जन्मतारीख",
                 })}
                 type="date"
                 className="my-form-control"
                 id="exampleInputdate"
+                
               />{""}
               {errors.date && (
                 <span style={{ color: "red" }}>{errors.date.message}</span>
@@ -136,10 +139,12 @@ export default function Registration() {
                   <label htmlhtmlFor="">I am a*</label>
                   <div className="option">
                     <div className="s-input mr-3">
-                      <input type="radio" name="gender1" id="males1"/><label htmlhtmlFor="males1">Man</label>
+                    <input type="radio" name="gender" id="male"/><label htmlFor="male">Male</label>
+                      
                     </div>
                     <div className="s-input">
-                      <input type="radio" name="gender1" id="females1"/><label htmlhtmlFor="females1">Woman</label>
+                    <input type="radio" name="gender" id="female"/><label htmlFor="female">Female</label>
+                     
                     </div>
                   </div>
                 </div>
@@ -147,10 +152,13 @@ export default function Registration() {
                   <label htmlhtmlFor="">Looking for a*</label>
                   <div className="option">
                     <div className="s-input mr-3">
-                      <input type="radio" name="gender2" id="males"/><label htmlhtmlFor="males">Man</label>
+                    <input type="radio" name="seeking" id="males"/><label htmlFor="males">Male</label>
+                    
                     </div>
                     <div className="s-input">
-                      <input type="radio" name="gender2" id="females"/><label htmlhtmlFor="females">Woman</label>
+                    <input type="radio" name="seeking" id="females"/><label htmlFor="females">Female</label>
+                    
+                     
                     </div>
                   </div>
                 </div>
@@ -158,21 +166,40 @@ export default function Registration() {
                   <label htmlhtmlFor="">Marital status*</label>
                   <div className="option">
                     <div className="s-input nice-select-wraper">
-                      <select className="select-bar">
-                        <option value="">Single</option>
-                        <option value="">Married</option>
-                        <option value="">Divorced</option>
+                      <select className="select-bar"  {...register("married", {
+                  required: "Enter your Marital status",
+                })}>
+                      <option value="">---Marital status---</option> 
+                        <option value="Single">NeverMarried</option>
+                        <option value="Married">ReMarriage</option>
+                        
                       </select>
-                    </div>
+                      {errors.married && (
+                <span style={{ color: "red" }}>{errors.married.message}</span>
+              )}
+                    </div>                
                   </div>
                 </div>
                 <div className="form-group">
-                  <label htmlhtmlFor="">City*</label>
-                  <input type="text" className="my-form-control mr-5" placeholder="Enter Your City"/>
+                  <label htmlhtmlFor="" className='mt-4'>City/शहर*</label>
+                   
+                    <input {...register("city", {
+                      required: "Enter your City/शहर",
+                    })}type="text" className="my-form-control mr-5" placeholder="Enter your City/शहर"/>
+                    {""}
+              {errors.city && (
+                <span style={{ color: "red" }}>{errors.city.message}</span>
+              )}
+              <br />
                 </div>
-                <button className="custom-button  ml-5" data-toggle="modal" data-target="#email-confirm" to="/user_setting" onClick={()=>navigate("/login")}>
-                  Create Your Profile
-                </button>
+                <div className="button-wrapper d-grid gap-2 col-6 col-sm-10 col-md-8 mx-auto mt-3">
+                      {/* <Link to="/login"> */}
+                      <button type="submit" className="custom-button ml-5">
+                      Create Your Profile
+                      </button>
+                      {/* </Link> */}
+                    </div>
+               
               </form>
             </div>
           </div>

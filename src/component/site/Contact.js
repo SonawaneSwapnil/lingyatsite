@@ -2,6 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Contact() {
+    function feedback()
+    {
+        alert("Thank You For Your Suggestion...!!")
+    }
   return (
     <div>
          {/* {/ <!-- ==========Breadcrumb-Section========== --> /} */}
@@ -61,8 +65,15 @@ export default function Contact() {
                             <input type="text" placeholder="Type Your Text/अभिप्राय"/>
                             
                          </div>
+                         <div className="button-wrapper d-grid gap-2 col-6 mx-auto mt-3">
+                      <Link to="/">
+                        <button type="submit" className="custom-button ml-5" onClick={feedback}>
+                          Submit
+                        </button>
+                      </Link>
+                    </div>
                        
-                        <Link to="/" className="custom-button">Submit</Link >
+                        
                     </div>
             
             </div>
