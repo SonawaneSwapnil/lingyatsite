@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link,NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 
@@ -63,109 +63,77 @@ export default function Family() {
                 </div>
                 <div className="profile-meta-box"></div>
                 <div className="profile-uplodate-photo">
-                  <h4 className="p-u-p-header">
-                    <i className="fas fa-camera"></i> 21 Upload Photos
-                  </h4>
-                  <div className="p-u-p-list">
-                    <div className="my-col">
-                      <div className="img">
-                        <img src="assets/images/profile/up1.jpg" alt="" />
-                        <div className="overlay">
-                          <Link
-                            to="assets/images/profile/up1.jpg"
-                            className="light-box mfp-iframe"
-                          >
-                            <i className="fas fa-plus"></i>
-                          </Link>
+                            <h4 className="p-u-p-header">
+                                <i className="fas fa-camera"></i> 4 Upload Photos
+                            </h4>
+                            <div className="p-u-p-list">
+                                <div className="my-col">
+                                    <div className="img">
+                                        <img src="assets/images/profile/up1.jpg" alt=""/>
+                                        <div className="overlay">
+                                            <Link to="assets/images/profile/up1.jpg" className="light-box mfp-iframe"><i
+                                                    className="fas fa-plus"></i></Link>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* <div className="my-col">
+                                    <div className="img">
+                                        <img src="assets/images/profile/up2.jpg" alt=""/>
+                                        <div className="overlay">
+                                            <Link to="assets/images/profile/up2.jpg" className="light-box mfp-iframe"><i
+                                                    className="fas fa-plus"></i></Link>
+                                        </div>
+                                    </div>
+                                </div> */}
+                                <div className="my-col">
+                                    <div className="img">
+                                        <img src="assets/images/profile/up3.jpg" alt=""/>
+                                        <div className="overlay">
+                                            <Link to="assets/images/profile/up3.jpg" className="light-box mfp-iframe"><i
+                                                    className="fas fa-plus"></i></Link>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="my-col">
+                                    <div className="img">
+                                        <img src="assets/images/profile/up4.jpg" alt=""/>
+                                        <div className="overlay">
+                                            <Link to="assets/images/profile/up4.jpg" className="light-box mfp-iframe"><i
+                                                    className="fas fa-plus"></i></Link>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="my-col">
+                                    <div className="img">
+                                        <img src="assets/images/profile/up5.jpg" alt=""/>
+                                        <div className="overlay">
+                                            <Link to="assets/images/profile/up5.jpg" className="light-box mfp-iframe"><i
+                                                    className="fas fa-plus"></i></Link>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
                         </div>
-                      </div>
-                    </div>
-                    <div className="my-col">
-                      <div className="img">
-                        <img src="assets/images/profile/up2.jpg" alt="" />
-                        <div className="overlay">
-                          <Link
-                            to="assets/images/profile/up2.jpg"
-                            className="light-box mfp-iframe"
-                          >
-                            <i className="fas fa-plus"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="my-col">
-                      <div className="img">
-                        <img src="assets/images/profile/up3.jpg" alt="" />
-                        <div className="overlay">
-                          <Link
-                            to="assets/images/profile/up3.jpg"
-                            className="light-box mfp-iframe"
-                          >
-                            <i className="fas fa-plus"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="my-col">
-                      <div className="img">
-                        <img src="assets/images/profile/up4.jpg" alt="" />
-                        <div className="overlay">
-                          <Link
-                            to="assets/images/profile/up4.jpg"
-                            className="light-box mfp-iframe"
-                          >
-                            <i className="fas fa-plus"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="my-col">
-                      <div className="img">
-                        <img src="assets/images/profile/up5.jpg" alt="" />
-                        <div className="overlay">
-                          <Link
-                            to="assets/images/profile/up5.jpg"
-                            className="light-box mfp-iframe"
-                          >
-                            <i className="fas fa-plus"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="my-col">
-                      <div className="img">
-                        <img src="assets/images/profile/up6.jpg" alt="" />
-                        <div className="overlay">
-                          <Link
-                            to="assets/images/profile/up6.jpg"
-                            className="light-box mfp-iframe"
-                          >
-                            <i className="fas fa-plus"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
             <div className="col-xl-8 col-lg-7">
               <div className="profile-main-content">
-                <ul className="top-menu">
+              <ul className="top-menu">
                   <li>
-                    <Link to="/single_profile2" className="active">
+                    <NavLink to="/single_profile2" >
                       Profile
-                    </Link>
+                    </NavLink>
                   </li>
                   <li>
-                    <Link to="/details">Add More Information</Link>
+                    <NavLink to="/details" className="active">Add More Information</NavLink>
                   </li>
 
                   <li>
-                    <Link to="/single_profile3">Members</Link>
+                    <NavLink to="/single_profile3">Members</NavLink>
                   </li>
                   <li>
-                    <Link to="/Search">search</Link>
+                    <NavLink to="/Search" >search</NavLink>
                   </li>
                 </ul>
                 <div className="mt-4">
@@ -210,7 +178,7 @@ export default function Family() {
                           },
                         })}
                         type="text"
-                        className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
+                        className="my-form-control col-sm-5 ml-4 "
                         id="contactno"
                         placeholder="Enter your Contact No/संपर्क क्रमांक"
                       />
@@ -255,7 +223,7 @@ export default function Family() {
                       />
                       <input
                         type="text"
-                        className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
+                        className="my-form-control col-sm-5 ml-4 "
                         id="contactno"
                         placeholder="Enter your mobile no"
                       />
@@ -285,7 +253,7 @@ export default function Family() {
                       />
                       <input
                         type="text"
-                        className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
+                        className="my-form-control col-sm-5 ml-4 "
                         id="contactno"
                         placeholder="Enter your mobile no"
                       />
@@ -314,7 +282,7 @@ export default function Family() {
                       />
                       <input
                         type="text"
-                        className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
+                        className="my-form-control col-sm-5 ml-4 "
                         id="contactno"
                         placeholder="Enter your mobile no"
                       />

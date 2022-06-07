@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link,NavLink } from 'react-router-dom'
 
 export default function Single_profile3() {
   return (
@@ -155,27 +155,27 @@ export default function Single_profile3() {
                     <div className="profile-main-content">
                         <ul className="top-menu">
                         <li>
-                                <Link to="/single_profile2" className="active">
+                                <NavLink to="/single_profile2" exact activeclassname="active-class">
                                     Profile
-                                </Link>
+                                </NavLink>
                             </li>
                             <li>
-                                <Link to="/details">
+                            <NavLink to="/details" exact activeclassname="active-class">
                                     Add More Information
-                                </Link>
+                                    </NavLink>
                             </li>
                            
                             <li>
-                                <Link to="/single_profile3">
+                            <NavLink to="/single_profile3" exact activeclassname="active-class">
                                     Members
                                   
-                                </Link>
+                                    </NavLink>
                             </li>
                             <li>
-                                <Link to="/Search">
+                            <NavLink to="/Search" exact activeclassname="active-class">
                                    search
                                     
-                                </Link>
+                                   </NavLink>
                             </li>
                            
                         </ul>

@@ -1,6 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useForm } from 'react-hook-form';
 export default function Home() {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+      } = useForm();
+      const onSubmit = (data) => {
+        console.log(data.name);
+      };
+    
   return (
     <div>
          {/* <!-- ==========Banner-Section========== --> */}
@@ -11,13 +21,14 @@ export default function Home() {
             <div className="row">
                 <div className="col-xl-5 col-lg-5">
                     <h3 className="main-title wow fadeInLeft">
-                        Find Love Your Life
+                        Find Your Best Life Partner
                     </h3>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="join-now-box wow fadeInUp">
                         <div className="single-option">
-                            <p className="title">
+                            <label className="title ml-3">
                                 I am a :
-                            </p>
+                            </label>
                             <div className="option">
                                 <div className="s-input mr-3 ml-5">
                                     <input type="radio" name="gender" id="male"/><label htmlFor="male">Male</label>
@@ -28,9 +39,9 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="single-option gender">
-                            <p className="title">
+                            <label className="title ml-3">
                                 Seeking a :
-                            </p>
+                            </label>
                             <div className="option">
                                 <div className="s-input mr-2 ml-4">
                                     <input type="radio" name="seeking" id="males"/><label htmlFor="males">Male</label>
@@ -41,9 +52,9 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="single-option age">
-                            <p className="title">
+                            <label className="title ml-3">
                                 Ages :
-                            </p>
+                            </label>
                             <div className="option">
                                 <div className="s-input mr-3 ml-5">
                                     <select className="select-bar">
@@ -64,18 +75,83 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
-                        <div className="single-option last">
-                            <p className="title">
-                             City:
-                            </p>
-                            <input type="text"></input>
+                        <div className="single-option">
+                            <label className="title ml-3">
+                             WorkPlace [City]:
+                            </label>
+                            <input
+                        {...register("work", {
+                          required: "Enter Your WorkPlace [City]:",
+                        })}
+                        type="number"
+                        className="my-form-control col-sm-7 ml-4"
+                        placeholder="Enter Your WorkPlace [City]:"
+                        id="exampleInputincome"
+                      />
+                      {errors.work && (
+                          <span style={{ color: "red" }}>
+                            {errors.work.message}
+                          </span>
+                        )}
                             
                         </div>
+                                         
+                    <div className=" single-option">
+                    
+                      <label
+                        htmlFor="inputincome"
+                        className=" ml-3 title"
+                      >
+                        {" "}
+                        Income/उत्पन्न:
+                      </label>
+                      <input
+                        {...register("income", {
+                          required: "Enter Your  Income/उत्पन्न",
+                        })}
+                        type="number"
+                        className="my-form-control col-sm-7 ml-4"
+                        placeholder="Enter Your  Income/उत्पन्न"
+                        id="exampleInputincome"
+                      />
+                      {errors.income && (
+                          <span style={{ color: "red" }}>
+                            {errors.income.message}
+                          </span>
+                        )}
+                    </div>
+                    <div className='single-option last'>
+                    <label
+                        htmlFor="exampleInputedu"
+                        className="title ml-2"
+                      >
+                        Qualification/शैक्षणिक पात्रता:
+                      </label>
+                    
+                     <input
+                      {...register("edu", {
+                        required:
+                          "Enter Your Educational Qualification/शैक्षणिक पात्रता",
+                      })}
+                      type="text"
+                      placeholder="Enter Your Educational Qualification/शैक्षणिक पात्रता"
+                      className="my-form-control col-sm-7 ml-4"
+                      id="exampleInputedu"
+                    />
+
+                        {errors.edu && (
+                          <span style={{ color: "red" }}>
+                            {errors.edu.message}
+                          </span>
+                        )}
+                      </div>
+                    
                         <div className="joun-button">
                     <Link to="login">
                             <button className="custom-button">Find Your Perfect Partner</button></Link>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

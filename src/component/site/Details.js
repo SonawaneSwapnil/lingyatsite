@@ -1,8 +1,15 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 export default function Details() {
+ 
+  const [showhide,setshowhide]=useState('');
+  const handleshowhide=(event)=>{
+    const getuser=event.target.value;
+    // console.log(getuser);
+    setshowhide(getuser);
+  }
   const {
     register,
     handleSubmit,
@@ -62,135 +69,96 @@ export default function Details() {
                 </div>
                 <div className="profile-meta-box"></div>
                 <div className="profile-uplodate-photo">
-                  <h4 className="p-u-p-header">
-                    <i className="fas fa-camera"></i> 21 Upload Photos
-                  </h4>
-                  <div className="p-u-p-list">
-                    <div className="my-col">
-                      <div className="img">
-                        <img src="assets/images/profile/up1.jpg" alt="" />
-                        <div className="overlay">
-                          <Link
-                            to="assets/images/profile/up1.jpg"
-                            className="light-box mfp-iframe"
-                          >
-                            <i className="fas fa-plus"></i>
-                          </Link>
+                            <h4 className="p-u-p-header">
+                                <i className="fas fa-camera"></i> 4 Upload Photos
+                            </h4>
+                            <div className="p-u-p-list">
+                                <div className="my-col">
+                                    <div className="img">
+                                        <img src="assets/images/profile/up1.jpg" alt=""/>
+                                        <div className="overlay">
+                                            <Link to="assets/images/profile/up1.jpg" className="light-box mfp-iframe"><i
+                                                    className="fas fa-plus"></i></Link>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* <div className="my-col">
+                                    <div className="img">
+                                        <img src="assets/images/profile/up2.jpg" alt=""/>
+                                        <div className="overlay">
+                                            <Link to="assets/images/profile/up2.jpg" className="light-box mfp-iframe"><i
+                                                    className="fas fa-plus"></i></Link>
+                                        </div>
+                                    </div>
+                                </div> */}
+                                <div className="my-col">
+                                    <div className="img">
+                                        <img src="assets/images/profile/up3.jpg" alt=""/>
+                                        <div className="overlay">
+                                            <Link to="assets/images/profile/up3.jpg" className="light-box mfp-iframe"><i
+                                                    className="fas fa-plus"></i></Link>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="my-col">
+                                    <div className="img">
+                                        <img src="assets/images/profile/up4.jpg" alt=""/>
+                                        <div className="overlay">
+                                            <Link to="assets/images/profile/up4.jpg" className="light-box mfp-iframe"><i
+                                                    className="fas fa-plus"></i></Link>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="my-col">
+                                    <div className="img">
+                                        <img src="assets/images/profile/up5.jpg" alt=""/>
+                                        <div className="overlay">
+                                            <Link to="assets/images/profile/up5.jpg" className="light-box mfp-iframe"><i
+                                                    className="fas fa-plus"></i></Link>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
                         </div>
-                      </div>
-                    </div>
-                    <div className="my-col">
-                      <div className="img">
-                        <img src="assets/images/profile/up2.jpg" alt="" />
-                        <div className="overlay">
-                          <Link
-                            to="assets/images/profile/up2.jpg"
-                            className="light-box mfp-iframe"
-                          >
-                            <i className="fas fa-plus"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="my-col">
-                      <div className="img">
-                        <img src="assets/images/profile/up3.jpg" alt="" />
-                        <div className="overlay">
-                          <Link
-                            to="assets/images/profile/up3.jpg"
-                            className="light-box mfp-iframe"
-                          >
-                            <i className="fas fa-plus"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="my-col">
-                      <div className="img">
-                        <img src="assets/images/profile/up4.jpg" alt="" />
-                        <div className="overlay">
-                          <Link
-                            to="assets/images/profile/up4.jpg"
-                            className="light-box mfp-iframe"
-                          >
-                            <i className="fas fa-plus"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="my-col">
-                      <div className="img">
-                        <img src="assets/images/profile/up5.jpg" alt="" />
-                        <div className="overlay">
-                          <Link
-                            to="assets/images/profile/up5.jpg"
-                            className="light-box mfp-iframe"
-                          >
-                            <i className="fas fa-plus"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="my-col">
-                      <div className="img">
-                        <img src="assets/images/profile/up6.jpg" alt="" />
-                        <div className="overlay">
-                          <Link
-                            to="assets/images/profile/up6.jpg"
-                            className="light-box mfp-iframe"
-                          >
-                            <i className="fas fa-plus"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
             <div className="col-xl-8 col-lg-7">
               <div className="profile-main-content">
-                <ul className="top-menu">
+              <ul className="top-menu">
                   <li>
                     <NavLink
-                      to="/single_profile2"
-                      className={({ isActive }) =>
-                        isActive ? "bg-warning" : "bg-danger"
-                      }
+                      to="/single_profile2" exact activeclassname="active-class"
+                     
                     >
                       Profile
                     </NavLink>
                   </li>
                   <li>
                     <NavLink
-                      to="/details"
-                      className={({ isActive }) =>
-                        isActive ? "bg-warning" : "bg-danger"
-                      }
+                      to="/details" exact activeclassname="active-class"
+                      
+                      // }
                     >
                       Add More Information
                     </NavLink>
                   </li>
 
                   <li>
-                    <Link
-                      to="/single_profile3"
-                      className={({ isActive }) =>
-                        isActive ? "bg-warning" : "bg-danger"
-                      }
+                    <NavLink
+                      to="/single_profile3" exact activeclassname="active-class"
+                      
                     >
                       Members
-                    </Link>
+                    </NavLink>
                   </li>
                   <li>
-                    <Link
-                      to="/Search"
-                      className={({ isActive }) =>
-                        isActive ? "bg-warning" : "bg-danger"
-                      }
+                    <NavLink
+                      to="/Search" exact activeclassname="active-class"
+                      
                     >
                       search
-                    </Link>
+                    </NavLink>
                   </li>
                 </ul>
                 <div className="mt-4">
@@ -200,7 +168,7 @@ export default function Details() {
                     </h4>
 
                     <div className="form-group">
-                      <label for="exampleInputname" className="form-label">
+                      <label htmlFor="exampleInputname" className="form-label">
                         Name/नाव*
                       </label>
                       <input
@@ -223,7 +191,7 @@ export default function Details() {
 
                     <div className="form-group">
                       <label
-                        for="exampleInputdate"
+                        htmlFor="exampleInputdate"
                         className="form-label text-center"
                       >
                         Date Of Birth/जन्मतारीख
@@ -246,7 +214,7 @@ export default function Details() {
                     </div>
                     <div className="form-group">
                       <label
-                        for="exampleInputdateplace"
+                        htmlFor="exampleInputdateplace"
                         className="form-label text-center"
                       >
                         Birth Place/जन्मतारीख ठिकाण
@@ -271,7 +239,7 @@ export default function Details() {
 
                     <div className="form-group">
                       <label
-                        for="exampleInputdatetime"
+                        htmlFor="exampleInputdatetime"
                         className="form-label text-center"
                       >
                         Birth time/जन्म वेळ
@@ -292,9 +260,76 @@ export default function Details() {
                       )}
                       <br />
                     </div>
+                
+            <div className="form-group">
+              <div classname="dropdown-menu">
+                <label htmlFor="branch" className="me-5" > Branch/शाखा</label>
+                <select id="branch" name="branch" onChange={(e)=>(handleshowhide(e))}
+                >
+                <option className="dropdown-item" value="">
+                  -------Select Branch-----
+                  </option>
+                  <option className="dropdown-item" value="1">
+                  Lingayat-Wani/लिंगायत-वाणी
+                  </option>
+                  <option className="dropdown-item" value="2">
+                   Dixiwant/दीक्षिवंत
+                  </option>
+                  <option className="dropdown-item" value="3">
+                 Pancham/पंचम
+                  </option>
+                  <option className="dropdown-item" value="4">
+                Shilvant(Chilwant)/शिलवंत (चिलवंत)
+                  </option>
+                  <option className="dropdown-item" value="5">
+                Jangam(swami)/जंगम (स्वामी)
+                  </option>
+                  <option className="dropdown-item" value="6">
+                Chaturth/चतुर्थ
+                  </option>
+                  <option className="dropdown-item" value="7">
+               Other/इतर
+                  </option>
+                </select>
+                {
+                  showhide==="7" &&(
+                    <div className="form-group">
+                      <label>Branch</label>
+                      <input type="text" className="form-control"></input>
+                      </div>
+                  )
+                }
+              </div>    {errors.branch && (
+                <span style={{ color: "red" }}>{errors.branch.message}</span>
+              )}
+            </div>
                     <div className="form-group">
                       <label
-                        for="exampleInputedu"
+                        htmlFor="exampleInputdatetime"
+                        className="form-label text-center me-5"
+                      >
+                      Zodiac Name/राशि नाव:
+                      </label>
+                      <input
+                        {...register("zodiac", {
+                          required:"Enter Your Zodiac Name/राशि नाव:",
+                        })}
+                        type="text"
+                        className="my-form-control"
+                        id="exampleInputtime"
+                        placeholder="Enter Your Zodiac Name/राशि नाव:"
+                      />
+                      {""}
+                      {errors.zodiac && (
+                        <span style={{ color: "red" }}>
+                          {errors.zodiac.message}
+                        </span>
+                      )}
+                      <br />
+                    </div>
+                    <div className="form-group">
+                      <label
+                        htmlFor="exampleInputedu"
                         className="form-label text-center"
                       >
                         Educational Qualification/शैक्षणिक पात्रता
@@ -319,7 +354,7 @@ export default function Details() {
                     </div>
                     <div className="form-group">
                       <label
-                        for="exampleInputser"
+                        htmlFor="exampleInputser"
                         className="form-label text-center"
                       >
                         Service or Business/सेवा किंवा व्यवसाय
@@ -344,14 +379,14 @@ export default function Details() {
                     </div>
                     <div className="row">
                       <label
-                        for="inputincome"
+                        htmlFor="inputincome"
                         className="col-sm-6 col-form-label text-center"
                       >
                         {" "}
                         Income/उत्पन्न
                       </label>
                       <label
-                        for="inputdesignation"
+                        htmlFor="inputdesignation"
                         className="col-sm-6 col-form-label text-center"
                       >
                         Designation/हुद्दा
@@ -399,14 +434,14 @@ export default function Details() {
 
                     <div className="row">
                       <label
-                        for="inputincome"
+                        htmlFor="inputincome"
                         className="col-sm-6 col-form-label text-center"
                       >
                         {" "}
                         Workplace/कामाची जागा
                       </label>
                       <label
-                        for="inputdesignation"
+                        htmlFor="inputdesignation"
                         className="col-sm-6 col-form-label text-center"
                       >
                         Height/उंची
@@ -450,13 +485,13 @@ export default function Details() {
                     </div>
                     <div className="row">
                       <label
-                        for="inputincome"
+                        htmlFor="inputincome"
                         className="col-sm-6 col-form-label text-center"
                       >
                         Blood-Group/रक्त गट
                       </label>
                       <label
-                        for="inputdesignation"
+                        htmlFor="inputdesignation"
                         className="col-sm-6 col-form-label text-center "
                       >
                         Color/रंग
@@ -500,14 +535,14 @@ export default function Details() {
                     </div>
                     <div className="row">
                       <label
-                        for="inputincome"
+                        htmlFor="inputincome"
                         className="col-sm-6 col-form-label text-center"
                       >
                         {" "}
                         Weight/वजन
                       </label>
                       <label
-                        for="inputdesignation"
+                        htmlFor="inputdesignation"
                         className="col-sm-6 col-form-label text-center"
                       >
                         Address/पत्ता

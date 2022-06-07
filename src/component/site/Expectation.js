@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link,NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 export default function Expectation(){
@@ -66,10 +66,9 @@ export default function Expectation(){
                             </div>
                         </div>
                         <div className="profile-meta-box">
-                                                    </div>
                         <div className="profile-uplodate-photo">
                             <h4 className="p-u-p-header">
-                                <i className="fas fa-camera"></i> 21 Upload Photos
+                                <i className="fas fa-camera"></i> 4 Upload Photos
                             </h4>
                             <div className="p-u-p-list">
                                 <div className="my-col">
@@ -81,7 +80,7 @@ export default function Expectation(){
                                         </div>
                                     </div>
                                 </div>
-                                <div className="my-col">
+                                {/* <div className="my-col">
                                     <div className="img">
                                         <img src="assets/images/profile/up2.jpg" alt=""/>
                                         <div className="overlay">
@@ -89,7 +88,7 @@ export default function Expectation(){
                                                     className="fas fa-plus"></i></Link>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                                 <div className="my-col">
                                     <div className="img">
                                         <img src="assets/images/profile/up3.jpg" alt=""/>
@@ -117,38 +116,32 @@ export default function Expectation(){
                                         </div>
                                     </div>
                                 </div>
-                                <div className="my-col">
-                                    <div className="img">
-                                        <img src="assets/images/profile/up6.jpg" alt=""/>
-                                        <div className="overlay">
-                                            <Link to="assets/images/profile/up6.jpg" className="light-box mfp-iframe"><i
-                                                    className="fas fa-plus"></i></Link>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
+                                                    </div>
+                        
                     </div>
                 </div>
                 <div className="col-xl-8 col-lg-7">
                     <div className="profile-main-content">
-                        <ul className="top-menu">
+                    <ul className="top-menu">
                         <li>
-                                <Link to="/single_profile2" className="active">
+                                <NavLink to="/single_profile2" >
                                     Profile
-                                </Link>
+                                </NavLink>
                             </li>
                             <li>
-                                <Link to="/details">
+                                <NavLink to="/details" className="active">
                                     Add More Information
-                                </Link>
+                                </NavLink>
                             </li>
                            
                             <li>
-                    <Link to="/single_profile3">Members</Link>
+                    <NavLink to="/single_profile3" >Members</NavLink>
                   </li>
                   <li>
-                    <Link to="/Search">search</Link>
+                    <NavLink to="/Search" >search</NavLink>
                   </li>
                            
                         </ul>
@@ -163,32 +156,7 @@ export default function Expectation(){
               <textarea className="my-form-control"></textarea>
             </div>
          
-                <div className="mx-5 mt-3">
-              <div classname="dropdown-menu">
-              <label for="">Marital status*/वैवाहिक स्थिती*</label>
-              <select className="select-bar" id="branch" name="branch">
-                        <option   className="dropdown-item" value="single">Single</option>
-                        <option  className="dropdown-item"  value="married">Married</option>
-                        <option  className="dropdown-item" value="divorced">Divorced</option>
-                      </select>
-                              </div>
-            </div>
-            <div className="mx-5 mt-3">
-              <div classname="dropdown-menu">
-                <label htmlfor="branch" className="me-5">Branch/शाखा</label>
-                <select id="branch" name="branch">
-                  <option className="dropdown-item" value="Lingayat-Wani">
-                  Lingayat-Wani
-                  </option>
-                  <option className="dropdown-item" value="Lingayat-Kumbara">
-                   Lingayat-Kumbara
-                  </option>
-                  <option className="dropdown-item" value="Lingayat-Uppara">
-                  Lingayat-Uppara
-                  </option>
-                </select>
-              </div>
-            </div>
+           
             <div className="mx-5">
               <label className="form-label ">Add Photo/फोटो जोडा</label>
               <div className="input-group">

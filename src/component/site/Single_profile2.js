@@ -91,7 +91,7 @@ export default function Single_profile2() {
                         </div>
                         <div className="profile-uplodate-photo">
                             <h4 className="p-u-p-header">
-                                <i className="fas fa-camera"></i> 21 Upload Photos
+                                <i className="fas fa-camera"></i> 4 Upload Photos
                             </h4>
                             <div className="p-u-p-list">
                                 <div className="my-col">
@@ -103,7 +103,7 @@ export default function Single_profile2() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="my-col">
+                                {/* <div className="my-col">
                                     <div className="img">
                                         <img src="assets/images/profile/up2.jpg" alt=""/>
                                         <div className="overlay">
@@ -111,7 +111,7 @@ export default function Single_profile2() {
                                                     className="fas fa-plus"></i></Link>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                                 <div className="my-col">
                                     <div className="img">
                                         <img src="assets/images/profile/up3.jpg" alt=""/>
@@ -139,48 +139,40 @@ export default function Single_profile2() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="my-col">
-                                    <div className="img">
-                                        <img src="assets/images/profile/up6.jpg" alt=""/>
-                                        <div className="overlay">
-                                            <Link to="assets/images/profile/up6.jpg" className="light-box mfp-iframe"><i
-                                                    className="fas fa-plus"></i></Link>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="col-xl-5 col-lg-6">
                     <div className="profile-main-content">
-                        <ul className="top-menu">
+                    <ul className="top-menu">
                         <li>
                   
-                                <NavLink to="/single_profile2" className={({ isActive }) => (isActive ? 'text-warning' : 'bg-danger')}>
+                                <NavLink to="/single_profile2" exact activeclassname="active-class">
                                     Profile
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/details"   className={({ isActive }) => (isActive ? 'bg-warning' : 'bg-danger')}>
+                                <NavLink to="/details"  exact activeclassname="active-class" >
                                     Add More Information
                                 </NavLink>
                             </li>
                            
                             <li>
-                                <NavLink to="/single_profile3" className={({ isActive }) => (isActive ? 'bg-warning' : 'bg-danger')}>
+                                <NavLink to="/single_profile3" exact activeclassname="active-class" >
                                     Members
                                   
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/search" className={({ isActive }) => (isActive ? 'bg-warning' : 'bg-danger')}>
+                                <NavLink to="/search" exact activeclassname="active-class">
                                    search
                                     
                                 </NavLink>
                             </li>
                            
-                        </ul>
+                        </ul> 
                         <div className="info-box">
                             <div className="header">
                                 <h4 className="title">

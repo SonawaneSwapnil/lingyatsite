@@ -1,5 +1,6 @@
 (function ($) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "use strict";
 
     // Spinner
@@ -81,6 +82,8 @@
 })(jQuery);
 
 =======
+=======
+>>>>>>> 5adf61880f85bf5742ed512c7308a030de349092
     "user strict";
 
     $(document).ready(function () {
@@ -402,4 +405,7 @@
 
 
 })(jQuery);
+<<<<<<< HEAD
 >>>>>>> 0e2f203d1db7016ade3f79a423e272b3a7eb8489
+=======
+>>>>>>> 5adf61880f85bf5742ed512c7308a030de349092

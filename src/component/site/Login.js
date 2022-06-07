@@ -94,7 +94,7 @@ export default function Login () {
                 </p>
                 <div className="button-wrapper">
                 {/* <Link to="/single_profile2"> */}
-                  <button type="submit" className="custom-button mr-5" onClick={()=>navigate("/single_profile2")}>SignIn
+                  <button type="submit" className="custom-button mr-5" onClick={()=>navigate("/single_profile2")} >SignIn
                   </button>
                       {/* </Link> */}
                       
