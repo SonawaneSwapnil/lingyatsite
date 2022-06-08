@@ -1,16 +1,29 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import Service from '../../service/Service';
 export default function Login () {
+  // const [loginData, setLoginData] = useState();
+  const [userId, setUserId] = useState();
     const {
       register,
       handleSubmit,
-      formState: { errors },
+      formState: { errors },reset
     } = useForm();
-    const onSubmit = (data) => {
-      console.log(data.name);
-    };
+  
+    const saveLoginData=(data=>{
+  console.log(data);
+  Service.saveAllLogin(data).then(res=>{
+    console.log(res.data);
+    alert("Login successful");
+    reset();
+    navigate("/single_profile2");
+  
+  });
+    });
+
+
     let navigate=useNavigate();
   return (
     <div>
@@ -44,10 +57,10 @@ export default function Login () {
               </h2>
             </div>
             <div className="main-content inloginp">
-              <form onSubmit={handleSubmit(onSubmit)}>
+              <form onSubmit={handleSubmit(saveLoginData)} autoComplete="off">
               
                 <div className="form-group">
-                <label for="contactno" className="form-label">
+                <label htmlFor="contactno" className="form-label">
                   Contact no/संपर्क क्रमांक
                 </label>
                
@@ -69,7 +82,7 @@ export default function Login () {
               </div>
 
               <div className="form-group">
-                <label for="exampleInputPassword1" className="form-label">
+                <label htmlFor="exampleInputPassword1" className="form-label">
                   Password/पासवर्ड
                 </label>
                 <input
@@ -94,7 +107,7 @@ export default function Login () {
                 </p>
                 <div className="button-wrapper">
                 {/* <Link to="/single_profile2"> */}
-                  <button type="submit" className="custom-button mr-5" onClick={()=>navigate("/single_profile2")} >SignIn
+                  <button type="submit" className="custom-button mr-5">SignIn
                   </button>
                       {/* </Link> */}
                       
