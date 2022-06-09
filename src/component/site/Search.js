@@ -71,7 +71,7 @@ export default function Search() {
                     <div className="single-friend">
                         <img src="assets/images/profile/friend1.png" alt=""/>
                         <div className="content">
-                             <Link  to="single-profile.html" className="name">
+                             <Link  to="/profile" className="name">
                                 Erma Porter
                                 <span className="isvarify">
                                     <i className="fas fa-check-circle"></i>
@@ -80,197 +80,15 @@ export default function Search() {
                             <p className="date">
                                 a month ago
                             </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
+                             <Link  to="/profile" className="connnect-btn">
                                  View Profile
                             </Link>
                         </div>
                     </div>
                 </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend2.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Brad Barber
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend3.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Vicki Alvarez
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend4.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Amber Perry
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend5.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Kelly Fox
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend6.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Opal Farmer
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend7.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                May Hart
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend8.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Ana Byrd
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend9.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Arthur Bass
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend10.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Stewart Bailey
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/* <!-- <div className="row">
-                <div className="col-lg-12">
-                    <div className="pagination-area text-center">
-                         <Link  to="#"><i className="fas fa-angle-double-left"></i><span></span></Link>
-                         <Link  to="#">1</Link>
-                         <Link  to="#">2</Link>
-                         <Link  to="#" className="active">3</Link>
-                         <Link  to="#">4</Link>
-                         <Link  to="#">5</Link>
-                         <Link  to="#"><i className="fas fa-angle-double-right"></i></Link>
-                    </div>
-                </div>
-            </div> --> */}
+              
+                 </div>
+            
         </div>
     </section>
     {/* <!-- ==========Community-Section========== --> */}

@@ -1,8 +1,10 @@
 import React from 'react'
-import { Outlet,NavLink,Link} from 'react-router-dom'
+import { Outlet,Link} from 'react-router-dom'
+import { useState } from 'react';
 
 
 export default function Site() {
+  
  
   return (
     <div>
@@ -14,7 +16,7 @@ export default function Site() {
       
     <div className="header-section">
         <div className="container">
-            <div className="header-wrapper">
+            <div className='header-wrapper' >
                 <div className="logo">
                     <Link to="">
                         <img src="./assets/images/logo/logo-old.png" alt="logo"/>

@@ -585,11 +585,11 @@ export default function Details() {
                       </div>
                     </div>
                     <div className="button-wrapper d-grid gap-2 col-6 col-sm-8 col-md-6 mx-auto mt-3">
-                      <Link to="/family">
+                      {/* <Link to="/family"> */}
                       <button type="submit" className="custom-button ml-5">
                         Save and Continue
                       </button>
-                      </Link>
+                      {/* </Link> */}
                     </div>
                   </form>
                 </div>

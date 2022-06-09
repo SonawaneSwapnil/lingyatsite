@@ -183,7 +183,7 @@ export default function Single_profile3() {
                             <div className="single-friend">
                                 <img src="assets/images/profile/friend1.png" alt=""/>
                                 <div className="content">
-                                    <Link to="community-single.html" className="name">
+                                    <Link to="/profile" className="name">
                                         Erma Porter
                                         <div className="isvarify">
                                             <i className="fas fa-check-circle"></i>
@@ -192,113 +192,14 @@ export default function Single_profile3() {
                                     <p className="date">
                                         a month ago
                                     </p>
-                                    <Link to="community-single.html" className="connnect-btn">
+                                    <Link to="/profile" className="connnect-btn">
                                         View Profile
                                     </Link>
                                 </div>
                             </div>
-                            <div className="single-friend">
-                                <img src="assets/images/profile/friend2.png" alt=""/>
-                                <div className="content">
-                                    <Link to="community-single.html" className="name">
-                                        Vicki Alvarez
-                                        <div className="isvarify">
-                                            <i className="fas fa-check-circle"></i>
-                                        </div>
-                                    </Link>
-                                    <p className="date">
-                                        a month ago
-                                    </p>
-                                    <Link to="community-single.html" className="connnect-btn">
-                                        View Profile
-                                    </Link>
-                                </div>
-                            </div>
-                            <div className="single-friend">
-                                <img src="assets/images/profile/friend3.png" alt=""/>
-                                <div className="content">
-                                    <Link to="community-single.html" className="name">
-                                        Opal Farmer
-                                        <div className="isvarify">
-                                            <i className="fas fa-check-circle"></i>
-                                        </div>
-                                    </Link>
-                                    <p className="date">
-                                        a month ago
-                                    </p>
-                                    <Link to="community-single.html" className="connnect-btn">
-                                       View Profile
-                                    </Link>
-                                </div>
-                            </div>
-                            <div className="single-friend">
-                                <img src="assets/images/profile/friend4.png" alt=""/>
-                                <div className="content">
-                                    <Link to="community-single.html" className="name">
-                                        May Hart
-                                        <div className="isvarify">
-                                            <i className="fas fa-check-circle"></i>
-                                        </div>
-                                    </Link>
-                                    <p className="date">
-                                        a month ago
-                                    </p>
-                                    <Link to="community-single.html" className="connnect-btn">
-                                        View Profile
-                                    </Link>
-                                </div>
-                            </div>
-                            <div className="single-friend">
-                                <img src="assets/images/profile/friend5.png" alt=""/>
-                                <div className="content">
-                                    <Link to="community-single.html" className="name">
-                                        Julia Salazar
-                                        <div className="isvarify">
-                                            <i className="fas fa-check-circle"></i>
-                                        </div>
-                                    </Link>
-                                    <p className="date">
-                                        a month ago
-                                    </p>
-                                    <Link to="community-single.html" className="connnect-btn">
-                                        View Profile
-                                    </Link>
-                                </div>
-                            </div>
-                            <div className="single-friend">
-                                <img src="assets/images/profile/friend6.png" alt=""/>
-                                <div className="content">
-                                    <Link to="community-single.html" className="name">
-                                        Joy Bailey
-                                        <div className="isvarify">
-                                            <i className="fas fa-check-circle"></i>
-                                        </div>
-                                    </Link>
-                                    <p className="date">
-                                        a month ago
-                                    </p>
-                                    <Link to="community-single.html" className="connnect-btn">
-                                        View Profile
-                                    </Link>
-                                </div>
-                            </div>
-                            <div className="single-friend">
-                                <img src="assets/images/profile/friend7.png" alt=""/>
-                                <div className="content">
-                                    <Link to="community-single.html" className="name">
-                                        Julie Dunn
-                                        <div className="isvarify">
-                                            <i className="fas fa-check-circle"></i>
-                                        </div>
-                                    </Link>
-                                    <p className="date">
-                                        a month ago
-                                    </p>
-                                    <Link to="community-single.html" className="connnect-btn">
-                                        View Profile
-                                    </Link>
-                                </div>
-                            </div>
+                            
+                            
+                            
                         </div>
                      
                 </div>

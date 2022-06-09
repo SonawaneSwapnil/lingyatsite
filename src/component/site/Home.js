@@ -84,7 +84,7 @@ export default function Home() {
                           required: "Enter Your WorkPlace [City]:",
                         })}
                         type="number"
-                        className="my-form-control col-sm-7 ml-4"
+                        className="my-form-control col-sm-7 ml-3 "
                         placeholder="Enter Your WorkPlace [City]:"
                         id="exampleInputincome"
                       />
@@ -110,7 +110,7 @@ export default function Home() {
                           required: "Enter Your  Income/उत्पन्न",
                         })}
                         type="number"
-                        className="my-form-control col-sm-7 ml-4"
+                        className="my-form-control col-sm-7 ml-5"
                         placeholder="Enter Your  Income/उत्पन्न"
                         id="exampleInputincome"
                       />
@@ -123,7 +123,7 @@ export default function Home() {
                     <div className='single-option last'>
                     <label
                         htmlFor="exampleInputedu"
-                        className="title ml-2"
+                        className="title"
                       >
                         Qualification/शैक्षणिक पात्रता:
                       </label>
@@ -135,7 +135,7 @@ export default function Home() {
                       })}
                       type="text"
                       placeholder="Enter Your Educational Qualification/शैक्षणिक पात्रता"
-                      className="my-form-control col-sm-7 ml-4"
+                      className="my-form-control col-sm-7"
                       id="exampleInputedu"
                     />
 

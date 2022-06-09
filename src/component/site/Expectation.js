@@ -173,11 +173,15 @@ export default function Expectation(){
                   <label className="form-label me-5">2.Full Photo/पूर्ण फोटो</label>
                  <input
                   type="file"
+                  multiple
                   className="my-form-control"
                   id="inputGroupFile04"
                   aria-describedby="inputGroupFileAddon04"
                   aria-label="Upload"
+                 
+                  
                 />
+                
               </div>
             </div>
            
