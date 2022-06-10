@@ -125,11 +125,7 @@ export default function Details() {
                     <h5 className="name">{index.user_name}</h5>
                     <ul className="p-b-meta-one">
                       <li>
-                        <span>21 Years Old
-
-                       { moment(`${index.dob}`).format('YYYY MM DD')}
-                       <br/>
-                       { moment(`${index.dob}`).format('h:mm a')}
+                        <span>21 Years Old                      
                         </span>
                       </li>
                       <li>

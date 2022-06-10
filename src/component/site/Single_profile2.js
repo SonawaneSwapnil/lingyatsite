@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import moment from 'moment'
 import { Link, NavLink } from "react-router-dom";
 import Service from "../../service/Service";
 export default function Single_profile2() {
@@ -253,66 +253,68 @@ export default function Single_profile2() {
                     <ul className="infolist">
                       <li>
                         <span>Name/नाव:</span>
-                        <span>Albert Don</span>
+                        <span>{index.user_name}</span>
                       </li>
                       <li>
                         <span>Date Of Birth/जन्मतारीख:</span>
-                        <span>1998-01-19</span>
+                        <span>
+                        { moment(`${index.dob}`).format('YYYY/MM/DD')}
+                        </span>
                       </li>
                       <li>
                         <span>Birth Place/जन्मतारीख ठिकाण:</span>
-                        <span>Nashik</span>
+                        <span>{index.birth_place}</span>
                       </li>
                       <li>
                         <span>Birth time/जन्म वेळ:</span>
-                        <span>10:00</span>
+                        <span>{index.birth_time}</span>
                       </li>
                       <li>
                         <span>Marital status/वैवाहिक स्थिती:</span>
-                        <span>single</span>
+                        <span>{index.married_status}</span>
                       </li>
 
                       <li>
                         <span>
                           Educational Qualification/शैक्षणिक पात्रता:{" "}
                         </span>
-                        <span>BE</span>
+                        <span>{index.education}</span>
                       </li>
                       <li>
                         <span>Service or Business/सेवा किंवा व्यवसाय:</span>
-                        <span>Engg</span>
+                        <span>{index.bussiness}</span>
                       </li>
                       <li>
                         <span>Income/उत्पन्न:</span>
-                        <span>400000</span>
+                        <span>{index.income}</span>
                       </li>
                       <li>
                         <span>Designation/हुद्दा:</span>
-                        <span>worker</span>
+                        <span>{index.designation}</span>
                       </li>
                       <li>
                         <span>Workplace/कामाची जागा:</span>
-                        <span>Nashik</span>
+                        <span>{index.workplace}</span>
                       </li>
                       <li>
                         <span>Height/उंची:</span>
-                        <span>5</span>
+                        <span>{index.height}</span>
                       </li>
                       <li>
                         <span>Blood-Group/रक्त गट:</span>
-                        <span>B+ve</span>
+                        <span>{index.blood_group}</span>
                       </li>
                       <li>
                         <span>Color/रंग:</span>
-                        <span>fear</span>
+                        <span>{index.color}</span>
                       </li>
                       <li>
                         <span>Weight/वजन:</span>
-                        <span>40</span>
+                        <span>{index.weight}</span>
                       </li>
                       <li>
                         <span>Address/पत्ता:</span>
-                        <span>Nashik</span>
+                        <span>{index.address}</span>
                       </li>
                     </ul>
                   </div>
