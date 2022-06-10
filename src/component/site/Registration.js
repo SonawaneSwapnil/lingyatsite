@@ -103,7 +103,7 @@ export default function Registration() {
                         type="text"
                         className="my-form-control"
                         id="contactno"
-                        placeholder="Enter your contact no/संपर्क क्रमांक"
+                        placeholder="Enter your contact no/संपर्क क्रमांक" autoComplete="off"
                       />
                       {errors.contact && (
                         <span style={{ color: "red" }}>

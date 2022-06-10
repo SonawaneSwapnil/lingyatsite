@@ -2,16 +2,39 @@ import React from "react";
 import { Link,NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
-
+import Service from "../../service/Service";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 export default function Family() {
+  const [userUpdateData, setuserUpdateData] = useState();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data.name);
+  
+  
+  useEffect(() => {
+    loadAllData();
+  }, []);
+
+  const loadAllData = () => {
+    Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then(
+      (res) => {
+        setuserUpdateData(res.data);
+        console.log(res.data);
+      }
+    );
   };
+  const saveFamilyData = (data) => {
+    console.log(data);
+    Service.saveAllFamily(data).then((res) => {
+      console.log(res.data);
+      alert("Family registerd successfully");
+      navigate("/expectation");
+    });
+  };
+  let navigate=useNavigate();
   return (
     <div>
       {/* <!-- ==========Breadcrumb-Section========== --> */}
@@ -33,6 +56,7 @@ export default function Family() {
 
       {/* <!-- ========= Profile Section Start --> */}
       <section className="profile-section">
+        {userUpdateData && userUpdateData.map(index=>(
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xl-4 col-lg-5 col-md-7">
@@ -47,7 +71,7 @@ export default function Family() {
                       />
                       <div className="active-online"></div>
                     </div>
-                    <h5 className="name">Albert Don</h5>
+                    <h5 className="name">{index.user_name}</h5>
                     <ul className="p-b-meta-one">
                       <li>
                         <span>21 Years Old</span>
@@ -55,7 +79,8 @@ export default function Family() {
                       <li>
                         <span>
                           {" "}
-                          <i className="fas fa-map-marker-alt"></i>Paris,France
+                          <i className="fas fa-map-marker-alt"></i>
+                          {index.city}
                         </span>
                       </li>
                     </ul>
@@ -137,7 +162,7 @@ export default function Family() {
                   </li>
                 </ul>
                 <div className="mt-4">
-                  <form onSubmit={handleSubmit(onSubmit)}>
+                  <form onSubmit={handleSubmit(saveFamilyData)}>
                     <h4 className="content-title text-center">
                       Family Information/कौटुंबिक माहिती
                     </h4>
@@ -159,7 +184,7 @@ export default function Family() {
                     </div>
                     <div className="row input-group ">
                       <input
-                        {...register("name", {
+                        {...register("father", {
                           required: "Enter Your Father Name/वडीलांचे नाव",
                         })}
                         type="text"
@@ -169,7 +194,7 @@ export default function Family() {
                       />
 
                       <input
-                        {...register("contact", {
+                        {...register("father_contact", {
                           required: " Enter Contact No/संपर्क क्रमांक",
                           minLength: { value: 8, message: "At least 8 digit" },
                           maxLength: {
@@ -185,16 +210,16 @@ export default function Family() {
                     </div>
                     <div className="row">
                       <div className="col-sm-5 ms-3 ml-5 mr-2">
-                        {errors.name && (
+                        {errors.father && (
                           <span style={{ color: "red" }}>
-                            {errors.name.message}
+                            {errors.father.message}
                           </span>
                         )}
                       </div>
                       <div className="col-sm-5 ms-3 ml-5 mr-2">
-                        {errors.contact && (
+                        {errors.father_contact && (
                           <div style={{ color: "red" }}>
-                            {errors.contact.message}
+                            {errors.father_contact.message}
                           </div>
                         )}
                       </div>
@@ -219,16 +244,37 @@ export default function Family() {
                         type="text"
                         placeholder="Enter your Mother Name/आईचे नाव"
                         className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
-                        id="exampleInputname"
+                        id="exampleInputname" 
+                        {...register("mother", {
+                          required: "Enter Your Father Name/वडीलांचे नाव",
+                        })}
                       />
                       <input
                         type="text"
                         className="my-form-control col-sm-5 ml-4 "
                         id="contactno"
                         placeholder="Enter your mobile no"
+                        {...register("mother_contact", {
+                          required: "Enter Your Father Name/वडीलांचे नाव",
+                        })}
                       />
                     </div>
-
+                    <div className="row">
+                      <div className="col-sm-5 ms-3 ml-5 mr-2">
+                        {errors.mother && (
+                          <span style={{ color: "red" }}>
+                            {errors.mother.message}
+                          </span>
+                        )}
+                      </div>
+                      <div className="col-sm-5 ms-3 ml-5 mr-2">
+                        {errors.mother_contact && (
+                          <div style={{ color: "red" }}>
+                            {errors.mother_contact.message}
+                          </div>
+                        )}
+                      </div>
+                    </div>
                     <div className="row">
                       <label
                         for="inputincome"
@@ -250,13 +296,35 @@ export default function Family() {
                         placeholder="Enter your Brother Name/भावाचे नाव"
                         className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
                         id="exampleInputname"
+                        {...register("brother", {
+                          required: "Enter Your Father Name/वडीलांचे नाव",
+                        })}
                       />
                       <input
                         type="text"
                         className="my-form-control col-sm-5 ml-4 "
                         id="contactno"
                         placeholder="Enter your mobile no"
+                        {...register("brother_contact", {
+                          required: "Enter Your Father Name/वडीलांचे नाव",
+                        })}
                       />
+                    </div>
+                    <div className="row">
+                      <div className="col-sm-5 ms-3 ml-5 mr-2">
+                        {errors.brother && (
+                          <span style={{ color: "red" }}>
+                            {errors.brother.message}
+                          </span>
+                        )}
+                      </div>
+                      <div className="col-sm-5 ms-3 ml-5 mr-2">
+                        {errors.brother_contact && (
+                          <div style={{ color: "red" }}>
+                            {errors.brother_contact.message}
+                          </div>
+                        )}
+                      </div>
                     </div>
                     <div className="row">
                       <label
@@ -279,21 +347,42 @@ export default function Family() {
                         placeholder=" Enter Sister Name/बहिणीचे नाव"
                         className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
                         id="exampleInputname"
+                        {...register("sister", {
+                          required: "Enter Your Father Name/वडीलांचे नाव",
+                        })}
                       />
                       <input
                         type="text"
                         className="my-form-control col-sm-5 ml-4 "
                         id="contactno"
                         placeholder="Enter your mobile no"
+                        {...register("sister_contact", {
+                          required: "Enter Your Father Name/वडीलांचे नाव",
+                        })}
                       />
                     </div>
-
+                    <div className="row">
+                      <div className="col-sm-5 ms-3 ml-5 mr-2">
+                        {errors.sister && (
+                          <span style={{ color: "red" }}>
+                            {errors.sister.message}
+                          </span>
+                        )}
+                      </div>
+                      <div className="col-sm-5 ms-3 ml-5 mr-2">
+                        {errors.sister_contact && (
+                          <div style={{ color: "red" }}>
+                            {errors.sister_contact.message}
+                          </div>
+                        )}
+                      </div>
+                    </div>
                     <div className="button-wrapper d-grid gap-2 col-6 mx-auto mt-3">
-                      <Link to="/expectation">
+                      {/* <Link to="/expectation"> */}
                         <button type="submit" className="custom-button ml-5">
                           Save and Continue
                         </button>
-                      </Link>
+                      {/* </Link> */}
                     </div>
                   </form>
                 </div>
@@ -301,6 +390,7 @@ export default function Family() {
             </div>
           </div>
         </div>
+        ))}
       </section>
 
       {/* <!-- ========= Profile Section Start -- */}
