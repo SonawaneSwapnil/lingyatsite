@@ -36,7 +36,7 @@ class Service
     // family
     saveAllFamily(data)
     {
-        return axios.post(Base_url+"family/save-family",data)
+        return axios.post(Base_url+"users/save-family",data)
     }
     // Expecations
     saveAllEceptation(data)
