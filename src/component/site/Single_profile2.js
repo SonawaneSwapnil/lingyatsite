@@ -1,32 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+
 import { Link, NavLink } from "react-router-dom";
 import Service from "../../service/Service";
 export default function Single_profile2() {
   const [usersData, setUsersData] = useState();
-  const [userId, setUserId] = useState();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },reset
-  } = useForm();
+  
   useEffect(() => {
     loadAllUsersData();
   }, []);
 
   const loadAllUsersData = () => {
-    Service.getAllUsers().then((res) => {
+    Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then((res)=>{
       setUsersData(res.data);
-      console.log(res);
+      console.log(res.data);
     });
   };
-//  single user data
-const onDisplay = (item) => {
-    console.log(item);
-    this.userId=item.id;
-    setUserId(userId);
-    reset();
-  };
+
   return (
     <div>
       {/* <!-- ==========Breadcrumb-Section========== --> */}
@@ -45,9 +34,10 @@ const onDisplay = (item) => {
         </div>
       </section>
       {/* <!-- ==========Breadcrumb-Section========== --> */}
-
+     
       {/* <!-- ========= Profile Section Start --> */}
       <section className="profile-section">
+      {usersData && usersData.map(index=>(
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xl-4 col-lg-5 col-md-7">
@@ -62,7 +52,7 @@ const onDisplay = (item) => {
                       />
                       <div className="active-online"></div>
                     </div>
-                    <h5 className="name">Albert Don</h5>
+                    <h5 className="name">{index.user_name}</h5>
                     <ul className="p-b-meta-one">
                       <li>
                         <span>21 Years Old</span>
@@ -70,7 +60,8 @@ const onDisplay = (item) => {
                       <li>
                         <span>
                           {" "}
-                          <i className="fas fa-map-marker-alt"></i>Paris,France
+                          <i className="fas fa-map-marker-alt"></i>
+                          {index.city}
                         </span>
                       </li>
                     </ul>
@@ -225,29 +216,35 @@ const onDisplay = (item) => {
                     <ul className="infolist">
                       <li>
                         <span>Name/नाव:</span>
-                        <span></span>
+                        <span>
+                            {index.user_name}
+                        </span>
                       </li>
                       <li>
                         <span>I am a:</span>
-                        <span>{/* {users.gender} */}</span>
+                        <span>
+                            {index.gender}
+                        </span>
                       </li>
                       <li>
                         <span>Looking for a:</span>
-                        <span>{/* {users.looking_for_gender} */}</span>
+                        <span>
+                            {index.looking_for_gender}
+                        </span>
                       </li>
                       <li>
                         <span>Marital status/वैवाहिक स्थिती:</span>
-                        <span>{/* {users.married_status} */}</span>
+                        <span>{index.married_status}</span>
                       </li>
 
                       <li>
                         <span>City/शहर:</span>
-                        <span>{/* {users.city} */}</span>
+                        <span>{index.city}</span>
                       </li>
                     </ul>
                   </div>
                 </div>
-  
+
                 <div className="info-box">
                   <div className="header">
                     <h4 className="title">Personal Detail/वैयक्तिक माहिती</h4>
@@ -324,6 +321,7 @@ const onDisplay = (item) => {
             </div>
           </div>
         </div>
+        ))}
       </section>
 
       {/* <!-- ========= Profile Section Start -- */}

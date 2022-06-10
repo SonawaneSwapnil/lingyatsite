@@ -39,21 +39,20 @@ export default function Details() {
   };
 
   const saveData = (data) => {
-    // console.log(data);
-    // Service.saveAllUsers(data).then((res) => {
-    //   console.log(res.data);
-    //   alert("Data Saved successfully");
-    //   reset();
-    //   loadAllData();
+    console.log(data);
+    Service.saveAllUsers(data).then((res) => {
+      console.log(res.data);
+      alert("Data Saved successfully");
+      reset();
+      loadAllData();
+  });
+    
   };
- 
-  //};
   // Update
   const [user_id, setuser_id] = useState();
   const updateRecord = () => {
     var data1 = {
       user_id: user_id,
-      user_name: getValues("user_name"),
       birth_place: getValues("birth_place"),
       birth_time: getValues("birth_time"),
       branch: getValues("branch"),
@@ -128,6 +127,8 @@ export default function Details() {
                         <span>21 Years Old
 
                        { moment(`${index.dob}`).format('YYYY MM DD')}
+                       <br/>
+                       { moment(`${index.dob}`).format('h:mm a')}
                         </span>
                       </li>
                       <li>
@@ -251,7 +252,7 @@ export default function Details() {
                 </ul>
                
                     <div className="mt-4">
-                      <form onSubmit={handleSubmit(updateRecord)}>
+                      <form onSubmit={handleSubmit(saveData)}>
                         <h4 className="content-title text-center">
                           Personal Detail/वैयक्तिक माहिती
                         </h4>
@@ -293,7 +294,7 @@ export default function Details() {
                             {...register("dob", {
                               required: "Enter Your Date Of Birth/जन्मतारीख",
                             })}
-                            value={ moment(`${index.dob}`).format('YYYY/ MM /DD')}
+                            value={ moment(`${index.dob}`).format('YYYY-MM-DD')}
                             type="text"
                             className="my-form-control"
                             id="exampleInputdate"
@@ -346,7 +347,8 @@ export default function Details() {
                         {...register("birth_time", {
                           required: "Enter Your  Birth time/जन्म वेळ",
                         })}
-                        type="time"
+                       onClick= { moment('').format('h:mm')}
+                        type="text"
                         className="my-form-control"
                         id="exampleInputtime"
                     

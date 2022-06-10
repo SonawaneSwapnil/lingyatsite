@@ -1,16 +1,41 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import { Link,NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
-
+import Service from "../../service/Service";
+import { useNavigate } from "react-router-dom";
 export default function Expectation(){
+    const [userUpdateData, setuserUpdateData] = useState();
     const {
         register,
         handleSubmit,
         formState: { errors },
       } = useForm();
-      const onSubmit = (data) => {
-        console.log(data.name);
+  
+      useEffect(() => {
+        loadAllData();
+      }, []);
+    
+      const loadAllData = () => {
+        Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then(
+          (res) => {
+            setuserUpdateData(res.data);
+            console.log(res.data);
+          }
+        );
       };
+      const saveExcepData = (data) => {
+          let fd=new FormData();
+          fd.append("expectation",data.expectation);
+          fd.append("passport",data.passport[0]);
+          fd.append("fullphoto",data.fullphoto[0]);
+         console.log(data)
+          Service.saveAllEceptation(fd).then((res) => {
+          console.log(fd);
+          alert("Data saved successfully");
+          navigate("/single_profile2");
+        });
+      };
+      let navigate = useNavigate();
   return (
     <div>
 
@@ -40,6 +65,7 @@ export default function Expectation(){
 
     {/* <!-- ========= Profile Section Start --> */}
     <section className="profile-section">
+        {userUpdateData && userUpdateData.map(index=>(
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-xl-4 col-lg-5 col-md-7">
@@ -52,14 +78,16 @@ export default function Expectation(){
                                     <div className="active-online"></div>
                                 </div>
                                 <h5 className="name">
-                                    Albert Don
+                                  {index.user_name}
                                 </h5>
                                 <ul className="p-b-meta-one">
                                     <li>
                                         <span>21 Years Old</span>
                                     </li>
                                     <li>
-                                        <span> <i className="fas fa-map-marker-alt"></i>Paris,France</span>
+                                        <span> <i className="fas fa-map-marker-alt"></i>
+                                        {index.city}
+                                        </span>
                                     </li>
                                 </ul>
                                
@@ -147,13 +175,22 @@ export default function Expectation(){
                         </ul>
                         <div className="mt-4">
                         <form
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={handleSubmit(saveExcepData)}
            
           >
               <h4 className="content-title text-center">Expectation/अपेक्षा वधू/वर</h4>
                        <div className="mx-5">
               <label className="form-label">Expection/अपेक्षा वधू/वर</label>
-              <textarea className="my-form-control"></textarea>
+              <textarea className="my-form-control" 
+              {...register("expectation", {
+                required: "Please enter your password/पासवर्ड"
+              })}
+              ></textarea>
+               {errors.expectation && (
+                        <span style={{ color: "red" }}>
+                          {errors.expectation.message}
+                        </span>
+                      )}
             </div>
          
            
@@ -167,25 +204,42 @@ export default function Expectation(){
                   id="inputGroupFile04"
                   aria-describedby="inputGroupFileAddon04"
                   aria-label="Upload"
+                  {...register("passport", {
+                    required: "Please enter passport photo"
+                  })}
                 />
+                {errors.passport && (
+                        <span style={{ color: "red" }}>
+                          {errors.passport.message}
+                        </span>
+                      )}
                 </div>
                 <div className="input-group">
                   <label className="form-label me-5">2.Full Photo/पूर्ण फोटो</label>
                  <input
-                  type="file"
+                  type="file" 
+                  multiple
                   className="my-form-control"
                   id="inputGroupFile04"
                   aria-describedby="inputGroupFileAddon04"
                   aria-label="Upload"
+                  {...register("fullphoto", {
+                    required: "Please enter 4 photos"
+                  })}
                 />
+                {errors.fullphoto && (
+                        <span style={{ color: "red" }}>
+                          {errors.fullphoto.message}
+                        </span>
+                      )}
               </div>
             </div>
            
             <div className="button-wrapper d-grid gap-2 col-6 mx-auto mt-3">
-                <Link to="/single_profile2">
+                {/* <Link to="/single_profile2"> */}
                   <button type="submit" className="custom-button ml-5"> Submit
                   </button>
-                      </Link>
+                      {/* </Link> */}
                    
                 </div>
           </form>
@@ -197,7 +251,7 @@ export default function Expectation(){
                   
             </div>
         </div>
-      
+      ))}
     </section>
    
     {/* <!-- ========= Profile Section Start -- */}
