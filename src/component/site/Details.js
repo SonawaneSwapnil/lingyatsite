@@ -7,11 +7,13 @@ import { MomentInput } from "moment";
 import moment from 'moment'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useNavigate } from "react-router-dom";
 // timepicker
 import TimePicker from "react-time-picker";
 export default function Details() {
   const [userUpdateData, setuserUpdateData] = useState();
   const [showhide, setshowhide] = useState("");
+  const [user_id, setuser_id] = useState();
   const handleshowhide = (event) => {
     const getuser = event.target.value;
     // console.log(getuser);
@@ -30,6 +32,7 @@ export default function Details() {
   }, []);
 
   const loadAllData = () => {
+    setuser_id(JSON.parse(localStorage.getItem("USERID")));
     Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then(
       (res) => {
         setuserUpdateData(res.data);
@@ -49,10 +52,9 @@ export default function Details() {
     
   };
   // Update
-  const [user_id, setuser_id] = useState();
+ 
   const updateRecord = () => {
     var data1 = {
-      user_id: user_id,
       birth_place: getValues("birth_place"),
       birth_time: getValues("birth_time"),
       branch: getValues("branch"),
@@ -67,23 +69,22 @@ export default function Details() {
       color: getValues("color"),
       weight: getValues("weight"),
       address: getValues("address"),
+      user_id: user_id
     };
 
     Service.updateUsers(data1)
       .then((res) => {
         alert("record Updated successsfully");
-        loadAllData();
-        Navigate("/expectation");
+        // loadAllData();
+        navigate("/expectation");
       })
       .catch((err) => {
         console.log(err);
       });
   };
   // datepicker
-  const [startDate, setStartDate] = useState(new Date());
-  // timepicker
-  const [value, onChange] = useState("10:00");
-
+ 
+  let navigate = useNavigate();
   return (
     <div>
       {/* <!-- ==========Breadcrumb-Section========== --> */}
@@ -252,7 +253,7 @@ export default function Details() {
                 </ul>
                
                     <div className="mt-4">
-                      <form onSubmit={handleSubmit(saveData)}>
+                      <form onSubmit={handleSubmit(updateRecord)}>
                         <h4 className="content-title text-center">
                           Personal Detail/वैयक्तिक माहिती
                         </h4>
@@ -347,8 +348,8 @@ export default function Details() {
                         {...register("birth_time", {
                           required: "Enter Your  Birth time/जन्म वेळ",
                         })}
-                       onClick= { moment('').format('h:mm')}
-                        type="text"
+                      
+                        type="time"
                         className="my-form-control"
                         id="exampleInputtime"
                     
@@ -371,30 +372,33 @@ export default function Details() {
                             <select
                               id="branch"
                               name="branch"
+                              {...register("branch", {
+                                required: "Enter Your branch Name/शाखा:",
+                              })}
                               onChange={(e) => handleshowhide(e)}
                             >
                               <option className="dropdown-item" value="">
                                 -------Select Branch-----
                               </option>
-                              <option className="dropdown-item" value="1">
+                              <option className="dropdown-item" value="Lingayat-Wani/लिंगायत-वाणी">
                                 Lingayat-Wani/लिंगायत-वाणी
                               </option>
-                              <option className="dropdown-item" value="2">
+                              <option className="dropdown-item" value=" Dixiwant/दीक्षिवंत">
                                 Dixiwant/दीक्षिवंत
                               </option>
-                              <option className="dropdown-item" value="3">
+                              <option className="dropdown-item" value="Pancham/पंचम">
                                 Pancham/पंचम
                               </option>
-                              <option className="dropdown-item" value="4">
+                              <option className="dropdown-item" value=" Shilvant(Chilwant)/शिलवंत (चिलवंत)">
                                 Shilvant(Chilwant)/शिलवंत (चिलवंत)
                               </option>
-                              <option className="dropdown-item" value="5">
+                              <option className="dropdown-item" value="Jangam(swami)/जंगम (स्वामी)">
                                 Jangam(swami)/जंगम (स्वामी)
                               </option>
-                              <option className="dropdown-item" value="6">
+                              <option className="dropdown-item" value="Chaturth/चतुर्थ">
                                 Chaturth/चतुर्थ
                               </option>
-                              <option className="dropdown-item" value="7">
+                              <option className="dropdown-item" value="Other/इतर">
                                 Other/इतर
                               </option>
                             </select>
@@ -699,7 +703,7 @@ export default function Details() {
                           <button
                             type="submit"
                             className="custom-button ml-5"
-                            onClick={updateRecord}
+                            
                           >
                             Save and Continue
                           </button>
