@@ -1,18 +1,28 @@
 
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
-
+import Service from "../../service/Service";
 export default function Registration() {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-      } = useForm();
-      const onSubmit = (data) => {
-        console.log(data.name);
-      };
-      let navigate=useNavigate();
+  // const [empId, setEmpId] = useState();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const saveData = (data) => {
+    console.log(data);
+    Service.saveAllUsers(data).then((res) => {
+      console.log(res.data);
+      alert("Registration successfully");
+      navigate("/login");
+    });
+  };
+
+  let navigate = useNavigate();
+
+     
    
   return (
     <div>
@@ -49,17 +59,15 @@ export default function Registration() {
               </p>
             </div>
             <div className="main-content">
-            <form
-            onSubmit={handleSubmit(onSubmit)}
-          >
+            <form onSubmit={handleSubmit(saveData)}>
              <h4 className="content-title">Personal Detail/वैयक्तिक माहिती</h4>
               
              <div className="form-group">
-              <label htmlhtmlFor="exampleInputname" className="form-label">
+              <label htmlFor="exampleInputname" className="form-label">
                 Name/नाव*
               </label>
               <input
-                {...register("name", {
+                {...register("user_name", {
                   required: "Enter your full name/पूर्ण नाव",
                 })}
                 type="text"
@@ -68,13 +76,13 @@ export default function Registration() {
                 id="exampleInputname"
               />
               {""}
-              {errors.name && (
-                <span style={{ color: "red" }}>{errors.name.message}</span>
+              {errors.user_name && (
+                <span style={{ color: "red" }}>{errors.user_name.message}</span>
               )}
               <br />
             </div>
             <div className="form-group">
-                <label htmlhtmlFor="contactno" className="form-label">
+                <label htmlFor="contactno" className="form-label">
                   Contact no/संपर्क क्रमांक*
                 </label>
                
@@ -95,7 +103,7 @@ export default function Registration() {
                 <br />
               </div>
               <div className="form-group">
-                <label htmlhtmlFor="exampleInputPassword1" className="form-label">
+                <label htmlFor="exampleInputPassword1" className="form-label">
                   Password/पासवर्ड*
                 </label>
                 <input
@@ -118,11 +126,11 @@ export default function Registration() {
                
                 <h4 className="content-title mt-5">Profile Details</h4>
                 <div className="form-group">
-              <label htmlhtmlFor="exampleInputdate" className="form-label text-center">
+              <label htmlFor="exampleInputdate" className="form-label text-center">
                 Date Of Birth/जन्मतारीख*
               </label>
               
-              <input {...register("date", {
+              <input {...register("dob", {
                   required: "Enter your Date Of Birth/जन्मतारीख",
                 })}
                 type="date"
@@ -130,13 +138,71 @@ export default function Registration() {
                 id="exampleInputdate"
                 
               />{""}
-              {errors.date && (
-                <span style={{ color: "red" }}>{errors.date.message}</span>
+              {errors.dob && (
+                <span style={{ color: "red" }}>{errors.dob.message}</span>
               )}
               <br />
             </div>
-                <div className="form-group">
-                  <label htmlhtmlFor="">I am a*</label>
+            <div className="form-group">
+                      <label htmlFor="">I am a*</label>
+                      <div className="option">
+                        <div className="s-input mr-3">
+                          <input
+                            type="radio"
+                            name="gender"
+                            value="male"
+                            id="male"
+                            {...register("gender", {
+                              required: "select gender",
+                            })}
+                          />
+                          <label htmlFor="male">Male</label>
+                        </div>
+                        <div className="s-input">
+                          <input
+                            type="radio"
+                            name="gender"
+                            value="female"
+                            id="female"
+                            {...register("gender", {
+                              required: "select gender",
+                            })}
+                          />
+                          <label htmlFor="female">Female</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="">Looking for a*</label>
+                      <div className="option">
+                        <div className="s-input mr-3">
+                          <input
+                            type="radio"
+                            name="looking_for_gender"
+                            value="male"
+                            id="males"
+                            {...register("looking_for_gender", {
+                              required: "select gender",
+                            })}
+                          />
+                          <label htmlFor="males">Male</label>
+                        </div>
+                        <div className="s-input">
+                          <input
+                            type="radio"
+                            name="looking_for_gender"
+                            value="female"
+                            id="females"
+                            {...register("looking_for_gender", {
+                              required: "select gender",
+                            })}
+                          />
+                          <label htmlFor="females">Female</label>
+                        </div>
+                      </div>
+                    </div>
+                {/* <div className="form-group">
+                  <label htmlFor="">I am a*</label>
                   <div className="option">
                     <div className="s-input mr-3">
                     <input type="radio" name="gender" id="male"/><label htmlFor="male">Male</label>
@@ -147,26 +213,26 @@ export default function Registration() {
                      
                     </div>
                   </div>
-                </div>
-                <div className="form-group">
-                  <label htmlhtmlFor="">Looking for a*</label>
+                </div> */}
+                {/* <div className="form-group">
+                  <label htmlFor="">Looking for a*</label>
                   <div className="option">
                     <div className="s-input mr-3">
-                    <input type="radio" name="seeking" id="males"/><label htmlFor="males">Male</label>
+                    <input type="radio" name="looking_for_gender" id="males"/><label htmlFor="males">Male</label>
                     
                     </div>
                     <div className="s-input">
-                    <input type="radio" name="seeking" id="females"/><label htmlFor="females">Female</label>
+                    <input type="radio" name="looking_for_gender" id="females"/><label htmlFor="females">Female</label>
                     
                      
                     </div>
                   </div>
-                </div>
+                </div> */}
                 <div className="form-group">
-                  <label htmlhtmlFor="">Marital status*</label>
+                  <label htmlFor="">Marital status*</label>
                   <div className="option">
                     <div className="s-input nice-select-wraper">
-                      <select className="select-bar"  {...register("married", {
+                      <select className="select-bar"  {...register("married_status", {
                   required: "Enter your Marital status",
                 })}>
                       <option value="">---Marital status---</option> 
@@ -174,14 +240,14 @@ export default function Registration() {
                         <option value="Married">ReMarriage</option>
                         
                       </select>
-                      {errors.married && (
-                <span style={{ color: "red" }}>{errors.married.message}</span>
+                      {errors.married_status && (
+                <span style={{ color: "red" }}>{errors.married_status.message}</span>
               )}
                     </div>                
                   </div>
                 </div>
                 <div className="form-group">
-                  <label htmlhtmlFor="" className='mt-4'>City/शहर*</label>
+                  <label htmlFor="" className='mt-4'>City/शहर*</label>
                    
                     <input {...register("city", {
                       required: "Enter your City/शहर",

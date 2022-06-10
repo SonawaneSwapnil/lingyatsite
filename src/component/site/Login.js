@@ -1,17 +1,37 @@
-import React from 'react'
+
+    import React,{useEffect,useState} from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import Service from '../../service/Service';
 export default function Login () {
+  // const [loginData, setLoginData] = useState();
+  const [userId, setUserId] = useState();
     const {
       register,
       handleSubmit,
-      formState: { errors },
+      formState: { errors },reset
     } = useForm();
     const onSubmit = (data) => {
       console.log(data.name);
     };
-    let navigate=useNavigate();
+    const saveLoginData=(data=>{
+  console.log(data);
+  Service.saveAllLogin(data).then(res=>{
+    console.log(res.data);
+    alert("Login successful");
+   
+    localStorage.setItem("USERID",JSON.stringify(res.data.data.user_id));
+   
+    navigate("/single_profile2");
+  
+  });
+    });
+
+    const logout = () => {
+      localStorage.removeItem("USERID");
+    };
+    let navigate=useNavigate()
   return (
     <div>
         
@@ -44,7 +64,7 @@ export default function Login () {
               </h2>
             </div>
             <div className="main-content inloginp">
-              <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(saveLoginData)} autoComplete="off">
               
                 <div className="form-group">
                 <label for="contactno" className="form-label">
@@ -94,7 +114,7 @@ export default function Login () {
                 </p>
                 <div className="button-wrapper">
                 {/* <Link to="/single_profile2"> */}
-                  <button type="submit" className="custom-button mr-5" onClick={()=>navigate("/single_profile2")} >SignIn
+                  <button type="submit" className="custom-button mr-5">SignIn
                   </button>
                       {/* </Link> */}
                       

@@ -1,21 +1,35 @@
 
-import React,{Component, useRef} from 'react'
+import React,{Component, useRef,useState,useEffect} from 'react'
 import { NavLink,Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-
+import Service from '../../service/Service';
 import { useReactToPrint } from "react-to-print";
-const Info = () => {  
+const Selfprofile = () => {  
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
       content: () => componentRef.current,
     });
     let navigate=useNavigate();
+
+    const [usersFamily, setUserFamily] = useState();
+  
+  useEffect(() => {
+    loadAllUsersData();
+  }, []);
+
+  const loadAllUsersData = () => {
+    Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then((res)=>{
+      setUserFamily(res.data);
+      console.log(res.data);
+    });
+  
     
-    
+  }
   return (
     <div>
         {/* <!-- ==========Breadcrumb-Section========== --> */}
     <section class="breadcrumb-area profile-bc-area">
+   
         <div class="container">
             <div class="content">
                 <h2 class="title extra-padding">
@@ -37,6 +51,7 @@ const Info = () => {
     </section>
     {/* <!-- ========= Profile Section Start --> */}
     <section className="profile-section">
+    {usersFamily && usersFamily.map(index=>(
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-xl-4 col-lg-5 col-md-7">
@@ -48,15 +63,13 @@ const Info = () => {
                                     <img src="assets/images/profile/profile-user.png" alt=""/>
                                     <div className="active-online"></div>
                                 </div>
-                                <h5 className="name">
-                                    Albert Don
-                                </h5>
+                                <h5 className="name">{index.user_name}</h5>
                                 <ul className="p-b-meta-one">
                                     <li>
                                         <span>21 Years Old</span>
                                     </li>
                                     <li>
-                                        <span> <i className="fas fa-map-marker-alt"></i>Paris,France</span>
+                                        <span> <i className="fas fa-map-marker-alt"></i>{index.city}</span>
                                     </li>
                                 </ul>
                                 {/* <!-- <div className="p-b-meta-two">
@@ -181,7 +194,7 @@ const Info = () => {
                                         Father Name/वडीलांचे नावं:
                                         </span>
                                         <span>
-                                            Albert Don
+                                        {index.father}
                                         </span>
                                     </li>
                                       <li>
@@ -189,7 +202,7 @@ const Info = () => {
                                         Contact Number/संपर्क क्रमांक:
                                         </span>
                                         <span>
-                                            1234567890
+                                        {index.fathercontact}
                                         </span>
                                     </li>
                                     <li>
@@ -197,7 +210,7 @@ const Info = () => {
                                         Mother Name/आईचे नाव:
                                         </span>
                                         <span>
-                                            Woman
+                                        {index.mother}
                                         </span>
                                     </li>
                                     <li>
@@ -205,7 +218,7 @@ const Info = () => {
                                         Contact Number/संपर्क क्रमांक:
                                         </span>
                                         <span>
-                                         9874561230
+                                        {index.mothercontact}
                                         </span>
                                     </li>
                                     <li>
@@ -213,7 +226,7 @@ const Info = () => {
                                         Brother Name/भावाचे नाव
                                         </span>
                                         <span>
-                                            Woman
+                                        {index.brother}
                                         </span>
                                     </li>
                                     <li>
@@ -221,7 +234,7 @@ const Info = () => {
                                         Contact Number/संपर्क क्रमांक:
                                         </span>
                                         <span>
-                                         9874561230
+                                        {index.brothercontact}
                                         </span>
                                     </li>
                                     
@@ -230,7 +243,7 @@ const Info = () => {
                                         Sister Name/बहिणीचे नाव
                                         </span>
                                         <span>
-                                            Woman
+                                        {index.sister}
                                         </span>
                                     </li>
                                     <li>
@@ -238,7 +251,7 @@ const Info = () => {
                                         Contact Number/संपर्क क्रमांक:
                                         </span>
                                         <span>
-                                         9874561230
+                                        {index.sistercontact}
                                         </span>
                                     </li>
                                     <li></li>
@@ -259,7 +272,7 @@ const Info = () => {
                                         Expection/अपेक्षा वधू/वर:
                                         </span>
                                         <span>
-                                            Albert Don
+                                        {index.expection}
                                         </span>
                                     </li>
                                    
@@ -298,11 +311,11 @@ const Info = () => {
                
         </div>
         </div>
-    </section>
+     ))} </section>
    
     {/* <!-- ========= Profile Section Start -- */}
     </div>
   )
 }
 
-export default Info
+export default Selfprofile

@@ -1,13 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import { Link , NavLink} from 'react-router-dom'
+import Service from "../../service/Service";
+import moment from "moment";
 export default function Single_profile2() {
 
+  const [usersData, setUsersData] = useState();
+  
+  useEffect(() => {
+    loadAllUsersData();
+  }, []);
+
+  const loadAllUsersData = () => {
+    Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then((res)=>{
+      setUsersData(res.data);
+      console.log(res.data);
+    });
+  }
 
   return (
     <div>
  
 {/* <!-- ==========Breadcrumb-Section========== --> */}
     <section className="breadcrumb-area profile-bc-area">
+    
         <div className="container">
             <div className="content">
                 <h2 className="title extra-padding">
@@ -32,6 +47,7 @@ export default function Single_profile2() {
 
     {/* <!-- ========= Profile Section Start --> */}
     <section className="profile-section">
+    {usersData && usersData.map(index=>(
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-xl-4 col-lg-5 col-md-7">
@@ -43,15 +59,13 @@ export default function Single_profile2() {
                                     <img src="assets/images/profile/profile-user.png" alt=""/>
                                     <div className="active-online"></div>
                                 </div>
-                                <h5 className="name">
-                                    Albert Don
-                                </h5>
+                                <h5 className="name">{index.user_name}</h5>
                                 <ul className="p-b-meta-one">
                                     <li>
                                         <span>21 Years Old</span>
                                     </li>
                                     <li>
-                                        <span> <i className="fas fa-map-marker-alt"></i>Paris,France</span>
+                                        <span> <i className="fas fa-map-marker-alt"></i>{index.city}</span>
                                     </li>
                                 </ul>
                                 {/* <!-- <div className="p-b-meta-two">
@@ -186,7 +200,7 @@ export default function Single_profile2() {
                                         Name/नाव:
                                         </span>
                                         <span>
-                                            Albert Don
+                                        {index.user_name}
                                         </span>
                                     </li>
                                       <li>
@@ -194,7 +208,7 @@ export default function Single_profile2() {
                                             I am a:
                                         </span>
                                         <span>
-                                            Man
+                                        {index.gender}
                                         </span>
                                     </li>
                                     <li>
@@ -202,7 +216,7 @@ export default function Single_profile2() {
                                             Looking for a:
                                         </span>
                                         <span>
-                                            Woman
+                                        {index.looking_for_gender}
                                         </span>
                                     </li>
                                     <li>
@@ -210,7 +224,7 @@ export default function Single_profile2() {
                                             Marital status/वैवाहिक स्थिती:
                                         </span>
                                         <span>
-                                            single
+                                        {index.married_status}
                                         </span>
                                     </li>
                                     
@@ -219,7 +233,7 @@ export default function Single_profile2() {
                                             City/शहर:
                                         </span>
                                         <span>
-                                            Paris
+                                        {index.city}
                                         </span>
                                     </li>
                                     
@@ -239,7 +253,7 @@ export default function Single_profile2() {
                                         Name/नाव:
                                         </span>
                                         <span>
-                                            Albert Don
+                                        {index.user_name}
                                         </span>
                                     </li>
                                     <li>
@@ -247,7 +261,7 @@ export default function Single_profile2() {
                                         Date Of Birth/जन्मतारीख:
                                         </span>
                                         <span>
-                                            1998-01-19
+                                        { moment(`${index.dob}`).format('YYYY/MM/DD')}
                                         </span>
                                     </li>
                                     <li>
@@ -255,7 +269,7 @@ export default function Single_profile2() {
                                         Birth Place/जन्मतारीख ठिकाण:
                                         </span>
                                         <span>
-                                          Nashik
+                                        {index.birth_place}
                                         </span>
                                     </li>
                                     <li>
@@ -263,7 +277,7 @@ export default function Single_profile2() {
                                         Birth time/जन्म वेळ:
                                         </span>
                                         <span>
-                                            10:00
+                                        {index.birth_time}
                                         </span>
                                     </li>
                                     <li>
@@ -271,7 +285,7 @@ export default function Single_profile2() {
                                             Marital status/वैवाहिक स्थिती:
                                         </span>
                                         <span>
-                                            single
+                                        {index.married_status}
                                         </span>
                                     </li>
                                     
@@ -279,7 +293,7 @@ export default function Single_profile2() {
                                         <span>
                                         Educational Qualification/शैक्षणिक पात्रता:                                       </span>
                                         <span>
-                                            BE
+                                        {index.education}
                                         </span>
                                     </li>
                                     <li>
@@ -287,7 +301,7 @@ export default function Single_profile2() {
                                         Service or Business/सेवा किंवा व्यवसाय:
                                         </span>
                                         <span>
-                                            Engg
+                                        {index.bussiness}
                                         </span>
                                     </li>
                                     <li>
@@ -295,7 +309,7 @@ export default function Single_profile2() {
                                         Income/उत्पन्न:
                                         </span>
                                         <span>
-                                           400000
+                                        {index.income}
                                         </span>
                                     </li>
                                     <li>
@@ -311,7 +325,7 @@ export default function Single_profile2() {
                                         Workplace/कामाची जागा:
                                         </span>
                                         <span>
-                                           Nashik
+                                        {index.designation}
                                         </span>
                                     </li>
                                     <li>
@@ -319,7 +333,7 @@ export default function Single_profile2() {
                                         Height/उंची:
                                         </span>
                                         <span>
-                                          5
+                                        {index.height}
                                         </span>
                                     </li>
                                     <li>
@@ -327,7 +341,7 @@ export default function Single_profile2() {
                                         Blood-Group/रक्त गट:
                                         </span>
                                         <span>
-                                           B+ve
+                                        {index.blood_group}
                                         </span>
                                     </li>
                                     <li>
@@ -335,7 +349,7 @@ export default function Single_profile2() {
                                         Color/रंग:
                                         </span>
                                         <span>
-                                           fear
+                                        {index.color}
                                         </span>
                                     </li>
                                     <li>
@@ -343,7 +357,7 @@ export default function Single_profile2() {
                                         Weight/वजन:
                                         </span>
                                         <span>
-                                           40
+                                        {index.weight}
                                         </span>
                                     </li>
                                     <li>
@@ -351,20 +365,28 @@ export default function Single_profile2() {
                                         Address/पत्ता:
                                         </span>
                                         <span>
-                                          Nashik
+                                        {index.address}
                                         </span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
+                        <div className="button-wrapper d-grid gap-2 col-6 col-sm-8 col-md-10 mx-auto mt-3">
+                      <Link to="/selfprofile">
+                      <button type="submit" className="custom-button ml-5">
+                        View More Information
+                      </button>
+                      </Link>
+                    </div>
                 </div>
                   
             </div>
         </div>
         </div>
+        ))}
     </section>
-   
+     
     {/* <!-- ========= Profile Section Start -- */}
     </div>
-  )
+  );
 }

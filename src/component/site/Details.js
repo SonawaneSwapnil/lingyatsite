@@ -1,23 +1,93 @@
-import React,{useState} from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, Navigate, NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
-
+import Service from "../../service/Service";
+import Moment from "react-moment";
+import { MomentInput } from "moment";
+import moment from "moment";
+import { useNavigate } from "react-router-dom";
+import  Datepicker from "react-datepicker";
+// import TimePicker from "react-timepicker";
+import "react-datepicker/dist/react-datepicker.css";
 export default function Details() {
- 
-  const [showhide,setshowhide]=useState('');
-  const handleshowhide=(event)=>{
-    const getuser=event.target.value;
+
+  const [userUpdateData, setuserUpdateData] = useState();
+  const [showhide, setshowhide] = useState("");
+  const [user_id, setuser_id] = useState();
+  const handleshowhide = (event) => {
+    const getuser = event.target.value;
     // console.log(getuser);
     setshowhide(getuser);
-  }
+  };
   const {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
+    reset,
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data.name);
+
+  useEffect(() => {
+    loadAllData();
+  }, []);
+
+  const loadAllData = () => {
+    setuser_id(JSON.parse(localStorage.getItem("USERID")));
+    Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then(
+      (res) => {
+        setuserUpdateData(res.data);
+        console.log(res.data);
+      }
+    );
   };
+
+  const saveData = (data) => {
+    console.log(data);
+    Service.saveAllUsers(data).then((res) => {
+      console.log(res.data);
+      alert("Data Saved successfully");
+      reset();
+      loadAllData();
+      navigate("/family");
+  });
+  
+  };
+  // Update
+ 
+  const updateRecord = () => {
+    var data1 = {
+      birth_place: getValues("birth_place"),
+      birth_time: getValues("birth_time"),
+      branch: getValues("branch"),
+      zodiac: getValues("zodiac"),
+      education: getValues("education"),
+      bussiness: getValues("bussiness"),
+      income: getValues("income"),
+      designation: getValues("designation"),
+      workplace: getValues("workplace"),
+      height: getValues("height"),
+      blood_group: getValues("blood_group"),
+      color: getValues("color"),
+      weight: getValues("weight"),
+      address: getValues("address"),
+      user_id: user_id
+    };
+
+    Service.updateUsers(data1)
+      .then((res) => {
+        alert("record Updated successsfully");
+        // loadAllData();
+        navigate("/family");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  // datepicker
+ 
+  let navigate = useNavigate();
+ 
+ 
   return (
     <div>
       {/* <!-- ==========Breadcrumb-Section========== --> */}
@@ -39,6 +109,9 @@ export default function Details() {
 
       {/* <!-- ========= Profile Section Start --> */}
       <section className="profile-section">
+      
+      {userUpdateData &&
+                  userUpdateData.map((index) => (
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xl-4 col-lg-5 col-md-7">
@@ -53,7 +126,7 @@ export default function Details() {
                       />
                       <div className="active-online"></div>
                     </div>
-                    <h5 className="name">Albert Don</h5>
+                    <h5 className="name">{index.user_name}</h5>
                     <ul className="p-b-meta-one">
                       <li>
                         <span>21 Years Old</span>
@@ -61,7 +134,7 @@ export default function Details() {
                       <li>
                         <span>
                           {" "}
-                          <i className="fas fa-map-marker-alt"></i>Paris,France
+                          <i className="fas fa-map-marker-alt"></i>{index.city}
                         </span>
                       </li>
                     </ul>
@@ -162,7 +235,7 @@ export default function Details() {
                   </li>
                 </ul>
                 <div className="mt-4">
-                  <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(updateRecord)}>
                     <h4 className="content-title text-center">
                       Personal Detail/वैयक्तिक माहिती
                     </h4>
@@ -172,18 +245,19 @@ export default function Details() {
                         Name/नाव*
                       </label>
                       <input
-                        {...register("name", {
+                        {...register("user_name", {
                           required: "Enter Your FullName/पूर्ण नाव",
                         })}
                         type="text"
                         placeholder="Enter Your FullName/पूर्ण नाव"
                         className="my-form-control"
                         id="exampleInputname"
+                        value={index.user_name}
                       />
                       {""}
-                      {errors.name && (
+                      {errors.user_name && (
                         <span style={{ color: "red" }}>
-                          {errors.name.message}
+                          {errors.user_name.message}
                         </span>
                       )}
                       <br />
@@ -197,17 +271,18 @@ export default function Details() {
                         Date Of Birth/जन्मतारीख
                       </label>
                       <input
-                        {...register("date", {
+                        {...register("dob", {
                           required: "Enter Your Date Of Birth/जन्मतारीख",
                         })}
                         type="date"
                         className="my-form-control"
                         id="exampleInputdate"
+                        value={ moment(`${index.dob}`).format('YYYY-MM-DD')}
                       />
                       {""}
-                      {errors.date && (
+                      {errors.dob&& (
                         <span style={{ color: "red" }}>
-                          {errors.date.message}
+                          {errors.dob.message}
                         </span>
                       )}
                       <br />
@@ -220,7 +295,7 @@ export default function Details() {
                         Birth Place/जन्मतारीख ठिकाण
                       </label>
                       <input
-                        {...register("place", {
+                        {...register("birth_place", {
                           required: "Enter Your Birth Place/जन्मतारीख ठिकाण",
                         })}
                         type="text"
@@ -229,9 +304,9 @@ export default function Details() {
                         id="exampleInputplace"
                       />
                       {""}
-                      {errors.place && (
+                      {errors.birth_place&& (
                         <span style={{ color: "red" }}>
-                          {errors.place.message}
+                          {errors.birth_place.message}
                         </span>
                       )}
                       <br />
@@ -245,7 +320,7 @@ export default function Details() {
                         Birth time/जन्म वेळ
                       </label>
                       <input
-                        {...register("time", {
+                        {...register("birth_time", {
                           required: "Enter Your  Birth time/जन्म वेळ",
                         })}
                         type="time"
@@ -253,9 +328,9 @@ export default function Details() {
                         id="exampleInputtime"
                       />
                       {""}
-                      {errors.time && (
+                      {errors.birth_time && (
                         <span style={{ color: "red" }}>
-                          {errors.time.message}
+                          {errors.birth_time.message}
                         </span>
                       )}
                       <br />
@@ -264,7 +339,21 @@ export default function Details() {
             <div className="form-group">
               <div classname="dropdown-menu">
                 <label htmlFor="branch" className="me-5" > Branch/शाखा</label>
-                <select id="branch" name="branch" onChange={(e)=>(handleshowhide(e))}
+                <select
+                              id="branch"
+                              name="branch"
+                              {...register("branch", {
+                                required: "Enter Your branch Name/शाखा:",
+                              })}
+                              onChange={(e) => handleshowhide(e)}
+                            
+                // {...register("branch", {
+                //   required:"Enter Your Branch/शाखा< ",
+                // })}
+                // type="text"
+                // className="my-form-control"
+               
+                // placeholder="Enter Your Branch/शाखा"
                 >
                 <option className="dropdown-item" value="">
                   -------Select Branch-----
@@ -290,16 +379,20 @@ export default function Details() {
                   <option className="dropdown-item" value="7">
                Other/इतर
                   </option>
+                 
+                        
+                     
                 </select>
                 {
                   showhide==="7" &&(
                     <div className="form-group">
                       <label>Branch</label>
-                      <input type="text" className="form-control"></input>
+                      <input type="text" className="my-form-control"></input>
                       </div>
                   )
                 }
-              </div>    {errors.branch && (
+              </div>   
+               {errors.branch && (
                 <span style={{ color: "red" }}>{errors.branch.message}</span>
               )}
             </div>
@@ -335,7 +428,7 @@ export default function Details() {
                         Educational Qualification/शैक्षणिक पात्रता
                       </label>
                       <input
-                        {...register("edu", {
+                        {...register("education", {
                           required:
                             "Enter Your Educational Qualification/शैक्षणिक पात्रता",
                         })}
@@ -345,9 +438,9 @@ export default function Details() {
                         id="exampleInputedu"
                       />
                       {""}
-                      {errors.edu && (
+                      {errors.education && (
                         <span style={{ color: "red" }}>
-                          {errors.edu.message}
+                          {errors.education.message}
                         </span>
                       )}
                       <br />
@@ -360,7 +453,7 @@ export default function Details() {
                         Service or Business/सेवा किंवा व्यवसाय
                       </label>
                       <input
-                        {...register("service", {
+                        {...register("bussiness", {
                           required:
                             "Enter Your Service or Business/सेवा किंवा व्यवसाय",
                         })}
@@ -370,9 +463,9 @@ export default function Details() {
                         id="exampleInputser"
                       />
                       {""}
-                      {errors.service && (
+                      {errors.bussiness && (
                         <span style={{ color: "red" }}>
-                          {errors.service.message}
+                          {errors.bussiness.message}
                         </span>
                       )}
                       <br />
@@ -404,7 +497,7 @@ export default function Details() {
                       />
 
                       <input
-                        {...register("desig", {
+                        {...register("designation", {
                           required: "Enter Your Designation/हुद्दा",
                         })}
                         type="text"
@@ -424,9 +517,9 @@ export default function Details() {
                         )}
                       </div>
                       <div className="col-sm-5 ml-4">
-                        {errors.desig && (
+                        {errors.designation && (
                           <div style={{ color: "red" }}>
-                            {errors.desig.message}
+                            {errors.designation.message}
                           </div>
                         )}
                       </div>
@@ -449,7 +542,7 @@ export default function Details() {
                     </div>
                     <div className="row input-group ">
                       <input
-                        {...register("work", {
+                        {...register("workplace", {
                           required: "Enter Your  Workplace/कामाची जागा",
                         })}
                         type="text"
@@ -469,9 +562,9 @@ export default function Details() {
                     </div>
                     <div className="row">
                       <div className="col-sm-5 ml-2 mr-5">
-                        {errors.work && (
+                        {errors.workplace && (
                           <span style={{ color: "red" }}>
-                            {errors.work.message}
+                            {errors.workplace.message}
                           </span>
                         )}
                       </div>
@@ -499,7 +592,7 @@ export default function Details() {
                     </div>
                     <div className="row input-group ">
                       <input
-                        {...register("blood", {
+                        {...register("blood_group", {
                           required: "Enter Your Blood-Group/रक्त गट",
                         })}
                         type="text"
@@ -519,9 +612,9 @@ export default function Details() {
                     </div>
                     <div className="row">
                       <div className="col-sm-5 ml-2 mr-5">
-                        {errors.blood && (
+                        {errors.blood_group && (
                           <span style={{ color: "red" }}>
-                            {errors.blood.message}
+                            {errors.blood_group.message}
                           </span>
                         )}
                       </div>
@@ -559,7 +652,7 @@ export default function Details() {
                         placeholder="Enter Your Weight/वजन "
                       />
                       <input
-                        {...register("addr", {
+                        {...register("address", {
                           required: "Enter Your Address/पत्ता",
                         })}
                         type="text"
@@ -577,9 +670,9 @@ export default function Details() {
                         )}
                       </div>
                       <div className="col-sm-5 ml-4">
-                        {errors.addr && (
+                        {errors.address && (
                           <div style={{ color: "red" }}>
-                            {errors.addr.message}
+                            {errors.address.message}
                           </div>
                         )}
                       </div>
@@ -597,7 +690,7 @@ export default function Details() {
             </div>
           </div>
         </div>
-      </section>
+                  ))}</section>
 
       {/* <!-- ========= Profile Section Start -- */}
     </div>
