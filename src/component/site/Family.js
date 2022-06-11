@@ -7,18 +7,21 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 export default function Family() {
   const [userUpdateData, setuserUpdateData] = useState();
+  const [user_id, setuser_id] = useState();
   const {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
+    reset,
   } = useForm();
-  
-  
+
   useEffect(() => {
     loadAllData();
   }, []);
 
   const loadAllData = () => {
+    setuser_id(JSON.parse(localStorage.getItem("USERID")));
     Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then(
       (res) => {
         setuserUpdateData(res.data);
@@ -26,14 +29,43 @@ export default function Family() {
       }
     );
   };
-  const saveFamilyData = (data) => {
-    console.log(data);
-    Service.saveAllFamily(data).then((res) => {
-      console.log(res.data);
-      alert("Family registerd successfully");
-      navigate("/expectation");
-    });
+
+  // const saveData = (data) => {
+  //   console.log(data);
+  //   Service.saveAllUsers(data).then((res) => {
+  //     console.log(res.data);
+  //     alert("Data Saved successfully");
+  //     reset();
+  //     loadAllData();
+  // });
+    
+  // };
+  // Update
+ 
+  const updateRecord = () => {
+    var data = {
+      father: getValues("father"),
+      mother: getValues("mother"),
+      brother: getValues("brother"),
+      sister: getValues("sister"),
+      father_contact: getValues("father_contact"),
+      mother_contact: getValues("mother_contact"),
+      brother_contact: getValues("brother_contact"),
+      sister_contact: getValues("sister_contact"),
+      user_id: user_id
+    };
+
+    Service.updateFamily(data)
+      .then((res) => {
+        alert("record Updated successsfully");
+        // loadAllData();
+        navigate("/expectation");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
+
   let navigate=useNavigate();
   return (
     <div>
@@ -162,7 +194,7 @@ export default function Family() {
                   </li>
                 </ul>
                 <div className="mt-4">
-                  <form onSubmit={handleSubmit(saveFamilyData)}>
+                  <form onSubmit={handleSubmit(updateRecord)}>
                     <h4 className="content-title text-center">
                       Family Information/कौटुंबिक माहिती
                     </h4>

@@ -5,10 +5,15 @@ import Service from "../../service/Service";
 import { useNavigate } from "react-router-dom";
 export default function Expectation() {
   const [userUpdateData, setuserUpdateData] = useState();
+  const [user_id, setuser_id] = useState();
+  const [selectedFile, setSelectedFile] = useState();
+  const [isFilePicked, setIsFilePicked] = useState(false);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
   } = useForm();
 
   useEffect(() => {
@@ -16,6 +21,7 @@ export default function Expectation() {
   }, []);
 
   const loadAllData = () => {
+    setuser_id(JSON.parse(localStorage.getItem("USERID")));
     Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then(
       (res) => {
         setuserUpdateData(res.data);
@@ -23,18 +29,45 @@ export default function Expectation() {
       }
     );
   };
-  const saveExcepData = (data) => {
+  // const saveExcepData = (data) => {
+  //   let fd = new FormData();
+  //   fd.append("expectation", data.expectation);
+  //   fd.append("passport", data.passport[0]);
+  //   // fd.append("fullphoto", data.fullphoto[0]);
+  //   console.log(data);
+  //   Service.saveAllEceptation(fd).then((res) => {
+  //     console.log(fd);
+  //     alert("Data saved successfully");
+  //     navigate("/single_profile2");
+  //   });
+  // };
+
+  const changeHandler = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+  const updateRecord = () => {
+    var data = {
+      expectation: getValues("expectation"),
+      passport: getValues("passport"),
+      user_id: user_id,
+    };
     let fd = new FormData();
     fd.append("expectation", data.expectation);
-    fd.append("passport", data.passport[0]);
-    fd.append("fullphoto", data.fullphoto[0]);
-    console.log(data);
-    Service.saveAllEceptation(fd).then((res) => {
-      console.log(fd);
-      alert("Data saved successfully");
-      navigate("/single_profile2");
-    });
+    fd.append("passport", selectedFile);
+    fd.append("user_id", data.user_id);
+    console.log(fd);
+
+    Service.updateExceptation(fd)
+      .then((res) => {
+        alert("record Updated successsfully");
+        // loadAllData();
+        navigate("/expectation");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
+
   let navigate = useNavigate();
   return (
     <div>
@@ -180,7 +213,7 @@ export default function Expectation() {
                       </li>
                     </ul>
                     <div className="mt-4">
-                      <form onSubmit={handleSubmit(saveExcepData)}>
+                      <form onSubmit={handleSubmit(updateRecord)}>
                         <h4 className="content-title text-center">
                           Expectation/अपेक्षा वधू/वर
                         </h4>
@@ -218,6 +251,7 @@ export default function Expectation() {
                               {...register("passport", {
                                 required: "Please enter passport photo",
                               })}
+                              onChange={changeHandler}
                             />
                             {errors.passport && (
                               <span style={{ color: "red" }}>
@@ -236,9 +270,6 @@ export default function Expectation() {
                               id="inputGroupFile04"
                               aria-describedby="inputGroupFileAddon04"
                               aria-label="Upload"
-                              {...register("fullphoto", {
-                                required: "Please enter 4 photos",
-                              })}
                             />
                             {errors.fullphoto && (
                               <span style={{ color: "red" }}>

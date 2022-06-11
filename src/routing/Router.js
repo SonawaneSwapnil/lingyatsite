@@ -12,8 +12,10 @@ import Family from '../component/site/Family'
 import Expectation from '../component/site/Expectation'
 import User_setting from '../component/site/User_setting'
 import Single_profile3 from '../component/site/Single_profile3'
-
 import Search from '../component/site/Search'
+import Profile from '../component/site/Profile'
+import Info from '../component/site/Info'
+import Selfprofile from '../component/site/Selfprofile'
 
 export default function  Router() {
   return (
@@ -33,8 +35,16 @@ export default function  Router() {
     <Route path="single_profile3" element={<Single_profile3/>}/>
     <Route path="user_setting" element={<User_setting/>}/>
     <Route path="search" element={<Search/>}/>
+    <Route path="profile" element={<Profile/>}/>
+    <Route path="info" element={<Info/>}/>
+    <Route path="selfprofile" element={<Selfprofile/>}/>
+   
     </Route>
+    
 </Routes>
+
+
+
 </BrowserRouter>
 
     </div>

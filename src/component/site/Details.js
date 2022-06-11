@@ -41,16 +41,16 @@ export default function Details() {
     );
   };
 
-  const saveData = (data) => {
-    console.log(data);
-    Service.saveAllUsers(data).then((res) => {
-      console.log(res.data);
-      alert("Data Saved successfully");
-      reset();
-      loadAllData();
-  });
+  // const saveData = (data) => {
+  //   console.log(data);
+  //   Service.saveAllUsers(data).then((res) => {
+  //     console.log(res.data);
+  //     alert("Data Saved successfully");
+  //     reset();
+  //     loadAllData();
+  // });
     
-  };
+  // };
   // Update
  
   const updateRecord = () => {
@@ -76,7 +76,7 @@ export default function Details() {
       .then((res) => {
         alert("record Updated successsfully");
         // loadAllData();
-        navigate("/expectation");
+        navigate("/family");
       })
       .catch((err) => {
         console.log(err);
