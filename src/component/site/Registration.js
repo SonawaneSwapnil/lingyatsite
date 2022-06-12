@@ -28,10 +28,10 @@ export default function Registration() {
         <div className="top-menu-area">
           <div className="container">
             <div className="row">
-              <div className="col-lg-5">
-                <Link to="/" className="backto-home"><i className="fas fa-chevron-left"></i> Back to Lingayat Matrimony</Link>
+              <div className="col-lg-6">
+                <Link to="/" className="backto-home"><i className="fas fa-chevron-left"></i>Back to Home</Link>
               </div>
-              <div className="col-lg-7">
+              <div className="col-lg-6">
                 <div className="logo">
                   <img src="assets/images/logo/logo.png" alt="logo" className="w-50" />
                 </div>
@@ -39,10 +39,10 @@ export default function Registration() {
             </div>
           </div>
         </div>
-        <div className="container">
+        <div className="container-fluid">
           <div className="row justify-content-end">
-            <div className="image"></div>
-            <div className="col-lg-7">
+            <div className="image col-lg-6"></div>
+            <div className="col-lg-6">
               <div className="log-reg-inner">
                 <div className="section-header">
                   <h2 className="title">Welcome to Lingayat Matrimony</h2>

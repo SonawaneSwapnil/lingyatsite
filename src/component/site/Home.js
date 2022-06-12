@@ -21,7 +21,7 @@ export default function Home() {
     <div>
       {/* <!-- ==========Banner-Section========== --> */}
       <div className='banner-section'>
-        <img className='img1 wow fadeInLeft' src='assets/images/banner/aimg1.png' alt='' />
+        <img className='img1 wow fadeInLeft mt-lg-50 pt-lg-5 mt-xl-50 pt-xl-5' src='assets/images/banner/aimg1.png' alt='' />
         {/* <img className='img2 wow fadeInRight' src='assets/images/banner/aimg2.png' alt='' /> */}
         <div className='container'>
           <div className='row'>
@@ -61,68 +61,51 @@ export default function Home() {
                     <div className='option col-8'>
                       <div className='s-input'>
                         <select className='select-bar'>
-                          {ageFilter.map((item, index) => {
-                            return <option key={index}>{item}</option>
-                          })}
+                          {ageFilter.map((item, index) => { return <option key={index}>{item}</option> })}
                         </select>
                       </div>
                       <div className='separator ml-4 mr-4'>-</div>
                       <div className='s-input'>
                         <select className='select-bar'>
-                          {ageFilter.map((item, index) => {
-                            return <option key={index}>{item}</option>
-                          })}
+                          {ageFilter.map((item, index) => { return <option key={index}>{item}</option> })}
                         </select>
                       </div>
                     </div>
                   </div>
 
-                  <div className='container-fluid single-option'>
+                  <div className='single-option'>
                     <div className='row'>
                       <label className='title col-lg-5'>WorkPlace [City]:</label>
                       <input
-                        {...register('work', {
-                          required: 'Enter Your WorkPlace [City]:',
-                        })}
+                        {...register('work', { required: 'Enter Your WorkPlace [City]:' })}
                         type='text'
                         className='my-form-control col-lg-6'
                         id='exampleInputincome' />
-                      {errors.work && (
-                        <span style={{ color: 'red' }}>{errors.work.message}</span>
-                      )}
+                      {errors.work && (<span style={{ color: 'red' }}>{errors.work.message}</span>)}
                     </div>
                   </div>
 
-                  <div className='container-fluid single-option'>
+                  <div className='single-option'>
                     <div className='row'>
                       <label htmlFor='inputincome' className='title col-lg-5'>Income/उत्पन्न:</label>
                       <input
-                        {...register('income', {
-                          required: 'Enter Your Income/उत्पन्न',
-                        })}
+                        {...register('income', { required: 'Enter Your Income/उत्पन्न', })}
                         type='number'
-                        className='my-form-control col-lg-6'
+                        className='my-form-control col-lg-6 start-100'
                         id='exampleInputincome' />
-                      {errors.income && (
-                        <span style={{ color: 'red' }}>{errors.income.message}</span>
-                      )}
+                      {errors.income && (<span style={{ color: 'red' }}>{errors.income.message}</span>)}
                     </div>
                   </div>
 
-                  <div className='container-fluid single-option last'>
+                  <div className='single-option last'>
                     <div className='row'>
-                      <label htmlFor='exampleInputedu' className='title col-lg-5'>Qualification/शैक्षणिक पात्रता:</label>
+                      <label htmlFor='exampleInputedu' className='title col-lg-7'>Qualification/शैक्षणिक पात्रता:</label>
                       <input
-                        {...register('edu', {
-                          required:
-                            'Enter Your Educational Qualification/शैक्षणिक पात्रता',
-                        })}
+                        {...register('edu', { required: 'Enter Your Educational Qualification/शैक्षणिक पात्रता', })}
                         type='text'
-                        className='my-form-control col-lg-6'
+                        className='my-form-control col-lg-4'
                         id='exampleInputedu' />
-                      {errors.edu && (
-                        <span style={{ color: 'red' }}>{errors.edu.message}</span>
-                      )}
+                      {errors.edu && (<span style={{ color: 'red' }}>{errors.edu.message}</span>)}
                     </div>
                   </div>
 

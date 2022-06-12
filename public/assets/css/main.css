@@ -4106,7 +4106,7 @@ input[type=submit] {
 /*Breadcrumb-Section Stars Here*/
 .breadcrumb-area {
   padding: 170px 0 70px;
-  background: url("../images/banner/bc-about.jpg");
+  background: url("../images/banner/bc-about.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -8327,7 +8327,7 @@ input[type=submit] {
   background-position: center;
   background-size: cover;
   height: 100vh;
-  width: 43%;
+  width: 50%;
   position: absolute;
   left: 0px;
   top: 0px;

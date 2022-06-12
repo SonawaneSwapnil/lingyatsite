@@ -35,10 +35,10 @@ export default function Login() {
         <div className="top-menu-area">
           <div className="container">
             <div className="row">
-              <div className="col-lg-5">
-                <Link to="/" className="backto-home"><i className="fas fa-chevron-left"></i> Back to Lingayat Matrimony</Link>
+              <div className="col-lg-6 text-center">
+                <Link to="/" className="backto-home"><i className="fas fa-chevron-left"></i>Back to Home</Link>
               </div>
-              <div className="col-lg-7 ">
+              <div className="col-lg-6 text-center">
                 <div className="logo">
                   <img src="assets/images/logo/logo.png" className="w-50" alt="logo" />
                   <p className='pt-4'><strong>Note: Please Sign in for finding your Dream Partner</strong></p>
@@ -47,11 +47,11 @@ export default function Login() {
             </div>
           </div>
         </div>
-        <div className="container">
+        <div className="container-fluid">
           <div className="row justify-content-end">
-            <div className="image image-log">
+            <div className="col-lg-6 image image-log">
             </div>
-            <div className="col-lg-7">
+            <div className="col-lg-6">
               <div className="log-reg-inner">
                 <div className="section-header inloginp">
                   <h2 className="title">Welcome to Lingayat Matrimony</h2>
