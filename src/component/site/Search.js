@@ -4,53 +4,59 @@ import { Link } from 'react-router-dom'
 
 
 export default function Search() {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-      } = useForm();
-      const onSubmit = (data) => {
-        console.log(data.name);
-      };
-    
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    console.log(data.name);
+  };
+
+  function range(start, end) {
+    return Array(end - start + 1).fill().map((_, idx) => start + idx)
+  }
+
+  var ageFilter = range(18, 65);
+
   return (
     <div>
-       
-        {/* <!-- ==========Breadcrumb-Section========== --> */}
-    <section className="breadcrumb-area profile-bc-area">
-        <div className="container">
-            <div className="content">
-                <h2 className="title extra-padding">
-                   Search
-                </h2>
-                <ul className="breadcrumb-list extra-padding">
-                    <li>
-                         <Link  to="index.html">
-                            Home
-                        </Link>
-                    </li>
 
-                    <li>
-                        Search
-                    </li>
-                </ul>
-            </div>
+      {/* <!-- ==========Breadcrumb-Section========== --> */}
+      <section className="breadcrumb-area profile-bc-area">
+        <div className="container">
+          <div className="content">
+            <h2 className="title extra-padding">
+              Search
+            </h2>
+            <ul className="breadcrumb-list extra-padding">
+              <li>
+                <Link to="index.html">
+                  Home
+                </Link>
+              </li>
+
+              <li>
+                Search
+              </li>
+            </ul>
+          </div>
         </div>
-    </section>
-    {/* <!-- ==========Breadcrumb-Section========== --> */}
+      </section>
+      {/* <!-- ==========Breadcrumb-Section========== --> */}
 
-    {/* <!-- ==========Community-Section========== --> */}
-    <section className="community-section inner-page">
+      {/* <!-- ==========Community-Section========== --> */}
+      <section className="community-section inner-page">
         <div className="container">
-            <div className="row">
-                <div className="col-lg-12">
-                    <div className="top-filter">
-                        <div className="left">
-                             <Link  to="" data-toggle="modal" data-target="#exampleModalCenter">
-                                <i className="fas fa-sliders-h"></i> Find Your Perfect Partner
-                            </Link>
-                        </div>
-                        {/* <div className="right">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="top-filter">
+                <div className="left">
+                  <Link to="" data-toggle="modal" data-target="#exampleModalCenter">
+                    <i className="fas fa-sliders-h"></i> Find Your Perfect Partner
+                  </Link>
+                </div>
+                {/* <div className="right">
                             <span className="span">
                                 Order By :
                             </span>
@@ -63,202 +69,202 @@ export default function Search() {
                                 </select>
                             </div>
                         </div> */}
-                    </div>
-                </div>
+              </div>
             </div>
-            <div className="row">
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend1.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Erma Porter
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-6">
+              <div className="single-friend">
+                <img src="assets/images/profile/friend1.png" alt="" />
+                <div className="content">
+                  <Link to="single-profile.html" className="name">
+                    Erma Porter
+                    <span className="isvarify">
+                      <i className="fas fa-check-circle"></i>
+                    </span>
+                  </Link>
+                  <p className="date">
+                    a month ago
+                  </p>
+                  <Link to="single-profile.html" className="connnect-btn">
+                    View Profile
+                  </Link>
                 </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend2.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Brad Barber
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend3.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Vicki Alvarez
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend4.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Amber Perry
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend5.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Kelly Fox
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend6.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Opal Farmer
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend7.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                May Hart
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend8.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Ana Byrd
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend9.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Arthur Bass
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend10.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Stewart Bailey
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-            {/* <!-- <div className="row">
+            <div className="col-lg-6">
+              <div className="single-friend">
+                <img src="assets/images/profile/friend2.png" alt="" />
+                <div className="content">
+                  <Link to="single-profile.html" className="name">
+                    Brad Barber
+                    <span className="isvarify">
+                      <i className="fas fa-check-circle"></i>
+                    </span>
+                  </Link>
+                  <p className="date">
+                    a month ago
+                  </p>
+                  <Link to="single-profile.html" className="connnect-btn">
+                    View Profile
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="single-friend">
+                <img src="assets/images/profile/friend3.png" alt="" />
+                <div className="content">
+                  <Link to="single-profile.html" className="name">
+                    Vicki Alvarez
+                    <span className="isvarify">
+                      <i className="fas fa-check-circle"></i>
+                    </span>
+                  </Link>
+                  <p className="date">
+                    a month ago
+                  </p>
+                  <Link to="single-profile.html" className="connnect-btn">
+                    View Profile
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="single-friend">
+                <img src="assets/images/profile/friend4.png" alt="" />
+                <div className="content">
+                  <Link to="single-profile.html" className="name">
+                    Amber Perry
+                    <span className="isvarify">
+                      <i className="fas fa-check-circle"></i>
+                    </span>
+                  </Link>
+                  <p className="date">
+                    a month ago
+                  </p>
+                  <Link to="single-profile.html" className="connnect-btn">
+                    View Profile
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="single-friend">
+                <img src="assets/images/profile/friend5.png" alt="" />
+                <div className="content">
+                  <Link to="single-profile.html" className="name">
+                    Kelly Fox
+                    <span className="isvarify">
+                      <i className="fas fa-check-circle"></i>
+                    </span>
+                  </Link>
+                  <p className="date">
+                    a month ago
+                  </p>
+                  <Link to="single-profile.html" className="connnect-btn">
+                    View Profile
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="single-friend">
+                <img src="assets/images/profile/friend6.png" alt="" />
+                <div className="content">
+                  <Link to="single-profile.html" className="name">
+                    Opal Farmer
+                    <span className="isvarify">
+                      <i className="fas fa-check-circle"></i>
+                    </span>
+                  </Link>
+                  <p className="date">
+                    a month ago
+                  </p>
+                  <Link to="single-profile.html" className="connnect-btn">
+                    View Profile
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="single-friend">
+                <img src="assets/images/profile/friend7.png" alt="" />
+                <div className="content">
+                  <Link to="single-profile.html" className="name">
+                    May Hart
+                    <span className="isvarify">
+                      <i className="fas fa-check-circle"></i>
+                    </span>
+                  </Link>
+                  <p className="date">
+                    a month ago
+                  </p>
+                  <Link to="single-profile.html" className="connnect-btn">
+                    View Profile
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="single-friend">
+                <img src="assets/images/profile/friend8.png" alt="" />
+                <div className="content">
+                  <Link to="single-profile.html" className="name">
+                    Ana Byrd
+                    <span className="isvarify">
+                      <i className="fas fa-check-circle"></i>
+                    </span>
+                  </Link>
+                  <p className="date">
+                    a month ago
+                  </p>
+                  <Link to="single-profile.html" className="connnect-btn">
+                    View Profile
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="single-friend">
+                <img src="assets/images/profile/friend9.png" alt="" />
+                <div className="content">
+                  <Link to="single-profile.html" className="name">
+                    Arthur Bass
+                    <span className="isvarify">
+                      <i className="fas fa-check-circle"></i>
+                    </span>
+                  </Link>
+                  <p className="date">
+                    a month ago
+                  </p>
+                  <Link to="single-profile.html" className="connnect-btn">
+                    View Profile
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="single-friend">
+                <img src="assets/images/profile/friend10.png" alt="" />
+                <div className="content">
+                  <Link to="single-profile.html" className="name">
+                    Stewart Bailey
+                    <span className="isvarify">
+                      <i className="fas fa-check-circle"></i>
+                    </span>
+                  </Link>
+                  <p className="date">
+                    a month ago
+                  </p>
+                  <Link to="single-profile.html" className="connnect-btn">
+                    View Profile
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* <!-- <div className="row">
                 <div className="col-lg-12">
                     <div className="pagination-area text-center">
                          <Link  to="#"><i className="fas fa-angle-double-left"></i><span></span></Link>
@@ -272,148 +278,129 @@ export default function Search() {
                 </div>
             </div> --> */}
         </div>
-    </section>
-    {/* <!-- ==========Community-Section========== --> */}
-    <div className="modal fade filter-p" id="exampleModalCenter" tabindex="-1" role="dialog"
+      </section>
+      {/* <!-- ==========Community-Section========== --> */}
+      <div className="modal fade filter-p s-modal" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered" role="document">
-            <div className="modal-content">
-                <div className="modal-header justify-content-between">
-                  
-                    <h6 className="modal-title text-center" id="exampleModalCenterTitle">Find Your Perfect Partner</h6>
-                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div className="modal-body">
-                    <div className="join-now-box">
-                        <div className="single-option">
-                            <label className="title ml-3">
-                                I am a :
-                            </label>
-                            <div className="option">
-                                <div className="s-input mr-3 ml-5">
-                                    <input type="radio" name="gender" id="male"/><label for="male">Male</label>
-                                </div>
-                                <div className="s-input ml-5">
-                                    <input type="radio" name="gender" id="female"/><label for="female">Female</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="single-option gender">
-                            <label className="title ml-3">
-                                Seeking a :
-                            </label>
-                            <div className="option">
-                                <div className="s-input mr-2 ml-4">
-                                    <input type="radio" name="seeking" id="males"/><label for="males">Man</label>
-                                </div>
-                                <div className="s-input ml-5">
-                                    <input type="radio" name="seeking" id="females"/><label for="females">Woman</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="single-option age">
-                            <label className="title ml-3">
-                                Ages :
-                            </label>
-                            <div className="option">
-                                <div className="s-input mr-3 ml-5">
-                                    <select className="select-bar">
-                                        <option value="">18</option>
-                                        <option value="">20</option>
-                                        <option value="">24</option>
-                                    </select>
-                                </div>
-                                <div className="separator">
-                                    -
-                                </div>
-                                <div className="s-input mr-3 ml-5">
-                                    <select className="select-bar">
-                                        <option value="">30</option>
-                                        <option value="">35</option>
-                                        <option value="">40</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="single-option">
-                            <label className="title ml-3">
-                            Workplace [City]:
-                            </label><input
-                        {...register("work", {
-                          required: "Enter Your Workplace [City]:",
-                        })}
-                        type="number"
-                        className="my-form-control col-sm-7 ml-4"
-                        placeholder=" Enter Your Workplace [City]:"
-                        id="exampleInputwork"
-                      />
-                      {errors.work&& (
-                          <span style={{ color: "red" }}>
-                            {errors.work.message}
-                          </span>
-                        )}
-                            
-                            
-                        </div>
-                        <div className="single-option">
-                    
-                      <label
-                        htmlFor="inputincome"
-                        className=" ml-3 title"
-                      >
-                        {" "}
-                        Income/उत्पन्न:
-                      </label>
+          <div className="modal-content">
+            <div className="modal-header justify-content-between">
+
+              <h6 className="modal-title text-center" id="exampleModalCenterTitle">Find Your Perfect Partner</h6>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body p-0">
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="join-now-box wow fadeInUp">
+
+                  <div className='single-option'>
+                    <label className='title col-4'>I am a :</label>
+                    <div className='option col-8'>
+                      <div className='s-input'>
+                        <input type='radio' name='gender' id='male' /><label htmlFor='male'>Male</label>
+                      </div>
+                      <div className='s-input ml-5'>
+                        <input type='radio' name='gender' id='female' /><label htmlFor='female'>Female</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='single-option gender'>
+                    <label className='title col-4'>Seeking a :</label>
+                    <div className='option col-8'>
+                      <div className='s-input'>
+                        <input type='radio' name='seeking' id='males' /><label htmlFor='males'>Male</label>
+                      </div>
+                      <div className='s-input ml-5'>
+                        <input type='radio' name='seeking' id='females' /><label htmlFor='females'>Female</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='single-option age'>
+                    <label className='title col-4'>Ages :</label>
+                    <div className='option col-8'>
+                      <div className='s-input'>
+                        <select className='select-bar'>
+                          {ageFilter.map((item, index) => {
+                            return <option key={index}>{item}</option>
+                          })}
+                        </select>
+                      </div>
+                      <div className='separator ml-4 mr-4'>-</div>
+                      <div className='s-input'>
+                        <select className='select-bar'>
+                          {ageFilter.map((item, index) => {
+                            return <option key={index}>{item}</option>
+                          })}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='container-fluid single-option'>
+                    <div className='row'>
+                      <label className='title col-lg-5'>WorkPlace [City]:</label>
                       <input
-                        {...register("income", {
-                          required: "Enter Your  Income/उत्पन्न",
+                        {...register('work', {
+                          required: 'Enter Your WorkPlace [City]:',
                         })}
-                        type="number"
-                        className="my-form-control col-sm-7 ml-4"
-                        placeholder="Enter Your  Income/उत्पन्न"
-                        id="exampleInputincome"
+                        type='text'
+                        className='my-form-control col-lg-6'
+                        id='exampleInputincome'
+                      />
+                      {errors.work && (
+                        <span style={{ color: 'red' }}>{errors.work.message}</span>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className='container-fluid single-option'>
+                    <div className='row'>
+                      <label htmlFor='inputincome' className='title col-lg-5'>Income/उत्पन्न:</label>
+                      <input
+                        {...register('income', {
+                          required: 'Enter Your Income/उत्पन्न',
+                        })}
+                        type='number'
+                        className='my-form-control col-lg-6'
+                        id='exampleInputincome'
                       />
                       {errors.income && (
-                          <span style={{ color: "red" }}>
-                            {errors.income.message}
-                          </span>
-                        )}
+                        <span style={{ color: 'red' }}>{errors.income.message}</span>
+                      )}
                     </div>
-                    <div className='single-option last'>
-                    <label
-                        htmlFor="exampleInputedu"
-                        className="title ml-2"
-                      >
-                        Qualification/शैक्षणिक पात्रता:
-                      </label>
-                    
-                     <input
-                      {...register("edu", {
-                        required:
-                          "Enter Your Educational Qualification/शैक्षणिक पात्रता",
-                      })}
-                      type="text"
-                      placeholder="Enter Your Educational Qualification/शैक्षणिक पात्रता"
-                      className="my-form-control col-sm-7 ml-4"
-                      id="exampleInputedu"
-                    />
+                  </div>
 
-                        {errors.edu && (
-                          <span style={{ color: "red" }}>
-                            {errors.edu.message}
-                          </span>
-                        )}
-                      </div>
-                        <div className="joun-button">
-                            <button className="custom-button">Find</button>
-                        </div>
+                  <div className='container-fluid single-option last'>
+                    <div className='row'>
+                      <label htmlFor='exampleInputedu' className='title col-lg-5'>Qualification/शैक्षणिक पात्रता:</label>
+                      <input
+                        {...register('edu', {
+                          required:
+                            'Enter Your Educational Qualification/शैक्षणिक पात्रता',
+                        })}
+                        type='text'
+                        className='my-form-control col-lg-6'
+                        id='exampleInputedu'
+                      />
+                      {errors.edu && (
+                        <span style={{ color: 'red' }}>{errors.edu.message}</span>
+                      )}
                     </div>
+                  </div>
+
+                  <div className="join-button">
+                    <button className="custom-button">Find</button>
+                  </div>
                 </div>
+              </form>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
     </div>
   )
 }
