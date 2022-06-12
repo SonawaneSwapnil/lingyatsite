@@ -14,6 +14,7 @@ const Info = () => {
 
 
     const [usersData, setUsersData] = useState();
+    const imgPath="https://atjoin.in/lingayat_matrimony_api/";
     
     useEffect(() => {
         loadAllUsersData();
@@ -23,12 +24,12 @@ const Info = () => {
         
         Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then((res)=>{
           setUsersData(res.data);
-          const picturePath = `/uploads/${res.data}`;
+         
           console.log(res.data);
         });
       };
     let navigate=useNavigate();
-    
+ 
     
   return (
     <div>
@@ -65,7 +66,7 @@ const Info = () => {
                             <div className="p-inner-content">
                                 <div className="profile-img">
                                     {/* <img src="assets/images/profile/profile-user.png" alt=""/> */}
-                                    <img src={`/uploads/${index.image}`} alt=""/>
+                                    <img src={imgPath+index.passport} alt=""/>
                                     <div className="active-online"></div>
                                 </div>
                                 <h5 className="name">

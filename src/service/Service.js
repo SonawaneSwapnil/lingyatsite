@@ -4,7 +4,7 @@ class Service
 {
     getAllUsers()
     {
-        return axios.get(Base_url+"users/get-users")
+        return axios.get(Base_url+"users/get-users");
     }
     saveAllUsers(data)
     {
@@ -21,6 +21,9 @@ class Service
     {
         return axios.post(Base_url+"users/login",data)
     }
+
+    // single users search
+   
 
     // family
     saveAllFamily(data)

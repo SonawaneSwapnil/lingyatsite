@@ -17,17 +17,12 @@ export default function Login () {
   Service.saveAllLogin(data).then(res=>{
     console.log(res.data);
     alert("Login successful");
-   
     localStorage.setItem("USERID",JSON.stringify(res.data.data.user_id));
-   
     navigate("/single_profile2");
   
   });
     });
 
-    const logout = () => {
-      localStorage.removeItem("USERID");
-    };
     let navigate=useNavigate();
   return (
     <div>

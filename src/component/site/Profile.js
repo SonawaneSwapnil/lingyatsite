@@ -1,19 +1,26 @@
 import React,{useEffect,useState} from 'react'
-import { NavLink,Link } from 'react-router-dom'
+import { NavLink,Link, useParams } from 'react-router-dom'
 import Service from '../../service/Service';
 import moment from 'moment'
 export default function Profile() {
-    const [usersData, setUsersData] = useState();
+    const [userData, setUserData] = useState();
+    const [userUpdateData, setuserUpdateData] = useState();
   
-  useEffect(() => {
-    loadAllUsersData();
+
+    let userId=useParams();
+    useEffect(() => {
+    loadAllData();
   }, []);
 
-  const loadAllUsersData = () => {
-    Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then((res)=>{
-      setUsersData(res.data);
-      console.log(res.data);
-    });
+  const loadAllData = () => {
+    Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then(
+      (res) => {
+        setuserUpdateData(res.data);
+        console.log(res.data);
+    localStorage.removeItem("USERID");
+      }    
+    );
+   
   };
     
   return (
@@ -41,8 +48,8 @@ export default function Profile() {
     </section>
     {/* <!-- ========= Profile Section Start --> */}
     <section className="profile-section">
-      {usersData && usersData.map(index=>(
-        <div className="container">
+      {userUpdateData && userUpdateData.map((index,key)=>(
+        <div className="container" key={index.user_id}>
           <div className="row justify-content-center">
             <div className="col-xl-4 col-lg-5 col-md-7">
               <div className="left-profile-area">
@@ -303,6 +310,13 @@ export default function Profile() {
                     </ul>
                   </div>
                 </div>
+                <div className="button-wrapper d-grid gap-2 col-6 col-sm-8 col-md-10 mx-auto mt-3">
+                      <Link to="/info">
+                      <button type="submit" className="custom-button ml-5">
+                        View More Information
+                      </button>
+                      </Link>
+                    </div>
               </div>
             </div>
           </div>

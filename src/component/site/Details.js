@@ -54,7 +54,7 @@ export default function Details() {
   // Update
  
   const updateRecord = () => {
-    var data1 = {
+    var data = {
       birth_place: getValues("birth_place"),
       birth_time: getValues("birth_time"),
       branch: getValues("branch"),
@@ -71,8 +71,8 @@ export default function Details() {
       address: getValues("address"),
       user_id: user_id
     };
-
-    Service.updateUsers(data1)
+   
+    Service.updateUsers(data)
       .then((res) => {
         alert("record Updated successsfully");
         // loadAllData();
