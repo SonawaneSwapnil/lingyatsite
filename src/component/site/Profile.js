@@ -4,7 +4,6 @@ import Service from '../../service/Service';
 import moment from 'moment'
 export default function Profile() {
     const [userData, setUserData] = useState();
-    const [userUpdateData, setuserUpdateData] = useState();
   
 
     let userId=useParams();
@@ -12,15 +11,15 @@ export default function Profile() {
     loadAllData();
   }, []);
 
+  const userID = localStorage.getItem("USERID");
+
   const loadAllData = () => {
-    Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then(
+    Service.getSingleUser(JSON.parse(userID)).then(
       (res) => {
-        setuserUpdateData(res.data);
-        console.log(res.data);
-    localStorage.removeItem("USERID");
-      }    
+        setUserData(res.data);
+        console.log('USER ID', localStorage.getItem("USERID"));
+      }
     );
-   
   };
     
   return (
@@ -48,7 +47,7 @@ export default function Profile() {
     </section>
     {/* <!-- ========= Profile Section Start --> */}
     <section className="profile-section">
-      {userUpdateData && userUpdateData.map((index,key)=>(
+      {userData && userData.map((index,key)=>(
         <div className="container" key={index.user_id}>
           <div className="row justify-content-center">
             <div className="col-xl-4 col-lg-5 col-md-7">

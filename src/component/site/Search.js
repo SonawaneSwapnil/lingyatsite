@@ -24,16 +24,15 @@ export default function Search() {
   const loadAllUserData = () => {
     Service.getAllUsers().then((res) => {
       setUserData(res.data);
-      console.log(res.data);
-
+     
     });
   };
 // sinlge user
 
 const searchData=(data=>{
-  console.log(data);
+  
   Service.searchUser(data).then(res=>{
-    console.log(res.data);
+   
     alert("Profile viewed");
     localStorage.setItem("USERID",JSON.stringify(res.data.data.user_id));
     navigate("/profile");
@@ -122,7 +121,7 @@ const searchData=(data=>{
                   </Link>
                   <p className="date">a month ago</p>
                   <Link to='/profile'>
-                  <button className="custom-button ps-5"  onClick={localStorage.setItem("USERID",JSON.stringify(index.user_id))}>
+                  <button className="custom-button ps-5"  onClick={()=>{localStorage.setItem("USERID",JSON.stringify(index.user_id))}}>
                     View Profile
                  </button>
                  </Link>
