@@ -8,66 +8,72 @@ import Service from "../../service/Service";
 export default function Search() {
   const [userUpdateData, setuserUpdateData] = useState();
   const [userData, setUserData] = useState();
- 
+  const [filteredUser, setFilterUser] = useState([]);
+  let navigate=useNavigate();
   const {
     register,
     handleSubmit,
-    formState: { errors },
-    getValues,
+    formState: { errors },  getValues,
     reset,
   } = useForm();
 
-  useEffect(() => {
-    loadAllUserData();
-  }, []);
 
-  const loadAllUserData = () => {
-    Service.getAllUsers().then((res) => {
-      setUserData(res.data);
-     
-    });
-  };
-// sinlge user
 
-const searchData=(data=>{
-  
-  Service.searchUser(data).then(res=>{
-   
-    alert("Profile viewed");
-    localStorage.setItem("USERID",JSON.stringify(res.data.data.user_id));
-    navigate("/profile");
-  
+
+useEffect(() => {
+  loadAllUserData();
+}, []);
+
+const loadAllUserData = () => {
+  Service.getAllUsers().then((res) => {
+    setUserData(res.data);
+   setFilterUser(res.data);
   });
-    });
-    let navigate=useNavigate();
- 
-  //   calculate age
-  //   const getAge=(data)=> {
-  //     var today = new Date();
+};
 
-  //     var birthDate = new Date(userUpdateData.dob);
-  //     console.log(userUpdateData.b)
-  //     var age = today.getFullYear() - birthDate.getFullYear();
-  //     var m = today.getMonth() - birthDate.getMonth();
-  //     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-  //         age--;
-  //     }
-  //     return age;
-  // }
-  // console.log('age: ' + getAge("userUpdateData.dob"));
+  
+// Filtersdata
+
+const handleSearchUser = (event) => {
+  const text = event.target.value;
+  if (text) {
+    const filtered = userData.filter((item) =>
+      item.workplace.toLowerCase().includes(text.toLowerCase())
+    );
+    setFilterUser(filtered);
+  } else {
+    setFilterUser(userData);
+  }
+};
+
+// age calculator
+  function range(start, end) {
+    return Array(end - start + 1).fill().map((_, idx) => start + idx)
+  }
+
+  var ageFilter = range(18, 65);
+  console.log(ageFilter)
+
   return (
     <div>
+
       {/* <!-- ==========Breadcrumb-Section========== --> */}
       <section className="breadcrumb-area profile-bc-area">
         <div className="container">
           <div className="content">
-            <h2 className="title extra-padding">Search</h2>
+            <h2 className="title extra-padding">
+              Search
+            </h2>
             <ul className="breadcrumb-list extra-padding">
               <li>
-                <Link to="index.html">Home</Link>
+                <Link to="index.html">
+                  Home
+                </Link>
               </li>
 
-              <li>Search</li>
+              <li>
+                Search
+              </li>
             </ul>
           </div>
         </div>
@@ -81,13 +87,8 @@ const searchData=(data=>{
             <div className="col-lg-12">
               <div className="top-filter">
                 <div className="left">
-                  <Link
-                    to=""
-                    data-toggle="modal"
-                    data-target="#exampleModalCenter"
-                  >
-                    <i className="fas fa-sliders-h"></i> Find Your Perfect
-                    Partner
+                  <Link to="" data-toggle="modal" data-target="#exampleModalCenter">
+                    <i className="fas fa-sliders-h"></i> Find Your Perfect Partner
                   </Link>
                 </div>
                 {/* <div className="right">
@@ -133,126 +134,102 @@ const searchData=(data=>{
         </div>
       </section>
       {/* <!-- ==========Community-Section========== --> */}
-      {userData &&
-        userData.map((index, i) => (
-          <div
-            className="modal fade filter-p"
-            id="exampleModalCenter"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true"
-          >
-            <div className="modal-dialog modal-dialog-centered" role="document">
-              <div className="modal-content">
+      <div className="modal fade filter-p" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-content">
                 <div className="modal-header justify-content-between">
-                  <h6
-                    className="modal-title text-center"
-                    id="exampleModalCenterTitle"
-                  >
-                    Find Your Perfect Partner
-                    <br />
-                    {index.workplace}
-                  </h6>
-                  <button
-                    type="button"
-                    className="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                  
+                    <h6 className="modal-title text-center" id="exampleModalCenterTitle">Find Your Perfect Partner</h6>
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div className="modal-body">
-                  <div className="join-now-box">
-                    <div className="single-option">
-                      <label className="title ml-3">I am a :</label>
-                      <div className="option">
-                        <div className="s-input mr-3 ml-5">
-                          <input type="radio" name="gender" id="male" />
-                          <label for="male">Male</label>
+                    <div className="join-now-box">
+                        <div className="single-option">
+                            <label className="title ml-3">
+                                I am a :
+                            </label>
+                            <div className="option">
+                                <div className="s-input mr-3 ml-5">
+                                    <input type="radio" name="gender" id="male"/><label for="male">Male</label>
+                                </div>
+                                <div className="s-input ml-5">
+                                    <input type="radio" name="gender" id="female"/><label for="female">Female</label>
+                                </div>
+                            </div>
                         </div>
-                        <div className="s-input ml-5">
-                          <input type="radio" name="gender" id="female" />
-                          <label for="female">Female</label>
+                        <div className="single-option gender">
+                            <label className="title ml-3">
+                                Seeking a :
+                            </label>
+                            <div className="option">
+                                <div className="s-input mr-2 ml-4">
+                                    <input type="radio" name="seeking" id="males"/><label for="males">Male</label>
+                                </div>
+                                <div className="s-input ml-5">
+                                    <input type="radio" name="seeking" id="females"/><label for="females">Female</label>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                    </div>
-                    <div className="single-option gender">
-                      <label className="title ml-3">Seeking a :</label>
-                      <div className="option">
-                        <div className="s-input mr-2 ml-4">
-                          <input type="radio" name="seeking" id="males" />
-                          <label for="males">Man</label>
+                        <div className="single-option age">
+                            <label className="title ml-3">
+                                Ages :
+                            </label>
+                            <div className="option">
+                                <div className="s-input mr-3 ml-5">
+                                    <select className="select-bar">
+                                        <option value="">18-25</option>
+                                        <option value="">26-30</option>
+                                        <option value="">31-40</option>
+                                    </select>
+                                </div>
+                                {/* <div className="separator">
+                                    -
+                                </div>
+                                <div className="s-input mr-3 ml-5">
+                                    <select className="select-bar">
+                                        <option value="">30</option>
+                                        <option value="">35</option>
+                                        <option value="">40</option>
+                                    </select>
+                                </div> */}
+                            </div>
                         </div>
-                        <div className="s-input ml-5">
-                          <input type="radio" name="seeking" id="females" />
-                          <label for="females">Woman</label>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="single-option age">
-                      <label className="title ml-3">Ages :</label>
-                      <div className="option">
-                        <div className="s-input mr-3 ml-5">
-                          <select className="select-bar">
-                            <option value="">18</option>
-                            <option value="">20</option>
-                            <option value="">24</option>
-                          </select>
-                        </div>
-                        <div className="separator">-</div>
-                        <div className="s-input mr-3 ml-5">
-                          <select className="select-bar">
-                            <option value="">30</option>
-                            <option value="">35</option>
-                            <option value="">40</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    {/* <div className="single-option">
-                  <label className="title ml-3">Workplace [City]:</label>
-                  <input
-                    {...register("workplace", {
-                      required: "Enter Your Workplace [City]:",
-                    })}
-                    type="number"
-                    className="my-form-control col-sm-7 ml-4"
-                    placeholder=" Enter Your Workplace [City]:"
-                    id="exampleInputwork"
-                   value={index.workplace}
-                  />
-                  {errors.workplace && (
-                    <span style={{ color: "red" }}>{errors.workplace.message}</span>
-                  )}
-                </div> */}
-                    <div className="single-option">
-                      <label className="title ml-3">Workplace [City]:</label>
-                      <select
+                        <div className="single-option">
+                            <label className="title ml-3">
+                            Workplace [City]:
+                            </label><input onChange={handleSearchUser}
                         {...register("workplace", {
                           required: "Enter Your Workplace [City]:",
                         })}
-                        type="number"
+                        type="text"
                         className="my-form-control col-sm-7 ml-4"
                         placeholder=" Enter Your Workplace [City]:"
                         id="exampleInputwork"
-                      >
-                        {userData.map((index) => (
-                          <option key={index.key} value={index.workplace}>
-                            {index.workplace}
-                          </option>
-                        ))}
-                        ;
-                      </select>
-                      {errors.workplace && (
-                        <span style={{ color: "red" }}>
-                          {errors.workplace.message}
+                      />
+                      {errors.workplace&& (
+                          <span style={{ color: "red" }}>
+                            {errors.workplace.message}
+                          </span>
+                        )}  
+
+                        <span>
+                          {filteredUser && filteredUser.map((index,i)=>(
+                            <tr key={i}>
+                            {/* <td>{i + 1}</td>
+                            <td className="capital">{index.workplace}</td> */}
+                            </tr>
+                          ))}
                         </span>
-                      )}
-                    </div>
-                    <div className="single-option">
-                      <label htmlFor="inputincome" className=" ml-3 title">
+                        </div>
+                        <div className="single-option">
+                    
+                      <label
+                        htmlFor="inputincome"
+                        className=" ml-3 title"
+                      >
                         {" "}
                         Income/उत्पन्न:
                       </label>
@@ -266,44 +243,45 @@ const searchData=(data=>{
                         id="exampleInputincome"
                       />
                       {errors.income && (
-                        <span style={{ color: "red" }}>
-                          {errors.income.message}
-                        </span>
-                      )}
+                          <span style={{ color: "red" }}>
+                            {errors.income.message}
+                          </span>
+                        )}
                     </div>
-                    <div className="single-option last">
-                      <label htmlFor="exampleInputedu" className="title ml-2">
+                    {/* <div className='single-option last'>
+                    <label
+                        htmlFor="exampleInputedu"
+                        className="title ml-2"
+                      >
                         Qualification/शैक्षणिक पात्रता:
                       </label>
+                    
+                     <input
+                      {...register("edu", {
+                        required:
+                          "Enter Your Educational Qualification/शैक्षणिक पात्रता",
+                      })}
+                      type="text"
+                      placeholder="Enter Your Educational Qualification/शैक्षणिक पात्रता"
+                      className="my-form-control col-sm-7 ml-4"
+                      id="exampleInputedu"
+                    />
 
-                      <input
-                        {...register("edu", {
-                          required:
-                            "Enter Your Educational Qualification/शैक्षणिक पात्रता",
-                        })}
-                        type="text"
-                        placeholder="Enter Your Educational Qualification/शैक्षणिक पात्रता"
-                        className="my-form-control col-sm-7 ml-4"
-                        id="exampleInputedu"
-                      />
-
-                      {errors.edu && (
-                        <span style={{ color: "red" }}>
-                          {errors.edu.message}
-                        </span>
-                      )}
+                        {errors.edu && (
+                          <span style={{ color: "red" }}>
+                            {errors.edu.message}
+                          </span>
+                        )}
+                      </div> */}
+                        <div className="joun-button">
+                            <button className="custom-button" onClick={() => navigate("/profile")}>Find</button>
+                        </div>
                     </div>
-                    <div className="joun-button">
-                      <button className="custom-button" type="submit">
-                        Find
-                      </button>
-                    </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
-        ))}
+        </div>
     </div>
+    </div>
+  
   );
 }

@@ -22,9 +22,6 @@ class Service
         return axios.post(Base_url+"users/login",data)
     }
 
-    // single users search
-   
-
     // family
     saveAllFamily(data)
     {
