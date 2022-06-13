@@ -9,44 +9,44 @@ export default function Search() {
   const [userUpdateData, setuserUpdateData] = useState();
   const [userData, setUserData] = useState();
   const [filteredUser, setFilterUser] = useState([]);
-  let navigate=useNavigate();
+  let navigate = useNavigate();
   const {
     register,
     handleSubmit,
-    formState: { errors },  getValues,
+    formState: { errors }, getValues,
     reset,
   } = useForm();
 
 
 
 
-useEffect(() => {
-  loadAllUserData();
-}, []);
+  useEffect(() => {
+    loadAllUserData();
+  }, []);
 
-const loadAllUserData = () => {
-  Service.getAllUsers().then((res) => {
-    setUserData(res.data);
-   setFilterUser(res.data);
-  });
-};
+  const loadAllUserData = () => {
+    Service.getAllUsers().then((res) => {
+      setUserData(res.data);
+      setFilterUser(res.data);
+    });
+  };
 
-  
-// Filtersdata
 
-const handleSearchUser = (event) => {
-  const text = event.target.value;
-  if (text) {
-    const filtered = userData.filter((item) =>
-      item.workplace.toLowerCase().includes(text.toLowerCase())
-    );
-    setFilterUser(filtered);
-  } else {
-    setFilterUser(userData);
-  }
-};
+  // Filtersdata
 
-// age calculator
+  const handleSearchUser = (event) => {
+    const text = event.target.value;
+    if (text) {
+      const filtered = userData.filter((item) =>
+        item.workplace.toLowerCase().includes(text.toLowerCase())
+      );
+      setFilterUser(filtered);
+    } else {
+      setFilterUser(userData);
+    }
+  };
+
+  // age calculator
   function range(start, end) {
     return Array(end - start + 1).fill().map((_, idx) => start + idx)
   }
@@ -108,180 +108,118 @@ const handleSearchUser = (event) => {
             </div>
           </div>
           {userData &&
-        userData.map((index, i) => (
-          <div className="row" key={index.user_id}>
-            <div className="col-lg-6">
-              <div className="single-friend">
-                <img src="assets/images/profile/friend1.png" alt="" />
-                <div className="content">
-                  <Link to="/profile" className="name">
-                   {index.user_name}
-                    <span className="isvarify">
-                      <i className="fas fa-check-circle"></i>
-                    </span>
-                  </Link>
-                  <p className="date">a month ago</p>
-                  <Link to='/profile'>
-                  <button className="custom-button ps-5"  onClick={()=>{localStorage.setItem("USERID",JSON.stringify(index.user_id))}}>
-                    View Profile
-                 </button>
-                 </Link>
+            userData.map((index, i) => (
+              <div className="row" key={index.user_id}>
+                <div className="col-lg-6">
+                  <div className="single-friend">
+                    <img src="assets/images/profile/friend1.png" alt="" />
+                    <div className="content">
+                      <Link to="/profile" className="name">
+                        {index.user_name}
+                        <span className="isvarify">
+                          <i className="fas fa-check-circle"></i>
+                        </span>
+                      </Link>
+                      <p className="date">a month ago</p>
+                      <Link to='/profile'>
+                        <button className="custom-button ps-5" onClick={() => { localStorage.setItem("USERID", JSON.stringify(index.user_id)) }}>
+                          View Profile
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        ))}
+            ))}
         </div>
       </section>
       {/* <!-- ==========Community-Section========== --> */}
       <div className="modal fade filter-p" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered" role="document">
-            <div className="modal-content">
-                <div className="modal-header justify-content-between">
-                  
-                    <h6 className="modal-title text-center" id="exampleModalCenterTitle">Find Your Perfect Partner</h6>
-                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div className="modal-body">
-                    <div className="join-now-box">
-                        <div className="single-option">
-                            <label className="title ml-3">
-                                I am a :
-                            </label>
-                            <div className="option">
-                                <div className="s-input mr-3 ml-5">
-                                    <input type="radio" name="gender" id="male"/><label for="male">Male</label>
-                                </div>
-                                <div className="s-input ml-5">
-                                    <input type="radio" name="gender" id="female"/><label for="female">Female</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="single-option gender">
-                            <label className="title ml-3">
-                                Seeking a :
-                            </label>
-                            <div className="option">
-                                <div className="s-input mr-2 ml-4">
-                                    <input type="radio" name="seeking" id="males"/><label for="males">Male</label>
-                                </div>
-                                <div className="s-input ml-5">
-                                    <input type="radio" name="seeking" id="females"/><label for="females">Female</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="single-option age">
-                            <label className="title ml-3">
-                                Ages :
-                            </label>
-                            <div className="option">
-                                <div className="s-input mr-3 ml-5">
-                                    <select className="select-bar">
-                                        <option value="">18-25</option>
-                                        <option value="">26-30</option>
-                                        <option value="">31-40</option>
-                                    </select>
-                                </div>
-                                {/* <div className="separator">
-                                    -
-                                </div>
-                                <div className="s-input mr-3 ml-5">
-                                    <select className="select-bar">
-                                        <option value="">30</option>
-                                        <option value="">35</option>
-                                        <option value="">40</option>
-                                    </select>
-                                </div> */}
-                            </div>
-                        </div>
-                        <div className="single-option">
-                            <label className="title ml-3">
-                            Workplace [City]:
-                            </label><input onChange={handleSearchUser}
-                        {...register("workplace", {
-                          required: "Enter Your Workplace [City]:",
-                        })}
-                        type="text"
-                        className="my-form-control col-sm-7 ml-4"
-                        placeholder=" Enter Your Workplace [City]:"
-                        id="exampleInputwork"
-                      />
-                      {errors.workplace&& (
-                          <span style={{ color: "red" }}>
-                            {errors.workplace.message}
-                          </span>
-                        )}  
+          <div className="modal-content">
+            <div className="modal-header justify-content-between">
 
-                        <span>
-                          {filteredUser && filteredUser.map((index,i)=>(
-                            <tr key={i}>
-                            {/* <td>{i + 1}</td>
-                            <td className="capital">{index.workplace}</td> */}
-                            </tr>
-                          ))}
-                        </span>
-                        </div>
-                        <div className="single-option">
-                    
-                      <label
-                        htmlFor="inputincome"
-                        className=" ml-3 title"
-                      >
-                        {" "}
-                        Income/उत्पन्न:
-                      </label>
-                      <input
-                        {...register("income", {
-                          required: "Enter Your  Income/उत्पन्न",
-                        })}
-                        type="number"
-                        className="my-form-control col-sm-7 ml-4"
-                        placeholder="Enter Your  Income/उत्पन्न"
-                        id="exampleInputincome"
-                      />
-                      {errors.income && (
-                          <span style={{ color: "red" }}>
-                            {errors.income.message}
-                          </span>
-                        )}
-                    </div>
-                    {/* <div className='single-option last'>
-                    <label
-                        htmlFor="exampleInputedu"
-                        className="title ml-2"
-                      >
-                        Qualification/शैक्षणिक पात्रता:
-                      </label>
-                    
-                     <input
-                      {...register("edu", {
-                        required:
-                          "Enter Your Educational Qualification/शैक्षणिक पात्रता",
-                      })}
-                      type="text"
-                      placeholder="Enter Your Educational Qualification/शैक्षणिक पात्रता"
-                      className="my-form-control col-sm-7 ml-4"
-                      id="exampleInputedu"
-                    />
-
-                        {errors.edu && (
-                          <span style={{ color: "red" }}>
-                            {errors.edu.message}
-                          </span>
-                        )}
-                      </div> */}
-                        <div className="joun-button">
-                            <button className="custom-button" onClick={() => navigate("/profile")}>Find</button>
-                        </div>
-                    </div>
-                </div>
+              <h6 className="modal-title text-center" id="exampleModalCenterTitle">Find Your Perfect Partner</h6>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
+            <div className="modal-body">
+              <div class="container" style={{ 'backgroundColor': 'rgb(158, 0, 53)', 'padding': 50, 'borderRadius': 16 }}>
+                <form class="row gx-3 gy-2 align-items-center">
+                  <label class="visually-hidden text-light title" for="specificSizeInputGroupUsername">Looking for:</label>
+                  <div class="form-check">
+                    <div className='row'>
+                      <div class="col-8">
+                        <label class="form-check-label text-light title" for="flexRadioDefault1">Groom</label>
+                      </div>
+                      <div class="col-4">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                      </div>
+                    </div>
+                    <div class="form-check">
+                      <div className='row'>
+                        <div class="col-8">
+                          <label class="form-check-label text-light title" for="flexRadioDefault2">Bride</label>
+                        </div>
+                        <div class="col-4">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <label class="visually-hidden text-light title" for="specificSizeSelect">Age Preference:</label>
+                    <select class="form-select" id="specificSizeSelect">
+                      <option selected>Choose...</option>
+                      <option value="1">18-20</option>
+                      <option value="2">21-25</option>
+                      <option value="3">26-30</option>
+                      <option value="1">31-35</option>
+                      <option value="2">36-40</option>
+                      <option value="3">41-45</option>
+                    </select>
+                  </div>
+                  <label class="visually-hidden text-light title" for="specificSizeInputGroupUsername">WorkPlace:</label>
+                  <div class="input-group">
+                    <div class="input-group-text">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-workspace" viewBox="0 0 16 16">
+                        <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                        <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z" />
+                      </svg>
+                    </div>
+                    <input type="text" class="form-control" id="specificSizeInputGroupUsername" />
+                  </div>
+                  <label class="visually-hidden text-light title" for="specificSizeInputGroupUsername">Income:</label>
+                  <div class="input-group">
+                    <div class="input-group-text">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash-stack" viewBox="0 0 16 16">
+                        <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                        <path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z" />
+                      </svg>
+                    </div>
+                    <input type="text" class="form-control" id="specificSizeInputGroupUsername" />
+                  </div>
+                  <label class="visually-hidden text-light title" for="specificSizeInputGroupUsername">Marital Status:</label>
+                  <div class="input-group">
+                    <select class="form-select" id="specificSizeSelect">
+                      <option selected>Choose...</option>
+                      <option class="textTru chosenDropWid" id="N" value="N">Never Married</option>
+                      <option class="textTru chosenDropWid" id="S" value="S">Awaiting Divorce</option>
+                      <option class="textTru chosenDropWid" id="D" value="D">Divorced</option>
+                      <option class="textTru chosenDropWid" id="W" value="W">Widowed</option>
+                      <option class="textTru chosenDropWid" id="A" value="A">Annulled</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="custom-button mt-2">Search</button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    </div>
-  
+
   );
 }

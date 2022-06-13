@@ -21,106 +21,107 @@ export default function Home() {
     <div>
       {/* <!-- ==========Banner-Section========== --> */}
       <div className='banner-section'>
-        <img className='img1 wow fadeInLeft mt-lg-50 pt-lg-5 mt-xl-50 pt-xl-5' src='assets/images/banner/aimg1.png' alt='' />
-        {/* <img className='img2 wow fadeInRight' src='assets/images/banner/aimg2.png' alt='' /> */}
         <div className='container'>
           <div className='row'>
-            <div className='col-xl-5 col-lg-5'>
+            <div className='col-xl-6 col-lg-6'>
               <h3 className='main-title wow fadeInLeft'>
                 Find Your Best Life Partner
               </h3>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <div className='join-now-box wow fadeInUp'>
-
-                  <div className='single-option'>
-                    <label className='title col-4'>I am a :</label>
-                    <div className='option col-8'>
-                      <div className='s-input'>
-                        <input type='radio' name='gender' id='male' /><label htmlFor='male'>Male</label>
-                      </div>
-                      <div className='s-input ml-5'>
-                        <input type='radio' name='gender' id='female' /><label htmlFor='female'>Female</label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className='single-option gender'>
-                    <label className='title col-4'>Seeking a :</label>
-                    <div className='option col-8'>
-                      <div className='s-input'>
-                        <input type='radio' name='seeking' id='males' /><label htmlFor='males'>Male</label>
-                      </div>
-                      <div className='s-input ml-5'>
-                        <input type='radio' name='seeking' id='females' /><label htmlFor='females'>Female</label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className='single-option age'>
-                    <label className='title col-4'>Ages :</label>
-                    <div className='option col-8'>
-                      <div className='s-input'>
-                        <select className='select-bar'>
-                          {ageFilter.map((item, index) => { return <option key={index}>{item}</option> })}
-                        </select>
-                      </div>
-                      <div className='separator ml-4 mr-4'>-</div>
-                      <div className='s-input'>
-                        <select className='select-bar'>
-                          {ageFilter.map((item, index) => { return <option key={index}>{item}</option> })}
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className='single-option'>
-                    <div className='row'>
-                      <label className='title col-lg-5'>WorkPlace [City]:</label>
-                      <input
-                        {...register('work', { required: 'Enter Your WorkPlace [City]:' })}
-                        type='text'
-                        className='my-form-control col-lg-6'
-                        id='exampleInputincome' />
-                      {errors.work && (<span style={{ color: 'red' }}>{errors.work.message}</span>)}
-                    </div>
-                  </div>
-
-                  <div className='single-option'>
-                    <div className='row'>
-                      <label htmlFor='inputincome' className='title col-lg-5'>Income/उत्पन्न:</label>
-                      <input
-                        {...register('income', { required: 'Enter Your Income/उत्पन्न', })}
-                        type='number'
-                        className='my-form-control col-lg-6 start-100'
-                        id='exampleInputincome' />
-                      {errors.income && (<span style={{ color: 'red' }}>{errors.income.message}</span>)}
-                    </div>
-                  </div>
-
-                  <div className='single-option last'>
-                    <div className='row'>
-                      <label htmlFor='exampleInputedu' className='title col-lg-7'>Qualification/शैक्षणिक पात्रता:</label>
-                      <input
-                        {...register('edu', { required: 'Enter Your Educational Qualification/शैक्षणिक पात्रता', })}
-                        type='text'
-                        className='my-form-control col-lg-4'
-                        id='exampleInputedu' />
-                      {errors.edu && (<span style={{ color: 'red' }}>{errors.edu.message}</span>)}
-                    </div>
-                  </div>
-
-                  <div className='join-button'>
-                    <Link to='login'><button className='custom-button'>Find Your Perfect Partner</button></Link>
-                  </div>
-                </div>
-              </form>
+            </div>
+            <div className='col-lg-6'>
+              <img src='assets/images/banner/aimg1.png' alt='' />
+              {/* <img className='img2 wow fadeInRight' src='assets/images/banner/aimg2.png' alt='' /> */}
             </div>
           </div>
         </div>
       </div>
-      {/* <!-- ==========Banner-Section========== -->
+      {/* <!-- ==========Banner-Section========== --> */}
 
-    <!-- ==========Feature-Section========== --> */}
+      {/* <!-- ==========Filter-Section========== --> */}
+
+      <div class="container" style={{ 'backgroundColor': 'rgb(158, 0, 53)', 'padding': 50, 'borderRadius': 16 }}>
+        <form class="row gx-3 gy-2 align-items-center">
+          <div class="col-sm-2">
+            <label class="visually-hidden text-light title" for="specificSizeInputGroupUsername">Looking for:</label>
+            <div class="form-check">
+              <div className='row'>
+                <div class="col-8">
+                  <label class="form-check-label text-light title" for="flexRadioDefault1">Groom</label>
+                </div>
+                <div class="col-4">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                </div>
+              </div>
+            </div>
+            <div class="form-check">
+              <div className='row'>
+                <div class="col-8">
+                  <label class="form-check-label text-light title" for="flexRadioDefault2">Bride</label>
+                </div>
+                <div class="col-4">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <label class="visually-hidden text-light title" for="specificSizeSelect">Age Preference:</label>
+            <select class="form-select" id="specificSizeSelect">
+              <option selected>Choose...</option>
+              <option value="1">18-20</option>
+              <option value="2">21-25</option>
+              <option value="3">26-30</option>
+              <option value="1">31-35</option>
+              <option value="2">36-40</option>
+              <option value="3">41-45</option>
+            </select>
+          </div>
+          <div class="col-sm-2">
+            <label class="visually-hidden text-light title" for="specificSizeInputGroupUsername">WorkPlace:</label>
+            <div class="input-group">
+              <div class="input-group-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-workspace" viewBox="0 0 16 16">
+                  <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                  <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z" />
+                </svg>
+              </div>
+              <input type="text" class="form-control" id="specificSizeInputGroupUsername" />
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <label class="visually-hidden text-light title" for="specificSizeInputGroupUsername">Income:</label>
+            <div class="input-group">
+              <div class="input-group-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash-stack" viewBox="0 0 16 16">
+                  <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                  <path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z" />
+                </svg>
+              </div>
+              <input type="text" class="form-control" id="specificSizeInputGroupUsername" />
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <label class="visually-hidden text-light title" for="specificSizeInputGroupUsername">Marital Status:</label>
+            <div class="input-group">
+              <select class="form-select" id="specificSizeSelect">
+                <option selected>Choose...</option>
+                <option class="textTru chosenDropWid" id="N" value="N">Never Married</option>
+                <option class="textTru chosenDropWid" id="S" value="S">Awaiting Divorce</option>
+                <option class="textTru chosenDropWid" id="D" value="D">Divorced</option>
+                <option class="textTru chosenDropWid" id="W" value="W">Widowed</option>
+                <option class="textTru chosenDropWid" id="A" value="A">Annulled</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <button type="submit" class="custom-button">Search</button>
+          </div>
+        </form>
+      </div>
+
+      {/* <!-- ==========Filter-Section========== --> */}
+
+      {/* <!-- ==========Feature-Section========== --> */}
       <section className='feature-section'>
         <div className='container'>
           <div className='row'>
