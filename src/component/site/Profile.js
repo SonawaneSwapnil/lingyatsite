@@ -1,7 +1,9 @@
 import React from 'react'
 import { NavLink,Link } from 'react-router-dom'
 
+
 export default function Profile() {
+    // const componentRef = useRef();
     
   return (
     <div>

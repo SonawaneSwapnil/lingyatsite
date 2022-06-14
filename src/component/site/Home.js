@@ -83,9 +83,9 @@ export default function Home() {
                         {...register("work", {
                           required: "Enter Your WorkPlace [City]:",
                         })}
-                        type="number"
+                        type="text"
                         className="my-form-control col-sm-7 ml-3 "
-                        placeholder="Enter Your WorkPlace [City]:"
+                        
                         id="exampleInputincome"
                       />
                       {errors.work && (
@@ -111,7 +111,7 @@ export default function Home() {
                         })}
                         type="number"
                         className="my-form-control col-sm-7 ml-5"
-                        placeholder="Enter Your  Income/उत्पन्न"
+                        
                         id="exampleInputincome"
                       />
                       {errors.income && (
@@ -134,7 +134,7 @@ export default function Home() {
                           "Enter Your Educational Qualification/शैक्षणिक पात्रता",
                       })}
                       type="text"
-                      placeholder="Enter Your Educational Qualification/शैक्षणिक पात्रता"
+                      
                       className="my-form-control col-sm-7"
                       id="exampleInputedu"
                     />

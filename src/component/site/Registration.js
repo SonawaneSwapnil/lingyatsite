@@ -71,7 +71,7 @@ export default function Registration() {
                   required: "Enter your full name/पूर्ण नाव",
                 })}
                 type="text"
-                placeholder="Enter your full name/पूर्ण नाव"
+                
                 className="my-form-control"
                 id="exampleInputname"
               />
@@ -95,7 +95,7 @@ export default function Registration() {
                   type="text"
                   className="my-form-control"
                   id="contactno"
-                  placeholder="Enter your contact no/संपर्क क्रमांक"
+                  
                 />
                 {errors.contact && (
                   <span style={{ color: "red" }}>{errors.contact.message}</span>
@@ -111,7 +111,7 @@ export default function Registration() {
                   className="my-form-control"
                   id="exampleInputPassword1"
                   aria-describedby="emailHelp"
-                  placeholder="Enter your password/पासवर्ड"
+                  
                   {...register("password", {
                     required: "Please enter your password/पासवर्ड",
                     minLength: { value: 8, message: "At least 8 digit" },
@@ -251,7 +251,7 @@ export default function Registration() {
                    
                     <input {...register("city", {
                       required: "Enter your City/शहर",
-                    })}type="text" className="my-form-control mr-5" placeholder="Enter your City/शहर"/>
+                    })}type="text" className="my-form-control mr-5" />
                     {""}
               {errors.city && (
                 <span style={{ color: "red" }}>{errors.city.message}</span>

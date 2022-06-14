@@ -11,7 +11,7 @@ const Selfprofile = () => {
     });
     let navigate=useNavigate();
 
-    const [usersFamily, setUserFamily] = useState();
+    const [usersData, setUsersData] = useState();
   
   useEffect(() => {
     loadAllUsersData();
@@ -19,9 +19,10 @@ const Selfprofile = () => {
 
   const loadAllUsersData = () => {
     Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then((res)=>{
-      setUserFamily(res.data);
+      setUsersData(res.data);
       console.log(res.data);
     });
+  
   
     
   }
@@ -51,7 +52,7 @@ const Selfprofile = () => {
     </section>
     {/* <!-- ========= Profile Section Start --> */}
     <section className="profile-section">
-    {usersFamily && usersFamily.map(index=>(
+    {usersData && usersData.map(index=>(
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-xl-4 col-lg-5 col-md-7">
@@ -202,7 +203,7 @@ const Selfprofile = () => {
                                         Contact Number/संपर्क क्रमांक:
                                         </span>
                                         <span>
-                                        {index.fathercontact}
+                                        {index.father_contact}
                                         </span>
                                     </li>
                                     <li>
@@ -218,7 +219,7 @@ const Selfprofile = () => {
                                         Contact Number/संपर्क क्रमांक:
                                         </span>
                                         <span>
-                                        {index.mothercontact}
+                                        {index.mother_contact}
                                         </span>
                                     </li>
                                     <li>
@@ -234,7 +235,7 @@ const Selfprofile = () => {
                                         Contact Number/संपर्क क्रमांक:
                                         </span>
                                         <span>
-                                        {index.brothercontact}
+                                        {index.brother_contact}
                                         </span>
                                     </li>
                                     
@@ -251,7 +252,7 @@ const Selfprofile = () => {
                                         Contact Number/संपर्क क्रमांक:
                                         </span>
                                         <span>
-                                        {index.sistercontact}
+                                        {index.sister_contact}
                                         </span>
                                     </li>
                                     <li></li>
@@ -272,7 +273,7 @@ const Selfprofile = () => {
                                         Expection/अपेक्षा वधू/वर:
                                         </span>
                                         <span>
-                                        {index.expection}
+                                        {index.expectation}
                                         </span>
                                     </li>
                                    
@@ -288,12 +289,12 @@ const Selfprofile = () => {
                                       
     <div className="button-wrapper">
                 {/* <Link to="/single_profile2"> */}
-                  <button type="submit" className="custom-button ml-5" onClick={()=>navigate("/search")} >Back
+                  <button type="submit" className="custom-button ml-5" onClick={()=>navigate("/Single_profile2")} >Back
                   </button>
                       {/* </Link> */}
                       
                     {/* <Link to="/registration"> */}
-                    <button type="submit"  onClick={handlePrint} className="print__button custom-button ml-5"> Save as Pdf </button>
+                    <button type="submit"  onClick={()=>navigate("/pdf")} className="print__button custom-button ml-5"> Save as Pdf </button>
                          
                       
                       {/* </Link> */}

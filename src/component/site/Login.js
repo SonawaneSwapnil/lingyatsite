@@ -80,7 +80,7 @@ export default function Login () {
                   type="text"
                   className="my-form-control"
                   id="contactno"
-                  placeholder="Enter your contact no/संपर्क क्रमांक"
+                  
                 />
                 {errors.contact && (
                   <span style={{ color: "red" }}>{errors.contact.message}</span>
@@ -97,7 +97,7 @@ export default function Login () {
                   className="my-form-control"
                   id="exampleInputPassword1"
                   aria-describedby="emailHelp"
-                  placeholder="Enter your password/पासवर्ड"
+                 
                   {...register("password", {
                     required: "Please enter your password/पासवर्ड",
                     minLength: { value: 8, message: "At least 8 digit" },

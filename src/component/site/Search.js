@@ -162,9 +162,9 @@ export default function Search() {
                         {...register("work", {
                           required: "Enter Your Workplace [City]:",
                         })}
-                        type="number"
+                        type="text"
                         className="my-form-control col-sm-7 ml-4"
-                        placeholder=" Enter Your Workplace [City]:"
+                       
                         id="exampleInputwork"
                       />
                       {errors.work&& (
@@ -190,7 +190,7 @@ export default function Search() {
                         })}
                         type="number"
                         className="my-form-control col-sm-7 ml-4"
-                        placeholder="Enter Your  Income/उत्पन्न"
+                       
                         id="exampleInputincome"
                       />
                       {errors.income && (
@@ -213,7 +213,7 @@ export default function Search() {
                           "Enter Your Educational Qualification/शैक्षणिक पात्रता",
                       })}
                       type="text"
-                      placeholder="Enter Your Educational Qualification/शैक्षणिक पात्रता"
+                      
                       className="my-form-control col-sm-7 ml-4"
                       id="exampleInputedu"
                     />

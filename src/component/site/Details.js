@@ -7,7 +7,7 @@ import { MomentInput } from "moment";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import  Datepicker from "react-datepicker";
-// import TimePicker from "react-timepicker";
+// import TimePicker from "react-time-picker";
 import "react-datepicker/dist/react-datepicker.css";
 export default function Details() {
 
@@ -249,7 +249,7 @@ export default function Details() {
                           required: "Enter Your FullName/पूर्ण नाव",
                         })}
                         type="text"
-                        placeholder="Enter Your FullName/पूर्ण नाव"
+                        
                         className="my-form-control"
                         id="exampleInputname"
                         value={index.user_name}
@@ -299,7 +299,7 @@ export default function Details() {
                           required: "Enter Your Birth Place/जन्मतारीख ठिकाण",
                         })}
                         type="text"
-                        placeholder="Enter Your Birth Place/जन्मतारीख ठिकाण"
+                        
                         className="my-form-control"
                         id="exampleInputplace"
                       />
@@ -410,7 +410,7 @@ export default function Details() {
                         type="text"
                         className="my-form-control"
                         id="exampleInputtime"
-                        placeholder="Enter Your Zodiac Name/राशि नाव:"
+                        
                       />
                       {""}
                       {errors.zodiac && (
@@ -433,7 +433,7 @@ export default function Details() {
                             "Enter Your Educational Qualification/शैक्षणिक पात्रता",
                         })}
                         type="text"
-                        placeholder="Enter Your Educational Qualification/शैक्षणिक पात्रता"
+                        
                         className="my-form-control"
                         id="exampleInputedu"
                       />
@@ -458,7 +458,7 @@ export default function Details() {
                             "Enter Your Service or Business/सेवा किंवा व्यवसाय",
                         })}
                         type="text"
-                        placeholder="Enter Your Service or Business/सेवा किंवा व्यवसाय"
+                        
                         className="my-form-control"
                         id="exampleInputser"
                       />
@@ -492,7 +492,7 @@ export default function Details() {
                         })}
                         type="number"
                         className="my-form-control col-sm-5  ml-2 mr-5"
-                        placeholder="Enter Your  Income/उत्पन्न"
+                        
                         id="exampleInputincome"
                       />
 
@@ -502,7 +502,7 @@ export default function Details() {
                         })}
                         type="text"
                         className="my-form-control col-sm-5 ml-4 "
-                        placeholder="Enter Your Designation/हुद्दा"
+                        
                         id="exampleInputdesig"
                       />
 
@@ -548,7 +548,7 @@ export default function Details() {
                         type="text"
                         className="my-form-control col-sm-5  ml-2 mr-5"
                         id="exampleInputdate"
-                        placeholder="Enter Your  Workplace/कामाची जागा"
+                        
                       />
                       <input
                         {...register("height", {
@@ -557,7 +557,7 @@ export default function Details() {
                         type="number"
                         className="my-form-control col-sm-5 ml-4"
                         id="exampleInputdate"
-                        placeholder="Enter Your Height/उंची"
+                        
                       />
                     </div>
                     <div className="row">
@@ -598,7 +598,7 @@ export default function Details() {
                         type="text"
                         className="my-form-control col-sm-5  ml-2 mr-5"
                         id="exampleInputblood"
-                        placeholder="Enter Your Blood-Group/रक्त गट"
+                        
                       />
                       <input
                         {...register("color", {
@@ -607,7 +607,7 @@ export default function Details() {
                         type="text"
                         className="my-form-control col-sm-5 ml-4"
                         id="exampleInputcolor"
-                        placeholder="Enter Your Color/रंग"
+                        
                       />
                     </div>
                     <div className="row">
@@ -649,7 +649,7 @@ export default function Details() {
                         type="number"
                         className="my-form-control col-sm-5  ml-2 mr-5"
                         id="exampleInputdate"
-                        placeholder="Enter Your Weight/वजन "
+                        
                       />
                       <input
                         {...register("address", {
@@ -658,7 +658,7 @@ export default function Details() {
                         type="text"
                         className="my-form-control col-sm-5 ml-4"
                         id="exampleInputdate"
-                        placeholder="Enter Your Address/पत्ता"
+                        
                       />
                     </div>
                     <div className="row">
