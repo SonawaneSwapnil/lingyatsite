@@ -186,8 +186,8 @@ export default function Registration() {
                               required: "Enter your Marital status",
                             })}>
                             <option value="">---Marital status---</option>
-                            <option value="single">Never Married</option>
-                            <option value="married">Re Marriage</option>
+                            <option value="Never-married">Never Married</option>
+                            <option value="Re-marriage">Re Marriage</option>
                           </select>
                           {errors.married_status && (
                             <span style={{ color: "red" }}>{errors.married_status.message}</span>

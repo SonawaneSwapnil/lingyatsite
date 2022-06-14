@@ -49,11 +49,13 @@ export default function Expectation() {
     var data = {
       expectation: getValues("expectation"),
       passport: getValues("passport"),
+      fullphoto: getValues("fullphoto"),
       user_id: user_id,
     };
     let fd = new FormData();
     fd.append("expectation", data.expectation);
     fd.append("passport", selectedFile);
+    fd.append("fullphoto", selectedFile);
     fd.append("user_id", data.user_id);
     console.log(fd);
 
@@ -223,7 +225,12 @@ export default function Expectation() {
                               className="my-form-control"
                               id="inputGroupFile04"
                               aria-describedby="inputGroupFileAddon04"
-                              aria-label="Upload" />
+                              aria-label="Upload" 
+                              {...register("fullphoto", {
+                                required: "Please enter fullphoto photo",
+                              })}
+                              onChange={changeHandler}
+                             />
                             {errors.fullphoto && (
                               <span style={{ color: "red" }}>
                                 {errors.fullphoto.message}
