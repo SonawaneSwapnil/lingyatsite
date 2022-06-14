@@ -16,6 +16,7 @@ import Search from '../component/site/Search'
 import Profile from '../component/site/Profile'
 import Info from '../component/site/Info'
 import Selfprofile from '../component/site/Selfprofile'
+import Pdf from '../component/site/Pdf'
 
 export default function  Router() {
   return (
@@ -38,6 +39,7 @@ export default function  Router() {
     <Route path="profile" element={<Profile/>}/>
     <Route path="info" element={<Info/>}/>
     <Route path="selfprofile" element={<Selfprofile/>}/>
+    <Route path="pdf" element={<Pdf/>}/>
    
     </Route>
     

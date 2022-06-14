@@ -41,7 +41,6 @@ export default function Expectation() {
   //     navigate("/single_profile2");
   //   });
   // };
-
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
   };
