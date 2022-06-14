@@ -217,14 +217,14 @@ export default function Details() {
                     </NavLink>
                   </li>
 
-                  <li>
+                  {/* <li>
                     <NavLink
                       to="/single_profile3" exact activeclassname="active-class"
                       
                     >
                       Members
                     </NavLink>
-                  </li>
+                  </li> */}
                   <li>
                     <NavLink
                       to="/Search" exact activeclassname="active-class"

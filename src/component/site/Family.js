@@ -186,10 +186,10 @@ export default function Family() {
                   <li>
                     <NavLink to="/details" className="active">Add More Information</NavLink>
                   </li>
-
+{/* 
                   <li>
                     <NavLink to="/single_profile3">Members</NavLink>
-                  </li>
+                  </li> */}
                   <li>
                     <NavLink to="/Search" >search</NavLink>
                   </li>

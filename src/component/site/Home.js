@@ -24,9 +24,10 @@ export default function Home() {
                         Find Your Best Life Partner
                     </h3>
                     <form onSubmit={handleSubmit(onSubmit)}>
+
                     <div className="join-now-box wow fadeInUp">
-                        <div className="single-option">
-                            <label className="title ml-3">
+                        {/* <div className="single-option"> */}
+                            {/* <label className="title ml-3">
                                 I am a :
                             </label>
                             <div className="option">
@@ -41,16 +42,33 @@ export default function Home() {
                         <div className="single-option gender">
                             <label className="title ml-3">
                                 Seeking a :
-                            </label>
-                            <div className="option">
+                            </label> */}
+                            
+              
+                            
+                            {/* <div className="option">
                                 <div className="s-input mr-2 ml-4">
                                     <input type="radio" name="seeking" id="males"/><label htmlFor="males">Male</label>
                                 </div>
                                 <div className="s-input ml-5">
                                     <input type="radio" name="seeking" id="females"/><label htmlFor="females">Female</label>
                                 </div>
-                            </div>
-                        </div>
+                            </div> */}
+                        {/* </div> */}
+                        <div className="profile-main-content">
+                  <ul className="nav nav-tabs top-menu nav-pills nav-fill">
+                    <li className="nav-item">
+                      <Link className="nav-link" to="#">
+                        Bride
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link" to="#">
+                        Groom
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
                         <div className="single-option age">
                             <label className="title ml-3">
                                 Ages :

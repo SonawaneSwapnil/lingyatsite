@@ -173,12 +173,12 @@ export default function Single_profile2() {
                                 </NavLink>
                             </li>
                            
-                            <li>
+                            {/* <li>
                                 <NavLink to="/single_profile3" exact activeclassname="active-class" >
                                     Members
                                   
                                 </NavLink>
-                            </li>
+                            </li> */}
                             <li>
                                 <NavLink to="/search" exact activeclassname="active-class">
                                    search
