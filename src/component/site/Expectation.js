@@ -110,7 +110,7 @@ export default function Expectation() {
                     </div>
                     <div className="profile-meta-box">
                       <div className="profile-uplodate-photo">
-                        <h4 className="p-u-p-header"><i className="fas fa-camera"></i> 4 Upload Photos</h4>
+                        <h4 className="p-u-p-header"><i className="fas fa-camera"></i>Uploaded Photos</h4>
                         <div className="p-u-p-list">
                           <div className="my-col">
                             <div className="img">
@@ -131,7 +131,7 @@ export default function Expectation() {
                                         </div>
                                     </div>
                                 </div> */}
-                          <div className="my-col">
+                          {/* <div className="my-col">
                             <div className="img">
                               <img src="assets/images/profile/up3.jpg" alt="" />
                               <div className="overlay">
@@ -140,8 +140,8 @@ export default function Expectation() {
                                 </Link>
                               </div>
                             </div>
-                          </div>
-                          <div className="my-col">
+                          </div> */}
+                          {/* <div className="my-col">
                             <div className="img">
                               <img src="assets/images/profile/up4.jpg" alt="" />
                               <div className="overlay">
@@ -150,8 +150,8 @@ export default function Expectation() {
                                 </Link>
                               </div>
                             </div>
-                          </div>
-                          <div className="my-col">
+                          </div> */}
+                          {/* <div className="my-col">
                             <div className="img">
                               <img src="assets/images/profile/up5.jpg" alt="" />
                               <div className="overlay">
@@ -160,7 +160,7 @@ export default function Expectation() {
                                 </Link>
                               </div>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
@@ -171,7 +171,7 @@ export default function Expectation() {
                     <ul className="top-menu">
                       <li><NavLink to="/single_profile2">Profile</NavLink></li>
                       <li><NavLink to="/details" className="active">Add More Information</NavLink></li>
-                      <li><NavLink to="/single_profile3">Members</NavLink></li>
+                      {/* <li><NavLink to="/single_profile3">Members</NavLink></li> */}
                       <li><NavLink to="/Search">search</NavLink></li>
                     </ul>
                     <div className="mt-4">

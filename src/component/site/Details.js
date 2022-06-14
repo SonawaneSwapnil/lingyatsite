@@ -130,7 +130,7 @@ export default function Details() {
                     <div className="profile-meta-box"></div>
                     <div className="profile-uplodate-photo">
                       <h4 className="p-u-p-header">
-                        <i className="fas fa-camera"></i> 4 Upload Photos
+                        <i className="fas fa-camera"></i>  Uploaded Photos
                       </h4>
                       <div className="p-u-p-list">
                         <div className="my-col">
@@ -152,7 +152,7 @@ export default function Details() {
                                         </div>
                                     </div>
                                 </div> */}
-                        <div className="my-col">
+                        {/* <div className="my-col">
                           <div className="img">
                             <img src="assets/images/profile/up3.jpg" alt="" />
                             <div className="overlay">
@@ -180,8 +180,8 @@ export default function Details() {
                                 <i className="fas fa-plus"></i>
                               </Link>
                             </div>
-                          </div>
-                        </div>
+                          </div> */}
+                        {/* </div> */}
                       </div>
                     </div>
                   </div>
@@ -199,11 +199,11 @@ export default function Details() {
                           Add More Information
                         </NavLink>
                       </li>
-                      <li>
+                      {/* <li>
                         <NavLink to="/single_profile3" exact activeclassname="active-class">
                           Members
                         </NavLink>
-                      </li>
+                      </li> */}
                       <li>
                         <NavLink to="/Search" exact activeclassname="active-class">
                           search

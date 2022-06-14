@@ -101,20 +101,13 @@ export default function Single_profile2() {
                             </ul> --> */}
                   </div>
                   <div className="profile-uplodate-photo">
-                    <h4 className="p-u-p-header">
-                      <i className="fas fa-camera"></i> 4 Upload Photos
-                    </h4>
+                    <h4 className="p-u-p-header"><i className="fas fa-camera"></i>Uploaded Photos</h4>
                     <div className="p-u-p-list">
                       <div className="my-col">
                         <div className="img">
                           <img src="assets/images/profile/up1.jpg" alt="" />
                           <div className="overlay">
-                            <Link
-                              to="assets/images/profile/up1.jpg"
-                              className="light-box mfp-iframe"
-                            >
-                              <i className="fas fa-plus"></i>
-                            </Link>
+                            <Link to="assets/images/profile/up1.jpg" className="light-box mfp-iframe"><i className="fas fa-plus"></i></Link>
                           </div>
                         </div>
                       </div>
@@ -127,45 +120,30 @@ export default function Single_profile2() {
                                         </div>
                                     </div>
                                 </div> */}
-                      <div className="my-col">
+                      {/* <div className="my-col">
                         <div className="img">
                           <img src="assets/images/profile/up3.jpg" alt="" />
                           <div className="overlay">
-                            <Link
-                              to="assets/images/profile/up3.jpg"
-                              className="light-box mfp-iframe"
-                            >
-                              <i className="fas fa-plus"></i>
-                            </Link>
+                            <Link to="assets/images/profile/up3.jpg" className="light-box mfp-iframe"><i className="fas fa-plus"></i></Link>
                           </div>
                         </div>
-                      </div>
-                      <div className="my-col">
+                      </div> */}
+                      {/* <div className="my-col">
                         <div className="img">
                           <img src="assets/images/profile/up4.jpg" alt="" />
                           <div className="overlay">
-                            <Link
-                              to="assets/images/profile/up4.jpg"
-                              className="light-box mfp-iframe"
-                            >
-                              <i className="fas fa-plus"></i>
-                            </Link>
+                            <Link to="assets/images/profile/up4.jpg" className="light-box mfp-iframe"><i className="fas fa-plus"></i></Link>
                           </div>
                         </div>
-                      </div>
-                      <div className="my-col">
+                      </div> */}
+                      {/* <div className="my-col">
                         <div className="img">
                           <img src="assets/images/profile/up5.jpg" alt="" />
                           <div className="overlay">
-                            <Link
-                              to="assets/images/profile/up5.jpg"
-                              className="light-box mfp-iframe"
-                            >
-                              <i className="fas fa-plus"></i>
-                            </Link>
+                            <Link to="assets/images/profile/up5.jpg" className="light-box mfp-iframe"><i className="fas fa-plus"></i></Link>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
@@ -188,7 +166,7 @@ export default function Single_profile2() {
                         Add More Information
                       </NavLink>
                     </li>
-
+{/* 
                     <li>
                       <NavLink
                         to="/single_profile3"
@@ -197,7 +175,7 @@ export default function Single_profile2() {
                       >
                         Members
                       </NavLink>
-                    </li>
+                    </li> */}
                     <li>
                       <NavLink to="/search" exact activeclassname="active-class">
                         search
@@ -310,6 +288,13 @@ export default function Single_profile2() {
                       </ul>
                     </div>
                   </div>
+                  <div className="button-wrapper d-grid gap-2 col-6 col-sm-8 col-md-10 mx-auto mt-3">
+                      <Link to="/selfprofile">
+                      <button type="submit" className="custom-button ml-5">
+                        View More Information
+                      </button>
+                      </Link>
+                    </div>
                 </div>
               </div>
             </div>

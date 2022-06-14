@@ -7,10 +7,10 @@ import { useReactToPrint } from "react-to-print";
 import Service from '../../service/Service';
 const Info = () => {
 
-  const componentRef = useRef();
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
+  // const componentRef = useRef();
+  // const handlePrint = useReactToPrint({
+  //   content: () => componentRef.current,
+  // });
 
   const [usersData, setUsersData] = useState();
   const imgPath="https://atjoin.in/lingayat_matrimony_api/";
@@ -160,7 +160,7 @@ const Info = () => {
                     <div class="container">
                       <div class="row">
                         <div class="col-md-12">
-                          <div ref={componentRef} >
+                          <div  >
                             <div class="float__start">
                               <div className="info-box">
                                 <div className="header">
@@ -212,11 +212,11 @@ const Info = () => {
                           <div className="info-box">
                             <div className="button-wrapper">
                               {/* <Link to="/single_profile2"> */}
-                              <button type="submit" className="custom-button ml-5" onClick={() => navigate("/search")} >Back
+                              <button type="submit" className="custom-button ml-5" onClick={() => navigate("/profile")} >Back
                               </button>
                               {/* </Link> */}
                               {/* <Link to="/registration"> */}
-                              <button type="submit" onClick={handlePrint} className="print__button custom-button ml-5"> Save as Pdf </button>
+                              {/* <button type="submit" onClick={handlePrint} className="print__button custom-button ml-5"> Save as Pdf </button> */}
                               {/* </Link> */}
                             </div>
                           </div>

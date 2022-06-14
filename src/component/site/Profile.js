@@ -25,13 +25,13 @@ export default function Profile() {
   return (
     <div>
       {/* <!-- ==========Breadcrumb-Section========== --> */}
-      <section class="breadcrumb-area profile-bc-area">
-        <div class="container">
-          <div class="content">
-            <h2 class="title extra-padding">Single Profile</h2>
-            <ul class="breadcrumb-list extra-padding">
-              <li><a href="index.html">Home</a></li>
-              <li>Single Profile</li>
+      <section className="breadcrumb-area profile-bc-area">
+        <div className="container">
+          <div className="content">
+            <h2 className="title extra-padding">Profile</h2>
+            <ul className="breadcrumb-list extra-padding">
+              <li><Link to="">Home</Link></li>
+              <li>Profile</li>
             </ul>
           </div>
         </div>

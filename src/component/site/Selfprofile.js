@@ -12,16 +12,10 @@ const Selfprofile = () => {
 
   const [userData, setUserData] = useState();
 
-<<<<<<< HEAD
-=======
-    const [usersData, setUsersData] = useState();
-  
->>>>>>> c3554e1af2220364634516b8f10930625b05c551
   useEffect(() => {
     loadAllData();
   }, []);
 
-<<<<<<< HEAD
   const userID = localStorage.getItem("USERID");
 
   const loadAllData = () => {
@@ -31,17 +25,6 @@ const Selfprofile = () => {
     });
   };
 
-=======
-  const loadAllUsersData = () => {
-    Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then((res)=>{
-      setUsersData(res.data);
-      console.log(res.data);
-    });
-  
-  
-    
-  }
->>>>>>> c3554e1af2220364634516b8f10930625b05c551
   return (
     <div>
       {/* <!-- ==========Breadcrumb-Section========== --> */}
@@ -55,7 +38,6 @@ const Selfprofile = () => {
             </ul>
           </div>
         </div>
-<<<<<<< HEAD
       </section>
       {/* <!-- ========= Profile Section Start --> */}
       <section className="profile-section">
@@ -63,14 +45,6 @@ const Selfprofile = () => {
           userData.map((index) => (
             <div className="container">
               <div className="row justify-content-center">
-=======
-    </section>
-    {/* <!-- ========= Profile Section Start --> */}
-    <section className="profile-section">
-    {usersData && usersData.map(index=>(
-        <div className="container">
-            <div className="row justify-content-center">
->>>>>>> c3554e1af2220364634516b8f10930625b05c551
                 <div className="col-xl-4 col-lg-5 col-md-7">
                   <div className="left-profile-area">
                     <div className="profile-about-box">
@@ -132,7 +106,7 @@ const Selfprofile = () => {
                             </ul> --> */}
                   </div>
                   <div className="profile-uplodate-photo">
-                    <h4 className="p-u-p-header"><i className="fas fa-camera"></i> 4 Upload Photos</h4>
+                    <h4 className="p-u-p-header"><i className="fas fa-camera"></i>Uploaded Photos</h4>
                     <div className="p-u-p-list">
                       <div className="my-col">
                         <div className="img">
@@ -151,30 +125,30 @@ const Selfprofile = () => {
                                         </div>
                                     </div>
                                 </div> */}
-                      <div className="my-col">
+                      {/* <div className="my-col">
                         <div className="img">
                           <img src="assets/images/profile/up3.jpg" alt="" />
                           <div className="overlay">
                             <Link to="assets/images/profile/up3.jpg" className="light-box mfp-iframe"><i className="fas fa-plus"></i></Link>
                           </div>
                         </div>
-                      </div>
-                      <div className="my-col">
+                      </div> */}
+                      {/* <div className="my-col">
                         <div className="img">
                           <img src="assets/images/profile/up4.jpg" alt="" />
                           <div className="overlay">
                             <Link to="assets/images/profile/up4.jpg" className="light-box mfp-iframe"><i className="fas fa-plus"></i></Link>
                           </div>
                         </div>
-                      </div>
-                      <div className="my-col">
+                      </div> */}
+                      {/* <div className="my-col">
                         <div className="img">
                           <img src="assets/images/profile/up5.jpg" alt="" />
                           <div className="overlay">
                             <Link to="assets/images/profile/up5.jpg" className="light-box mfp-iframe"><i className="fas fa-plus"></i></Link>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
@@ -192,7 +166,8 @@ const Selfprofile = () => {
                             <div class="float__start">
                               <div className="info-box">
                                 <div className="header">
-                                  <h2 className="title">Family Information/कौटुंबिक माहिती</h2>
+                                  
+                                  <h4 className="title">Family Details/कौटुंबिक माहिती</h4>
                                 </div>
                                 <div className="content">
                                   <ul className="infolist">
@@ -245,93 +220,17 @@ const Selfprofile = () => {
                                 </div>
                               </div>
                             </div>
-<<<<<<< HEAD
                           </div>
-                          <div className="info-box">
-                            <div className="button-wrapper">
-                              {/* <Link to="/single_profile2"> */}
-                              <button type="submit" className="custom-button ml-5" onClick={() => navigate("/search")} >Back</button>
-                              {/* </Link> */}
-                              {/* <Link to="/registration"> */}
-                              <button type="submit" onClick={handlePrint} className="print__button custom-button ml-5"> Save as Pdf </button>
-                              {/* </Link> */}
-=======
-                          
-                            <div className="content">
-                                <ul className="infolist">
-                                    <li>
-                                        <span>
-                                        Father Name/वडीलांचे नावं:
-                                        </span>
-                                        <span>
-                                        {index.father}
-                                        </span>
-                                    </li>
-                                      <li>
-                                        <span>
-                                        Contact Number/संपर्क क्रमांक:
-                                        </span>
-                                        <span>
-                                        {index.father_contact}
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span>
-                                        Mother Name/आईचे नाव:
-                                        </span>
-                                        <span>
-                                        {index.mother}
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span>
-                                        Contact Number/संपर्क क्रमांक:
-                                        </span>
-                                        <span>
-                                        {index.mother_contact}
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span>
-                                        Brother Name/भावाचे नाव
-                                        </span>
-                                        <span>
-                                        {index.brother}
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span>
-                                        Contact Number/संपर्क क्रमांक:
-                                        </span>
-                                        <span>
-                                        {index.brother_contact}
-                                        </span>
-                                    </li>
-                                    
-                                    <li>
-                                        <span>
-                                        Sister Name/बहिणीचे नाव
-                                        </span>
-                                        <span>
-                                        {index.sister}
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span>
-                                        Contact Number/संपर्क क्रमांक:
-                                        </span>
-                                        <span>
-                                        {index.sister_contact}
-                                        </span>
-                                    </li>
-                                    <li></li>
-                                                             
-                                </ul>
->>>>>>> c3554e1af2220364634516b8f10930625b05c551
-                            </div>
-                          </div>
+                          <div className="button-wrapper">
+                      {/* <Link to="/single_profile2"> */}
+                      <button type="submit" className="custom-button ml-5" onClick={() => navigate("/single_profile2")} >Back</button>
+                      {/* </Link> */}
+                      {/* <Link to="/registration"> */}
+                      <button type="submit" onClick={()=>navigate("/pdf")} className="print__button custom-button ml-5"> Save as Pdf </button>
+                      {/* </Link> */}
+                    </div>
+                         
                         </div>
-<<<<<<< HEAD
                       </div>
                     </div>
                   </div>
@@ -342,63 +241,6 @@ const Selfprofile = () => {
         ))}
       </section>
       {/* <!-- ========= Profile Section Start -- */}
-=======
-                        <div className="info-box">
-                            <div className="header">
-                                <h4 className="title">
-                                Expectation/अपेक्षा वधू/वर
-                                </h4>
-                            </div>
-                            <div className="content">
-                                <ul className="infolist">
-                                    <li>
-                                        <span>
-                                        Expection/अपेक्षा वधू/वर:
-                                        </span>
-                                        <span>
-                                        {index.expectation}
-                                        </span>
-                                    </li>
-                                   
-                                        
-                                </ul>
-                            </div>
-                        </div>
-                        
-                       
-               </div></div>
-               <div className="info-box">
-                            
-                                      
-    <div className="button-wrapper">
-                {/* <Link to="/single_profile2"> */}
-                  <button type="submit" className="custom-button ml-5" onClick={()=>navigate("/Single_profile2")} >Back
-                  </button>
-                      {/* </Link> */}
-                      
-                    {/* <Link to="/registration"> */}
-                    <button type="submit"  onClick={()=>navigate("/pdf")} className="print__button custom-button ml-5"> Save as Pdf </button>
-                         
-                      
-                      {/* </Link> */}
-                
-                            </div>
-                            
-                        </div>
-               </div>
-        </div>
-      </div>
-    </div>
-    <div>
-  
-  </div></div></div>
-               
-        </div>
-        </div>
-     ))} </section>
-   
-    {/* <!-- ========= Profile Section Start -- */}
->>>>>>> c3554e1af2220364634516b8f10930625b05c551
     </div>
   )
 }
