@@ -7,10 +7,33 @@ export default function Registration() {
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm();
 
-  const saveData = (data) => {
+  function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
+  const saveData = () => {
+    var data = {
+      user_name: getValues("user_name"),
+      dob: getValues("dob"),
+      gender: getValues("gender"),
+      contact: getValues("contact"),
+      password: getValues("password"),
+      looking_for_gender: getValues("looking_for_gender"),
+      city: getValues("city"),
+      married_status: getValues("married_status"),
+      age: getAge(getValues("dob"))
+    }
     console.log(data);
     Service.saveAllUsers(data).then((res) => {
       console.log(res.data);
