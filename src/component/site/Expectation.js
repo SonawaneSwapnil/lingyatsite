@@ -104,7 +104,7 @@ export default function Expectation() {
                         </div>
                         <h5 className="name">{index.user_name}</h5>
                         <ul className="p-b-meta-one">
-                          <li><span>21 Years Old</span></li>
+                          <li><span>{index.age} Years Old</span></li>
                           <li>
                             <span> <i className="fas fa-map-marker-alt"></i>{index.city}</span>
                           </li>
@@ -174,7 +174,7 @@ export default function Expectation() {
                     <ul className="top-menu">
                       <li><NavLink to="/single_profile2">Profile</NavLink></li>
                       <li><NavLink to="/details" className="active">Add More Information</NavLink></li>
-                      <li><NavLink to="/single_profile3">Members</NavLink></li>
+                      {/* <li><NavLink to="/single_profile3">Members</NavLink></li> */}
                       <li><NavLink to="/Search">search</NavLink></li>
                     </ul>
                     <div className="mt-4">

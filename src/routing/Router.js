@@ -32,7 +32,7 @@ export default function  Router() {
      <Route path="details" element={<Details/>}/>
     <Route path="family" element={<Family/>}/>
     <Route path="expectation" element={<Expectation/>}/>
-    <Route path="single_profile3" element={<Single_profile3/>}/>
+    {/* <Route path="single_profile3" element={<Single_profile3/>}/> */}
     <Route path="user_setting" element={<User_setting/>}/>
     <Route path="search" element={<Search/>}/>
     <Route path="profile" element={<Profile/>}/>

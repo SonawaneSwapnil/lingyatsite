@@ -55,7 +55,7 @@ export default function Single_profile2() {
                       <h5 className="name">{index.user_name}</h5>
                       <ul className="p-b-meta-one">
                         <li>
-                          <span>21 Years Old</span>
+                          <span>{index.age} Years Old</span>
                         </li>
                         <li>
                           <span>
@@ -189,7 +189,7 @@ export default function Single_profile2() {
                       </NavLink>
                     </li>
 
-                    <li>
+                    {/* <li>
                       <NavLink
                         to="/single_profile3"
                         exact
@@ -197,7 +197,7 @@ export default function Single_profile2() {
                       >
                         Members
                       </NavLink>
-                    </li>
+                    </li> */}
                     <li>
                       <NavLink to="/search" exact activeclassname="active-class">
                         search

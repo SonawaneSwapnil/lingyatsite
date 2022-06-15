@@ -37,7 +37,6 @@ function getAge(){
    agefrom=age.split("-")[0];
    ageto=age.split("-")[1];
   console.log(age);
-
 }
 // getAge(agefrom,ageto);
   const loadAllFilterData = () => {
@@ -48,12 +47,9 @@ console.log(agefrom+"  "+ageto);
       workplace: getValues("workplace"),
       income: getValues("income"),
       married_status: getValues("married_status")
-    };
-   
-    Service.getFilterUser(data.workplace,data.looking_for_gender,data.income,data.married_status,agefrom,ageto).then((res) => {
+       };
+ Service.getFilterUser(data.workplace,data.looking_for_gender,data.income,data.married_status,agefrom,ageto).then((res) => {
       setFilterUser(res.data);
-      // setFilterUser(res.agefrom);
-      // setFilterUser(res.ageto);
       console.log(res.data);
       console.log(data.looking_for_gender);
       console.log(data.workplace);
@@ -82,7 +78,6 @@ console.log(agefrom+"  "+ageto);
     }
   };
 
- 
 
   return (
     <div>
@@ -130,7 +125,7 @@ console.log(agefrom+"  "+ageto);
                                     <option value="">POPULAR</option>
                                 </select>
                             </div>
-                        </div> */}
+                            </div> */}
               </div>
             </div>
           </div> 

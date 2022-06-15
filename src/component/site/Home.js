@@ -1,16 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 export default function Home() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data.name);
-  };
 
+  let navigate = useNavigate();
   function range(start, end) {
     return Array(end - start + 1).fill().map((_, idx) => start + idx)
   }
@@ -114,7 +113,7 @@ export default function Home() {
             </div>
           </div>
           <div class="col-sm-2">
-            <button type="submit" class="custom-button">Search</button>
+            <button type="submit" class="custom-button" onClick={() => navigate("/login")}>Search</button>
           </div>
         </form>
       </div>
