@@ -52,7 +52,8 @@ const Selfprofile = () => {
       doc.setFontSize(10);
       doc.text("date of birth : ", 50 , 270);
       doc.setFont(undefined,'bold')
-      doc.text(usersData[0].dob, 200 , 270);
+      doc.text(moment(`${usersData[0].dob}`).format('YYYY/MM/DD'),200,270);
+      // doc.text(usersData[0].dob, 200 , 270);
  
      doc.setFontSize(10);
       doc.text("Birth-place : ", 50 , 300);
