@@ -61,7 +61,7 @@ export default function Expectation() {
 
     Service.updateExceptation(fd)
       .then((res) => {
-        alert("record Updated successsfully");
+        // alert("record Updated successsfully");
         // loadAllData();
         navigate("/search");
       })

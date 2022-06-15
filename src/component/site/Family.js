@@ -57,7 +57,7 @@ export default function Family() {
 
     Service.updateFamily(data)
       .then((res) => {
-        alert("record Updated successsfully");
+        // alert("record Updated successsfully");
         // loadAllData();
         navigate("/expectation");
       })

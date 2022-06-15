@@ -63,7 +63,7 @@ export default function Details() {
    
     Service.updateUsers(data)
       .then((res) => {
-        alert("record Updated successsfully");
+        // alert("record Updated successsfully");
         // loadAllData()
         navigate("/family");
       })

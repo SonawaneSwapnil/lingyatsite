@@ -37,7 +37,7 @@ export default function Registration() {
     console.log(data);
     Service.saveAllUsers(data).then((res) => {
       console.log(res.data);
-      alert("Registration successfully");
+      // alert("Registration successfully");
       navigate("/login");
     });
   };
