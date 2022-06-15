@@ -1,40 +1,151 @@
-import React, { Component, useRef, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-// import jsPdf from 'jspdf'
-import { useReactToPrint } from "react-to-print";
+import React, {  useState, useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
+import jsPDF from 'jspdf'
+// import { useReactToPrint } from "react-to-print";
 import Service from "../../service/Service";
 import moment from "moment";
 
 export default function Pdf() {
   const [usersData, setUsersData] = useState();
+  const[logo,setLogo]=useState("header image.jpg");
+   const[logof,setLogof]=useState("footer image.jpg");
+   useEffect(() => {
+     loadAllUsersData();
+   }, []);
+ 
+   const loadAllUsersData = () => {
+     Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then(
+       (res) => {
+         setUsersData(res.data);
+         console.log(res.data);
+       }
+     );
+   };
+ 
+  
+   
+   const generatePdf=()=>{
+     var doc=new jsPDF('portrait','pt','a4','false');
+     // A4 Page size in point width=595 x height=842
+     //Important Site for study
+     // https://mrrio.github.io/jsPDF/examples/basic.html
+ 
+     doc.addImage(logo, 'jpg', 0, 0, 595, 150, 'header');
 
-  useEffect(() => {
-    loadAllUsersData();
-  }, []);
 
-  const loadAllUsersData = () => {
-    Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then(
-      (res) => {
-        setUsersData(res.data);
-        console.log(res.data);
-      }
-    );
-  };
+     doc.setFontSize(10);
+     doc.setFont(undefined,'bold')
+     doc.text("Name : ", 50 , 180);
+     doc.text(usersData[0].user_name, 200 , 180);
+ 
+      doc.setFontSize(10);
+      doc.text("Marital status: ", 50 , 210);
+      doc.setFont(undefined,'bold')
+      doc.text(usersData[0].married_status, 200 , 210);
+ 
+      doc.setFontSize(10);
+      doc.text("City : ", 50 , 240);
+      doc.setFont(undefined,'bold')
+      doc.text(usersData[0].city, 200 , 240);
+ 
+      doc.setFontSize(10);
+      doc.text("date of birth : ", 50 , 270);
+      doc.setFont(undefined,'bold')
+      doc.text(usersData[0].dob, 200 , 270);
+ 
+     doc.setFontSize(10);
+      doc.text("Birth-place : ", 50 , 300);
+     doc.setFont(undefined,'bold')
+      doc.text(usersData[0].birth_place, 200 , 300);
+ 
+       doc.setFontSize(10);
+       doc.text("Birth-Time : ", 50 , 330);
+       doc.setFont(undefined,'bold')
+       doc.text(usersData[0].birth_time, 200 , 330);
+ 
+       doc.setFontSize(10);
+       doc.text("Educational qualification : ", 50 , 360);
+     doc.setFont(undefined,'bold')
+      doc.text(usersData[0].education, 200 , 360);
+ 
+       doc.setFontSize(10);
+      doc.text(" Service-Business : ", 50 , 390);
+       doc.setFont(undefined,'bold')
+       doc.text(usersData[0].bussiness, 200 , 390);
+ 
+        doc.setFontSize(10);
+       doc.text("Income : ", 50 , 420);
+       doc.setFont(undefined,'bold')
+        doc.text(usersData[0].income.toString(), 200 ,420);
+      
+       doc.setFontSize(10);
+       doc.text("Designation : ", 50 , 450);
+       doc.setFont(undefined,'bold')
+      doc.text(usersData[0].designation, 200 , 450);
+ 
+      doc.setFontSize(10);
+      doc.text("Workplace : ", 50 , 480);
+       doc.setFont(undefined,'bold')
+      doc.text(usersData[0].workplace, 200 , 480);
+ 
+     doc.setFontSize(10);
+      doc.text("Height : ", 50 , 510);
+     doc.setFont(undefined,'bold')
+  doc.text(usersData[0].height.toString(), 200 , 510);
+ 
+       doc.setFontSize(10);
+     doc.text("Blood-group : ", 50 , 540);
+       doc.setFont(undefined,'bold')
+       doc.text(usersData[0].blood_group, 200 , 540);
+ 
+      doc.setFontSize(10);
+    doc.text("Color : ", 50 , 570);
+       doc.setFont(undefined,'bold')
+      doc.text(usersData[0].color, 200 , 570);
+ 
+       doc.setFontSize(10);
+       doc.text("Weight : ", 50 , 600);
+       doc.setFont(undefined,'bold')
+       doc.text(usersData[0].weight.toString(), 200 , 600);
+ 
+       doc.setFontSize(10);
+       doc.text("Address : ", 50 , 630);
+      doc.setFont(undefined,'bold')
+      doc.text(usersData[0].address, 200 , 630);
+ 
+       doc.setFontSize(10);
+      doc.text("Fathet Name : ", 50 , 660);
+      doc.setFont(undefined,'bold')
+      doc.text(usersData[0].father, 200 , 660);
+ 
+      doc.setFontSize(10);
+     doc.text("Contact-No : ", 50 , 690);
+       doc.setFont(undefined,'bold')
+      doc.text(usersData[0].father_contact.toString(), 200 ,690);
+ 
+      // doc.setFontSize(10);
+      // doc.text("Expection : ", 50 , 720);
+      // doc.setFont(undefined,'bold')
+      // doc.text(usersData[0].expectation, 200 , 720);
+ 
+     doc.addImage(logof, 'jpg', 0, 740, 595, 200, 'footer')
+     doc.save("profile.pdf");
+    }
+     
+   
 
-  // generatePDF=()=>{
-  //     var doc=new jsPDF('p','pt');
 
   // }
-  const componentRef = useRef();
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
-  let navigate = useNavigate();
+  // const componentRef = useRef();
+  // const handlePrint = useReactToPrint({
+  //   content: () => componentRef.current,
+  // });
+  // let navigate = useNavigate();
   return (
     <div>
         <div>
         {/* <!-- ==========Breadcrumb-Section========== --> */}
-    <section class="breadcrumb-area profile-bc-area">
+     <section class="breadcrumb-area profile-bc-area">
    
         <div class="container">
             <div class="content">
@@ -61,118 +172,26 @@ export default function Pdf() {
           
             <div className="info-box card">
               <div className="header " >
-                 <div ref={componentRef} > 
-                  <img src="header image.jpg " className="card-img-top"/>
+                 {/* <div  > 
+                  <img src="header image.jpg " className="card-img-top"/> */}
                   
            
-                  <div className="content ml-3">
+                  <div className="content ml-3"> 
                   {/* <div className="p-inner-content">
                                 <div className="profile-img ">
                                     <img src=" /images/profile/profile-user.png" alt=""/>
                                     <div className="active-online"></div>
                                 </div>
                   </div> */}
-                  <div className="profile-img d-flex justify-content-end">
+                   <div className="profile-img d-flex justify-content-end">
                                     <img src="assets/images/profile/profile-user.png" alt=""/>
                                     
                                 </div>
                     {usersData &&
                       usersData.map((index) => (
+                           
                           
-                          
-                        //  <ul className="infolist  ml-3">
                         
-                        //   <li list-group-item d-flex justify-content-between align-items-center>
-                        //     <span className="ml-3 font-weight-bold">Name/नाव:</span>
-                        //     <span className='ml-3 text-right'>{index.user_name}</span>
-                        //   </li>
-                          
-                        //   <li>
-                        //     <span className="ml-3">Marital status/वैवाहिक स्थिती:</span>
-                        //  <span className='ml-3'>{index.married_status}</span>
-                        //   </li>
-
-                        //   <li>
-                        //     <span className="ml-3">City/शहर:</span>
-                        //      <span className='ml-3'>{index.city}</span>
-                        //   </li>
-
-                        //   <li>
-                        //      <span className="ml-3">Date Of Birth/जन्मतारीख:</span>
-                        //      <span className='ml-3'>
-                        //        {moment(`${index.dob}`).format("YYYY/MM/DD")}
-                        //      </span>
-                        //    </li>
-                        //   <li>
-                        //     <span className="ml-3">Birth Place/जन्मतारीख ठिकाण:</span>
-                        //      <span className='ml-3'>{index.birth_place}</span>
-                        //    </li>
-                        //    <li>
-                        //      <span className="ml-3">Birth time/जन्म वेळ:</span>
-                        //      <span className='ml-3'>{index.birth_time}</span>
-                        //    </li>
-                        //    <li>
-                        //      <span className="ml-3">Marital status/वैवाहिक स्थिती:</span>
-                        // <span className='ml-3'>{index.married_status}</span>
-                        //   </li>
-
-                        //    <li>
-                        //      <span className="ml-3">
-                        //        Educational Qualification/शैक्षणिक पात्रता:{" "}
-                        //     </span>
-                        //      <span className='ml-3'>{index.education}</span>
-                        //    </li>
-                        //    <li>
-                        //      <span className="ml-3">Service or Business/सेवा किंवा व्यवसाय:</span>
-                        //  <span className='ml-3'>{index.bussiness}</span>
-                        //   </li>
-                        //   <li>
-                        //      <span className="ml-3">Income/उत्पन्न:</span>
-                        //    <span className='ml-3'>{index.income}</span>
-                        //   </li>
-                        //    <li>
-                        //      <span className="ml-3">Designation/हुद्दा:</span>
-                        //      <span className='ml-3'>{index.designation}</span>
-                        //    </li>
-                        //    <li>
-                        //     <span className="ml-3">Workplace/कामाची जागा:</span>
-                        //     <span className='ml-3'>{index.designation}</span>
-                        //    </li>
-                        //    <li>
-                        //      <span className="ml-3">Height/उंची:</span>
-                        //      <span className='ml-3'>{index.height}</span>
-                        //    </li>
-                        //    <li>
-                        //      <span className="ml-3">Blood-Group/रक्त गट:</span>
-                        //     <span className='ml-3'>{index.blood_group}</span>
-                        //   </li>
-                        //    <li>
-                        //      <span className="ml-3">Color/रंग:</span>
-                        //      <span className='ml-3'>{index.color}</span>
-                        //    </li>
-                        //   <li>
-                        //     <span className="ml-3">Weight/वजन:</span>
-                        //     <span className='ml-3'>{index.weight}</span>
-                        //   </li>
-                        //    <li>
-                        //      <span className="ml-3">Address/पत्ता:</span>
-                        //      <span className='ml-3'>{index.address}</span>
-                        //    </li>
-
-                        //    <li>
-                        //      <span className="ml-3">Father Name/वडीलांचे नावं:</span>
-                        //      <span className='ml-3'>{index.father}</span>
-                        //    </li>
-                        //    <li>
-                        //      <span className="ml-3">Contact Number/संपर्क क्रमांक:</span>
-                        //      <span className='mr-3'>{index.father_contact}</span>
-                        //    </li>
-                          
-                        //   <li>
-                        //      <span className="ml-3">Expection/अपेक्षा वधू/वर:</span>
-                        //      <span className='ml-3'>{index.expectation}</span>
-                        // //   </li>
-                        //  </ul>
                         
                          <dl className="row ml-4 ">
                              <dt className="col-sm-3 ">Name/नाव:</dt>
@@ -253,11 +272,11 @@ export default function Pdf() {
                               <dt className="col-sm-3">Expection/अपेक्षा वधू/वर:</dt>
                             <dd className="col-sm-9">{index.expectation}</dd>
                           
-                     </dl>
+                     </dl> 
                       ))}
                       
                       </div>
-                      <img src="footer image.jpg" className="img-fluid card-img-bottom" />
+                      {/* <img src="footer image.jpg" className="img-fluid card-img-bottom" /> */}
                   </div>
                 </div>
               </div>
@@ -266,11 +285,11 @@ export default function Pdf() {
             
           </div>
           
-         </div> 
-      </section>
+       
+      </section> 
       <button
         type="button"
-        onClick={handlePrint}
+        onClick={generatePdf}
         className="print__button custom-button mr-5"
       >{" "}
       Print Pdf{" "}
@@ -279,4 +298,4 @@ export default function Pdf() {
      </div>   
     </div>
   );
-}
+  }

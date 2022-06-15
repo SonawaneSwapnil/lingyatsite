@@ -568,6 +568,7 @@ export default function Details() {
                           </span>
                         )}
                       </div>
+                      
                       <div className="col-sm-5 ml-4">
                         {errors.height && (
                           <div style={{ color: "red" }}>

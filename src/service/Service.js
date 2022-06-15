@@ -1,11 +1,10 @@
 import axios from "axios";
-
 const Base_url="https://atjoin.in/lingayat_matrimony_api/";
 class Service
 {
     getAllUsers()
     {
-        return axios.get(Base_url+"users/get-users")
+        return axios.get(Base_url+"users/get-users");
     }
     saveAllUsers(data)
     {
