@@ -41,17 +41,6 @@ export default function Details() {
     );
   };
 
-  // const saveData = (data) => {
-  //   console.log(data);
-  //   Service.saveAllUsers(data).then((res) => {
-  //     console.log(res.data);
-  //     alert("Data Saved successfully");
-  //     reset();
-  //     loadAllData();
-  // });
-
-  // };
-  // Update
 
   const updateRecord = () => {
     var data = {

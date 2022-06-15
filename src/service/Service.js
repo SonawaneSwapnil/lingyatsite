@@ -27,14 +27,16 @@ class Service {
     return axios.put(Base_url + "users/update-expectation", data);
   }
   // FilterData
-  getFilterUser(workplace,looking_for_gender, income, married_status) {
+  getFilterUser(workplace,looking_for_gender, income, married_status,agefrom,ageto) {
     return axios.get(
       Base_url +
         "users/get-filterdata/" +
         workplace +"/"+
         looking_for_gender +"/"+
         income +"/"+
-        married_status
+        married_status+"/"+
+        agefrom+"/"+
+        ageto
     );
   }
 }

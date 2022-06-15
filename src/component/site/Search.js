@@ -6,10 +6,9 @@ import { useNavigate } from "react-router-dom";
 import Service from "../../service/Service";
 
 export default function Search() {
-  const [userUpdateData, setuserUpdateData] = useState();
   const [userData, setUserData] = useState();
   const [filteredUser, setFilterUser] = useState();
-  const [isOpen,setIsOpen]=useState();
+  const [modalVisible, setModalVisible] = useState(true);
   let navigate = useNavigate();
   const {
     register,
@@ -26,31 +25,73 @@ export default function Search() {
 
   const loadAllUserData = () => {
     Service.getAllUsers().then((res) => {
-      setUserData(res.data);
+      setFilterUser(res.data);
       console.log(res.data);
     });
   };
 
-  const loadAllFilterData = () => {
+  function canVote(age) {
+    return age >= 18;
+}
+
+function getAge(agefrom,ageto){
+  var age=getValues("age");
+  var age=age.split("-");
+  console.log(age)
+if(age>=18 && age<=20){
+  agefrom=18;
+  ageto=20;
+}else if(age>=21 && age<=25)
+{
+  agefrom=21;
+  ageto=25;
+}
+else if(age>=26 && age<=30)
+{
+  agefrom=26;
+  ageto=30;
+}
+else if(age>=31 && age<=35)
+{
+  agefrom=31;
+  ageto=35;
+}
+else if(age>=36 && age<=40){
+  agefrom=36;
+  ageto=40;
+}
+else {
+  agefrom=41;
+  ageto=45;
+}
+loadAllFilterData(agefrom,ageto);
+}
+
+  const loadAllFilterData = (agefrom,ageto) => {
     var data = {
       looking_for_gender: getValues("looking_for_gender"),
       workplace: getValues("workplace"),
       income: getValues("income"),
       married_status: getValues("married_status"),
-      dob:getValues("dob")
-      // workplace:workplace
+  
     };
-    Service.getFilterUser(data.workplace,data.looking_for_gender,data.income,data.married_status).then((res) => {
+    var agefrom=agefrom
+    var ageto=ageto
+    Service.getFilterUser(data.workplace,data.looking_for_gender,data.income,data.married_status,agefrom,ageto).then((res) => {
       setFilterUser(res.data);
       console.log(res.data);
       console.log(data.looking_for_gender);
       console.log(data.workplace);
       console.log(data.income);
       console.log(data.married_status);
-
+      console.log(agefrom);
+      console.log(ageto);
+      reset();
       navigate("/search");
     });
   };
+
+
 
   // Filtersdata
 
@@ -66,13 +107,7 @@ export default function Search() {
     }
   };
 
-  // age calculator
-  // function range(start, end) {
-  //   return Array(end - start + 1).fill().map((_, idx) => start + idx)
-  // }
-
-  // var ageFilter = range(18, 65);
-  // console.log(ageFilter)
+ 
 
   return (
     <div>
@@ -123,182 +158,7 @@ export default function Search() {
                         </div> */}
               </div>
             </div>
-          </div>
-          {/* <div
-            class="container mb-5"
-            style={{
-              backgroundColor: "rgb(158, 0, 53)",
-              padding: 50,
-              borderRadius: 16,
-            }}
-          >
-            <form
-              class="row gx-3 gy-2 align-items-center"
-              onSubmit={handleSubmit(loadAllFilterData)}
-            >
-              <div class="col-sm-2">
-                <label
-                  class="visually-hidden text-light title"
-                  for="specificSizeInputGroupUsername"
-                >
-                  Looking for:
-                </label>
-                <div class="form-check">
-                  <div className="row">
-                    <div class="col-8">
-                      <label
-                        class="form-check-label text-light title"
-                        for="flexRadioDefault1"
-                      >
-                        Groom
-                      </label>
-                    </div>
-                    <div class="col-4">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="form-check">
-                  <div className="row">
-                    <div class="col-8">
-                      <label
-                        class="form-check-label text-light title"
-                        for="flexRadioDefault2"
-                      >
-                        Bride
-                      </label>
-                    </div>
-                    <div class="col-4">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-2">
-                <label
-                  class="visually-hidden text-light title"
-                  for="specificSizeSelect"
-                >
-                  Age Preference:
-                </label>
-                <select class="form-select" id="specificSizeSelect">
-                  <option selected>Choose...</option>
-                  <option value="1">18-20</option>
-                  <option value="2">21-25</option>
-                  <option value="3">26-30</option>
-                  <option value="1">31-35</option>
-                  <option value="2">36-40</option>
-                  <option value="3">41-45</option>
-                </select>
-              </div>
-              <div class="col-sm-2">
-                <label
-                  class="visually-hidden text-light title"
-                  for="specificSizeInputGroupUsername"
-                >
-                  WorkPlace:
-                </label>
-                <div class="input-group">
-                  <div class="input-group-text">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-person-workspace"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
-                      <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z" />
-                    </svg>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="specificSizeInputGroupUsername"
-                    {...register("workplace", {
-                      required: "Please enter your workplace",
-                    })}
-                  />
-                  
-                </div>
-              </div>
-              <div class="col-sm-2">
-                <label
-                  class="visually-hidden text-light title"
-                  for="specificSizeInputGroupUsername"
-                >
-                  Income:
-                </label>
-                <div class="input-group">
-                  <div class="input-group-text">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-cash-stack"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
-                      <path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z" />
-                    </svg>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="specificSizeInputGroupUsername"
-                  />
-                </div>
-              </div>
-              <div class="col-sm-2">
-                <label
-                  class="visually-hidden text-light title"
-                  for="specificSizeInputGroupUsername"
-                >
-                  Marital Status:
-                </label>
-                <div class="input-group">
-                  <select class="form-select" id="specificSizeSelect">
-                    <option selected>Choose...</option>
-                    <option class="textTru chosenDropWid" id="N" value="N">
-                      Never Married
-                    </option>
-                    <option class="textTru chosenDropWid" id="S" value="S">
-                      Awaiting Divorce
-                    </option>
-                    <option class="textTru chosenDropWid" id="D" value="D">
-                      Divorced
-                    </option>
-                    <option class="textTru chosenDropWid" id="W" value="W">
-                      Widowed
-                    </option>
-                    <option class="textTru chosenDropWid" id="A" value="A">
-                      Annulled
-                    </option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-sm-2">
-                <button type="submit" class="custom-button">
-                  Search
-                </button>
-              </div>
-            </form>
-          </div> */}
-
-<hr/>
-          
+          </div> 
           {filteredUser &&
             filteredUser.map((index, i) => (
               <div className="row" key={index.user_id}>
@@ -399,7 +259,7 @@ export default function Search() {
                           id="flexRadioDefault1"
                           value="male"
                           {...register("looking_for_gender", {
-                            required: "Please enter your workplace",
+                            required: false
                           })}  />
                       </div>
                     </div>
@@ -421,7 +281,7 @@ export default function Search() {
                             id="flexRadioDefault2"
                             value="female"
                             {...register("looking_for_gender", {
-                              required: "Please enter your workplace",
+                              required: false
                             })} />
                         </div>
                       </div>
@@ -434,14 +294,19 @@ export default function Search() {
                     >
                       Age Preference:
                     </label>
-                    <select className="form-select" id="specificSizeSelect">
+                    
+                    <select className="form-select" id="specificSizeSelect" 
+                      {...register("age", {
+                        required: false
+                      })} onChange={getAge}
+                    >
                       <option selected>Choose...</option>
-                      <option value="1">18-20</option>
-                      <option value="2">21-25</option>
-                      <option value="3">26-30</option>
-                      <option value="1">31-35</option>
-                      <option value="2">36-40</option>
-                      <option value="3">41-45</option>
+                      <option value="18-20">18-20</option>
+                      <option value="21-25">21-25</option>
+                      <option value="26-30">26-30</option>
+                      <option value="31-35">31-35</option>
+                      <option value="36-40">36-40</option>
+                      <option value="41-45">41-45</option>
                     </select>
                   </div>
 
@@ -470,16 +335,11 @@ export default function Search() {
                       className="form-control"
                       id="specificSizeInputGroupUsername"
                       {...register("workplace", {
-                        required: "Please enter your workplace",
+                        required: false
                       })}
+                      
                     />
-                    <br />
-
-                    {errors.workplace && (
-                      <span style={{ color: "red" }}>
-                        {errors.workplace.message}
-                      </span>
-                    )}
+                    
                   </div>
 
                   <label
@@ -507,7 +367,7 @@ export default function Search() {
                       className="form-control"
                       id="specificSizeInputGroupUsername"
                       {...register("income", {
-                        required: "Please enter your workplace",
+                        required: false
                       })}
                     />
                   </div>
@@ -519,7 +379,7 @@ export default function Search() {
                   </label>
                   <div className="input-group">
                     <select className="form-select" id="specificSizeSelect"   {...register("married_status", {
-                        required: "Please enter your workplace",
+                        required: false
                       })}>
                       <option selected>Choose...</option>
                       <option
