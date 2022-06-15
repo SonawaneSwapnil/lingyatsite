@@ -1,8 +1,31 @@
 import React from 'react'
-import { Outlet, NavLink, Link } from 'react-router-dom'
-
+import { Outlet, NavLink, Link, Navigate, useNavigate } from 'react-router-dom'
+import { useState } from 'react';
 
 export default function Site() {
+const [contact,setcontact] = useState('');
+const [password, setPassword] = useState('');
+const [isLoggedin, setIsLoggedin] = useState(false);
+
+const login = (e) => {
+  e.preventDefault();
+  console.log(contact, password);
+  const userData = {
+    contact,
+    password,
+  };
+  localStorage.setItem('token-info', JSON.stringify(userData));
+  setIsLoggedin(true);
+  setcontact('');
+  setPassword('');
+  navigate("/login")
+};
+let navigate=useNavigate();
+const logout = () => {
+  localStorage.removeItem('token-info');
+  setIsLoggedin(false);
+  navigate("/login")
+};
 
     return (
         <div>
@@ -11,10 +34,12 @@ export default function Site() {
                 <i className="fas fa-angle-up"></i>
             </Link>
             {/* <!-- ==========Header-Section========== --> */}
-
+            {!isLoggedin ? (
             <div className="header-section">
                 <div className="container">
+               
                     <div className="header-wrapper">
+                    
                         <div className="logo">
                             <Link to="">
                                 <img src="./assets/images/logo/logo-old.png" alt="logo" />
@@ -47,7 +72,7 @@ export default function Site() {
                                 </Link>
                                 <ul className="submenu">
                                     <li>
-                                        <Link to="/login">Login</Link>
+                                        <Link to="" onClick={login}>Login</Link>
 
                                     </li>
                                     <li>
@@ -61,9 +86,68 @@ export default function Site() {
                             <span></span>
                             <span></span>
                         </div>
+                        
                     </div>
+                   
+                </div>
+            </div>) : (
+                <div className="header-section">
+                <div className="container">
+               
+                    <div className="header-wrapper">
+                    
+                        <div className="logo">
+                            <Link to="">
+                                <img src="./assets/images/logo/logo-old.png" alt="logo" />
+                            </Link>
+                        </div>
+                        <ul className="menu">
+                            <li>
+                                <Link to="" activeClassName="active">Home</Link>
+                            </li>
+                            <li>
+                                <Link to="/about" activeClassName="active">About Us</Link>
+                            </li>
+                            <li>
+                                <Link to="/contact" activeClassName="active">Contact</Link>
+                            </li>
+                            <li className="separator">
+                                <span>|</span>
+                            </li>
+                            <li>
+                                <div className="serch-icon">
+                                    <Link to="/user_setting">
+                                        <i className="fa fa-cog" aria-hidden="true"></i></Link>
+                                </div>
+                            </li>
+
+
+                            <li className="user-profile">
+                                <Link to="#">
+                                    <img src="./assets/images/user-demo.png" alt="" />
+                                </Link>
+                                <ul className="submenu">
+                                    <li>
+                                    <Link to="/login" onClick={logout}>logout user</Link>
+
+                                    </li>
+                                    {/* <li>
+                                        <Link to="/registration">Registration</Link>
+                                    </li> */}
+                                </ul>
+                            </li>
+                        </ul>
+                        <div className="header-bar d-lg-none">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        
+                    </div>
+                   
                 </div>
             </div>
+                      )}
             <div className="search-overlay">
                 <div className="close"><i className="fas fa-times"></i></div>
                 <form action="#">
