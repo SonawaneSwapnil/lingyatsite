@@ -30,55 +30,30 @@ export default function Search() {
     });
   };
 
-  function canVote(age) {
-    return age >= 18;
-}
-
-function getAge(agefrom,ageto){
+ 
+var agefrom,ageto;
+function getAge(){
   var age=getValues("age");
-  var age=age.split("-");
-  console.log(age)
-if(age>=18 && age<=20){
-  agefrom=18;
-  ageto=20;
-}else if(age>=21 && age<=25)
-{
-  agefrom=21;
-  ageto=25;
-}
-else if(age>=26 && age<=30)
-{
-  agefrom=26;
-  ageto=30;
-}
-else if(age>=31 && age<=35)
-{
-  agefrom=31;
-  ageto=35;
-}
-else if(age>=36 && age<=40){
-  agefrom=36;
-  ageto=40;
-}
-else {
-  agefrom=41;
-  ageto=45;
-}
-loadAllFilterData(agefrom,ageto);
-}
+   agefrom=age.split("-")[0];
+   ageto=age.split("-")[1];
+  console.log(age);
 
-  const loadAllFilterData = (agefrom,ageto) => {
+}
+// getAge(agefrom,ageto);
+  const loadAllFilterData = () => {
+getAge();
+console.log(agefrom+"  "+ageto);
     var data = {
       looking_for_gender: getValues("looking_for_gender"),
       workplace: getValues("workplace"),
       income: getValues("income"),
-      married_status: getValues("married_status"),
-  
+      married_status: getValues("married_status")
     };
-    var agefrom=agefrom
-    var ageto=ageto
+   
     Service.getFilterUser(data.workplace,data.looking_for_gender,data.income,data.married_status,agefrom,ageto).then((res) => {
       setFilterUser(res.data);
+      // setFilterUser(res.agefrom);
+      // setFilterUser(res.ageto);
       console.log(res.data);
       console.log(data.looking_for_gender);
       console.log(data.workplace);
@@ -298,7 +273,7 @@ loadAllFilterData(agefrom,ageto);
                     <select className="form-select" id="specificSizeSelect" 
                       {...register("age", {
                         required: false
-                      })} onChange={getAge}
+                      })}
                     >
                       <option selected>Choose...</option>
                       <option value="18-20">18-20</option>
