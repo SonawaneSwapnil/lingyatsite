@@ -4,17 +4,16 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 export default function Home() {
   const {
-    register,
-    handleSubmit,
     formState: { errors },
   } = useForm();
 
   let navigate = useNavigate();
-  function range(start, end) {
-    return Array(end - start + 1).fill().map((_, idx) => start + idx)
-  }
 
-  var ageFilter = range(18, 65);
+  // function range(start, end) {
+  //   return Array(end - start + 1).fill().map((_, idx) => start + idx)
+  // }
+
+  // var ageFilter = range(18, 65);
 
   return (
     <div>
@@ -39,8 +38,8 @@ export default function Home() {
       {/* <!-- ==========Filter-Section========== --> */}
 
       <div class="container" style={{ 'backgroundColor': 'rgb(158, 0, 53)', 'padding': 50, 'borderRadius': 16 }}>
-        <form class="row gx-3 gy-2 align-items-center">
-          <div class="col-sm-2">
+        <form class="row">
+          <div class="col-lg-2 col-sm-12">
             <label class="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Looking for:</label>
             <div class="form-check">
               <div className='row p-0 m-0'>
@@ -63,7 +62,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div class="col-sm-2">
+          <div class="col-lg-2 col-sm-12">
             <label class="visually-hidden text-light ititle" for="specificSizeSelect">Age Preference:</label>
             <select class="form-select ddown" id="specificSizeSelect">
               <option selected>Choose...</option>
@@ -75,7 +74,7 @@ export default function Home() {
               <option value="3">41-45</option>
             </select>
           </div>
-          <div class="col-sm-2">
+          <div class="col-lg-2 col-sm-12">
             <label class="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">WorkPlace:</label>
             <div class="input-group">
               <div class="input-group-text">
@@ -87,7 +86,7 @@ export default function Home() {
               <input type="text" class="form-control" id="specificSizeInputGroupUsername" />
             </div>
           </div>
-          <div class="col-sm-2">
+          <div class="col-lg-2 col-sm-12">
             <label class="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Income:</label>
             <div class="input-group">
               <div class="input-group-text">
@@ -99,7 +98,7 @@ export default function Home() {
               <input type="text" class="form-control" id="specificSizeInputGroupUsername" />
             </div>
           </div>
-          <div class="col-sm-2">
+          <div class="col-lg-2 col-sm-12">
             <label class="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Marital Status:</label>
             <div class="input-group">
               <select class="form-select ddown" id="specificSizeSelect">
@@ -112,7 +111,7 @@ export default function Home() {
               </select>
             </div>
           </div>
-          <div class="col-sm-2">
+          <div class="col-lg-2 col-sm-12 col-sm-12 text-center mt-3">
             <button type="submit" class="custom-button" onClick={() => navigate("/login")}>Search</button>
           </div>
         </form>

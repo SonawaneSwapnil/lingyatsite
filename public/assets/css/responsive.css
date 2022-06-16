@@ -378,36 +378,43 @@
 }
 
 @media (max-width: 991px) {
-    .user-setting-section .accordion{
+    .user-setting-section .accordion {
         margin-bottom: 30px;
     }
+
     #mycontainer aside input {
         background-position: right;
     }
+
     #usermessage .modal-content .close {
         color: #fff;
         right: 20px;
     }
-    #mycontainer{
+
+    #mycontainer {
         flex-wrap: wrap;
         height: auto;
     }
-    #mycontainer #chat .me .triangle{
+
+    #mycontainer #chat .me .triangle {
         margin-left: auto;
         margin-right: 10px;
     }
-    #mycontainer aside{
+
+    #mycontainer aside {
         flex: 100%;
         max-width: 100%;
         height: 250px;
         overflow: auto;
-        width: 100%!important;
+        width: 100% !important;
     }
-    #mycontainer main{
+
+    #mycontainer main {
         flex: 100%;
         width: 100%;
-        max-width: 100%; 
-    } 
+        max-width: 100%;
+    }
+
     .log-reg .log-reg-inner .section-header.inloginp {
         padding-top: 0px;
     }
@@ -431,7 +438,7 @@
     .header-wrapper .menu {
         display: none;
         position: fixed;
-        background: #5650ce;
+        background: rgb(158, 0, 53);
         width: 100%;
         max-width: 500px;
         top: 59px;
@@ -1011,12 +1018,14 @@
 }
 
 @media (max-width: 575px) {
-    .user-setting-section .frind-box .single-friend{
+    .user-setting-section .frind-box .single-friend {
         display: block;
     }
-    .user-setting-section .frind-box .right{
+
+    .user-setting-section .frind-box .right {
         margin-top: 15px;
     }
+
     .spl-wrapper .my-col {
         flex: 100%;
         max-width: 100%;

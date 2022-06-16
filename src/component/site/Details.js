@@ -378,25 +378,31 @@ export default function Details() {
                         </div>
 
                         <div className="row">
-                          <label htmlFor="inputincome" className="col-sm-6 col-form-label ititle">Income/उत्पन्न</label>
-                          <label htmlFor="inputdesignation" className="col-sm-6 col-form-label ititle" > Designation/हुद्दा</label>
-                        </div>
-                        <div className="row input-group ">
-                          <input
-                            {...register("income", {
-                              required: "Enter Your  Income/उत्पन्न",
-                            })}
-                            type="number"
-                            className="my-form-control col-sm-5  ml-2 mr-5"
-                            id="exampleInputincome" />
-                          <input
-                            {...register("designation", {
-                              required: "Enter Your Designation/हुद्दा",
-                            })}
-                            type="text"
-                            className="my-form-control col-sm-5 ml-4 "
-                            id="exampleInputdesig" />
-                          <br />
+                          <div className="col-lg-6">
+                            <label htmlFor="inputincome" className="col-form-label ititle">Income/उत्पन्न</label>
+                            <div className="input-group">
+                              <input
+                                {...register("income", {
+                                  required: "Enter Your  Income/उत्पन्न",
+                                })}
+                                type="number"
+                                className="my-form-control"
+                                id="exampleInputincome" />
+                            </div>
+                          </div>
+                          <div className="col-lg-6">
+                            <label htmlFor="inputdesignation" className="col-form-label ititle" > Designation/हुद्दा</label>
+                            <div className="input-group">
+                              <input
+                                {...register("designation", {
+                                  required: "Enter Your Designation/हुद्दा",
+                                })}
+                                type="text"
+                                className="my-form-control"
+                                id="exampleInputdesig" />
+                            </div>
+                            <br />
+                          </div>
                         </div>
 
                         <div className="row">
@@ -417,24 +423,30 @@ export default function Details() {
                         </div>
 
                         <div className="row">
-                          <label htmlFor="inputincome" className="col-sm-6 col-form-label ititle">Workplace/कामाची जागा</label>
-                          <label htmlFor="inputdesignation" className="col-sm-6 col-form-label ititle">Height/उंची</label>
-                        </div>
-                        <div className="row input-group ">
-                          <input
-                            {...register("workplace", {
-                              required: "Enter Your  Workplace/कामाची जागा",
-                            })}
-                            type="text"
-                            className="my-form-control col-sm-5  ml-2 mr-5"
-                            id="exampleInputdate" />
-                          <input
-                            {...register("height", {
-                              required: "Enter Your Height/उंची",
-                            })}
-                            type="number"
-                            className="my-form-control col-sm-5 ml-4"
-                            id="exampleInputdate" />
+                          <div className="col-lg-6">
+                            <label htmlFor="inputincome" className="col-form-label ititle">Workplace/कामाची जागा</label>
+                            <div className="input-group">
+                              <input
+                                {...register("workplace", {
+                                  required: "Enter Your Workplace/कामाची जागा",
+                                })}
+                                type="text"
+                                className="my-form-control"
+                                id="exampleInputdate" />
+                            </div>
+                          </div>
+                          <div className="col-lg-6">
+                            <label htmlFor="inputdesignation" className="col-form-label ititle">Height/उंची</label>
+                            <div className="input-group">
+                              <input
+                                {...register("height", {
+                                  required: "Enter Your Height/उंची",
+                                })}
+                                type="number"
+                                className="my-form-control"
+                                id="exampleInputdate" />
+                            </div>
+                          </div>
                         </div>
 
                         <div className="row">
@@ -455,24 +467,30 @@ export default function Details() {
                         </div>
 
                         <div className="row">
-                          <label htmlFor="inputincome" className="col-sm-6 col-form-label ititle">Blood-Group/रक्त गट</label>
-                          <label htmlFor="inputdesignation" className="col-sm-6 col-form-label ititle ">Color/रंग</label>
-                        </div>
-                        <div className="row input-group ">
-                          <input
-                            {...register("blood_group", {
-                              required: "Enter Your Blood-Group/रक्त गट",
-                            })}
-                            type="text"
-                            className="my-form-control col-sm-5  ml-2 mr-5"
-                            id="exampleInputblood" />
-                          <input
-                            {...register("color", {
-                              required: "Enter Your Color/रंग",
-                            })}
-                            type="text"
-                            className="my-form-control col-sm-5 ml-4"
-                            id="exampleInputcolor" />
+                          <div className="col-lg-6">
+                            <label htmlFor="inputincome" className="col-form-label ititle">Blood-Group/रक्त गट</label>
+                            <div className="input-group">
+                              <input
+                                {...register("blood_group", {
+                                  required: "Enter Your Blood-Group/रक्त गट",
+                                })}
+                                type="text"
+                                className="my-form-control"
+                                id="exampleInputblood" />
+                            </div>
+                          </div>
+                          <div className="col-lg-6">
+                            <label htmlFor="inputdesignation" className="col-form-label ititle ">Color/रंग</label>
+                            <div className="input-group">
+                              <input
+                                {...register("color", {
+                                  required: "Enter Your Color/रंग",
+                                })}
+                                type="text"
+                                className="my-form-control"
+                                id="exampleInputcolor" />
+                            </div>
+                          </div>
                         </div>
 
                         <div className="row">
@@ -493,24 +511,30 @@ export default function Details() {
                         </div>
 
                         <div className="row">
-                          <label htmlFor="inputincome" className="col-sm-6 col-form-label ititle">Weight/वजन</label>
-                          <label htmlFor="inputdesignation" className="col-sm-6 col-form-label ititle">Address/पत्ता</label>
-                        </div>
-                        <div className="row input-group ">
-                          <input
-                            {...register("weight", {
-                              required: "Enter Your Weight/वजन",
-                            })}
-                            type="number"
-                            className="my-form-control col-sm-5  ml-2 mr-5"
-                            id="exampleInputdate" />
-                          <input
-                            {...register("address", {
-                              required: "Enter Your Address/पत्ता",
-                            })}
-                            type="text"
-                            className="my-form-control col-sm-5 ml-4"
-                            id="exampleInputdate" />
+                          <div className="col-lg-6">
+                            <label htmlFor="inputincome" className="col-form-label ititle">Weight/वजन</label>
+                            <div className="input-group">
+                              <input
+                                {...register("weight", {
+                                  required: "Enter Your Weight/वजन",
+                                })}
+                                type="number"
+                                className="my-form-control"
+                                id="exampleInputdate" />
+                            </div>
+                          </div>
+                          <div className="col-lg-6">
+                            <label htmlFor="inputdesignation" className="col-form-label ititle">Address/पत्ता</label>
+                            <div className="input-group">
+                              <input
+                                {...register("address", {
+                                  required: "Enter Your Address/पत्ता",
+                                })}
+                                type="text"
+                                className="my-form-control"
+                                id="exampleInputdate" />
+                            </div>
+                          </div>
                         </div>
 
                         <div className="row">
@@ -530,19 +554,20 @@ export default function Details() {
                           </div>
                         </div>
 
-                        <div className="button-wrapper d-grid gap-2 col-6 col-sm-8 col-md-6 mx-auto mt-3">
-                          <button type="submit" className="custom-button ml-5" >Save and Continue</button>
+                        <div className="col-sm-8 col-md-6 mt-3 text-center">
+                          <button type="submit" className="custom-button w-75" >Save and Continue</button>
                         </div>
                       </form>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-      </section>
+            </div >
+          ))
+        }
+      </section >
 
       {/* <!-- ========= Profile Section Start -- */}
-    </div>
+    </div >
   );
 }
