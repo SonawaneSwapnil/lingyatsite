@@ -49,19 +49,21 @@ export default function Expectation() {
     var data = {
       expectation: getValues("expectation"),
       passport: getValues("passport"),
+      fullphoto: getValues("fullphoto"),
       user_id: user_id,
     };
     let fd = new FormData();
     fd.append("expectation", data.expectation);
     fd.append("passport", selectedFile);
+    fd.append("fullphoto", selectedFile);
     fd.append("user_id", data.user_id);
     console.log(fd);
 
     Service.updateExceptation(fd)
       .then((res) => {
-        alert("record Updated successsfully");
+        // alert("record Updated successsfully");
         // loadAllData();
-        navigate("/expectation");
+        navigate("/search");
       })
       .catch((err) => {
         console.log(err);
@@ -77,10 +79,7 @@ export default function Expectation() {
           <div className="content">
             <h2 className="title extra-padding">Add More Information</h2>
             <ul className="breadcrumb-list extra-padding">
-              <li>
-                <Link to="">Home</Link>
-              </li>
-
+              <li><Link to="">Home</Link></li>
               <li>Add More Information</li>
             </ul>
           </div>
@@ -100,41 +99,27 @@ export default function Expectation() {
                       <div className="top-bg"></div>
                       <div className="p-inner-content">
                         <div className="profile-img">
-                          <img
-                            src="assets/images/profile/profile-user.png"
-                            alt=""
-                          />
+                          <img src="assets/images/profile/profile-user.png" alt="" />
                           <div className="active-online"></div>
                         </div>
                         <h5 className="name">{index.user_name}</h5>
                         <ul className="p-b-meta-one">
+                          <li><span>{index.age} Years Old</span></li>
                           <li>
-                            <span>21 Years Old</span>
-                          </li>
-                          <li>
-                            <span>
-                              {" "}
-                              <i className="fas fa-map-marker-alt"></i>
-                              {index.city}
-                            </span>
+                            <span> <i className="fas fa-map-marker-alt"></i>{index.city}</span>
                           </li>
                         </ul>
                       </div>
                     </div>
                     <div className="profile-meta-box">
                       <div className="profile-uplodate-photo">
-                        <h4 className="p-u-p-header">
-                          <i className="fas fa-camera"></i> 4 Upload Photos
-                        </h4>
+                        <h4 className="p-u-p-header"><i className="fas fa-camera"></i> 4 Upload Photos</h4>
                         <div className="p-u-p-list">
                           <div className="my-col">
                             <div className="img">
                               <img src="assets/images/profile/up1.jpg" alt="" />
                               <div className="overlay">
-                                <Link
-                                  to="assets/images/profile/up1.jpg"
-                                  className="light-box mfp-iframe"
-                                >
+                                <Link to="assets/images/profile/up1.jpg" className="light-box mfp-iframe">
                                   <i className="fas fa-plus"></i>
                                 </Link>
                               </div>
@@ -153,10 +138,7 @@ export default function Expectation() {
                             <div className="img">
                               <img src="assets/images/profile/up3.jpg" alt="" />
                               <div className="overlay">
-                                <Link
-                                  to="assets/images/profile/up3.jpg"
-                                  className="light-box mfp-iframe"
-                                >
+                                <Link to="assets/images/profile/up3.jpg" className="light-box mfp-iframe">
                                   <i className="fas fa-plus"></i>
                                 </Link>
                               </div>
@@ -166,10 +148,7 @@ export default function Expectation() {
                             <div className="img">
                               <img src="assets/images/profile/up4.jpg" alt="" />
                               <div className="overlay">
-                                <Link
-                                  to="assets/images/profile/up4.jpg"
-                                  className="light-box mfp-iframe"
-                                >
+                                <Link to="assets/images/profile/up4.jpg" className="light-box mfp-iframe">
                                   <i className="fas fa-plus"></i>
                                 </Link>
                               </div>
@@ -179,10 +158,7 @@ export default function Expectation() {
                             <div className="img">
                               <img src="assets/images/profile/up5.jpg" alt="" />
                               <div className="overlay">
-                                <Link
-                                  to="assets/images/profile/up5.jpg"
-                                  className="light-box mfp-iframe"
-                                >
+                                <Link to="assets/images/profile/up5.jpg" className="light-box mfp-iframe">
                                   <i className="fas fa-plus"></i>
                                 </Link>
                               </div>
@@ -196,21 +172,10 @@ export default function Expectation() {
                 <div className="col-xl-8 col-lg-7">
                   <div className="profile-main-content">
                     <ul className="top-menu">
-                      <li>
-                        <NavLink to="/single_profile2">Profile</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/details" className="active">
-                          Add More Information
-                        </NavLink>
-                      </li>
-
-                      <li>
-                        <NavLink to="/single_profile3">Members</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/Search">search</NavLink>
-                      </li>
+                      <li><NavLink to="/single_profile2">Profile</NavLink></li>
+                      <li><NavLink to="/details" className="active">Add More Information</NavLink></li>
+                      {/* <li><NavLink to="/single_profile3">Members</NavLink></li> */}
+                      <li><NavLink to="/Search">search</NavLink></li>
                     </ul>
                     <div className="mt-4">
                       <form onSubmit={handleSubmit(updateRecord)}>
@@ -218,9 +183,7 @@ export default function Expectation() {
                           Expectation/अपेक्षा वधू/वर
                         </h4>
                         <div className="mx-5">
-                          <label className="form-label">
-                            Expection/अपेक्षा वधू/वर
-                          </label>
+                          <label className="form-label">Expection/अपेक्षा वधू/वर</label>
                           <textarea
                             className="my-form-control"
                             {...register("expectation", {
@@ -235,13 +198,9 @@ export default function Expectation() {
                         </div>
 
                         <div className="mx-5">
-                          <label className="form-label ">
-                            Add Photo/फोटो जोडा
-                          </label>
+                          <label className="form-label ">Add Photo/फोटो जोडा</label>
                           <div className="input-group">
-                            <label className="form-label ">
-                              1.Passport Photo/पासपोर्ट फोटो
-                            </label>
+                            <label className="form-label ">1.Passport Photo/पासपोर्ट फोटो</label>
                             <input
                               type="file"
                               className="my-form-control"
@@ -251,8 +210,7 @@ export default function Expectation() {
                               {...register("passport", {
                                 required: "Please enter passport photo",
                               })}
-                              onChange={changeHandler}
-                            />
+                              onChange={changeHandler} />
                             {errors.passport && (
                               <span style={{ color: "red" }}>
                                 {errors.passport.message}
@@ -260,17 +218,19 @@ export default function Expectation() {
                             )}
                           </div>
                           <div className="input-group">
-                            <label className="form-label me-5">
-                              2.Full Photo/पूर्ण फोटो
-                            </label>
+                            <label className="form-label me-5">2.Full Photo/पूर्ण फोटो</label>
                             <input
                               type="file"
                               multiple
                               className="my-form-control"
                               id="inputGroupFile04"
                               aria-describedby="inputGroupFileAddon04"
-                              aria-label="Upload"
-                            />
+                              aria-label="Upload" 
+                              {...register("fullphoto", {
+                                required: "Please enter fullphoto photo",
+                              })}
+                              onChange={changeHandler}
+                             />
                             {errors.fullphoto && (
                               <span style={{ color: "red" }}>
                                 {errors.fullphoto.message}
@@ -281,10 +241,7 @@ export default function Expectation() {
 
                         <div className="button-wrapper d-grid gap-2 col-6 mx-auto mt-3">
                           {/* <Link to="/single_profile2"> */}
-                          <button type="submit" className="custom-button ml-5">
-                            {" "}
-                            Submit
-                          </button>
+                          <button type="submit" className="custom-button ml-5">Submit</button>
                           {/* </Link> */}
                         </div>
                       </form>

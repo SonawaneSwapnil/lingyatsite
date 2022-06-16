@@ -1617,7 +1617,7 @@ input[type=submit] {
 .footer-section {
   padding: 120px 0px 25px;
   position: relative;
-  background: #3b2196;
+  background: rgb(158, 0, 53);
   overflow: hidden;
 }
 
@@ -1751,7 +1751,7 @@ input[type=submit] {
 }
 
 .footer-section .copyright-wrapper .copyr-text a {
-  color: #eb1436;
+  color: #ff5e00;
 }
 
 .footer-section .copyright-wrapper .footer-social-links {
@@ -2022,6 +2022,7 @@ input[type=submit] {
   top: 0;
   left: 0;
   z-index: 99;
+  background-color: rgb(158, 0, 53);
 }
 
 .header-section.header-active {
@@ -2237,9 +2238,9 @@ input[type=submit] {
 
 .banner-section .join-now-box .single-option .title {
   position: relative;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 28px;
-  font-weight: 700;
+  font-weight: 500;
   margin-right: 20px;
   position: relative;
   top: 7px;
@@ -2280,7 +2281,6 @@ input[type=submit] {
   font-size: 18px;
   line-height: 28px;
   font-weight: 400;
-  text-transform: uppercase;
 }
 
 .banner-section .join-now-box .single-option .option label::before {
@@ -2309,11 +2309,11 @@ input[type=submit] {
   line-height: 20px;
 }
 
-.banner-section .join-now-box .joun-button {
+.banner-section .join-now-box .join-button {
   text-align: center;
 }
 
-.banner-section .join-now-box .joun-button .custom-button {
+.banner-section .join-now-box .join-button .custom-button {
   padding: 13px 45px;
 }
 
@@ -4106,7 +4106,7 @@ input[type=submit] {
 /*Breadcrumb-Section Stars Here*/
 .breadcrumb-area {
   padding: 170px 0 70px;
-  background: url("../images/banner/bc-about.jpg");
+  background: url("../images/banner/bc-about.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -4443,7 +4443,7 @@ input[type=submit] {
 
 .modal.filter-p .join-now-box .single-option .title {
   position: relative;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 28px;
   font-weight: 700;
   margin-right: 20px;
@@ -4486,7 +4486,6 @@ input[type=submit] {
   font-size: 18px;
   line-height: 28px;
   font-weight: 400;
-  text-transform: uppercase;
 }
 
 .modal.filter-p .join-now-box .single-option .option label::before {
@@ -4515,11 +4514,11 @@ input[type=submit] {
   line-height: 20px;
 }
 
-.modal.filter-p .join-now-box .joun-button {
+.modal.filter-p .join-now-box .join-button {
   text-align: center;
 }
 
-.modal.filter-p .join-now-box .joun-button .custom-button {
+.modal.filter-p .join-now-box .join-button .custom-button {
   padding: 13px 45px;
 }
 
@@ -8328,7 +8327,7 @@ input[type=submit] {
   background-position: center;
   background-size: cover;
   height: 100vh;
-  width: 43%;
+  width: 50%;
   position: absolute;
   left: 0px;
   top: 0px;
@@ -8380,7 +8379,7 @@ input[type=submit] {
 .log-reg .log-reg-inner .section-header.inloginp {
   text-align: center;
   margin-bottom: 30px;
-  padding-top: 80px;
+  padding-top: 40px;
 }
 
 .log-reg .log-reg-inner .section-header.inloginp .title {
@@ -10007,4 +10006,17 @@ input[type=submit] {
   text-align: center;
   color: #fff;
   padding: 12px 10px 12px;
+}
+
+/* Custom CSS */
+
+.ititle {
+  font-size: 14px !important;
+  font-weight: 500;
+  top: 7px;
+}
+
+.s-modal {
+  overflow-y: auto;
+  overflow-y: scroll;
 }

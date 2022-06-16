@@ -1,56 +1,119 @@
-import React from 'react'
-import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom'
-
+import React, { useEffect, useState } from "react";
+import { getDefaultLocale } from "react-datepicker";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Service from "../../service/Service";
 
 export default function Search() {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-      } = useForm();
-      const onSubmit = (data) => {
-        console.log(data.name);
-      };
-    
+  const [userData, setUserData] = useState();
+  const [filteredUser, setFilterUser] = useState();
+  const [modalVisible, setModalVisible] = useState(true);
+  let navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    getValues,
+    reset,
+  } = useForm();
+
+  useEffect(() => {
+    loadAllUserData();
+    loadAllFilterData();
+  }, []);
+
+  const loadAllUserData = () => {
+    Service.getAllUsers().then((res) => {
+      setFilterUser(res.data);
+      console.log(res.data);
+    });
+  };
+
+ 
+var agefrom,ageto;
+function getAge(){
+  var age=getValues("age");
+   agefrom=age.split("-")[0];
+   ageto=age.split("-")[1];
+  console.log(age);
+}
+// getAge(agefrom,ageto);
+  const loadAllFilterData = () => {
+getAge();
+console.log(agefrom+"  "+ageto);
+    var data = {
+      looking_for_gender: getValues("looking_for_gender"),
+      workplace: getValues("workplace"),
+      income: getValues("income"),
+      married_status: getValues("married_status")
+       };
+ Service.getFilterUser(data.workplace,data.looking_for_gender,data.income,data.married_status,agefrom,ageto).then((res) => {
+      setFilterUser(res.data);
+      console.log(res.data);
+      console.log(data.looking_for_gender);
+      console.log(data.workplace);
+      console.log(data.income);
+      console.log(data.married_status);
+      console.log(agefrom);
+      console.log(ageto);
+      reset();
+      navigate("/search");
+    });
+  };
+
+
+
+  // Filtersdata
+
+  const handleSearchUser = (event) => {
+    const text = event.target.value;
+    if (text) {
+      const filtered = filteredUser.filter((item) =>
+        item.workplace.toLowerCase().includes(text.toLowerCase())
+      );
+      setFilterUser(filtered);
+    } else {
+      setFilterUser(filteredUser);
+    }
+  };
+
+
   return (
     <div>
-       
-        {/* <!-- ==========Breadcrumb-Section========== --> */}
-    <section className="breadcrumb-area profile-bc-area">
+      {/* <!-- ==========Breadcrumb-Section========== --> */}
+      <section className="breadcrumb-area profile-bc-area">
         <div className="container">
-            <div className="content">
-                <h2 className="title extra-padding">
-                   Search
-                </h2>
-                <ul className="breadcrumb-list extra-padding">
-                    <li>
-                         <Link  to="index.html">
-                            Home
-                        </Link>
-                    </li>
+          <div className="content">
+            <h2 className="title extra-padding">Search</h2>
+            <ul className="breadcrumb-list extra-padding">
+              <li>
+                <Link to="index.html">Home</Link>
+              </li>
 
-                    <li>
-                        Search
-                    </li>
-                </ul>
-            </div>
+              <li>Search</li>
+            </ul>
+          </div>
         </div>
-    </section>
-    {/* <!-- ==========Breadcrumb-Section========== --> */}
-
-    {/* <!-- ==========Community-Section========== --> */}
-    <section className="community-section inner-page">
+      </section>
+      {/* <!-- ==========Breadcrumb-Section========== --> */}
+      {/* <!-- ==========Community-Section========== --> */}
+      <section className="community-section inner-page">
         <div className="container">
-            <div className="row">
-                <div className="col-lg-12">
-                    <div className="top-filter">
-                        <div className="left">
-                             <Link  to="" data-toggle="modal" data-target="#exampleModalCenter">
-                                <i className="fas fa-sliders-h"></i> Find Your Perfect Partner
-                            </Link>
-                        </div>
-                        {/* <div className="right">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="top-filter">
+                <div className="left">
+                  <Link
+                    to=""
+                    data-toggle="modal"
+                    data-target="#exampleModalCenter"
+                  >
+                    <i className="fas fa-sliders-h"></i> Find Your Perfect
+                    Partner
+                  </Link>
+                </div>
+                {/* <div className="right">
                             <span className="span">
                                 Order By :
                             </span>
@@ -62,358 +125,261 @@ export default function Search() {
                                     <option value="">POPULAR</option>
                                 </select>
                             </div>
-                        </div> */}
-                    </div>
-                </div>
+                            </div> */}
+              </div>
             </div>
-            <div className="row">
+          </div> 
+          {filteredUser &&
+            filteredUser.map((index, i) => (
+              <div className="row" key={index.user_id}>
                 <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend1.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Erma Porter
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
+                  <div className="single-friend">
+                    <img src="assets/images/profile/friend1.png" alt="" />
+                    <div className="content">
+                      <Link to="/profile" className="name">
+                        {index.user_name}
+                        <span className="isvarify">
+                          <i className="fas fa-check-circle"></i>
+                        </span>
+                      </Link>
+                      <p className="date">a month ago</p>
+                      <Link to="/profile">
+                        <button
+                          className="custom-button ps-5"
+                          onClick={() => {
+                            localStorage.setItem(
+                              "USERID",
+                              JSON.stringify(index.user_id)
+                            );
+                          }}
+                        >
+                          View Profile
+                        </button>
+                      </Link>
                     </div>
+                  </div>
                 </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend2.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Brad Barber
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend3.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Vicki Alvarez
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend4.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Amber Perry
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend5.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Kelly Fox
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend6.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Opal Farmer
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend7.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                May Hart
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend8.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Ana Byrd
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend9.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Arthur Bass
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6">
-                    <div className="single-friend">
-                        <img src="assets/images/profile/friend10.png" alt=""/>
-                        <div className="content">
-                             <Link  to="single-profile.html" className="name">
-                                Stewart Bailey
-                                <span className="isvarify">
-                                    <i className="fas fa-check-circle"></i>
-                                </span>
-                            </Link>
-                            <p className="date">
-                                a month ago
-                            </p>
-                             <Link  to="single-profile.html" className="connnect-btn">
-                                 View Profile
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/* <!-- <div className="row">
-                <div className="col-lg-12">
-                    <div className="pagination-area text-center">
-                         <Link  to="#"><i className="fas fa-angle-double-left"></i><span></span></Link>
-                         <Link  to="#">1</Link>
-                         <Link  to="#">2</Link>
-                         <Link  to="#" className="active">3</Link>
-                         <Link  to="#">4</Link>
-                         <Link  to="#">5</Link>
-                         <Link  to="#"><i className="fas fa-angle-double-right"></i></Link>
-                    </div>
-                </div>
-            </div> --> */}
+              </div>
+            ))}
         </div>
-    </section>
-    {/* <!-- ==========Community-Section========== --> */}
-    <div className="modal fade filter-p" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div className="modal-dialog modal-dialog-centered" role="document">
-            <div className="modal-content">
-                <div className="modal-header justify-content-between">
-                  
-                    <h6 className="modal-title text-center" id="exampleModalCenterTitle">Find Your Perfect Partner</h6>
-                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div className="modal-body">
-                    <div className="join-now-box">
-                        <div className="single-option">
-                            <label className="title ml-3">
-                                I am a :
-                            </label>
-                            <div className="option">
-                                <div className="s-input mr-3 ml-5">
-                                    <input type="radio" name="gender" id="male"/><label for="male">Male</label>
-                                </div>
-                                <div className="s-input ml-5">
-                                    <input type="radio" name="gender" id="female"/><label for="female">Female</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="single-option gender">
-                            <label className="title ml-3">
-                                Seeking a :
-                            </label>
-                            <div className="option">
-                                <div className="s-input mr-2 ml-4">
-                                    <input type="radio" name="seeking" id="males"/><label for="males">Man</label>
-                                </div>
-                                <div className="s-input ml-5">
-                                    <input type="radio" name="seeking" id="females"/><label for="females">Woman</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="single-option age">
-                            <label className="title ml-3">
-                                Ages :
-                            </label>
-                            <div className="option">
-                                <div className="s-input mr-3 ml-5">
-                                    <select className="select-bar">
-                                        <option value="">18</option>
-                                        <option value="">20</option>
-                                        <option value="">24</option>
-                                    </select>
-                                </div>
-                                <div className="separator">
-                                    -
-                                </div>
-                                <div className="s-input mr-3 ml-5">
-                                    <select className="select-bar">
-                                        <option value="">30</option>
-                                        <option value="">35</option>
-                                        <option value="">40</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="single-option">
-                            <label className="title ml-3">
-                            Workplace [City]:
-                            </label><input
-                        {...register("work", {
-                          required: "Enter Your Workplace [City]:",
-                        })}
-                        type="number"
-                        className="my-form-control col-sm-7 ml-4"
-                        placeholder=" Enter Your Workplace [City]:"
-                        id="exampleInputwork"
-                      />
-                      {errors.work&& (
-                          <span style={{ color: "red" }}>
-                            {errors.work.message}
-                          </span>
-                        )}
-                            
-                            
-                        </div>
-                        <div className="single-option">
-                    
-                      <label
-                        htmlFor="inputincome"
-                        className=" ml-3 title"
-                      >
-                        {" "}
-                        Income/उत्पन्न:
-                      </label>
-                      <input
-                        {...register("income", {
-                          required: "Enter Your  Income/उत्पन्न",
-                        })}
-                        type="number"
-                        className="my-form-control col-sm-7 ml-4"
-                        placeholder="Enter Your  Income/उत्पन्न"
-                        id="exampleInputincome"
-                      />
-                      {errors.income && (
-                          <span style={{ color: "red" }}>
-                            {errors.income.message}
-                          </span>
-                        )}
-                    </div>
-                    <div className='single-option last'>
-                    <label
-                        htmlFor="exampleInputedu"
-                        className="title ml-2"
-                      >
-                        Qualification/शैक्षणिक पात्रता:
-                      </label>
-                    
-                     <input
-                      {...register("edu", {
-                        required:
-                          "Enter Your Educational Qualification/शैक्षणिक पात्रता",
-                      })}
-                      type="text"
-                      placeholder="Enter Your Educational Qualification/शैक्षणिक पात्रता"
-                      className="my-form-control col-sm-7 ml-4"
-                      id="exampleInputedu"
-                    />
+      </section>
+      {/* <!-- ==========Community-Section========== --> */}
 
-                        {errors.edu && (
-                          <span style={{ color: "red" }}>
-                            {errors.edu.message}
-                          </span>
-                        )}
-                      </div>
-                        <div className="joun-button">
-                            <button className="custom-button">Find</button>
-                        </div>
-                    </div>
-                </div>
+       <div
+        className="modal fade filter-p"
+        id="exampleModalCenter"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered" role="document">
+          <div className="modal-content">
+            <div className="modal-header justify-content-between">
+              <h6
+                className="modal-title text-center"
+                id="exampleModalCenterTitle"
+              >
+                Find Your Perfect Partner
+              </h6>
+              <button
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
+
+            <div className="modal-body">
+              <div
+                className="container"
+                style={{
+                  backgroundColor: "rgb(158, 0, 53)",
+                  padding: 50,
+                  borderRadius: 16,
+                }}
+              >
+                <form
+                  className="row gx-3 gy-2 align-items-center"
+                  onSubmit={handleSubmit(loadAllFilterData)}
+                >
+                  <label
+                    className="visually-hidden text-light title"
+                    for="specificSizeInputGroupUsername"
+                  >
+                    Looking for:
+                  </label>
+                  <div className="form-check">
+                    <div className="row">
+                      <div className="col-8">
+                        <label
+                          className="form-check-label text-light title"
+                          for="flexRadioDefault1"
+                        >
+                          Groom
+                        </label>
+                      </div>
+                      <div className="col-4">
+                        <input
+                          className="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                          value="male"
+                          {...register("looking_for_gender", {
+                            required: false
+                          })}  />
+                      </div>
+                    </div>
+                    <div className="form-check">
+                      <div className="row">
+                        <div className="col-8">
+                          <label
+                            className="form-check-label text-light title"
+                            for="flexRadioDefault2"
+                          >
+                            Bride
+                          </label>
+                        </div>
+                        <div className="col-4">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="flexRadioDefault"
+                            id="flexRadioDefault2"
+                            value="female"
+                            {...register("looking_for_gender", {
+                              required: false
+                            })} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="input-group">
+                    <label
+                      className="visually-hidden text-light title"
+                      for="specificSizeSelect"
+                    >
+                      Age Preference:
+                    </label>
+                    
+                    <select className="form-select" id="specificSizeSelect" 
+                      {...register("age", {
+                        required: false
+                      })}
+                    >
+                      <option selected>Choose...</option>
+                      <option value="18-20">18-20</option>
+                      <option value="21-25">21-25</option>
+                      <option value="26-30">26-30</option>
+                      <option value="31-35">31-35</option>
+                      <option value="36-40">36-40</option>
+                      <option value="41-45">41-45</option>
+                    </select>
+                  </div>
+
+                  <label
+                    className="visually-hidden text-light title"
+                    for="specificSizeInputGroupUsername"
+                  >
+                    WorkPlace:
+                  </label>
+                  <div className="input-group">
+                    <div className="input-group-text">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        className="bi bi-person-workspace"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                        <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z" />
+                      </svg>
+                    </div>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="specificSizeInputGroupUsername"
+                      {...register("workplace", {
+                        required: false
+                      })}
+                      
+                    />
+                    
+                  </div>
+
+                  <label
+                    className="visually-hidden text-light title"
+                    for="specificSizeInputGroupUsername"
+                  >
+                    Income:
+                  </label>
+                  <div className="input-group">
+                    <div className="input-group-text">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        className="bi bi-cash-stack"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                        <path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z" />
+                      </svg>
+                    </div>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="specificSizeInputGroupUsername"
+                      {...register("income", {
+                        required: false
+                      })}
+                    />
+                  </div>
+                  <label
+                    className="visually-hidden text-light title"
+                    for="specificSizeInputGroupUsername"
+                  >
+                    Marital Status:
+                  </label>
+                  <div className="input-group">
+                    <select className="form-select" id="specificSizeSelect"   {...register("married_status", {
+                        required: false
+                      })}>
+                      <option selected>Choose...</option>
+                      <option
+                        className="textTru chosenDropWid"
+                        id="N"
+                        value="single"
+                      >
+                        Never Married
+                      </option>
+                      <option
+                        className="textTru chosenDropWid"
+                        id="S"
+                        value="married"
+                      >
+                      Re Marriage
+                      </option>
+                     
+                     
+                    
+                    </select>
+                  </div>
+                  <button type="submit" className="custom-button mt-2">
+                    Search
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
+      </div> 
     </div>
-    </div>
-  )
+  );
 }
