@@ -267,13 +267,9 @@ const Selfprofile = () => {
                               </div>
                             </div>
                           </div>
-                          <div className="button-wrapper">
-                            {/* <Link to="/single_profile2"> */}
-                            <button type="submit" className="custom-button ml-5" onClick={() => navigate("/single_profile2")} >Back</button>
-                            {/* </Link> */}
-                            {/* <Link to="/registration"> */}
-                            <button type="submit" onClick={generatePdf} className="print__button custom-button ml-5">Save as Pdf </button>
-                            {/* </Link> */}
+                          <div className="col-12 button-wrapper text-center">
+                            <button type="submit" className="custom-button w-25 mx-2" onClick={() => navigate("/single_profile2")} >Back</button>
+                            <button type="submit" onClick={generatePdf} className="print__button custom-button w-25 mx-2">Save as Pdf </button>
                           </div>
                         </div>
                       </div>

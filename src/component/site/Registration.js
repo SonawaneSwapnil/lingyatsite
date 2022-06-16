@@ -51,7 +51,7 @@ export default function Registration() {
           <div className="container">
             <div className="row">
               <div className="col-lg-6">
-                <Link to="/" className="backto-home"><i className="fas fa-chevron-left"></i>Back to Home</Link>
+                <Link to="/" className="backto-home ml-lg-5 pl-lg-5"><i className="fas fa-chevron-left"></i>Back to Home</Link>
               </div>
               <div className="col-lg-6">
                 <div className="logo">

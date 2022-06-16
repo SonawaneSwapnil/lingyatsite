@@ -210,9 +210,9 @@ export default function Single_profile2() {
                       </ul>
                     </div>
                   </div>
-                  <div className="button-wrapper d-grid gap-2 col-6 col-sm-8 col-md-10 mx-auto mt-3">
+                  <div className="button-wrapper text-center">
                     <Link to="/selfprofile">
-                      <button type="submit" className="custom-button ml-5">
+                      <button type="submit" className="custom-button">
                         View More Information
                       </button>
                     </Link>

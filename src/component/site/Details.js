@@ -277,7 +277,7 @@ export default function Details() {
 
                         <div className="form-group">
                           <div classname="dropdown-menu">
-                            <label htmlFor="branch" className="me-5">Branch/शाखा</label>
+                            <label htmlFor="branch" className="me-5 ititle">Branch/शाखा</label>
                             <select
                               id="branch"
                               name="branch"

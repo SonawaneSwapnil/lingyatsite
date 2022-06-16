@@ -35,10 +35,10 @@ export default function Login() {
         <div className="top-menu-area">
           <div className="container">
             <div className="row">
-              <div className="col-lg-6 text-center">
-                <Link to="/" className="backto-home"><i className="fas fa-chevron-left"></i>Back to Home</Link>
+              <div className="col-lg-6">
+                <Link to="/" className="backto-home ml-lg-5 pl-lg-5"><i className="fas fa-chevron-left"></i>Back to Home</Link>
               </div>
-              <div className="col-lg-6 text-center">
+              <div className="col-lg-6">
                 <div className="logo">
                   <img src="assets/images/logo/logo.png" className="w-50" alt="logo" />
                   <p className='pt-4'><strong>Note: Please Sign in for finding your Dream Partner</strong></p>
