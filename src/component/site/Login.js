@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import Service from '../../service/Service';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function Login() {
   const {
     register,
@@ -12,15 +15,21 @@ export default function Login() {
 
   const saveLoginData = (data => {
     Service.saveAllLogin(data).then(res => {
-      localStorage.setItem("USERID", JSON.stringify(res.data.data.user_id));
-      navigate("/single_profile2");
+      if (res.data.success) {
+        toast.success('Login Successful');
+        localStorage.setItem("USERID", JSON.stringify(res.data.data.user_id));
+        navigate('/single_profile2');
+      } else if ((res.data.warning)) {
+        toast.warning(res.data.warning, { position: toast.POSITION.TOP_RIGHT })
+      }
+    }).catch(err => {
     });
   });
 
   let navigate = useNavigate();
   return (
     <div>
-
+      <ToastContainer />
       {/* <!-- ========== Login & Registation Section ========== --> */}
       <section className="log-reg">
         <div className="top-menu-area">
@@ -54,8 +63,8 @@ export default function Login() {
                       <input
                         {...register("contact", {
                           required: "Please enter contact number/संपर्क क्रमांक",
-                          minLength: { value: 8, message: "At least 8 digit" },
-                          maxLength: { value: 10, message: "Enter max 10 digit" },
+                          minLength: { value: 10, message: "Use 10 digits for your contact number" },
+                          maxLength: { value: 10, message: "Use 10 digits for your contact number" },
                         })}
                         type="text"
                         className="my-form-control"
@@ -75,7 +84,7 @@ export default function Login() {
                         aria-describedby="emailHelp"
                         {...register("password", {
                           required: "Please enter your password/पासवर्ड",
-                          minLength: { value: 8, message: "At least 8 digit" },
+                          minLength: { value: 8, message: "Use 8 characters or more for your password" },
                         })} />
                       {errors.password && (
                         <span style={{ color: "red" }}>

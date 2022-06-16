@@ -41,11 +41,11 @@ export default function Home() {
       <div class="container" style={{ 'backgroundColor': 'rgb(158, 0, 53)', 'padding': 50, 'borderRadius': 16 }}>
         <form class="row gx-3 gy-2 align-items-center">
           <div class="col-sm-2">
-            <label class="visually-hidden text-light title" for="specificSizeInputGroupUsername">Looking for:</label>
+            <label class="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Looking for:</label>
             <div class="form-check">
               <div className='row p-0 m-0'>
                 <div class="col-8">
-                  <label class="form-check-label text-light title" for="flexRadioDefault1">Groom</label>
+                  <label class="form-check-label text-light ititle" for="flexRadioDefault1">Groom</label>
                 </div>
                 <div class="col-4">
                   <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
@@ -55,7 +55,7 @@ export default function Home() {
             <div class="form-check">
               <div className='row p-0 m-0'>
                 <div class="col-8">
-                  <label class="form-check-label text-light title" for="flexRadioDefault2">Bride</label>
+                  <label class="form-check-label text-light ititle" for="flexRadioDefault2">Bride</label>
                 </div>
                 <div class="col-4">
                   <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
@@ -64,7 +64,7 @@ export default function Home() {
             </div>
           </div>
           <div class="col-sm-2">
-            <label class="visually-hidden text-light title" for="specificSizeSelect">Age Preference:</label>
+            <label class="visually-hidden text-light ititle" for="specificSizeSelect">Age Preference:</label>
             <select class="form-select ddown" id="specificSizeSelect">
               <option selected>Choose...</option>
               <option value="1">18-20</option>
@@ -76,7 +76,7 @@ export default function Home() {
             </select>
           </div>
           <div class="col-sm-2">
-            <label class="visually-hidden text-light title" for="specificSizeInputGroupUsername">WorkPlace:</label>
+            <label class="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">WorkPlace:</label>
             <div class="input-group">
               <div class="input-group-text">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-workspace" viewBox="0 0 16 16">
@@ -88,7 +88,7 @@ export default function Home() {
             </div>
           </div>
           <div class="col-sm-2">
-            <label class="visually-hidden text-light title" for="specificSizeInputGroupUsername">Income:</label>
+            <label class="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Income:</label>
             <div class="input-group">
               <div class="input-group-text">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash-stack" viewBox="0 0 16 16">
@@ -100,7 +100,7 @@ export default function Home() {
             </div>
           </div>
           <div class="col-sm-2">
-            <label class="visually-hidden text-light title" for="specificSizeInputGroupUsername">Marital Status:</label>
+            <label class="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Marital Status:</label>
             <div class="input-group">
               <select class="form-select ddown" id="specificSizeSelect">
                 <option selected>Choose...</option>

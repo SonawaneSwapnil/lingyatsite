@@ -91,54 +91,37 @@ export default function Search() {
                     <i className="fas fa-sliders-h"></i> Find Your Perfect Partner
                   </Link>
                 </div>
-                {/* <div className="right">
-                            <span className="span">
-                                Order By :
-                            </span>
-                            <div className="filter-right">
-                                <select className="nice-select select-bar">
-                                    <option value="">Latest Active</option>
-                                    <option value="">NEW</option>
-                                    <option value="">OLD</option>
-                                    <option value="">POPULAR</option>
-                                </select>
-                            </div>
-                            </div> */}
               </div >
             </div >
           </div >
-          {filteredUser &&
-            filteredUser.map((index, i) => (
-              <div className="row" key={index.user_id}>
-                <div className="col-lg-6">
-                  <div className="single-friend">
-                    <img src="assets/images/profile/friend1.png" alt="" />
-                    <div className="content">
-                      <Link to="/profile" className="name">
-                        {index.user_name}
-                        <span className="isvarify">
-                          <i className="fas fa-check-circle"></i>
-                        </span>
-                      </Link>
-                      <p className="date">a month ago</p>
-                      <Link to="/profile">
-                        <button
-                          className="custom-button ps-5"
-                          onClick={() => {
-                            localStorage.setItem(
-                              "USERID",
-                              JSON.stringify(index.user_id)
-                            );
-                          }} >
-                          View Profile
-                        </button>
-                      </Link>
+          <div className="row">
+            {filteredUser && filteredUser.map((index, i) => (
+              <div className="col-lg-6 col-xl-6">
+                <div className="single-friend">
+                  <img src="assets/images/profile/friend1.png" alt="" />
+                  <div className="content">
+                    <div className="row">
+                      <div className="col-lg-6 col-sm-6">
+                        <Link to="/profile" className="name">{index.user_name}
+                          <span className="isvarify"><i className="fas fa-check-circle"></i></span>
+                        </Link>
+                        <p className="date">Age: {index.age}</p>
+                      </div>
+                      <div className="col-lg-6 col-sm-6">
+                        <Link to="/profile" className="w-100">
+                          <button
+                            className="custom-button"
+                            onClick={() => { localStorage.setItem("USERID", JSON.stringify(index.user_id)) }}>
+                            View Profile
+                          </button>
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div >
+                </div>
               </div >
-            ))
-          }
+            ))}
+          </div >
         </div >
       </section >
       {/* <!-- ==========Community-Section========== --> */}
@@ -180,11 +163,11 @@ export default function Search() {
                   onSubmit={handleSubmit(loadAllFilterData)} >
 
 
-                  <label class="visually-hidden text-light title" for="specificSizeInputGroupUsername">Looking for:</label>
+                  <label class="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Looking for:</label>
                   <div class="form-check">
                     <div className='row p-0 m-0'>
                       <div class="col-8">
-                        <label class="form-check-label text-light" for="flexRadioDefault1">Groom</label>
+                        <label class="form-check-label text-light ititle mb-2" for="flexRadioDefault1">Groom</label>
                       </div>
                       <div class="col-4">
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
@@ -198,31 +181,19 @@ export default function Search() {
                   <div class="form-check">
                     <div className='row p-0 m-0'>
                       <div class="col-8">
-                        <label class="form-check-label text-light" for="flexRadioDefault2">Bride</label>
+                        <label class="form-check-label text-light ititle mb-2" for="flexRadioDefault2">Bride</label>
                       </div>
                       <div class="col-4">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                          value="female"
-                          {...register("looking_for_gender", {
-                            required: false
-                          })} />
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="female"
+                          {...register("looking_for_gender", { required: false })} />
                       </div>
                     </div>
                   </div>
 
                   <div className="input-group">
-                    <label
-                      className="visually-hidden text-light title"
-                      for="specificSizeSelect"
-                    >
-                      Age Preference:
-                    </label>
-
+                    <label className="visually-hidden text-light ititle" for="specificSizeSelect" >Age Preference:</label>
                     <select className="form-select ddown" id="specificSizeSelect"
-                      {...register("age", {
-                        required: false
-                      })}
-                    >
+                      {...register("age", { required: false })} >
                       <option selected>Choose...</option>
                       <option value="18-20">18-20</option>
                       <option value="21-25">21-25</option>
@@ -233,12 +204,7 @@ export default function Search() {
                     </select>
                   </div>
 
-                  <label
-                    className="visually-hidden text-light title"
-                    for="specificSizeInputGroupUsername"
-                  >
-                    WorkPlace:
-                  </label>
+                  <label className="visually-hidden text-light ititle mt-2" for="specificSizeInputGroupUsername" >WorkPlace:</label>
                   <div className="input-group">
                     <div className="input-group-text">
                       <svg
@@ -247,31 +213,17 @@ export default function Search() {
                         height="16"
                         fill="currentColor"
                         className="bi bi-person-workspace"
-                        viewBox="0 0 16 16"
-                      >
+                        viewBox="0 0 16 16" >
                         <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
                         <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z" />
                       </svg>
                     </div>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="specificSizeInputGroupUsername"
-                      {...register("workplace", {
-                        required: false
-                      })}
-
-                    />
-
+                    <input type="text" className="form-control" id="specificSizeInputGroupUsername"
+                      {...register("workplace", { required: false })} />
                   </div >
 
-                  <label
-                    className="visually-hidden text-light title"
-                    for="specificSizeInputGroupUsername"
-                  >
-                    Income:
-                  </label>
-                  <div className="input-group">
+                  <label className="visually-hidden text-light ititle mt-2" for="specificSizeInputGroupUsername" > Income:</label>
+                  <div className="input-group mb-2">
                     <div className="input-group-text">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -279,8 +231,7 @@ export default function Search() {
                         height="16"
                         fill="currentColor"
                         className="bi bi-cash-stack"
-                        viewBox="0 0 16 16"
-                      >
+                        viewBox="0 0 16 16" >
                         <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
                         <path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z" />
                       </svg>
@@ -289,31 +240,19 @@ export default function Search() {
                       type="text"
                       className="form-control"
                       id="specificSizeInputGroupUsername"
-                      {...register("income", {
-                        required: false
-                      })}
-                    />
+                      {...register("income", { required: false })} />
                   </div >
                   <label
-                    className="visually-hidden text-light title"
-                    for="specificSizeInputGroupUsername" >
-                    Marital Status:
-                  </label>
+                    className="visually-hidden text-light ititle"
+                    for="specificSizeInputGroupUsername" >Marital Status:</label>
                   <div className="input-group">
-                    <select className="form-select ddown" id="specificSizeSelect"   {...register("married_status", {
-                      required: false
-                    })}>
+                    <select className="form-select ddown" id="specificSizeSelect"
+                      {...register("married_status", { required: false })}>
                       <option selected>Choose...</option>
-                      <option
-                        className="textTru chosenDropWid"
-                        id="N"
-                        value="single" >
+                      <option className="textTru chosenDropWid" id="N" value="single" >
                         Never Married
                       </option>
-                      <option
-                        className="textTru chosenDropWid"
-                        id="S"
-                        value="married" >
+                      <option className="textTru chosenDropWid" id="S" value="married" >
                         Re Marriage
                       </option>
                     </select>
