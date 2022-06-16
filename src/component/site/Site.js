@@ -1,35 +1,18 @@
 import React from 'react'
 import { Outlet, Link, useNavigate } from 'react-router-dom'
-import { useState } from 'react';
 
 export default function Site() {
-  const [contact, setcontact] = useState('');
-  const [password, setPassword] = useState('');
-
   let navigate = useNavigate();
 
-  const isLoggedin = localStorage.getItem("login");
+  var isLoggedin = localStorage.getItem("USERID");
 
-  const login = (e) => {
-    e.preventDefault();
-    console.log(contact, password);
-    const userData = {
-      contact,
-      password,
-    };
-    localStorage.setItem('login', JSON.stringify(userData));
-    setcontact('');
-    setPassword('');
-    if (isLoggedin) {
-      navigate('/single_profile2');
-    } else {
-      navigate("/login");
-    }
+  const login = () => {
+    navigate(isLoggedin ? '/single_profile2' : '/login')
   };
 
   const logout = () => {
-    localStorage.removeItem('login');
-    navigate("/login")
+    localStorage.removeItem('USERID');
+    navigate("/")
   };
 
   return (
@@ -51,20 +34,19 @@ export default function Site() {
 
               {isLoggedin ? (<li><Link to="/single_profile2" activeClassName="active">Profile</Link></li>) : ''}
               <li className="separator"><span>|</span></li>
-              <li>
+              {/* <li>
                 <div className="serch-icon">
                   <Link to="/user_setting"><i className="fa fa-cog" aria-hidden="true"></i></Link>
                 </div>
-              </li>
+              </li> */}
 
               <li className="user-profile">
                 <Link to="#"><img src="./assets/images/user-demo.png" alt="" /></Link>
-                {!isLoggedin ? (
+                {!isLoggedin ?
                   <ul className="submenu">
-                    <li><Link to="" onClick={login}>Login</Link></li>
+                    <li><Link to="" onClick={login()}>Login</Link></li>
                     <li><Link to="/registration">Registration</Link></li>
-                  </ul>
-                ) : (<ul className="submenu"><li><Link to="" onClick={logout}>Logout</Link></li></ul>)}
+                  </ul> : <ul className="submenu"><li><Link to="" onClick={logout}>Logout</Link></li></ul>}
               </li>
             </ul>
             <div className="header-bar d-lg-none">
@@ -90,24 +72,24 @@ export default function Site() {
         <div className="container">
           <div className="footer-links">
             <div className="row">
-              <div className="col-lg-3 col-sm-6">
+              <div className="col-lg-6 col-sm-6">
                 <div className="link-wrapper one">
-                  <h4 className="f-l-title">Our Information</h4>
-                  <ul className="f-solial-links">
-                    <li><Link to="/about"><i className="fas fa-angle-double-right"></i>About Us</Link></li>
-                    <li><Link to="/contact"><i className="fas fa-angle-double-right"></i>Contact Us</Link></li>
-                    <li><Link to="#"><i className="fas fa-angle-double-right"></i> Privacy policy</Link></li>
+                  <h4 className="f-l-title mt-3">Our Information</h4>
+                  <ul className="row f-solial-links">
+                    <li className='col-lg-4'><Link to="/about"><i className="fas fa-angle-double-right"></i>About Us</Link></li>
+                    <li className='col-lg-4'><Link to="/contact"><i className="fas fa-angle-double-right"></i>Contact Us</Link></li>
+                    <li className='col-lg-4'><Link to="#"><i className="fas fa-angle-double-right"></i> Privacy policy</Link></li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
           <div className="copyright-wrapper">
-            <div className="row"><div className="col-lg-12"> <hr className="hr2" /></div></div>
+            <div className="row"><div className="col-lg-12"> <hr /></div></div>
             <div className="row">
-              <div className="col-lg-6 align-self-center">
+              <div className="align-self-center">
                 <div className="copyr-text">
-                  <span>Copyright © 2022.All Rights Reserved By</span>
+                  <span className='text-end'>Copyright © 2022.All Rights Reserved By</span>
                   <Link to="#"><strong>&nbsp;ATJOIN PVT. LTD.</strong></Link>
                 </div>
               </div>

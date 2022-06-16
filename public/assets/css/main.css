@@ -1615,7 +1615,7 @@ input[type=submit] {
 }
 
 .footer-section {
-  padding: 120px 0px 25px;
+  padding: 0px 0px 25px;
   position: relative;
   background: rgb(158, 0, 53);
   overflow: hidden;
@@ -10014,6 +10014,10 @@ input[type=submit] {
   font-size: 14px !important;
   font-weight: 500;
   top: 7px;
+}
+
+.ddown {
+  height: 40px;
 }
 
 .s-modal {

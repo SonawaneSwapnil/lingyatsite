@@ -178,56 +178,38 @@ export default function Search() {
                 <form
                   className="row gx-3 gy-2 align-items-center"
                   onSubmit={handleSubmit(loadAllFilterData)} >
-                  <label
-                    className="visually-hidden text-light title"
-                    for="specificSizeInputGroupUsername" >
-                    Looking for:
-                  </label>
-                  <div className="form-check">
-                    <div className="row">
-                      <div className="col-8">
-                        <label
-                          className="form-check-label text-light title"
-                          for="flexRadioDefault1" >
-                          Groom
-                        </label>
+
+
+                  <label class="visually-hidden text-light title" for="specificSizeInputGroupUsername">Looking for:</label>
+                  <div class="form-check">
+                    <div className='row p-0 m-0'>
+                      <div class="col-8">
+                        <label class="form-check-label text-light" for="flexRadioDefault1">Groom</label>
                       </div>
-                      <div className="col-4">
-                        <input
-                          className="form-check-input"
-                          type="radio"
-                          name="flexRadioDefault"
-                          id="flexRadioDefault1"
+                      <div class="col-4">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
                           value="male"
                           {...register("looking_for_gender", {
                             required: false
                           })} />
                       </div>
                     </div>
-                    <div className="form-check">
-                      <div className="row">
-                        <div className="col-8">
-                          <label
-                            className="form-check-label text-light title"
-                            for="flexRadioDefault2"
-                          >
-                            Bride
-                          </label>
-                        </div>
-                        <div className="col-4">
-                          <input
-                            className="form-check-input"
-                            type="radio"
-                            name="flexRadioDefault"
-                            id="flexRadioDefault2"
-                            value="female"
-                            {...register("looking_for_gender", {
-                              required: false
-                            })} />
-                        </div>
+                  </div>
+                  <div class="form-check">
+                    <div className='row p-0 m-0'>
+                      <div class="col-8">
+                        <label class="form-check-label text-light" for="flexRadioDefault2">Bride</label>
+                      </div>
+                      <div class="col-4">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                          value="female"
+                          {...register("looking_for_gender", {
+                            required: false
+                          })} />
                       </div>
                     </div>
                   </div>
+
                   <div className="input-group">
                     <label
                       className="visually-hidden text-light title"
@@ -236,7 +218,7 @@ export default function Search() {
                       Age Preference:
                     </label>
 
-                    <select className="form-select" id="specificSizeSelect"
+                    <select className="form-select ddown" id="specificSizeSelect"
                       {...register("age", {
                         required: false
                       })}
@@ -314,37 +296,33 @@ export default function Search() {
                   </div >
                   <label
                     className="visually-hidden text-light title"
-                    for="specificSizeInputGroupUsername"
-                  >
+                    for="specificSizeInputGroupUsername" >
                     Marital Status:
                   </label>
                   <div className="input-group">
-                    <select className="form-select" id="specificSizeSelect"   {...register("married_status", {
+                    <select className="form-select ddown" id="specificSizeSelect"   {...register("married_status", {
                       required: false
                     })}>
                       <option selected>Choose...</option>
                       <option
                         className="textTru chosenDropWid"
                         id="N"
-                        value="single"
-                      >
+                        value="single" >
                         Never Married
                       </option>
                       <option
                         className="textTru chosenDropWid"
                         id="S"
-                        value="married"
-                      >
+                        value="married" >
                         Re Marriage
                       </option>
-
-
-
                     </select>
                   </div>
-                  <button type="submit" className="custom-button mt-2">
-                    Search
-                  </button>
+                  <div className="row w-100">
+                    <div className="col-12 text-center">
+                      <button type="submit" className="custom-button mt-2 w-75">Search</button>
+                    </div>
+                  </div>
                 </form >
               </div >
             </div >

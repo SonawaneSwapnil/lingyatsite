@@ -75,9 +75,9 @@ export default function Registration() {
                 </div>
                 <div className="main-content">
                   <form onSubmit={handleSubmit(saveData)}>
-                    <h4 className="content-title">Personal Detail/वैयक्तिक माहिती</h4>
+                    <h4 className="content-title text-center">Personal Detail/वैयक्तिक माहिती</h4>
                     <div className="form-group">
-                      <label htmlFor="exampleInputname" className="form-label">Full Name/पूर्ण नाव*:</label>
+                      <label htmlFor="exampleInputname" className="form-label ititle ititle">Full Name/पूर्ण नाव*:</label>
                       <input
                         {...register("user_name", {
                           required: "Enter your full name/पूर्ण नाव",
@@ -92,7 +92,7 @@ export default function Registration() {
                       <br />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="contactno" className="form-label">Contact no/संपर्क क्रमांक*:</label>
+                      <label htmlFor="contactno" className="form-label ititle">Contact no/संपर्क क्रमांक*:</label>
                       <input
                         {...register("contact", {
                           required:
@@ -113,7 +113,7 @@ export default function Registration() {
                       <br />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="exampleInputPassword1" className="form-label">Password/पासवर्ड*:</label>
+                      <label htmlFor="exampleInputPassword1" className="form-label ititle">Password/पासवर्ड*:</label>
                       <input
                         type="password"
                         className="my-form-control"
@@ -130,7 +130,7 @@ export default function Registration() {
 
                     <h4 className="content-title mt-5">Profile Details</h4>
                     <div className="form-group">
-                      <label htmlFor="exampleInputdate" className="form-label text-center">Date Of Birth/जन्मतारीख*:</label>
+                      <label htmlFor="exampleInputdate" className="form-label ititle text-center">Date Of Birth/जन्मतारीख*:</label>
                       <input
                         {...register("dob", {
                           required: "Enter your Date Of Birth/जन्मतारीख",
@@ -144,7 +144,7 @@ export default function Registration() {
                       <br />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="">I am a*:</label>
+                      <label htmlFor="" className="ititle">I am a*:</label>
                       <div className="option">
                         <div className="s-input mr-3">
                           <input
@@ -171,7 +171,7 @@ export default function Registration() {
                       </div>
                     </div>
                     <div className="form-group">
-                      <label htmlFor="">Looking for a*:</label>
+                      <label htmlFor="" className="ititle">Looking for a*:</label>
                       <div className="option">
                         <div className="s-input mr-3">
                           <input
@@ -198,7 +198,7 @@ export default function Registration() {
                       </div>
                     </div>
                     <div className="form-group">
-                      <label htmlFor="">Marital status*:</label>
+                      <label htmlFor="" className="ititle">Marital status*:</label>
                       <div className="option">
                         <div className="s-input nice-select-wraper">
                           <select
@@ -217,7 +217,7 @@ export default function Registration() {
                       </div>
                     </div>
                     <div className="form-group">
-                      <label htmlFor="" className="mt-4">City/शहर*:</label>
+                      <label htmlFor="" className="mt-4 ititle">City/शहर*:</label>
                       <input
                         {...register("city", {
                           required: "Enter your City/शहर",
@@ -230,11 +230,9 @@ export default function Registration() {
                       )}
                       <br />
                     </div>
-                    <div className="button-wrapper d-grid gap-2 col-6 col-sm-10 col-md-8 mx-auto mt-3">
+                    <div className="text-center">
                       {/* <Link to="/login"> */}
-                      <button type="submit" className="custom-button ml-5">
-                        Create Your Profile
-                      </button>
+                      <button type="submit" className="custom-button w-75">Create Your Profile</button>
                       {/* </Link> */}
                     </div>
                   </form>

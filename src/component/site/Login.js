@@ -1,24 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import Service from '../../service/Service';
 export default function Login() {
-  // const [loginData, setLoginData] = useState();
-  const [userId, setUserId] = useState();
   const {
     register,
     handleSubmit,
-    formState: { errors }, reset
+    formState: { errors }
   } = useForm();
 
   const saveLoginData = (data => {
-    console.log(data);
     Service.saveAllLogin(data).then(res => {
-      console.log(res.data);
       localStorage.setItem("USERID", JSON.stringify(res.data.data.user_id));
       navigate("/single_profile2");
-
     });
   });
 
@@ -55,7 +50,7 @@ export default function Login() {
                 <div className="main-content inloginp">
                   <form onSubmit={handleSubmit(saveLoginData)} autoComplete="off">
                     <div className="form-group">
-                      <label htmlFor="contactno" className="form-label">Contact no/संपर्क क्रमांक:</label>
+                      <label htmlFor="contactno" className="form-label ititle">Contact no/संपर्क क्रमांक:</label>
                       <input
                         {...register("contact", {
                           required: "Please enter contact number/संपर्क क्रमांक",
@@ -72,7 +67,7 @@ export default function Login() {
                     </div>
 
                     <div className="form-group">
-                      <label htmlFor="exampleInputPassword1" className="form-label">Password/पासवर्ड:</label>
+                      <label htmlFor="exampleInputPassword1" className="form-label ititle">Password/पासवर्ड:</label>
                       <input
                         type="password"
                         className="my-form-control"
@@ -89,15 +84,10 @@ export default function Login() {
                       )}
                     </div>
                     <p className="f-pass">Forgot your password? <Link to="#">recover password</Link></p>
-                    <div className="button-wrapper">
-                      {/* <Link to="/single_profile2"> */}
-                      <button type="submit" className="custom-button mr-5">SignIn
+                    <div className="button-wrapper row">
+                      <button type="submit" className="custom-button col-lg-5 col-sm-5 mx-2 w-75">Sign In</button>
+                      <button type="submit" className="custom-button col-lg-5 col-sm-5 mx-2 w-75" onClick={() => navigate("/registration")}>Registration
                       </button>
-                      {/* </Link> */}
-                      {/* <Link to="/registration"> */}
-                      <button type="submit" className="custom-button ml-4" onClick={() => navigate("/registration")}>Registration
-                      </button>
-                      {/* </Link> */}
                     </div>
                   </form>
                 </div>

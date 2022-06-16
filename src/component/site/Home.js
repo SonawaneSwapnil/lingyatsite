@@ -43,7 +43,7 @@ export default function Home() {
           <div class="col-sm-2">
             <label class="visually-hidden text-light title" for="specificSizeInputGroupUsername">Looking for:</label>
             <div class="form-check">
-              <div className='row'>
+              <div className='row p-0 m-0'>
                 <div class="col-8">
                   <label class="form-check-label text-light title" for="flexRadioDefault1">Groom</label>
                 </div>
@@ -53,7 +53,7 @@ export default function Home() {
               </div>
             </div>
             <div class="form-check">
-              <div className='row'>
+              <div className='row p-0 m-0'>
                 <div class="col-8">
                   <label class="form-check-label text-light title" for="flexRadioDefault2">Bride</label>
                 </div>
@@ -65,7 +65,7 @@ export default function Home() {
           </div>
           <div class="col-sm-2">
             <label class="visually-hidden text-light title" for="specificSizeSelect">Age Preference:</label>
-            <select class="form-select" id="specificSizeSelect">
+            <select class="form-select ddown" id="specificSizeSelect">
               <option selected>Choose...</option>
               <option value="1">18-20</option>
               <option value="2">21-25</option>
@@ -102,7 +102,7 @@ export default function Home() {
           <div class="col-sm-2">
             <label class="visually-hidden text-light title" for="specificSizeInputGroupUsername">Marital Status:</label>
             <div class="input-group">
-              <select class="form-select" id="specificSizeSelect">
+              <select class="form-select ddown" id="specificSizeSelect">
                 <option selected>Choose...</option>
                 <option class="textTru chosenDropWid" id="N" value="N">Never Married</option>
                 <option class="textTru chosenDropWid" id="S" value="S">Awaiting Divorce</option>
