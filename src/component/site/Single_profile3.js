@@ -61,7 +61,7 @@ export default function Single_profile3() {
                                 </h5>
                                 <ul className="p-b-meta-one">
                                     <li>
-                                        <span>21 Years Old</span>
+                                        <span>{index.age} Years Old</span>
                                     </li>
                                     <li>
                                         <span> <i className="fas fa-map-marker-alt"></i>
@@ -181,12 +181,12 @@ export default function Single_profile3() {
                                         </NavLink>
                                     </li>
 
-                                    <li>
+                                    {/* <li>
                                         <NavLink to="/single_profile3" exact activeclassname="active-class">
                                             Members
 
                                         </NavLink>
-                                    </li>
+                                    </li> */}
                                     <li>
                                         <NavLink to="/Search" exact activeclassname="active-class">
                                             search

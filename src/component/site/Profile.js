@@ -56,7 +56,7 @@ export default function Profile() {
                     <h5 className="name">{index.user_name}</h5>
                     <ul className="p-b-meta-one">
                       <li>
-                        <span>21 Years Old</span>
+                        <span>{index.age} Years Old</span>
                       </li>
                       <li>
                         <span>

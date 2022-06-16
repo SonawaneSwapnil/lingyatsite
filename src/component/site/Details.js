@@ -41,17 +41,6 @@ export default function Details() {
     );
   };
 
-  // const saveData = (data) => {
-  //   console.log(data);
-  //   Service.saveAllUsers(data).then((res) => {
-  //     console.log(res.data);
-  //     alert("Data Saved successfully");
-  //     reset();
-  //     loadAllData();
-  // });
-
-  // };
-  // Update
 
   const updateRecord = () => {
     var data = {
@@ -74,8 +63,8 @@ export default function Details() {
    
     Service.updateUsers(data)
       .then((res) => {
-        alert("record Updated successsfully");
-        // loadAllData();
+        // alert("record Updated successsfully");
+        // loadAllData()
         navigate("/family");
       })
       .catch((err) => {
@@ -118,7 +107,7 @@ export default function Details() {
                         </div>
                         <h5 className="name">{index.user_name}</h5>
                         <ul className="p-b-meta-one">
-                          <li><span>21 Years Old</span></li>
+                          <li><span>{index.age} Years Old</span></li>
                           <li>
                             <span>
                               <i className="fas fa-map-marker-alt"></i>{index.city}

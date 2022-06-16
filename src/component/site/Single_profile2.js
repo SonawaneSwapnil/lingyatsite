@@ -55,7 +55,7 @@ export default function Single_profile2() {
                       <h5 className="name">{index.user_name}</h5>
                       <ul className="p-b-meta-one">
                         <li>
-                          <span>21 Years Old</span>
+                          <span>{index.age} Years Old</span>
                         </li>
                         <li>
                           <span>
@@ -166,8 +166,8 @@ export default function Single_profile2() {
                         Add More Information
                       </NavLink>
                     </li>
-{/* 
-                    <li>
+
+                    {/* <li>
                       <NavLink
                         to="/single_profile3"
                         exact
@@ -289,12 +289,12 @@ export default function Single_profile2() {
                     </div>
                   </div>
                   <div className="button-wrapper d-grid gap-2 col-6 col-sm-8 col-md-10 mx-auto mt-3">
-                      <Link to="/selfprofile">
+                    <Link to="/selfprofile">
                       <button type="submit" className="custom-button ml-5">
                         View More Information
                       </button>
-                      </Link>
-                    </div>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

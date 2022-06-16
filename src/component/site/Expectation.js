@@ -48,17 +48,19 @@ export default function Expectation() {
     var data = {
       expectation: getValues("expectation"),
       passport: getValues("passport"),
+      fullphoto: getValues("fullphoto"),
       user_id: user_id,
     };
     let fd = new FormData();
     fd.append("expectation", data.expectation);
     fd.append("passport", selectedFile);
+    fd.append("fullphoto", selectedFile);
     fd.append("user_id", data.user_id);
     console.log(fd);
 
     Service.updateExceptation(fd)
       .then((res) => {
-        alert("record Updated successsfully");
+        // alert("record Updated successsfully");
         // loadAllData();
         navigate("/search");
       })
@@ -101,7 +103,7 @@ export default function Expectation() {
                         </div>
                         <h5 className="name">{index.user_name}</h5>
                         <ul className="p-b-meta-one">
-                          <li><span>21 Years Old</span></li>
+                          <li><span>{index.age} Years Old</span></li>
                           <li>
                             <span> <i className="fas fa-map-marker-alt"></i>{index.city}</span>
                           </li>
@@ -222,7 +224,12 @@ export default function Expectation() {
                               className="my-form-control"
                               id="inputGroupFile04"
                               aria-describedby="inputGroupFileAddon04"
-                              aria-label="Upload" />
+                              aria-label="Upload" 
+                              {...register("fullphoto", {
+                                required: "Please enter fullphoto photo",
+                              })}
+                              onChange={changeHandler}
+                             />
                             {errors.fullphoto && (
                               <span style={{ color: "red" }}>
                                 {errors.fullphoto.message}

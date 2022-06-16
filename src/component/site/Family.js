@@ -57,7 +57,7 @@ export default function Family() {
 
     Service.updateFamily(data)
       .then((res) => {
-        alert("record Updated successsfully");
+        // alert("record Updated successsfully");
         // loadAllData();
         navigate("/expectation");
       })
@@ -103,7 +103,7 @@ export default function Family() {
                       </div>
                       <h5 className="name">{index.user_name}</h5>
                       <ul className="p-b-meta-one">
-                        <li><span>21 Years Old</span></li>
+                        <li><span>{index.age} Years Old</span></li>
                         <li>
                           <span><i className="fas fa-map-marker-alt"></i>{index.city}</span>
                         </li>
