@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, Link } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import Service from "../../service/Service";
 import jsPDF from 'jspdf'
 import moment from "moment";
@@ -8,8 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 const Selfprofile = () => {
   const [usersData, setUsersData] = useState();
-  const [logo, setLogo] = useState("header image.jpg");
-  const [logof, setLogof] = useState("footer image.jpg");
   useEffect(() => {
     loadAllUsersData();
   }, []);
@@ -31,8 +28,12 @@ const Selfprofile = () => {
     //Important Site for study
     // https://mrrio.github.io/jsPDF/examples/basic.html
 
-    doc.addImage(logo, 'jpg', 0, 0, 595, 150, 'header');
+    var printHeader = new Image();
+    printHeader.src = 'assets/images/print/print-header.png';
+    var printFooter = new Image();
+    printFooter.src = 'assets/images/print/print-footer.png';
 
+    doc.addImage(printHeader, 'png', 0, 0, 595, 150, 'header');
 
     doc.setFontSize(10);
     doc.setFont(undefined, 'bold')
@@ -130,7 +131,7 @@ const Selfprofile = () => {
     // doc.setFont(undefined,'bold')
     // doc.text(usersData[0].expectation, 200 , 720);
 
-    doc.addImage(logof, 'jpg', 0, 740, 595, 200, 'footer')
+    doc.addImage(printFooter, 'png', 0, 740, 595, 200, 'footer')
     doc.save("profile.pdf");
   }
 
@@ -335,10 +336,9 @@ const Selfprofile = () => {
                             <button type="submit" className="custom-button ml-5" onClick={() => navigate("/single_profile2")} >Back</button>
                             {/* </Link> */}
                             {/* <Link to="/registration"> */}
-                            <button type="submit" onClick={generatePdf} className="print__button custom-button ml-5"> Save as Pdf </button>
+                            <button type="submit" onClick={generatePdf} className="print__button custom-button ml-5">Save as Pdf </button>
                             {/* </Link> */}
                           </div>
-
                         </div>
                       </div>
                     </div>
