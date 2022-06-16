@@ -59,6 +59,10 @@ export default function Site() {
               <li>
                 <Link to="/contact" activeClassName="active">Contact</Link>
               </li>
+              {isLoggedin ? (
+                <li>
+                  <Link to="/single_profile2" activeClassName="active">Profile</Link>
+                </li>) : ('')}
               <li className="separator">
                 <span>|</span>
               </li>
