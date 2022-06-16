@@ -273,74 +273,72 @@ const Selfprofile = () => {
                       <div class="container">
                         <div class="row">
                           <div class="col-md-12">
-                            <div ref={componentRef} >
-                              <div class="float__start">
-                                <div className="info-box">
-                                  <div className="header">
-                                    <h2 className="title">Family Information/कौटुंबिक माहिती</h2>
-                                  </div>
-                                  <div className="content">
-                                    <ul className="infolist">
-                                      <li>
-                                        <span>Father Name/वडीलांचे नावं:</span>
-                                        <span>{index.father}</span>
-                                      </li>
-                                      <li>
-                                        <span>Contact Number/संपर्क क्रमांक: </span>
-                                        <span>{index.father_contact}</span>
-                                      </li>
-                                      <li>
-                                        <span>Mother Name/आईचे नाव:</span>
-                                        <span>{index.mother}</span>
-                                      </li>
-                                      <li>
-                                        <span>Contact Number/संपर्क क्रमांक:</span>
-                                        <span>{index.mother_contact}</span>
-                                      </li>
-                                      <li>
-                                        <span>Brother Name/भावाचे नाव:</span>
-                                        <span>{index.brother}</span>
-                                      </li>
-                                      <li>
-                                        <span>Contact Number/संपर्क क्रमांक:</span>
-                                        <span>{index.brother_contact}</span>
-                                      </li>
-                                      <li>
-                                        <span>Sister Name/बहिणीचे नाव</span>
-                                        <span>{index.sister}</span>
-                                      </li>
-                                      <li>
-                                        <span>Contact Number/संपर्क क्रमांक:</span>
-                                        <span>{index.sister_contact}</span>
-                                      </li>
-                                    </ul>
-                                  </div>
+                            <div class="float__start">
+                              <div className="info-box">
+                                <div className="header">
+                                  <h2 className="title">Family Information/कौटुंबिक माहिती</h2>
                                 </div>
-                                <div className="info-box">
-                                  <div className="header">
-                                    <h4 className="title">Expectation/अपेक्षा वधू/वर</h4>
-                                  </div>
-                                  <div className="content">
-                                    <ul className="infolist">
-                                      <li>
-                                        <span>Expection/अपेक्षा वधू/वर:</span>
-                                        <span>{index.expectation}</span>
-                                      </li>
-                                    </ul>
-                                  </div>
+                                <div className="content">
+                                  <ul className="infolist">
+                                    <li>
+                                      <span>Father Name/वडीलांचे नावं:</span>
+                                      <span>{index.father}</span>
+                                    </li>
+                                    <li>
+                                      <span>Contact Number/संपर्क क्रमांक: </span>
+                                      <span>{index.father_contact}</span>
+                                    </li>
+                                    <li>
+                                      <span>Mother Name/आईचे नाव:</span>
+                                      <span>{index.mother}</span>
+                                    </li>
+                                    <li>
+                                      <span>Contact Number/संपर्क क्रमांक:</span>
+                                      <span>{index.mother_contact}</span>
+                                    </li>
+                                    <li>
+                                      <span>Brother Name/भावाचे नाव:</span>
+                                      <span>{index.brother}</span>
+                                    </li>
+                                    <li>
+                                      <span>Contact Number/संपर्क क्रमांक:</span>
+                                      <span>{index.brother_contact}</span>
+                                    </li>
+                                    <li>
+                                      <span>Sister Name/बहिणीचे नाव</span>
+                                      <span>{index.sister}</span>
+                                    </li>
+                                    <li>
+                                      <span>Contact Number/संपर्क क्रमांक:</span>
+                                      <span>{index.sister_contact}</span>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                              <div className="info-box">
+                                <div className="header">
+                                  <h4 className="title">Expectation/अपेक्षा वधू/वर</h4>
+                                </div>
+                                <div className="content">
+                                  <ul className="infolist">
+                                    <li>
+                                      <span>Expection/अपेक्षा वधू/वर:</span>
+                                      <span>{index.expectation}</span>
+                                    </li>
+                                  </ul>
                                 </div>
                               </div>
                             </div>
-                            <div className="button-wrapper">
-                              {/* <Link to="/single_profile2"> */}
-                              <button type="submit" className="custom-button ml-5" onClick={() => navigate("/single_profile2")} >Back</button>
-                              {/* </Link> */}
-                              {/* <Link to="/registration"> */}
-                              <button type="submit" onClick={generatePdf} className="print__button custom-button ml-5"> Save as Pdf </button>
-                              {/* </Link> */}
-                            </div>
-
                           </div>
+                          <div className="button-wrapper">
+                            {/* <Link to="/single_profile2"> */}
+                            <button type="submit" className="custom-button ml-5" onClick={() => navigate("/single_profile2")} >Back</button>
+                            {/* </Link> */}
+                            {/* <Link to="/registration"> */}
+                            <button type="submit" onClick={generatePdf} className="print__button custom-button ml-5"> Save as Pdf </button>
+                            {/* </Link> */}
+                          </div>
+
                         </div>
                       </div>
                     </div>
