@@ -111,9 +111,10 @@ export default function Home() {
               </select>
             </div>
           </div>
-          <div class="col-lg-2 col-sm-12 col-sm-12 text-center mt-3">
+          <div>
+          <div class="col-lg-2 col-sm-12 col-sm-12 text-center mt-3"> 
             <button type="submit" class="custom-button" onClick={() => navigate("/login")}>Search</button>
-          </div>
+           </div></div>
         </form>
       </div>
 

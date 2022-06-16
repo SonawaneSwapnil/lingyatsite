@@ -85,6 +85,7 @@ export default function Registration() {
                         type="text"
                         className="my-form-control"
                         id="exampleInputname"
+                        autoComplete='off'
                       />
                       {errors.user_name && (
                         <span style={{ color: "red" }}>{errors.user_name.message}</span>
@@ -103,7 +104,7 @@ export default function Registration() {
                             message: "Enter max 10 digit",
                           },
                         })}
-                        type="text"
+                        type="number"
                         className="my-form-control"
                         id="contactno"
                         autoComplete="off" />

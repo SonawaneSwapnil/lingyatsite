@@ -32,6 +32,8 @@ const Selfprofile = () => {
     printHeader.src = 'assets/images/print/print-header.png';
     var printFooter = new Image();
     printFooter.src = 'assets/images/print/print-footer.png';
+    
+  
 
     doc.addImage(printHeader, 'png', 0, 0, 595, 150, 'header');
 
@@ -117,7 +119,7 @@ const Selfprofile = () => {
     doc.text(usersData[0].address, 200, 630);
 
     doc.setFontSize(10);
-    doc.text("Fathet Name : ", 50, 660);
+    doc.text("Father Name : ", 50, 660);
     doc.setFont(undefined, 'bold')
     doc.text(usersData[0].father, 200, 660);
 
@@ -126,12 +128,12 @@ const Selfprofile = () => {
     doc.setFont(undefined, 'bold')
     doc.text(usersData[0].father_contact.toString(), 200, 690);
 
-    // doc.setFontSize(10);
-    // doc.text("Expection : ", 50 , 720);
-    // doc.setFont(undefined,'bold')
-    // doc.text(usersData[0].expectation, 200 , 720);
+     doc.setFontSize(10);
+    doc.text("Expectation : ", 50 , 720);
+    doc.setFont(undefined,'bold')
+     doc.text(usersData[0].expectation, 200 , 720);
 
-    doc.addImage(printFooter, 'png', 0, 740, 595, 200, 'footer')
+    doc.addImage(printFooter, 'png', 0, 740, 595, 220, 'footer')
     doc.save("profile.pdf");
   }
 
