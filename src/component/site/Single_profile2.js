@@ -166,8 +166,8 @@ export default function Single_profile2() {
                         Add More Information
                       </NavLink>
                     </li>
-                    {/* 
-                    <li>
+
+                    {/* <li>
                       <NavLink
                         to="/single_profile3"
                         exact
