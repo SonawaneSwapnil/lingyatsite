@@ -30,39 +30,22 @@ export default function Search() {
     });
   };
 
- 
-var agefrom,ageto;
-function getAge(){
-  var age=getValues("age");
-   agefrom=age.split("-")[0];
-   ageto=age.split("-")[1];
-  console.log(age);
-}
-// getAge(agefrom,ageto);
   const loadAllFilterData = () => {
-getAge();
-console.log(agefrom+"  "+ageto);
+    var age = getValues("age");
+    var ageFrom = age.split("-")[0];
+    var ageTo = age.split("-")[1];
     var data = {
       looking_for_gender: getValues("looking_for_gender"),
       workplace: getValues("workplace"),
       income: getValues("income"),
       married_status: getValues("married_status")
-       };
- Service.getFilterUser(data.workplace,data.looking_for_gender,data.income,data.married_status,agefrom,ageto).then((res) => {
+    };
+    Service.getFilterUser(data.workplace, data.looking_for_gender, data.income, data.married_status, ageFrom, ageTo).then((res) => {
       setFilterUser(res.data);
-      console.log(res.data);
-      console.log(data.looking_for_gender);
-      console.log(data.workplace);
-      console.log(data.income);
-      console.log(data.married_status);
-      console.log(agefrom);
-      console.log(ageto);
       reset();
       navigate("/search");
     });
   };
-
-
 
   // Filtersdata
 
@@ -104,13 +87,8 @@ console.log(agefrom+"  "+ageto);
             <div className="col-lg-12">
               <div className="top-filter">
                 <div className="left">
-                  <Link
-                    to=""
-                    data-toggle="modal"
-                    data-target="#exampleModalCenter"
-                  >
-                    <i className="fas fa-sliders-h"></i> Find Your Perfect
-                    Partner
+                  <Link to="" data-toggle="modal" data-target="#exampleModalCenter">
+                    <i className="fas fa-sliders-h"></i> Find Your Perfect Partner
                   </Link>
                 </div>
                 {/* <div className="right">
@@ -126,9 +104,9 @@ console.log(agefrom+"  "+ageto);
                                 </select>
                             </div>
                             </div> */}
-              </div>
-            </div>
-          </div> 
+              </div >
+            </div >
+          </div >
           {filteredUser &&
             filteredUser.map((index, i) => (
               <div className="row" key={index.user_id}>
@@ -151,43 +129,40 @@ console.log(agefrom+"  "+ageto);
                               "USERID",
                               JSON.stringify(index.user_id)
                             );
-                          }}
-                        >
+                          }} >
                           View Profile
                         </button>
                       </Link>
                     </div>
                   </div>
-                </div>
-              </div>
-            ))}
-        </div>
-      </section>
+                </div >
+              </div >
+            ))
+          }
+        </div >
+      </section >
       {/* <!-- ==========Community-Section========== --> */}
 
-       <div
+      < div
         className="modal fade filter-p"
         id="exampleModalCenter"
         tabindex="-1"
         role="dialog"
         aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true"
-      >
+        aria-hidden="true" >
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
             <div className="modal-header justify-content-between">
               <h6
                 className="modal-title text-center"
-                id="exampleModalCenterTitle"
-              >
+                id="exampleModalCenterTitle" >
                 Find Your Perfect Partner
               </h6>
               <button
                 type="button"
                 className="close"
                 data-dismiss="modal"
-                aria-label="Close"
-              >
+                aria-label="Close" >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -199,16 +174,13 @@ console.log(agefrom+"  "+ageto);
                   backgroundColor: "rgb(158, 0, 53)",
                   padding: 50,
                   borderRadius: 16,
-                }}
-              >
+                }} >
                 <form
                   className="row gx-3 gy-2 align-items-center"
-                  onSubmit={handleSubmit(loadAllFilterData)}
-                >
+                  onSubmit={handleSubmit(loadAllFilterData)} >
                   <label
                     className="visually-hidden text-light title"
-                    for="specificSizeInputGroupUsername"
-                  >
+                    for="specificSizeInputGroupUsername" >
                     Looking for:
                   </label>
                   <div className="form-check">
@@ -216,8 +188,7 @@ console.log(agefrom+"  "+ageto);
                       <div className="col-8">
                         <label
                           className="form-check-label text-light title"
-                          for="flexRadioDefault1"
-                        >
+                          for="flexRadioDefault1" >
                           Groom
                         </label>
                       </div>
@@ -230,7 +201,7 @@ console.log(agefrom+"  "+ageto);
                           value="male"
                           {...register("looking_for_gender", {
                             required: false
-                          })}  />
+                          })} />
                       </div>
                     </div>
                     <div className="form-check">
@@ -264,8 +235,8 @@ console.log(agefrom+"  "+ageto);
                     >
                       Age Preference:
                     </label>
-                    
-                    <select className="form-select" id="specificSizeSelect" 
+
+                    <select className="form-select" id="specificSizeSelect"
                       {...register("age", {
                         required: false
                       })}
@@ -307,10 +278,10 @@ console.log(agefrom+"  "+ageto);
                       {...register("workplace", {
                         required: false
                       })}
-                      
+
                     />
-                    
-                  </div>
+
+                  </div >
 
                   <label
                     className="visually-hidden text-light title"
@@ -340,7 +311,7 @@ console.log(agefrom+"  "+ageto);
                         required: false
                       })}
                     />
-                  </div>
+                  </div >
                   <label
                     className="visually-hidden text-light title"
                     for="specificSizeInputGroupUsername"
@@ -349,8 +320,8 @@ console.log(agefrom+"  "+ageto);
                   </label>
                   <div className="input-group">
                     <select className="form-select" id="specificSizeSelect"   {...register("married_status", {
-                        required: false
-                      })}>
+                      required: false
+                    })}>
                       <option selected>Choose...</option>
                       <option
                         className="textTru chosenDropWid"
@@ -364,22 +335,22 @@ console.log(agefrom+"  "+ageto);
                         id="S"
                         value="married"
                       >
-                      Re Marriage
+                        Re Marriage
                       </option>
-                     
-                     
-                    
+
+
+
                     </select>
                   </div>
                   <button type="submit" className="custom-button mt-2">
                     Search
                   </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> 
-    </div>
+                </form >
+              </div >
+            </div >
+          </div >
+        </div >
+      </div >
+    </div >
   );
 }

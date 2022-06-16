@@ -10020,3 +10020,7 @@ input[type=submit] {
   overflow-y: auto;
   overflow-y: scroll;
 }
+
+.th {
+  margin-left: 50px;
+}

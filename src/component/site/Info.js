@@ -13,7 +13,7 @@ const Info = () => {
   });
 
   const [usersData, setUsersData] = useState();
-  const imgPath="https://atjoin.in/lingayat_matrimony_api/";
+  const imgPath = "https://atjoin.in/lingayat_matrimony_api/";
 
   useEffect(() => {
     loadAllUsersData();
@@ -27,8 +27,8 @@ const Info = () => {
       console.log(res.data);
     });
   };
-  let navigate = useNavigate(); 
-    
+  let navigate = useNavigate();
+
   return (
     <div>
       {/* <!-- ==========Breadcrumb-Section========== --> */}
@@ -48,28 +48,28 @@ const Info = () => {
         {usersData && usersData.map(index => (
           <div className="container">
             <div className="row justify-content-center">
-                <div className="col-xl-4 col-lg-5 col-md-7">
-                    <div className="left-profile-area">
-                        <div className="profile-about-box">
-                            <div className="top-bg"></div>
-                            <div className="p-inner-content">
-                                <div className="profile-img">
-                                    {/* <img src="assets/images/profile/profile-user.png" alt=""/> */}
-                                    <img src={imgPath+index.passport} alt=""/>
-                                    <div className="active-online"></div>
-                                </div>
-                                <h5 className="name">
-                                   {index.user_name}
-                                </h5>
-                                <ul className="p-b-meta-one">
-                                    <li>
-                                        <span>21 Years Old</span>
-                                    </li>
-                                    <li>
-                                        <span> <i className="fas fa-map-marker-alt"></i>{index.city}</span>
-                                    </li>
-                                </ul>
-                                {/* <!-- <div className="p-b-meta-two">
+              <div className="col-xl-4 col-lg-5 col-md-7">
+                <div className="left-profile-area">
+                  <div className="profile-about-box">
+                    <div className="top-bg"></div>
+                    <div className="p-inner-content">
+                      <div className="profile-img">
+                        {/* <img src="assets/images/profile/profile-user.png" alt=""/> */}
+                        <img src={imgPath + index.passport} alt="" />
+                        <div className="active-online"></div>
+                      </div>
+                      <h5 className="name">
+                        {index.user_name}
+                      </h5>
+                      <ul className="p-b-meta-one">
+                        <li>
+                          <span>21 Years Old</span>
+                        </li>
+                        <li>
+                          <span> <i className="fas fa-map-marker-alt"></i>{index.city}</span>
+                        </li>
+                      </ul>
+                      {/* <!-- <div className="p-b-meta-two">
                                     <div className="left">
                                         <div className="icon">
                                             <i className="far fa-heart"></i>
@@ -105,7 +105,7 @@ const Info = () => {
                             </ul> --> */}
                   </div>
                   <div className="profile-uplodate-photo">
-                    <h4 className="p-u-p-header"><i className="fas fa-camera"></i> 4 Upload Photos</h4>
+                    <h4 className="p-u-p-header"><i className="fas fa-camera"></i>Uploaded Photos</h4>
                     <div className="p-u-p-list">
                       <div className="my-col">
                         <div className="img">
@@ -124,7 +124,7 @@ const Info = () => {
                                         </div>
                                     </div>
                                 </div> */}
-                      <div className="my-col">
+                      {/* <div className="my-col">
                         <div className="img">
                           <img src="assets/images/profile/up3.jpg" alt="" />
                           <div className="overlay">
@@ -147,7 +147,7 @@ const Info = () => {
                             <Link to="assets/images/profile/up5.jpg" className="light-box mfp-iframe"><i className="fas fa-plus"></i></Link>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
 
                     </div>
                   </div>

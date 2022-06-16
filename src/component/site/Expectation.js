@@ -225,12 +225,12 @@ export default function Expectation() {
                               className="my-form-control"
                               id="inputGroupFile04"
                               aria-describedby="inputGroupFileAddon04"
-                              aria-label="Upload" 
+                              aria-label="Upload"
                               {...register("fullphoto", {
                                 required: "Please enter fullphoto photo",
                               })}
                               onChange={changeHandler}
-                             />
+                            />
                             {errors.fullphoto && (
                               <span style={{ color: "red" }}>
                                 {errors.fullphoto.message}

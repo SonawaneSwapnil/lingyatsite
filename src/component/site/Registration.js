@@ -37,7 +37,6 @@ export default function Registration() {
     console.log(data);
     Service.saveAllUsers(data).then((res) => {
       console.log(res.data);
-      // alert("Registration successfully");
       navigate("/login");
     });
   };
@@ -139,7 +138,6 @@ export default function Registration() {
                         type="date"
                         className="my-form-control"
                         id="exampleInputdate" />
-                      {""}
                       {errors.dob && (
                         <span style={{ color: "red" }}>{errors.dob.message}</span>
                       )}
@@ -227,7 +225,6 @@ export default function Registration() {
                         type="text"
                         className="my-form-control mr-5"
                       />
-                      {""}
                       {errors.city && (
                         <span style={{ color: "red" }}>{errors.city.message}</span>
                       )}

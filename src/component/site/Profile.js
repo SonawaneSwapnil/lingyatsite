@@ -1,13 +1,13 @@
-import React,{useEffect,useState} from 'react'
-import { NavLink,Link, useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { NavLink, Link, useParams } from 'react-router-dom'
 import Service from '../../service/Service';
 import moment from 'moment'
 export default function Profile() {
-    const [userData, setUserData] = useState();
-  
+  const [userData, setUserData] = useState();
 
-    let userId=useParams();
-    useEffect(() => {
+
+  let userId = useParams();
+  useEffect(() => {
     loadAllData();
   }, []);
 
@@ -25,48 +25,48 @@ export default function Profile() {
   return (
     <div>
       {/* <!-- ==========Breadcrumb-Section========== --> */}
-      <section class="breadcrumb-area profile-bc-area">
-        <div class="container">
-          <div class="content">
-            <h2 class="title extra-padding">Single Profile</h2>
-            <ul class="breadcrumb-list extra-padding">
-              <li><a href="index.html">Home</a></li>
-              <li>Single Profile</li>
+      <section className="breadcrumb-area profile-bc-area">
+        <div className="container">
+          <div className="content">
+            <h2 className="title extra-padding">Profile</h2>
+            <ul className="breadcrumb-list extra-padding">
+              <li><Link to="">Home</Link></li>
+              <li>Profile</li>
             </ul>
           </div>
         </div>
-    </section>
-    {/* <!-- ========= Profile Section Start --> */}
-    <section className="profile-section">
-      {userData && userData.map((index,key)=>(
-        <div className="container" key={index.user_id}>
-          <div className="row justify-content-center">
-            <div className="col-xl-4 col-lg-5 col-md-7">
-              <div className="left-profile-area">
-                <div className="profile-about-box">
-                  <div className="top-bg"></div>
-                  <div className="p-inner-content">
-                    <div className="profile-img">
-                      <img
-                        src="assets/images/profile/profile-user.png"
-                        alt=""
-                      />
-                      <div className="active-online"></div>
-                    </div>
-                    <h5 className="name">{index.user_name}</h5>
-                    <ul className="p-b-meta-one">
-                      <li>
-                        <span>{index.age} Years Old</span>
-                      </li>
-                      <li>
-                        <span>
-                          {" "}
-                          <i className="fas fa-map-marker-alt"></i>
-                          {index.city}
-                        </span>
-                      </li>
-                    </ul>
-                    {/* <!-- <div className="p-b-meta-two">
+      </section>
+      {/* <!-- ========= Profile Section Start --> */}
+      <section className="profile-section">
+        {userData && userData.map((index, key) => (
+          <div className="container" key={index.user_id}>
+            <div className="row justify-content-center">
+              <div className="col-xl-4 col-lg-5 col-md-7">
+                <div className="left-profile-area">
+                  <div className="profile-about-box">
+                    <div className="top-bg"></div>
+                    <div className="p-inner-content">
+                      <div className="profile-img">
+                        <img
+                          src="assets/images/profile/profile-user.png"
+                          alt=""
+                        />
+                        <div className="active-online"></div>
+                      </div>
+                      <h5 className="name">{index.user_name}</h5>
+                      <ul className="p-b-meta-one">
+                        <li>
+                          <span>{index.age} Years Old</span>
+                        </li>
+                        <li>
+                          <span>
+                            {" "}
+                            <i className="fas fa-map-marker-alt"></i>
+                            {index.city}
+                          </span>
+                        </li>
+                      </ul>
+                      {/* <!-- <div className="p-b-meta-two">
                                     <div className="left">
                                         <div className="icon">
                                             <i className="far fa-heart"></i>
@@ -102,7 +102,7 @@ export default function Profile() {
                             </ul> --> */}
                   </div>
                   <div className="profile-uplodate-photo">
-                    <h4 className="p-u-p-header"><i className="fas fa-camera"></i> 4 Upload Photos</h4>
+                    <h4 className="p-u-p-header"><i className="fas fa-camera"></i>Uploaded Photos</h4>
                     <div className="p-u-p-list">
                       <div className="my-col">
                         <div className="img">
@@ -123,7 +123,7 @@ export default function Profile() {
                                         </div>
                                     </div>
                                 </div> */}
-                      <div className="my-col">
+                      {/* <div className="my-col">
                         <div className="img">
                           <img src="assets/images/profile/up3.jpg" alt="" />
                           <div className="overlay">
@@ -152,7 +152,7 @@ export default function Profile() {
                             </Link>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
@@ -264,12 +264,12 @@ export default function Profile() {
                   </div>
                 </div>
                 <div className="button-wrapper d-grid gap-2 col-6 col-sm-8 col-md-10 mx-auto mt-3">
-                      <Link to="/info">
-                      <button type="submit" className="custom-button ml-5">
-                        View More Information
-                      </button>
-                      </Link>
-                    </div>
+                  <Link to="/info">
+                    <button type="submit" className="custom-button ml-5">
+                      View More Information
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

@@ -6,24 +6,23 @@ import Service from '../../service/Service';
 export default function Login() {
   // const [loginData, setLoginData] = useState();
   const [userId, setUserId] = useState();
-    const {
-      register,
-      handleSubmit,
-      formState: { errors },reset
-    } = useForm();
-  
-    const saveLoginData=(data=>{
-  console.log(data);
-  Service.saveAllLogin(data).then(res=>{
-    console.log(res.data);
-    // alert("Login successful");
-    localStorage.setItem("USERID",JSON.stringify(res.data.data.user_id));
-    navigate("/single_profile2");
-  
-  });
-    });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }, reset
+  } = useForm();
 
-    let navigate=useNavigate();
+  const saveLoginData = (data => {
+    console.log(data);
+    Service.saveAllLogin(data).then(res => {
+      console.log(res.data);
+      localStorage.setItem("USERID", JSON.stringify(res.data.data.user_id));
+      navigate("/single_profile2");
+
+    });
+  });
+
+  let navigate = useNavigate();
   return (
     <div>
 
