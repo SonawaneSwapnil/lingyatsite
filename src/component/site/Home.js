@@ -37,34 +37,28 @@ export default function Home() {
 
       {/* <!-- ==========Filter-Section========== --> */}
 
-      <div class="container" style={{ 'backgroundColor': 'rgb(158, 0, 53)', 'padding': 50, 'borderRadius': 16 }}>
-        <form class="row">
-          <div class="col-lg-2 col-sm-12">
-            <label class="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Looking for:</label>
-            <div class="form-check">
-              <div className='row p-0 m-0'>
-                <div class="col-8">
-                  <label class="form-check-label text-light ititle" for="flexRadioDefault1">Groom</label>
-                </div>
-                <div class="col-4">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                </div>
+      <div className="container" style={{ 'backgroundColor': 'rgb(158, 0, 53)', 'padding': 50, 'borderRadius': 16 }}>
+        <form className="row">
+          <div className="col-lg-2 col-sm-12 p-1">
+            <label className="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Looking for:</label>
+            <div className='row p-0 m-0'>
+              <div className='col-3 p-0'>
+                <label className="form-check-label text-light ititle mb-2" for="flexRadioDefault1">Groom</label>
               </div>
-            </div>
-            <div class="form-check">
-              <div className='row p-0 m-0'>
-                <div class="col-8">
-                  <label class="form-check-label text-light ititle" for="flexRadioDefault2">Bride</label>
-                </div>
-                <div class="col-4">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
-                </div>
+              <div className='col-1 ml-2'>
+                <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="male" />
+              </div>
+              <div className='col-3 p-0'>
+                <label className="form-check-label text-light ititle mb-2" for="flexRadioDefault2">Bride</label>
+              </div>
+              <div className='col-1'>
+                <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="female" />
               </div>
             </div>
           </div>
-          <div class="col-lg-2 col-sm-12">
-            <label class="visually-hidden text-light ititle" for="specificSizeSelect">Age Preference:</label>
-            <select class="form-select ddown" id="specificSizeSelect">
+          <div className="col-lg-2 col-sm-12 p-1">
+            <label className="visually-hidden text-light ititle" for="specificSizeSelect">Age Preference:</label>
+            <select className="form-select ddown" id="specificSizeSelect">
               <option selected>Choose...</option>
               <option value="1">18-20</option>
               <option value="2">21-25</option>
@@ -74,45 +68,45 @@ export default function Home() {
               <option value="3">41-45</option>
             </select>
           </div>
-          <div class="col-lg-2 col-sm-12">
-            <label class="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">WorkPlace:</label>
-            <div class="input-group">
-              <div class="input-group-text">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-workspace" viewBox="0 0 16 16">
+          <div className="col-lg-2 col-sm-12 p-1">
+            <label className="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">WorkPlace:</label>
+            <div className="input-group">
+              <div className="input-group-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-workspace" viewBox="0 0 16 16">
                   <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
                   <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z" />
                 </svg>
               </div>
-              <input type="text" class="form-control" id="specificSizeInputGroupUsername" />
+              <input type="text" className="form-control" id="specificSizeInputGroupUsername" />
             </div>
           </div>
-          <div class="col-lg-2 col-sm-12">
-            <label class="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Income:</label>
-            <div class="input-group">
-              <div class="input-group-text">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash-stack" viewBox="0 0 16 16">
+          <div className="col-lg-2 col-sm-12 p-1">
+            <label className="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Income:</label>
+            <div className="input-group">
+              <div className="input-group-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-cash-stack" viewBox="0 0 16 16">
                   <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
                   <path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z" />
                 </svg>
               </div>
-              <input type="text" class="form-control" id="specificSizeInputGroupUsername" />
+              <input type="text" className="form-control" id="specificSizeInputGroupUsername" />
             </div>
           </div>
-          <div class="col-lg-2 col-sm-12">
-            <label class="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Marital Status:</label>
-            <div class="input-group">
-              <select class="form-select ddown" id="specificSizeSelect">
+          <div className="col-lg-2 col-sm-12 p-1">
+            <label className="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Marital Status:</label>
+            <div className="input-group">
+              <select className="form-select ddown" id="specificSizeSelect">
                 <option selected>Choose...</option>
-                <option class="textTru chosenDropWid" id="N" value="N">Never Married</option>
-                <option class="textTru chosenDropWid" id="S" value="S">Awaiting Divorce</option>
-                <option class="textTru chosenDropWid" id="D" value="D">Divorced</option>
-                <option class="textTru chosenDropWid" id="W" value="W">Widowed</option>
-                <option class="textTru chosenDropWid" id="A" value="A">Annulled</option>
+                <option className="textTru chosenDropWid" id="N" value="N">Never Married</option>
+                <option className="textTru chosenDropWid" id="S" value="S">Awaiting Divorce</option>
+                <option className="textTru chosenDropWid" id="D" value="D">Divorced</option>
+                <option className="textTru chosenDropWid" id="W" value="W">Widowed</option>
+                <option className="textTru chosenDropWid" id="A" value="A">Annulled</option>
               </select>
             </div>
           </div>
-          <div class="col-lg-2 col-sm-12 col-sm-12 text-center mt-3">
-            <button type="submit" class="custom-button" onClick={() => navigate("/login")}>Search</button>
+          <div className="col-lg-2 col-sm-12 col-sm-12 text-center p-1" style={{ marginTop: 36, height: 40 }}>
+            <button type="submit" className="custom-button" onClick={() => navigate("/login")}>Search</button>
           </div>
         </form>
       </div>

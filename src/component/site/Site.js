@@ -44,7 +44,7 @@ export default function Site() {
                 <Link to="#"><img src="./assets/images/user-demo.png" alt="" /></Link>
                 {!isLoggedin ?
                   <ul className="submenu">
-                    <li><Link to="" onClick={login()}>Login</Link></li>
+                    <li><a onClick={login}>Login</a></li>
                     <li><Link to="/registration">Registration</Link></li>
                   </ul> : <ul className="submenu"><li><Link to="" onClick={logout}>Logout</Link></li></ul>}
               </li>

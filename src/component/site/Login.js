@@ -92,7 +92,7 @@ export default function Login() {
                         </span>
                       )}
                     </div>
-                    <p className="f-pass">Forgot your password? <Link to="#">recover password</Link></p>
+                    {/* <p className="f-pass">Forgot your password? <Link to="#">recover password</Link></p> */}
                     <div className="button-wrapper row">
                       <button type="submit" className="custom-button col-lg-5 col-sm-5 mx-2 w-75">Sign In</button>
                       <button type="submit" className="custom-button col-lg-5 col-sm-5 mx-2 w-75" onClick={() => navigate("/registration")}>Registration

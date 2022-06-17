@@ -119,7 +119,7 @@ export default function Details() {
                     <div className="profile-meta-box"></div>
                     <div className="profile-uplodate-photo">
                       <h4 className="p-u-p-header">
-                        <i className="fas fa-camera"></i> 4 Upload Photos
+                        <i className="fas fa-camera"></i>Uploaded Photos
                       </h4>
                       <div className="p-u-p-list">
                         <div className="my-col">
