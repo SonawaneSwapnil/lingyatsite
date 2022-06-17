@@ -66,9 +66,10 @@ export default function Login() {
                           minLength: { value: 10, message: "Use 10 digits for your contact number" },
                           maxLength: { value: 10, message: "Use 10 digits for your contact number" },
                         })}
-                        type="text"
+                        type="number"
                         className="my-form-control"
-                        id="contactno" />
+                        id="contactno"
+                        autoComplete='off' />
                       {errors.contact && (
                         <span style={{ color: "red" }}>{errors.contact.message}</span>
                       )}
@@ -82,6 +83,7 @@ export default function Login() {
                         className="my-form-control"
                         id="exampleInputPassword1"
                         aria-describedby="emailHelp"
+                        autoComplete='off'
                         {...register("password", {
                           required: "Please enter your password/पासवर्ड",
                           minLength: { value: 8, message: "Use 8 characters or more for your password" },
