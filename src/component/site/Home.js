@@ -12,8 +12,8 @@ export default function Home() {
       <div className='banner-section'>
         <div className='container'>
           <div className='row'>
-            <div className='col-xl-6 col-lg-6'>
-              <h3 className='main-title wow fadeInLeft'>
+            <div className='col-xl-6 col-lg-6 mt-md-5 mt-lg-5 pt-md-5 pt-lg-5'>
+              <h3 className='main-title wow fadeInLeft mt-md-5 mt-lg-5'>
                 Find Your Best Life Partner
               </h3>
             </div>
