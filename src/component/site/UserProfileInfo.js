@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import moment from 'moment'
 import { Link, NavLink } from "react-router-dom";
 import Service from "../../service/Service";
-export default function Single_profile2() {
+export default function UserProfileInfo() {
   const [usersData, setUsersData] = useState();
 
   useEffect(() => {
@@ -76,7 +76,7 @@ export default function Single_profile2() {
                   <ul className="top-menu">
                     <li>
                       <NavLink
-                        to="/single_profile2"
+                        to="/profile"
                         exact
                         activeclassname="active-class"
                       >
@@ -84,8 +84,8 @@ export default function Single_profile2() {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to="/details" exact activeclassname="active-class">
-                        Add More Information
+                      <NavLink to="/update-profile" exact activeclassname="active-class">
+                        Add/Update Information
                       </NavLink>
                     </li>
                     <li>
@@ -99,7 +99,7 @@ export default function Single_profile2() {
 
                   <div className="info-box">
                     <div className="header">
-                      <h4 className="title">Basic Detail/ माहिती</h4>
+                      <h4 className="content-title info-main-title text-center mb-3">Basic Detail/ माहिती</h4>
 
                     </div>
                     <div className="content">
@@ -131,7 +131,7 @@ export default function Single_profile2() {
 
                   <div className="info-box">
                     <div className="header">
-                      <h4 className="title">Personal Detail/वैयक्तिक माहिती</h4>
+                      <h4 className="content-title info-main-title text-center mb-3">Personal Detail/वैयक्तिक माहिती</h4>
                     </div>
                     <div className="content">
                       <ul className="infolist">
@@ -200,7 +200,7 @@ export default function Single_profile2() {
                     </div>
                   </div>
                   <div className="button-wrapper text-center">
-                    <Link to="/selfprofile">
+                    <Link to="/other-info">
                       <button type="submit" className="custom-button">
                         View More Information
                       </button>

@@ -6,7 +6,7 @@ import moment from 'moment'
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
 
-export default function Details() {
+export default function UpdateProfileInfo() {
   const [userUpdateData, setuserUpdateData] = useState();
   const [showhide, setshowhide] = useState("");
   const [user_id, setuser_id] = useState();
@@ -56,7 +56,7 @@ export default function Details() {
 
     Service.updateUsers(data)
       .then((res) => {
-        navigate("/family");
+        navigate("/update-family");
       })
       .catch((err) => {
         console.log(err);
@@ -71,10 +71,10 @@ export default function Details() {
       <section className="breadcrumb-area profile-bc-area">
         <div className="container">
           <div className="content">
-            <h2 className="title extra-padding">Add More Information</h2>
+            <h2 className="title extra-padding">Add/Update Information</h2>
             <ul className="breadcrumb-list extra-padding">
               <li><Link to="">Home</Link></li>
-              <li>Add More Information</li>
+              <li>Add/Update Information</li>
             </ul>
           </div>
         </div>
@@ -154,15 +154,14 @@ export default function Details() {
                 <div className="col-xl-8 col-lg-7">
                   <div className="profile-main-content">
                     <ul className="top-menu">
-                      <li><NavLink to="/single_profile2" exact activeclassname="active-class">Profile</NavLink></li>
-                      <li><NavLink to="/details" exact activeclassname="active-class">Add More Information</NavLink></li>
+                      <li><NavLink to="/profile" exact activeclassname="active-class">Profile</NavLink></li>
+                      <li><NavLink to="/update-profile" exact activeclassname="active-class">Add/Update Information</NavLink></li>
                       <li><NavLink to="/Search" exact activeclassname="active-class">Search</NavLink></li>
                     </ul>
 
                     <div className="mt-4">
                       <form onSubmit={handleSubmit(updateRecord)}>
                         <h4 className="content-title info-main-title text-center">Personal Detail/वैयक्तिक माहिती</h4>
-
                         <div className="form-group">
                           <label htmlFor="exampleInputname" className="form-label ititle">Name/नाव*</label>
                           <input

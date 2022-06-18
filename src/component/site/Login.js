@@ -18,7 +18,7 @@ export default function Login() {
       if (res.data.success) {
         toast.success('Login Successful');
         localStorage.setItem("USERID", JSON.stringify(res.data.data.user_id));
-        navigate('/single_profile2');
+        navigate('/profile');
       } else if ((res.data.warning)) {
         toast.warning(res.data.warning, { position: toast.POSITION.TOP_RIGHT })
       }

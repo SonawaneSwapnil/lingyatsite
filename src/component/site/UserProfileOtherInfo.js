@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Service from "../../service/Service";
 import jsPDF from 'jspdf'
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
 
-const Selfprofile = () => {
+const UserProfileOtherInfo = () => {
   const [usersData, setUsersData] = useState();
   useEffect(() => {
     loadAllUsersData();
@@ -143,10 +143,10 @@ const Selfprofile = () => {
       <section class="breadcrumb-area profile-bc-area">
         <div class="container">
           <div class="content">
-            <h2 class="title extra-padding">Single Profile</h2>
+            <h2 class="title extra-padding">Profile</h2>
             <ul class="breadcrumb-list extra-padding">
-              <li><a href="index.html">Home</a></li>
-              <li>Single Profile</li>
+              <li><Link to='/'>Home</Link></li>
+              <li>Profile</li>
             </ul>
           </div>
         </div>
@@ -163,28 +163,15 @@ const Selfprofile = () => {
                       <div className="top-bg"></div>
                       <div className="p-inner-content">
                         <div className="profile-img">
-                          <img
-                            src="assets/images/profile/profile-user.png"
-                            alt=""
-                          />
+                          <img src="assets/images/profile/profile-user.png" alt="" />
                           <div className="active-online"></div>
                         </div>
                         <h5 className="name">{index.user_name}</h5>
                         <ul className="p-b-meta-one">
-                          <li>
-                            <span>{index.age} Years Old</span>
-                          </li>
-                          <li>
-                            <span>
-                              {" "}
-                              <i className="fas fa-map-marker-alt"></i>
-                              {index.city}
-                            </span>
-                          </li>
+                          <li><span>{index.age} Years Old</span></li>
+                          <li><span><i className="fas fa-map-marker-alt"></i>{index.city}</span></li>
                         </ul>
                       </div>
-                    </div>
-                    <div className="profile-meta-box">
                     </div>
                     <div className="profile-uplodate-photo">
                       <h4 className="p-u-p-header"><i className="fas fa-camera"></i>Uploaded Photos</h4>
@@ -203,8 +190,10 @@ const Selfprofile = () => {
                 </div>
                 <div class="col-xl-8 col-lg-7">
                   <div class="profile-main-content">
-                    <ul class="top-menu">
-                      <li><a href="single-profile2.html">Profile</a></li>
+                    <ul className="top-menu">
+                      <li><NavLink to="/profile" exact activeclassname="active-class">Profile</NavLink></li>
+                      <li><NavLink to="/update-profile" exact activeclassname="active-class">Add/Update Information</NavLink></li>
+                      <li><NavLink to="/Search" exact activeclassname="active-class">Search</NavLink></li>
                     </ul>
                     <div class="print__section">
                       <div class="container">
@@ -213,7 +202,7 @@ const Selfprofile = () => {
                             <div class="float__start">
                               <div className="info-box">
                                 <div className="header">
-                                  <h2 className="title">Family Information/कौटुंबिक माहिती</h2>
+                                  <h2 className="content-title info-main-title text-center">Family Information/कौटुंबिक माहिती</h2>
                                 </div>
                                 <div className="content">
                                   <ul className="infolist">
@@ -254,21 +243,18 @@ const Selfprofile = () => {
                               </div>
                               <div className="info-box">
                                 <div className="header">
-                                  <h4 className="title">Expectation/अपेक्षा वधू/वर</h4>
+                                  <h4 className="content-title info-main-title text-center mb-3">Expectation/अपेक्षा वधू/वर</h4>
                                 </div>
                                 <div className="content">
                                   <ul className="infolist">
-                                    <li>
-                                      <span>Expection/अपेक्षा वधू/वर:</span>
-                                      <span>{index.expectation}</span>
-                                    </li>
+                                    <li><span>Expection/अपेक्षा वधू/वर:</span><span>{index.expectation}</span></li>
                                   </ul>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div className="col-12 button-wrapper text-center">
-                            <button type="submit" className="custom-button w-25 mx-2" onClick={() => navigate("/single_profile2")} >Back</button>
+                            <button type="submit" className="custom-button w-25 mx-2" onClick={() => navigate("/profile")} >Back</button>
                             <button type="submit" onClick={generatePdf} className="print__button custom-button w-25 mx-2">Save as Pdf </button>
                           </div>
                         </div>
@@ -285,4 +271,4 @@ const Selfprofile = () => {
   )
 }
 
-export default Selfprofile;
+export default UserProfileOtherInfo;

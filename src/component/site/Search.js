@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Service from "../../service/Service";
 
@@ -72,6 +72,14 @@ export default function Search() {
                   <Link to="" data-toggle="modal" data-target="#exampleModalCenter">
                     <i className="fas fa-sliders-h"></i> Find Your Perfect Partner
                   </Link>
+                </div>
+                <div className="profile-section p-0">
+                  <div class="profile-main-content">
+                    <ul className="top-menu">
+                      <li><NavLink to="/profile" exact activeclassname="active-class">Profile</NavLink></li>
+                      <li><NavLink to="/update-profile" exact activeclassname="active-class">Add/Update Information</NavLink></li>
+                    </ul>
+                  </div>
                 </div>
               </div >
             </div >

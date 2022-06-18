@@ -89,7 +89,7 @@ export default function Profile() {
               <div className="col-xl-5 col-lg-6">
                 <div className="profile-main-content">
                   <ul className="top-menu">
-                    <li><NavLink to="/single_profile2" exact activeclassname="active-class">Profile</NavLink></li>
+                    <li><NavLink to="/profile" exact activeclassname="active-class">Profile</NavLink></li>
                   </ul>
                   {/* Display User data */}
                   <div className="info-box">

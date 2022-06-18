@@ -129,7 +129,7 @@ export default function Registration() {
                       )}
                     </div>
 
-                    <h4 className="content-title mt-5">Profile Details</h4>
+                    <h4 className="content-title mt-5">Profile update-profile</h4>
                     <div className="form-group">
                       <label htmlFor="exampleInputdate" className="form-label ititle text-center">Date Of Birth/जन्मतारीख*:</label>
                       <input

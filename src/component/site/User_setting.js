@@ -289,7 +289,7 @@ export default function User_setting() {
                 </div>
               </div>
               <div className="buttons  mt-30 justify-content-center">
-                <Link to="/single_profile2">
+                <Link to="/profile">
                   <button type="submit" className="custom-button">Save</button></Link>
               </div>
             </div>

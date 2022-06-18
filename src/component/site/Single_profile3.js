@@ -93,13 +93,13 @@ export default function Single_profile3() {
                 <div className="profile-main-content">
                   <ul className="top-menu">
                     <li>
-                      <NavLink to="/single_profile2" exact activeclassname="active-class">
+                      <NavLink to="/profile" exact activeclassname="active-class">
                         Profile
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to="/details" exact activeclassname="active-class">
-                        Add More Information
+                      <NavLink to="/update-profile" exact activeclassname="active-class">
+                        Add/Update Information
                       </NavLink>
                     </li>
                     <li>

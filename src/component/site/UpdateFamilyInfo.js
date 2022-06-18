@@ -46,7 +46,7 @@ export default function Family() {
       .then((res) => {
         // alert("record Updated successsfully");
         // loadAllData();
-        navigate("/expectation");
+        navigate("/update-expectation");
       })
       .catch((err) => {
         console.log(err);
@@ -60,12 +60,10 @@ export default function Family() {
       <section className="breadcrumb-area profile-bc-area">
         <div className="container">
           <div className="content">
-            <h2 className="title extra-padding">Add More Information</h2>
+            <h2 className="title extra-padding">Add Family Information</h2>
             <ul className="breadcrumb-list extra-padding">
-              <li>
-                <Link to="">Home</Link>
-              </li>
-              <li>Add More Information</li>
+              <li><Link to="/">Home</Link></li>
+              <li>Add Family Information</li>
             </ul>
           </div>
         </div>
@@ -144,8 +142,8 @@ export default function Family() {
               <div className="col-xl-8 col-lg-7">
                 <div className="profile-main-content">
                   <ul className="top-menu">
-                    <li><NavLink to="/single_profile2">Profile</NavLink></li>
-                    <li><NavLink to="/details" className="active">Add More Information</NavLink></li>
+                    <li><NavLink to="/profile">Profile</NavLink></li>
+                    <li><NavLink to="/update-profile" className="active">Add/Update Information</NavLink></li>
                     <li><NavLink to="/Search" >search</NavLink></li>
                   </ul>
                   <div className="mt-4">

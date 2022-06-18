@@ -7,7 +7,7 @@ export default function Site() {
   var isLoggedin = localStorage.getItem("USERID");
 
   const login = () => {
-    navigate(isLoggedin ? '/single_profile2' : '/login')
+    navigate(isLoggedin ? '/profile' : '/login')
   };
 
   const logout = () => {
@@ -32,7 +32,7 @@ export default function Site() {
               <li><Link to="/about" activeClassName="active">About Us</Link></li>
               <li><Link to="/contact" activeClassName="active">Contact</Link></li>
 
-              {isLoggedin ? (<li><Link to="/single_profile2" activeClassName="active">Profile</Link></li>) : ''}
+              {isLoggedin ? (<li><Link to="/profile" activeClassName="active">Profile</Link></li>) : ''}
               <li className="separator"><span>|</span></li>
               {/* <li>
                 <div className="serch-icon">
