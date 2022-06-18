@@ -8,10 +8,12 @@ export default function Site() {
 
   const login = () => {
     navigate(isLoggedin ? '/profile' : '/login')
+    localStorage.setItem("LOGGEDIN", true);
   };
 
   const logout = () => {
     localStorage.removeItem('USERID');
+    localStorage.setItem("LOGGEDIN", false);
     navigate("/")
   };
 
@@ -25,12 +27,12 @@ export default function Site() {
         <div className="container">
           <div className="header-wrapper">
             <div className="logo">
-              <Link to=""><img src="./assets/images/logo/logo-old.png" alt="logo" /></Link>
+              <Link to=""><img src="./assets/images/logo/logo-1.png" alt="logo" /></Link>
             </div>
             <ul className="menu">
-              <li><Link to="" activeClassName="active">Home</Link></li>
-              <li><Link to="/about" activeClassName="active">About Us</Link></li>
-              <li><Link to="/contact" activeClassName="active">Contact</Link></li>
+              <li><Link to="" activeclassname="active">Home</Link></li>
+              <li><Link to="/about" activeclassname="active">About Us</Link></li>
+              <li><Link to="/contact" activeclassname="active">Contact</Link></li>
 
               <li className="separator"><span>|</span></li>
               {/* <li>
@@ -47,8 +49,16 @@ export default function Site() {
                     <li><Link to="/registration">Registration</Link></li>
                   </ul> :
                   <ul className="submenu">
-                    <li><Link to="/profile" activeClassName="active">Profile</Link></li>
-                    <li><Link to="" onClick={logout}>Logout</Link></li>
+                    <li>
+                      <Link
+                        to="/profile"
+                        onClick={() => {
+                          localStorage.setItem("LOGGEDIN", true);
+                          localStorage.removeItem('SearchUserID');
+                        }}
+                        activeclassname="active">Profile</Link></li>
+                    <li>
+                      <Link to="" onClick={logout}>Logout</Link></li>
                   </ul>}
               </li>
             </ul>

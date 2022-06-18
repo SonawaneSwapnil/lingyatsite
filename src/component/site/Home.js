@@ -49,7 +49,7 @@ export default function Home() {
           <div className="col-lg-2 col-sm-12 p-1">
             <label className="visually-hidden text-light ititle" for="specificSizeSelect">Age Preference:</label>
             <select className="form-select ddown" id="specificSizeSelect">
-              <option selected>Choose...</option>
+              <option defaultValue>Choose...</option>
               <option value="1">18-20</option>
               <option value="2">21-25</option>
               <option value="3">26-30</option>
@@ -86,7 +86,7 @@ export default function Home() {
             <label className="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Marital Status:</label>
             <div className="input-group">
               <select className="form-select ddown" id="specificSizeSelect">
-                <option selected>Choose...</option>
+                <option defaultValue>Choose...</option>
                 <option className="textTru chosenDropWid" id="N" value="N">Never Married</option>
                 <option className="textTru chosenDropWid" id="S" value="S">Awaiting Divorce</option>
                 <option className="textTru chosenDropWid" id="D" value="D">Divorced</option>

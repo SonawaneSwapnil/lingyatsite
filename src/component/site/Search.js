@@ -18,12 +18,11 @@ export default function Search() {
   useEffect(() => {
     loadAllUserData();
     loadAllFilterData();
-  }, [filteredUser]);
+  }, []);
 
   const loadAllUserData = () => {
     Service.getAllUsers().then((res) => {
       setFilterUser(res.data);
-      console.log(res.data);
     });
   };
 
@@ -52,10 +51,7 @@ export default function Search() {
           <div className="content">
             <h2 className="title extra-padding">Search</h2>
             <ul className="breadcrumb-list extra-padding">
-              <li>
-                <Link to="index.html">Home</Link>
-              </li>
-
+              <li><Link to="index.html">Home</Link></li>
               <li>Search</li>
             </ul>
           </div>
@@ -74,7 +70,7 @@ export default function Search() {
                   </Link>
                 </div>
                 <div className="profile-section p-0">
-                  <div class="profile-main-content">
+                  <div className="profile-main-content">
                     <ul className="top-menu">
                       <li><NavLink to="/profile" exact activeclassname="active-class">Profile</NavLink></li>
                       <li><NavLink to="/update-profile" exact activeclassname="active-class">Add/Update Information</NavLink></li>
@@ -101,7 +97,7 @@ export default function Search() {
                         <Link to="/profile" className="w-100">
                           <button
                             className="custom-button"
-                            onClick={() => { localStorage.setItem("USERID", JSON.stringify(index.user_id)) }}>
+                            onClick={() => { localStorage.setItem("SearchUserID", JSON.stringify(index.user_id)) }}>
                             View Profile
                           </button>
                         </Link>
@@ -151,16 +147,14 @@ export default function Search() {
                 <form
                   className="row gx-3 gy-2 align-items-center"
                   onSubmit={handleSubmit(loadAllFilterData)} >
-
-
-                  <label class="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Looking for:</label>
-                  <div class="form-check">
+                  <label className="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Looking for:</label>
+                  <div className="form-check">
                     <div className='row p-0 m-0'>
-                      <div class="col-8">
-                        <label class="form-check-label text-light ititle mb-2" for="flexRadioDefault1">Groom</label>
+                      <div className="col-8">
+                        <label className="form-check-label text-light ititle mb-2" for="flexRadioDefault1">Groom</label>
                       </div>
-                      <div class="col-4">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                      <div className="col-4">
+                        <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
                           value="male"
                           {...register("looking_for_gender", {
                             required: false
@@ -168,13 +162,13 @@ export default function Search() {
                       </div>
                     </div>
                   </div>
-                  <div class="form-check">
+                  <div className="form-check">
                     <div className='row p-0 m-0'>
-                      <div class="col-8">
-                        <label class="form-check-label text-light ititle mb-2" for="flexRadioDefault2">Bride</label>
+                      <div className="col-8">
+                        <label className="form-check-label text-light ititle mb-2" for="flexRadioDefault2">Bride</label>
                       </div>
-                      <div class="col-4">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="female"
+                      <div className="col-4">
+                        <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="female"
                           {...register("looking_for_gender", { required: false })} />
                       </div>
                     </div>
@@ -184,7 +178,7 @@ export default function Search() {
                     <label className="visually-hidden text-light ititle" for="specificSizeSelect" >Age Preference:</label>
                     <select className="form-select ddown" id="specificSizeSelect"
                       {...register("age", { required: false })} >
-                      <option selected>Choose...</option>
+                      <option defaultValue>Choose...</option>
                       <option value="18-20">18-20</option>
                       <option value="21-25">21-25</option>
                       <option value="26-30">26-30</option>
@@ -238,7 +232,7 @@ export default function Search() {
                   <div className="input-group">
                     <select className="form-select ddown" id="specificSizeSelect"
                       {...register("married_status", { required: false })}>
-                      <option selected>Choose...</option>
+                      <option defaultValue>Choose...</option>
                       <option className="textTru chosenDropWid" id="N" value="single" >
                         Never Married
                       </option>

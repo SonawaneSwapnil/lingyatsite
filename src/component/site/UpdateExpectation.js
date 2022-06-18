@@ -24,7 +24,6 @@ export default function Expectation() {
     Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then(
       (res) => {
         setuserUpdateData(res.data);
-        console.log(res.data);
       }
     );
   };
@@ -44,7 +43,6 @@ export default function Expectation() {
     fd.append("passport", selectedFile);
     fd.append("fullphoto", selectedFile);
     fd.append("user_id", data.user_id);
-    console.log(fd);
 
     Service.updateExceptation(fd)
       .then((res) => {

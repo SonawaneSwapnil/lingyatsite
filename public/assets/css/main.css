@@ -1798,7 +1798,7 @@ input[type=submit] {
 }
 
 .header-wrapper .logo a img {
-  max-width: 100%;
+  max-width: 150%;
 }
 
 .header-wrapper .menu li.separator {
@@ -3233,7 +3233,7 @@ input[type=submit] {
 .join-now-section {
   padding: 123px 0px 120px;
   overflow: hidden;
-  background: #5736cb;
+  background: #9e0035;
   position: relative;
 }
 

@@ -8,10 +8,16 @@ export default function UserProfileInfo() {
 
   useEffect(() => {
     loadAllUsersData();
-  }, []);
+  }, [usersData]);
+
+  var loggedInUser = JSON.parse(localStorage.getItem("USERID"));
+  var SearchUserID = JSON.parse(localStorage.getItem("SearchUserID"));
+  var LOGGEDIN = JSON.parse(localStorage.getItem("LOGGEDIN"));
+
+  var userID = LOGGEDIN && !SearchUserID ? loggedInUser : SearchUserID;
 
   const loadAllUsersData = () => {
-    Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then((res) => {
+    Service.getSingleUser(userID).then((res) => {
       setUsersData(res.data);
     });
   };
@@ -75,25 +81,11 @@ export default function UserProfileInfo() {
               <div className="col-xl-8 col-lg-7">
                 <div className="profile-main-content">
                   <ul className="top-menu">
-                    <li>
-                      <NavLink
-                        to="/profile"
-                        exact
-                        activeclassname="active-class"
-                      >
-                        Profile
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/update-profile" exact activeclassname="active-class">
-                        Add/Update Information
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/search" exact activeclassname="active-class">
-                        search
-                      </NavLink>
-                    </li>
+                    <li><NavLink to="/profile" exact activeclassname="active-class">Profile</NavLink></li>
+                    {!SearchUserID ?
+                      (<li><NavLink to="/update-profile" exact activeclassname="active-class">
+                        Add/Update Information</NavLink></li>) : null}
+                    <li><NavLink to="/search" exact activeclassname="active-class">Search</NavLink></li>
                   </ul>
 
                   {/* Display User data */}

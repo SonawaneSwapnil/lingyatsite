@@ -11,11 +11,15 @@ const UserProfileOtherInfo = () => {
     loadAllUsersData();
   }, []);
 
+  var loggedInUser = JSON.parse(localStorage.getItem("USERID"));
+  var SearchUserID = JSON.parse(localStorage.getItem("SearchUserID"));
+
+  var userID = !SearchUserID ? loggedInUser : SearchUserID;
+
   const loadAllUsersData = () => {
-    Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then(
+    Service.getSingleUser(JSON.parse(userID)).then(
       (res) => {
         setUsersData(res.data);
-        console.log(res.data);
       }
     );
   };
@@ -140,11 +144,11 @@ const UserProfileOtherInfo = () => {
   return (
     <div>
       {/* <!-- ==========Breadcrumb-Section========== --> */}
-      <section class="breadcrumb-area profile-bc-area">
-        <div class="container">
-          <div class="content">
-            <h2 class="title extra-padding">Profile</h2>
-            <ul class="breadcrumb-list extra-padding">
+      <section className="breadcrumb-area profile-bc-area">
+        <div className="container">
+          <div className="content">
+            <h2 className="title extra-padding">Profile</h2>
+            <ul className="breadcrumb-list extra-padding">
               <li><Link to='/'>Home</Link></li>
               <li>Profile</li>
             </ul>
@@ -188,18 +192,20 @@ const UserProfileOtherInfo = () => {
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-8 col-lg-7">
-                  <div class="profile-main-content">
+                <div className="col-xl-8 col-lg-7">
+                  <div className="profile-main-content">
                     <ul className="top-menu">
                       <li><NavLink to="/profile" exact activeclassname="active-class">Profile</NavLink></li>
-                      <li><NavLink to="/update-profile" exact activeclassname="active-class">Add/Update Information</NavLink></li>
+                      {!SearchUserID ?
+                        (<li><NavLink to="/update-profile" exact activeclassname="active-class">
+                          Add/Update Information</NavLink></li>) : null}
                       <li><NavLink to="/Search" exact activeclassname="active-class">Search</NavLink></li>
                     </ul>
-                    <div class="print__section">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <div class="float__start">
+                    <div className="print__section">
+                      <div className="container">
+                        <div className="row">
+                          <div className="col-md-12">
+                            <div className="float__start">
                               <div className="info-box">
                                 <div className="header">
                                   <h2 className="content-title info-main-title text-center">Family Information/कौटुंबिक माहिती</h2>

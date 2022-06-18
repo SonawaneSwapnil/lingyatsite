@@ -24,7 +24,6 @@ export default function Family() {
     Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then(
       (res) => {
         setuserUpdateData(res.data);
-        console.log(res.data);
       }
     );
   };
