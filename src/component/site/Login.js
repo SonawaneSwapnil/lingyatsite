@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import Service from '../../service/Service';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
   const {
@@ -15,22 +13,15 @@ export default function Login() {
 
   const saveLoginData = (data => {
     Service.saveAllLogin(data).then(res => {
-      if (res.data.success) {
-        toast.success('Login Successful');
-        localStorage.setItem("USERID", JSON.stringify(res.data.data.user_id));
-        localStorage.setItem("LOGGEDIN", true);
-        navigate('/profile');
-      } else if ((res.data.warning)) {
-        toast.warning(res.data.warning, { position: toast.POSITION.TOP_RIGHT })
-      }
-    }).catch(err => {
-    });
+      localStorage.setItem("USERID", JSON.stringify(res.data.data.user_id));
+      localStorage.setItem("LOGGEDIN", true);
+      navigate('/profile');
+    })
   });
 
   let navigate = useNavigate();
   return (
     <div>
-      <ToastContainer />
       {/* <!-- ========== Login & Registation Section ========== --> */}
       <section className="log-reg">
         <div className="top-menu-area">
@@ -41,7 +32,7 @@ export default function Login() {
               </div>
               <div className="col-lg-6">
                 <div className="logo">
-                  <img src="assets/images/logo/logo.png" className="w-50" alt="logo" />
+                  <img src="assets/images/logo/logo-old.png" className="w-50" alt="logo" />
                   <p className='pt-4'><strong>Note: Please Sign in for finding your Dream Partner</strong></p>
                 </div>
               </div>

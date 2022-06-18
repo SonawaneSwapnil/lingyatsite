@@ -2,19 +2,20 @@ import React, { useEffect, useState } from "react";
 import moment from 'moment'
 import { Link, NavLink } from "react-router-dom";
 import Service from "../../service/Service";
+import LeftProfileArea from "../common/LeftProfileArea";
 
 export default function UserProfileInfo() {
   const [usersData, setUsersData] = useState();
 
   useEffect(() => {
     loadAllUsersData();
-  }, [usersData]);
+  }, []);
 
-  var loggedInUser = JSON.parse(localStorage.getItem("USERID"));
+  var isLoggedin = JSON.parse(localStorage.getItem("LOGGEDIN"));
+  var USERID = JSON.parse(localStorage.getItem("USERID"));
   var SearchUserID = JSON.parse(localStorage.getItem("SearchUserID"));
-  var LOGGEDIN = JSON.parse(localStorage.getItem("LOGGEDIN"));
 
-  var userID = LOGGEDIN && !SearchUserID ? loggedInUser : SearchUserID;
+  var userID = isLoggedin && !SearchUserID ? USERID : SearchUserID;
 
   const loadAllUsersData = () => {
     Service.getSingleUser(userID).then((res) => {
@@ -30,7 +31,7 @@ export default function UserProfileInfo() {
           <div className="content">
             <h2 className="title extra-padding">Profile</h2>
             <ul className="breadcrumb-list extra-padding">
-              <li><Link to="">Home</Link></li>
+              <li><Link to="/">Home</Link></li>
               <li>Profile</li>
             </ul>
           </div>
@@ -40,52 +41,20 @@ export default function UserProfileInfo() {
 
       {/* <!-- ========= Profile Section Start --> */}
       <section className="profile-section">
-        {usersData && usersData.map(index => (
-          <div className="container">
+        {usersData && usersData.map((index, i) => (
+          <div className="container" key={i}>
             <div className="row justify-content-center">
-              <div className="col-xl-4 col-lg-5 col-md-7">
-                <div className="left-profile-area">
-                  <div className="profile-about-box">
-                    <div className="top-bg"></div>
-                    <div className="p-inner-content">
-                      <div className="profile-img">
-                        <img src="assets/images/profile/profile-user.png" alt="" />
-                        <div className="active-online"></div>
-                      </div>
-                      <h5 className="name">{index.user_name}</h5>
-                      <ul className="p-b-meta-one">
-                        <li> <span>{index.age} Years Old</span> </li>
-                        <li><span><i className="fas fa-map-marker-alt"></i>{index.city}</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="profile-meta-box">
-                  </div>
-                  <div className="profile-uplodate-photo">
-                    <h4 className="p-u-p-header"><i className="fas fa-camera"></i>Uploaded Photos</h4>
-                    <div className="p-u-p-list">
-                      <div className="my-col">
-                        <div className="img">
-                          <img src="assets/images/profile/up1.jpg" alt="" />
-                          <div className="overlay">
-                            <Link to="assets/images/profile/up1.jpg" className="light-box mfp-iframe"><i className="fas fa-plus"></i></Link>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
+              <LeftProfileArea data={usersData} />
 
               <div className="col-xl-8 col-lg-7">
                 <div className="profile-main-content">
                   <ul className="top-menu">
-                    <li><NavLink to="/profile" exact activeclassname="active-class">Profile</NavLink></li>
+                    <li><NavLink to="/profile" activeclassname="active-class">Profile</NavLink></li>
                     {!SearchUserID ?
-                      (<li><NavLink to="/update-profile" exact activeclassname="active-class">
+                      (<li><NavLink to="/update-profile" activeclassname="active-class">
                         Add/Update Information</NavLink></li>) : null}
-                    <li><NavLink to="/search" exact activeclassname="active-class">Search</NavLink></li>
+                    <li><NavLink to="/search" activeclassname="active-class">Search</NavLink></li>
                   </ul>
 
                   {/* Display User data */}
@@ -193,11 +162,7 @@ export default function UserProfileInfo() {
                     </div>
                   </div>
                   <div className="button-wrapper text-center">
-                    <Link to="/other-info">
-                      <button type="submit" className="custom-button">
-                        View More Information
-                      </button>
-                    </Link>
+                    <Link to="/other-info"><button type="submit" className="custom-button">View More Information</button></Link>
                   </div>
                 </div>
               </div>

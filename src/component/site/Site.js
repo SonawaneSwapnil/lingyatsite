@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Outlet, Link, useNavigate } from 'react-router-dom'
 
 export default function Site() {
+
   let navigate = useNavigate();
 
   var isLoggedin = localStorage.getItem("USERID");
@@ -16,6 +17,13 @@ export default function Site() {
     localStorage.setItem("LOGGEDIN", false);
     navigate("/")
   };
+
+  const goProfile = () => {
+    localStorage.setItem("LOGGEDIN", true);
+    localStorage.removeItem('SearchUserID');
+    window.location.reload(false);
+  }
+
 
   return (
     <div>
@@ -52,10 +60,7 @@ export default function Site() {
                     <li>
                       <Link
                         to="/profile"
-                        onClick={() => {
-                          localStorage.setItem("LOGGEDIN", true);
-                          localStorage.removeItem('SearchUserID');
-                        }}
+                        onClick={goProfile}
                         activeclassname="active">Profile</Link></li>
                     <li>
                       <Link to="" onClick={logout}>Logout</Link></li>

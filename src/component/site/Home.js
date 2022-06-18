@@ -30,16 +30,16 @@ export default function Home() {
       <div className="container" style={{ 'backgroundColor': 'rgb(158, 0, 53)', 'padding': 50, 'borderRadius': 16 }}>
         <form className="row">
           <div className="col-lg-2 col-sm-12 p-1">
-            <label className="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Looking for:</label>
+            <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername">Looking htmlFor:</label>
             <div className='row p-0 m-0'>
               <div className='col-3 p-0'>
-                <label className="form-check-label text-light ititle mb-2" for="flexRadioDefault1">Groom</label>
+                <label className="form-check-label text-light ititle mb-2" htmlFor="flexRadioDefault1">Groom</label>
               </div>
               <div className='col-1 ml-2'>
                 <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="male" />
               </div>
               <div className='col-3 p-0'>
-                <label className="form-check-label text-light ititle mb-2" for="flexRadioDefault2">Bride</label>
+                <label className="form-check-label text-light ititle mb-2" htmlFor="flexRadioDefault2">Bride</label>
               </div>
               <div className='col-1'>
                 <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="female" />
@@ -47,7 +47,7 @@ export default function Home() {
             </div>
           </div>
           <div className="col-lg-2 col-sm-12 p-1">
-            <label className="visually-hidden text-light ititle" for="specificSizeSelect">Age Preference:</label>
+            <label className="visually-hidden text-light ititle" htmlFor="specificSizeSelect">Age Preference:</label>
             <select className="form-select ddown" id="specificSizeSelect">
               <option defaultValue>Choose...</option>
               <option value="1">18-20</option>
@@ -59,7 +59,7 @@ export default function Home() {
             </select>
           </div>
           <div className="col-lg-2 col-sm-12 p-1">
-            <label className="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">WorkPlace:</label>
+            <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername">WorkPlace:</label>
             <div className="input-group">
               <div className="input-group-text">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-workspace" viewBox="0 0 16 16">
@@ -71,7 +71,7 @@ export default function Home() {
             </div>
           </div>
           <div className="col-lg-2 col-sm-12 p-1">
-            <label className="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Income:</label>
+            <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername">Income:</label>
             <div className="input-group">
               <div className="input-group-text">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-cash-stack" viewBox="0 0 16 16">
@@ -83,7 +83,7 @@ export default function Home() {
             </div>
           </div>
           <div className="col-lg-2 col-sm-12 p-1">
-            <label className="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Marital Status:</label>
+            <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername">Marital Status:</label>
             <div className="input-group">
               <select className="form-select ddown" id="specificSizeSelect">
                 <option defaultValue>Choose...</option>
@@ -171,7 +171,7 @@ export default function Home() {
                   <div className='number'>01</div>
                 </div>
                 <h4 className='title'>Tell us who you are!</h4>
-                <Link to='#' className='custom-button'>Join Now !</Link>
+                <Link to='/login' className='custom-button'>Join Now !</Link>
               </div>
             </div>
             <div className='col-lg-4 col-md-6'>
@@ -181,7 +181,7 @@ export default function Home() {
                   <div className='number'>02</div>
                 </div>
                 <h4 className='title'>Find the right person</h4>
-                <Link to='#' className='custom-button'>Join Now !</Link>
+                <Link to='/login' className='custom-button'>Join Now !</Link>
               </div>
             </div>
             <div className='col-lg-4 col-md-6'>
@@ -191,7 +191,7 @@ export default function Home() {
                   <div className='number'>03</div>
                 </div>
                 <h4 className='title'>Get Connect/Contact</h4>
-                <Link to='#' className='custom-button'>Join Now !</Link>
+                <Link to='/login' className='custom-button'>Join Now !</Link>
               </div>
             </div>
           </div>

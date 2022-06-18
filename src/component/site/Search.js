@@ -72,8 +72,9 @@ export default function Search() {
                 <div className="profile-section p-0">
                   <div className="profile-main-content">
                     <ul className="top-menu">
-                      <li><NavLink to="/profile" exact activeclassname="active-class">Profile</NavLink></li>
-                      <li><NavLink to="/update-profile" exact activeclassname="active-class">Add/Update Information</NavLink></li>
+                      <li><NavLink to="/profile" activeclassname="active-class"
+                        onClick={() => localStorage.removeItem('SearchUserID')}>Profile</NavLink></li>
+                      <li><NavLink to="/update-profile" activeclassname="active-class">Add/Update Information</NavLink></li>
                     </ul>
                   </div>
                 </div>
@@ -84,11 +85,13 @@ export default function Search() {
             {filteredUser && filteredUser.map((index, i) => (
               <div className="col-lg-6 col-xl-6">
                 <div className="single-friend">
-                  <img src="assets/images/profile/friend1.png" alt="" />
+                  <img src={index.passport} alt="" />
                   <div className="content">
                     <div className="row">
                       <div className="col-lg-6 col-sm-6">
-                        <Link to="/profile" className="name">{index.user_name}
+                        <Link to="/profile" className="name"
+                          onClick={() => { localStorage.setItem("SearchUserID", JSON.stringify(index.user_id)) }}>
+                          {index.user_name}
                           <span className="isvarify"><i className="fas fa-check-circle"></i></span>
                         </Link>
                         <p className="date">Age: {index.age}</p>
@@ -97,7 +100,10 @@ export default function Search() {
                         <Link to="/profile" className="w-100">
                           <button
                             className="custom-button"
-                            onClick={() => { localStorage.setItem("SearchUserID", JSON.stringify(index.user_id)) }}>
+                            onClick={() => {
+                              localStorage.setItem("SearchUserID", JSON.stringify(index.user_id))
+                              console.log('SearchUserID', JSON.parse(localStorage.getItem("SearchUserID")))
+                            }}>
                             View Profile
                           </button>
                         </Link>
@@ -147,11 +153,11 @@ export default function Search() {
                 <form
                   className="row gx-3 gy-2 align-items-center"
                   onSubmit={handleSubmit(loadAllFilterData)} >
-                  <label className="visually-hidden text-light ititle" for="specificSizeInputGroupUsername">Looking for:</label>
+                  <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername">Looking htmlFor:</label>
                   <div className="form-check">
                     <div className='row p-0 m-0'>
                       <div className="col-8">
-                        <label className="form-check-label text-light ititle mb-2" for="flexRadioDefault1">Groom</label>
+                        <label className="form-check-label text-light ititle mb-2" htmlFor="flexRadioDefault1">Groom</label>
                       </div>
                       <div className="col-4">
                         <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
@@ -165,7 +171,7 @@ export default function Search() {
                   <div className="form-check">
                     <div className='row p-0 m-0'>
                       <div className="col-8">
-                        <label className="form-check-label text-light ititle mb-2" for="flexRadioDefault2">Bride</label>
+                        <label className="form-check-label text-light ititle mb-2" htmlFor="flexRadioDefault2">Bride</label>
                       </div>
                       <div className="col-4">
                         <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="female"
@@ -175,7 +181,7 @@ export default function Search() {
                   </div>
 
                   <div className="input-group">
-                    <label className="visually-hidden text-light ititle" for="specificSizeSelect" >Age Preference:</label>
+                    <label className="visually-hidden text-light ititle" htmlFor="specificSizeSelect" >Age Preference:</label>
                     <select className="form-select ddown" id="specificSizeSelect"
                       {...register("age", { required: false })} >
                       <option defaultValue>Choose...</option>
@@ -188,7 +194,7 @@ export default function Search() {
                     </select>
                   </div>
 
-                  <label className="visually-hidden text-light ititle mt-2" for="specificSizeInputGroupUsername" >WorkPlace:</label>
+                  <label className="visually-hidden text-light ititle mt-2" htmlFor="specificSizeInputGroupUsername" >WorkPlace:</label>
                   <div className="input-group">
                     <div className="input-group-text">
                       <svg
@@ -206,7 +212,7 @@ export default function Search() {
                       {...register("workplace", { required: false })} />
                   </div >
 
-                  <label className="visually-hidden text-light ititle mt-2" for="specificSizeInputGroupUsername" > Income:</label>
+                  <label className="visually-hidden text-light ititle mt-2" htmlFor="specificSizeInputGroupUsername" > Income:</label>
                   <div className="input-group mb-2">
                     <div className="input-group-text">
                       <svg
@@ -228,7 +234,7 @@ export default function Search() {
                   </div >
                   <label
                     className="visually-hidden text-light ititle"
-                    for="specificSizeInputGroupUsername" >Marital Status:</label>
+                    htmlFor="specificSizeInputGroupUsername" >Marital Status:</label>
                   <div className="input-group">
                     <select className="form-select ddown" id="specificSizeSelect"
                       {...register("married_status", { required: false })}>
