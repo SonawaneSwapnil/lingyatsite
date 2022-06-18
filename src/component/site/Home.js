@@ -96,7 +96,7 @@ export default function Home() {
             </div>
           </div>
           <div className="col-lg-2 col-sm-12 col-sm-12 text-center p-1" style={{ marginTop: 36, height: 40 }}>
-            <button type="submit" className="custom-button" onClick={() => navigate("/login")}>Search</button>
+            <button type="submit" className="custom-button" onClick={() => navigate(localStorage.getItem("USERID") ? "/search" : "/login")}>Search</button>
           </div>
         </form>
       </div>
