@@ -18,7 +18,7 @@ export default function Home() {
               </h3>
             </div>
             <div className='col-lg-6'>
-              <img src='assets/images/banner/aimg1.png' alt='' />
+              <img src='assets/images/banner/aimg1.png' style={{ 'maxWidth': '100%' }} alt='' />
             </div>
           </div>
         </div>
