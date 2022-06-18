@@ -32,7 +32,6 @@ export default function Site() {
               <li><Link to="/about" activeClassName="active">About Us</Link></li>
               <li><Link to="/contact" activeClassName="active">Contact</Link></li>
 
-              {isLoggedin ? (<li><Link to="/profile" activeClassName="active">Profile</Link></li>) : ''}
               <li className="separator"><span>|</span></li>
               {/* <li>
                 <div className="serch-icon">
@@ -46,7 +45,11 @@ export default function Site() {
                   <ul className="submenu">
                     <li><a onClick={login}>Login</a></li>
                     <li><Link to="/registration">Registration</Link></li>
-                  </ul> : <ul className="submenu"><li><Link to="" onClick={logout}>Logout</Link></li></ul>}
+                  </ul> :
+                  <ul className="submenu">
+                    <li><Link to="/profile" activeClassName="active">Profile</Link></li>
+                    <li><Link to="" onClick={logout}>Logout</Link></li>
+                  </ul>}
               </li>
             </ul>
             <div className="header-bar d-lg-none">
