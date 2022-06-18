@@ -63,34 +63,8 @@ export default function Contact() {
             </div>
           </div>
         </div>
-
-
       </section >
-      {/* <!-- ==========Contact-Section========== -->
-
-
-    <!-- ==========Faq-Section========== --> */}
-      {/* <section className="faq-section">
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-lg-6">
-                    <div className="content">
-                        <div className="section-header">
-                            <h6 className="sub-title extra-padding">
-                                Got any Question/कोणताही प्रश्न 
-                            </h6>
-                            <h2 className="title">
-                                We’ve Got Answers/आम्हाला उत्तरे मिळाली आहेत
-                            </h2> */}
-      {/* <!-- <p className="text">
-                                Try to check out frequently ask questions
-                            </p> --> */}
-      {/* </div>
-                    </div>
-                </div>
-              </div>  
-          </div>
-          </section> */}
+      {/* <!-- ==========Contact-Section========== -->*/}
     </div >
   )
 }

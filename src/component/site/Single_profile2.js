@@ -88,23 +88,12 @@ export default function Single_profile2() {
                         Add More Information
                       </NavLink>
                     </li>
-                    {/* 
-                    <li>
-                      <NavLink
-                        to="/single_profile3"
-                        exact
-                        activeclassname="active-class"
-                      >
-                        Members
-                      </NavLink>
-                    </li> */}
                     <li>
                       <NavLink to="/search" exact activeclassname="active-class">
                         search
                       </NavLink>
                     </li>
                   </ul>
-
 
                   {/* Display User data */}
 

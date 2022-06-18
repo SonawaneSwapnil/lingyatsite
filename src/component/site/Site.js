@@ -98,8 +98,6 @@ export default function Site() {
         </div>
       </div>
       {/* <!-- ==========Footer-Section========== --> */}
-
-
     </div>
   )
 }

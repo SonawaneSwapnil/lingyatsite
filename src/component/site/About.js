@@ -17,8 +17,8 @@ export default function About() {
         </div>
       </section>
       {/* <!-- ==========Breadcrumb-Section========== --> */}
-      {/* <!-- ==========Start-Flirting-Section========== --> */}
-      <section className="flirting-section mt-3">
+      {/* <!-- ==========Start-about-Section========== --> */}
+      <section className="about-section mt-3">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 align-self-center">
@@ -42,7 +42,7 @@ export default function About() {
           </div>
         </div>
       </section>
-      {/* <!-- ==========Start-Flirting-Section========== --> */}
+      {/* <!-- ==========Start-about-Section========== --> */}
       {/* <!-- ==========Join-now-Section========== --> */}
       <div className="join-now-section">
         <img className="shape1" src="assets/images/join/heartshape.png" alt="" />

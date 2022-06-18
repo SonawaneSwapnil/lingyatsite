@@ -7,7 +7,6 @@ export default function Expectation() {
   const [userUpdateData, setuserUpdateData] = useState();
   const [user_id, setuser_id] = useState();
   const [selectedFile, setSelectedFile] = useState();
-  const [isFilePicked, setIsFilePicked] = useState(false);
 
   const {
     register,
@@ -29,18 +28,6 @@ export default function Expectation() {
       }
     );
   };
-  // const saveExcepData = (data) => {
-  //   let fd = new FormData();
-  //   fd.append("expectation", data.expectation);
-  //   fd.append("passport", data.passport[0]);
-  //   // fd.append("fullphoto", data.fullphoto[0]);
-  //   console.log(data);
-  //   Service.saveAllEceptation(fd).then((res) => {
-  //     console.log(fd);
-  //     alert("Data saved successfully");
-  //     navigate("/single_profile2");
-  //   });
-  // };
 
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -61,8 +48,6 @@ export default function Expectation() {
 
     Service.updateExceptation(fd)
       .then((res) => {
-        // alert("record Updated successsfully");
-        // loadAllData();
         navigate("/search");
       })
       .catch((err) => {
@@ -125,15 +110,6 @@ export default function Expectation() {
                               </div>
                             </div>
                           </div>
-                          {/* <div className="my-col">
-                                    <div className="img">
-                                        <img src="assets/images/profile/up2.jpg" alt=""/>
-                                        <div className="overlay">
-                                            <Link to="assets/images/profile/up2.jpg" className="light-box mfp-iframe"><i
-                                                    className="fas fa-plus"></i></Link>
-                                        </div>
-                                    </div>
-                                </div> */}
                           <div className="my-col">
                             <div className="img">
                               <img src="assets/images/profile/up3.jpg" alt="" />
@@ -238,11 +214,8 @@ export default function Expectation() {
                             )}
                           </div>
                         </div>
-
                         <div className="button-wrapper d-grid gap-2 col-6 mx-auto mt-3">
-                          {/* <Link to="/single_profile2"> */}
                           <button type="submit" className="custom-button ml-5">Submit</button>
-                          {/* </Link> */}
                         </div>
                       </form>
                     </div>
@@ -252,7 +225,6 @@ export default function Expectation() {
             </div>
           ))}
       </section>
-
       {/* <!-- ========= Profile Section Start -- */}
     </div>
   );

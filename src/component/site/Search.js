@@ -1,19 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { getDefaultLocale } from "react-datepicker";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Service from "../../service/Service";
 
 export default function Search() {
-  const [userData, setUserData] = useState();
   const [filteredUser, setFilterUser] = useState();
-  const [modalVisible, setModalVisible] = useState(true);
   let navigate = useNavigate();
   const {
     register,
     handleSubmit,
-    formState: { errors },
     getValues,
     reset,
   } = useForm();
@@ -21,7 +18,7 @@ export default function Search() {
   useEffect(() => {
     loadAllUserData();
     loadAllFilterData();
-  }, []);
+  }, [filteredUser]);
 
   const loadAllUserData = () => {
     Service.getAllUsers().then((res) => {
@@ -46,21 +43,6 @@ export default function Search() {
       navigate("/search");
     });
   };
-
-  // Filtersdata
-
-  const handleSearchUser = (event) => {
-    const text = event.target.value;
-    if (text) {
-      const filtered = filteredUser.filter((item) =>
-        item.workplace.toLowerCase().includes(text.toLowerCase())
-      );
-      setFilterUser(filtered);
-    } else {
-      setFilterUser(filteredUser);
-    }
-  };
-
 
   return (
     <div>

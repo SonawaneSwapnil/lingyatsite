@@ -32,8 +32,8 @@ const Selfprofile = () => {
     printHeader.src = 'assets/images/print/print-header.png';
     var printFooter = new Image();
     printFooter.src = 'assets/images/print/print-footer.png';
-    
-  
+
+
 
     doc.addImage(printHeader, 'png', 0, 0, 595, 150, 'header');
 
@@ -128,16 +128,14 @@ const Selfprofile = () => {
     doc.setFont(undefined, 'bold')
     doc.text(usersData[0].father_contact.toString(), 200, 690);
 
-     doc.setFontSize(10);
-    doc.text("Expectation : ", 50 , 720);
-    doc.setFont(undefined,'bold')
-     doc.text(usersData[0].expectation, 200 , 720);
+    doc.setFontSize(10);
+    doc.text("Expectation : ", 50, 720);
+    doc.setFont(undefined, 'bold')
+    doc.text(usersData[0].expectation, 200, 720);
 
     doc.addImage(printFooter, 'png', 0, 740, 595, 220, 'footer')
     doc.save("profile.pdf");
   }
-
-
 
   return (
     <div>

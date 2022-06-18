@@ -3076,40 +3076,40 @@ input[type=submit] {
   box-shadow: 0px 5px 30px 0px rgba(176, 171, 193, 0.4);
 }
 
-/* Start-Flirting Starts Here*/
-.flirting-section {
+/* Start-about Starts Here*/
+.about-section {
   padding: 0px 0px 120px;
 }
 
-.flirting-section.home2 {
+.about-section.home2 {
   padding-top: 118px;
 }
 
-.flirting-section .content {
+.about-section .content {
   text-align: left;
 }
 
-.flirting-section .content .section-header {
+.about-section .content .section-header {
   text-align: left;
   margin-bottom: 59px;
 }
 
-.flirting-section .content .custom-button {
+.about-section .content .custom-button {
   margin-top: 0px;
   margin-top: -3px;
 }
 
-.flirting-section .img {
+.about-section .img {
   text-align: center;
   padding: 0px 30px;
   position: relative;
 }
 
-.flirting-section .img img {
+.about-section .img img {
   width: 100%;
 }
 
-.flirting-section .img .bg-shape {
+.about-section .img .bg-shape {
   position: absolute;
   top: -10%;
   left: 0%;

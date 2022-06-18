@@ -17,8 +17,8 @@ export default function User_setting() {
         </div>
       </section>
       {/* <!-- ==========Breadcrumb-Section========== --> */}
-      {/* <!-- ========= Profile Section Start --> */}
 
+      {/* <!-- ========= Profile Section Start --> */}
       <section className="user-setting-section">
         <div className="container">
           <div className="row">
@@ -291,15 +291,12 @@ export default function User_setting() {
               <div className="buttons  mt-30 justify-content-center">
                 <Link to="/single_profile2">
                   <button type="submit" className="custom-button">Save</button></Link>
-                {/* <!-- <button className="custom-button2">Discard All</button> --> */}
               </div>
             </div>
           </div>
         </div>
       </section>
-
       {/* <!-- ========= Profile Section Start --> */}
-
     </div>
   )
 }

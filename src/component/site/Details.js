@@ -1,30 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { Link, Navigate, NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Service from "../../service/Service";
-import Moment from "react-moment";
-import { MomentInput } from "moment";
 import moment from 'moment'
-import DatePicker from "react-datepicker";
+
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
-// timepicker
-import TimePicker from "react-time-picker";
+
 export default function Details() {
   const [userUpdateData, setuserUpdateData] = useState();
   const [showhide, setshowhide] = useState("");
   const [user_id, setuser_id] = useState();
   const handleshowhide = (event) => {
     const getuser = event.target.value;
-    // console.log(getuser);
     setshowhide(getuser);
   };
   const {
     register,
     handleSubmit,
     formState: { errors },
-    getValues,
-    reset,
+    getValues
   } = useForm();
 
   useEffect(() => {
@@ -40,7 +35,6 @@ export default function Details() {
       }
     );
   };
-
 
   const updateRecord = () => {
     var data = {
@@ -63,8 +57,6 @@ export default function Details() {
 
     Service.updateUsers(data)
       .then((res) => {
-        // alert("record Updated successsfully");
-        // loadAllData()
         navigate("/family");
       })
       .catch((err) => {
@@ -132,15 +124,6 @@ export default function Details() {
                             </div>
                           </div>
                         </div>
-                        {/* <div className="my-col">
-                                    <div className="img">
-                                        <img src="assets/images/profile/up2.jpg" alt=""/>
-                                        <div className="overlay">
-                                            <Link to="assets/images/profile/up2.jpg" className="light-box mfp-iframe"><i
-                                                    className="fas fa-plus"></i></Link>
-                                        </div>
-                                    </div>
-                                </div> */}
                         <div className="my-col">
                           <div className="img">
                             <img src="assets/images/profile/up3.jpg" alt="" />
@@ -188,11 +171,6 @@ export default function Details() {
                           Add More Information
                         </NavLink>
                       </li>
-                      {/* <li>
-                        <NavLink to="/single_profile3" exact activeclassname="active-class">
-                          Members
-                        </NavLink>
-                      </li> */}
                       <li>
                         <NavLink to="/Search" exact activeclassname="active-class">
                           search
@@ -554,8 +532,8 @@ export default function Details() {
                           </div>
                         </div>
 
-                        <div className="col-sm-8 col-md-6 mt-3 text-center">
-                          <button type="submit" className="custom-button w-75" >Save and Continue</button>
+                        <div className="col-sm-8 col-md-12 mt-3 text-center">
+                          <button type="submit" className="custom-button w-50" >Save and Continue</button>
                         </div>
                       </form>
                     </div>
@@ -566,7 +544,6 @@ export default function Details() {
           ))
         }
       </section >
-
       {/* <!-- ========= Profile Section Start -- */}
     </div >
   );

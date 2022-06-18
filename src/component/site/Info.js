@@ -1,6 +1,5 @@
-
-import React, { Component, useRef, useState, useEffect } from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import React, { useRef, useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 
 import { useReactToPrint } from "react-to-print";
@@ -23,8 +22,6 @@ const Info = () => {
 
     Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then((res) => {
       setUsersData(res.data);
-      const picturePath = `/uploads/${res.data}`;
-      console.log(res.data);
     });
   };
   let navigate = useNavigate();
@@ -54,7 +51,6 @@ const Info = () => {
                     <div className="top-bg"></div>
                     <div className="p-inner-content">
                       <div className="profile-img">
-                        {/* <img src="assets/images/profile/profile-user.png" alt=""/> */}
                         <img src={imgPath + index.passport} alt="" />
                         <div className="active-online"></div>
                       </div>
@@ -69,40 +65,9 @@ const Info = () => {
                           <span> <i className="fas fa-map-marker-alt"></i>{index.city}</span>
                         </li>
                       </ul>
-                      {/* <!-- <div className="p-b-meta-two">
-                                    <div className="left">
-                                        <div className="icon">
-                                            <i className="far fa-heart"></i>
-                                        </div> 257
-                                    </div>
-                                    <div className="right">
-                                        <Link to="#" className="custom-button">
-                                            <i className="fab fa-cloudversify"></i> Get Premium
-                                        </Link>
-                                    </div>
-                                </div> --> */}
                     </div>
                   </div>
                   <div className="profile-meta-box">
-                    {/* <!-- <ul className="p-m-b">
-                                <li>
-                                    <Link to="#" data-toggle="modal" data-target="#usermessage">
-                                        <i className="far fa-envelope"></i>
-                                        <div className="number">04</div>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="#" data-toggle="modal" data-target="#usernotification">
-                                        <i className="far fa-bell"></i>
-                                        <div className="number">04</div>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="#">
-                                        <i className="fas fa-cogs"></i>
-                                    </Link>
-                                </li>
-                            </ul> --> */}
                   </div>
                   <div className="profile-uplodate-photo">
                     <h4 className="p-u-p-header"><i className="fas fa-camera"></i>Uploaded Photos</h4>
@@ -115,40 +80,6 @@ const Info = () => {
                           </div>
                         </div>
                       </div>
-                      {/* <div className="my-col">
-                                    <div className="img">
-                                        <img src="assets/images/profile/up2.jpg" alt=""/>
-                                        <div className="overlay">
-                                            <Link to="assets/images/profile/up2.jpg" className="light-box mfp-iframe"><i
-                                                    className="fas fa-plus"></i></Link>
-                                        </div>
-                                    </div>
-                                </div> */}
-                      {/* <div className="my-col">
-                        <div className="img">
-                          <img src="assets/images/profile/up3.jpg" alt="" />
-                          <div className="overlay">
-                            <Link to="assets/images/profile/up3.jpg" className="light-box mfp-iframe"><i className="fas fa-plus"></i></Link>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="my-col">
-                        <div className="img">
-                          <img src="assets/images/profile/up4.jpg" alt="" />
-                          <div className="overlay">
-                            <Link to="assets/images/profile/up4.jpg" className="light-box mfp-iframe"><i className="fas fa-plus"></i></Link>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="my-col">
-                        <div className="img">
-                          <img src="assets/images/profile/up5.jpg" alt="" />
-                          <div className="overlay">
-                            <Link to="assets/images/profile/up5.jpg" className="light-box mfp-iframe"><i className="fas fa-plus"></i></Link>
-                          </div>
-                        </div>
-                      </div> */}
-
                     </div>
                   </div>
                 </div>
@@ -211,13 +142,9 @@ const Info = () => {
                           </div>
                           <div className="info-box">
                             <div className="button-wrapper">
-                              {/* <Link to="/single_profile2"> */}
                               <button type="submit" className="custom-button ml-5" onClick={() => navigate("/search")} >Back
                               </button>
-                              {/* </Link> */}
-                              {/* <Link to="/registration"> */}
                               <button type="submit" onClick={handlePrint} className="print__button custom-button ml-5"> Save as Pdf </button>
-                              {/* </Link> */}
                             </div>
                           </div>
                         </div>

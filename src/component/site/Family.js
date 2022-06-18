@@ -1,10 +1,10 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { ErrorMessage } from "@hookform/error-message";
 import Service from "../../service/Service";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+
 export default function Family() {
   const [userUpdateData, setuserUpdateData] = useState();
   const [user_id, setuser_id] = useState();
@@ -13,7 +13,6 @@ export default function Family() {
     handleSubmit,
     formState: { errors },
     getValues,
-    reset,
   } = useForm();
 
   useEffect(() => {
@@ -29,18 +28,6 @@ export default function Family() {
       }
     );
   };
-
-  // const saveData = (data) => {
-  //   console.log(data);
-  //   Service.saveAllUsers(data).then((res) => {
-  //     console.log(res.data);
-  //     alert("Data Saved successfully");
-  //     reset();
-  //     loadAllData();
-  // });
-
-  // };
-  // Update
 
   const updateRecord = () => {
     var data = {
@@ -123,15 +110,6 @@ export default function Family() {
                           </div>
                         </div>
                       </div>
-                      {/* <div className="my-col">
-                                    <div className="img">
-                                        <img src="assets/images/profile/up2.jpg" alt=""/>
-                                        <div className="overlay">
-                                            <Link to="assets/images/profile/up2.jpg" className="light-box mfp-iframe"><i
-                                                    className="fas fa-plus"></i></Link>
-                                        </div>
-                                    </div>
-                                </div> */}
                       <div className="my-col">
                         <div className="img">
                           <img src="assets/images/profile/up3.jpg" alt="" />
@@ -168,7 +146,6 @@ export default function Family() {
                   <ul className="top-menu">
                     <li><NavLink to="/single_profile2">Profile</NavLink></li>
                     <li><NavLink to="/details" className="active">Add More Information</NavLink></li>
-                    {/* <li><NavLink to="/single_profile3">Members</NavLink></li> */}
                     <li><NavLink to="/Search" >search</NavLink></li>
                   </ul>
                   <div className="mt-4">
@@ -355,7 +332,6 @@ export default function Family() {
           </div>
         ))}
       </section>
-
       {/* <!-- ========= Profile Section Start -- */}
     </div>
   );

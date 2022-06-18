@@ -5,17 +5,16 @@ import { render } from '@testing-library/react';
 export default class ComponentToPrint extends Component {
   render() {
     return (
-      <div> hellow</div>
+      <div>hellow</div>
     );
   }
 }
+
 const Example = () => {
   const componentRef = useRef();
-
   const handleprint = useReactToPrint({
     content: () => componentRef.current
   });
-
 
   return (
     <div>

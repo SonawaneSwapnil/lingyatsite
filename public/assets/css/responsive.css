@@ -529,7 +529,7 @@
         padding: 118px 0px 88px;
     }
 
-    .flirting-section .content {
+    .about-section .content {
         margin-bottom: 60px;
     }
 
@@ -1114,7 +1114,7 @@
     .join-now-section .shape1,
     .how-it-work-section .shape1,
     .how-it-work-section .shape2,
-    .flirting-section .img .bg-shape {
+    .about-section .img .bg-shape {
         animation: none;
     }
 

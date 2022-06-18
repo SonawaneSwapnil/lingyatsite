@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Service from "../../service/Service";
+
 export default function Registration() {
-  // const [empId, setEmpId] = useState();
   const {
     register,
     handleSubmit,
@@ -243,7 +243,6 @@ export default function Registration() {
           </div>
         </div>
       </section>
-
       {/* <!-- ========== Login & Registation Section ========== -- */}
     </div>
   );

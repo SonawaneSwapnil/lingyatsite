@@ -1,19 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+
 export default function Home() {
-  const {
-    formState: { errors },
-  } = useForm();
 
   let navigate = useNavigate();
-
-  // function range(start, end) {
-  //   return Array(end - start + 1).fill().map((_, idx) => start + idx)
-  // }
-
-  // var ageFilter = range(18, 65);
 
   return (
     <div>
@@ -28,7 +19,6 @@ export default function Home() {
             </div>
             <div className='col-lg-6'>
               <img src='assets/images/banner/aimg1.png' alt='' />
-              {/* <img className='img2 wow fadeInRight' src='assets/images/banner/aimg2.png' alt='' /> */}
             </div>
           </div>
         </div>
@@ -110,7 +100,6 @@ export default function Home() {
           </div>
         </form>
       </div>
-
       {/* <!-- ==========Filter-Section========== --> */}
 
       {/* <!-- ==========Feature-Section========== --> */}
