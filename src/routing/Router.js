@@ -10,10 +10,7 @@ import UserProfileInfo from '../component/site/UserProfileInfo'
 import UpdateProfileInfo from '../component/site/UpdateProfileInfo'
 import UpdateFamilyInfo from '../component/site/UpdateFamilyInfo'
 import UpdateExpectation from '../component/site/UpdateExpectation'
-// import User_setting from '../component/site/User_setting'
 import Search from '../component/site/Search'
-// import Profile from '../component/site/Profile'
-import Info from '../component/site/Info'
 import UserProfileOtherInfo from '../component/site/UserProfileOtherInfo'
 
 export default function Router() {
@@ -31,10 +28,7 @@ export default function Router() {
             <Route path="update-profile" element={<UpdateProfileInfo />} />
             <Route path="update-family" element={<UpdateFamilyInfo />} />
             <Route path="update-expectation" element={<UpdateExpectation />} />
-            {/* <Route path="user_setting" element={<User_setting />} /> */}
             <Route path="search" element={<Search />} />
-            {/* <Route path="profile" element={<Profile />} /> */}
-            <Route path="info" element={<Info />} />
             <Route path="other-info" element={<UserProfileOtherInfo />} />
           </Route>
         </Routes>
