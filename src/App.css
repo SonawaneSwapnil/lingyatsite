@@ -54,3 +54,12 @@ input[type=radio] {
   margin-top: 9px;
   height: 1em;
 }
+
+.input-no-border {
+  border: 0px;
+}
+
+.info-main-title {
+  font-size: 18px;
+  color: #ac216c;
+}

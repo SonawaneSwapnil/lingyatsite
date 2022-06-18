@@ -90,9 +90,7 @@ export default function Expectation() {
                         <h5 className="name">{index.user_name}</h5>
                         <ul className="p-b-meta-one">
                           <li><span>{index.age} Years Old</span></li>
-                          <li>
-                            <span> <i className="fas fa-map-marker-alt"></i>{index.city}</span>
-                          </li>
+                          <li><span> <i className="fas fa-map-marker-alt"></i>{index.city}</span></li>
                         </ul>
                       </div>
                     </div>
@@ -155,63 +153,43 @@ export default function Expectation() {
                     </ul>
                     <div className="mt-4">
                       <form onSubmit={handleSubmit(updateRecord)}>
-                        <h4 className="content-title text-center">
-                          Expectation/अपेक्षा वधू/वर
-                        </h4>
+                        <h4 className="content-title info-main-title text-center">Expectation/अपेक्षा वधू/वर</h4>
                         <div className="mx-5">
-                          <label className="form-label">Expection/अपेक्षा वधू/वर</label>
+                          <label className="form-label ititle">Expection/अपेक्षा वधू/वर</label>
                           <textarea
                             className="my-form-control"
-                            {...register("expectation", {
-                              required: "Please enter your password/पासवर्ड",
-                            })}
+                            {...register("expectation", { required: "Please enter your password/पासवर्ड" })}
                           ></textarea>
-                          {errors.expectation && (
-                            <span style={{ color: "red" }}>
-                              {errors.expectation.message}
-                            </span>
-                          )}
+                          {errors.expectation && (<span style={{ color: "red" }}> {errors.expectation.message}</span>)}
                         </div>
 
                         <div className="mx-5">
-                          <label className="form-label ">Add Photo/फोटो जोडा</label>
+                          <label className="form-label ititle">Add Photo/फोटो जोडा</label>
                           <div className="input-group">
-                            <label className="form-label ">1.Passport Photo/पासपोर्ट फोटो</label>
+                            <label className="form-label ititle">1.Passport Photo/पासपोर्ट फोटो</label>
                             <input
                               type="file"
-                              className="my-form-control"
+                              className="my-form-control input-no-border"
                               id="inputGroupFile04"
                               aria-describedby="inputGroupFileAddon04"
                               aria-label="Upload"
-                              {...register("passport", {
-                                required: "Please enter passport photo",
-                              })}
+                              {...register("passport", { required: "Please enter passport photo", })}
                               onChange={changeHandler} />
-                            {errors.passport && (
-                              <span style={{ color: "red" }}>
-                                {errors.passport.message}
-                              </span>
-                            )}
+                            {errors.passport && (<span style={{ color: "red" }}> {errors.passport.message}</span>)}
                           </div>
                           <div className="input-group">
-                            <label className="form-label me-5">2.Full Photo/पूर्ण फोटो</label>
+                            <label className="form-label me-5 ititle">2.Full Photo/पूर्ण फोटो</label>
                             <input
                               type="file"
                               multiple
-                              className="my-form-control"
+                              className="my-form-control input-no-border"
                               id="inputGroupFile04"
                               aria-describedby="inputGroupFileAddon04"
                               aria-label="Upload"
-                              {...register("fullphoto", {
-                                required: "Please enter fullphoto photo",
-                              })}
+                              {...register("fullphoto", { required: "Please enter fullphoto photo", })}
                               onChange={changeHandler}
                             />
-                            {errors.fullphoto && (
-                              <span style={{ color: "red" }}>
-                                {errors.fullphoto.message}
-                              </span>
-                            )}
+                            {errors.fullphoto && (<span style={{ color: "red" }}> {errors.fullphoto.message}</span>)}
                           </div>
                         </div>
                         <div className="button-wrapper d-grid gap-2 col-6 mx-auto mt-3">

@@ -24,8 +24,8 @@ export default function Contact() {
 
     <!-- ==========Contact-Section========== --> */}
       <section className="contact-section">
-        {/* <!-- <img className="img-left" src="assets/images/contact/img-left.png" alt="">
-        <img className="img-right" src="assets/images/contact/img-right.png" alt=""> --> */}
+        {/* <img className="img-left" src="assets/images/contact/img-left.png" alt="" />
+        <img className="img-right" src="assets/images/contact/img-right.png" alt="" /> */}
         <div className="container">
           <div className="row justify-content-center">
             <div className="content">

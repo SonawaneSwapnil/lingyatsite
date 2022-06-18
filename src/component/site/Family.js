@@ -150,179 +150,129 @@ export default function Family() {
                   </ul>
                   <div className="mt-4">
                     <form onSubmit={handleSubmit(updateRecord)}>
-                      <h4 className="content-title text-center">Family Information/कौटुंबिक माहिती</h4>
+                      <h4 className="content-title info-main-title text-center">Family Information/कौटुंबिक माहिती</h4>
                       <div className="row">
-                        <label for="inputincome" className="col-sm-6 col-form-label text-center">
-                          Father Name/वडीलांचे नावं:
-                        </label>
-                        <label for="inputdesignation" className="col-sm-6 col-form-label text-center">
-                          Contact Number/संपर्क क्रमांक:
-                        </label>
-                      </div>
-                      <div className="row input-group ">
-                        <input
-                          {...register("father", {
-                            required: "Enter Your Father Name/वडीलांचे नाव",
-                          })}
-                          type="text"
-                          className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
-                          id="exampleInputname" />
-                        <input
-                          {...register("father_contact", {
-                            required: " Enter Contact No/संपर्क क्रमांक",
-                            minLength: { value: 8, message: "At least 8 digit" },
-                            maxLength: {
-                              value: 10,
-                              message: "Enter max 10 digit",
-                            },
-                          })}
-                          type="text"
-                          className="my-form-control col-sm-5 ml-4 "
-                          id="contactno" />
-                      </div>
-                      <div className="row">
-                        <div className="col-sm-5 ms-3 ml-5 mr-2">
-                          {errors.father && (
-                            <span style={{ color: "red" }}>
-                              {errors.father.message}
-                            </span>
-                          )}
+                        <div className="col-md-6">
+                          <label for="inputincome" className="col-form-label ititle">Father Name/वडीलांचे नावं:</label>
+                          <div className="input-group">
+                            <input
+                              {...register("father")}
+                              type="text"
+                              className="my-form-control"
+                              id="exampleInputname" />
+                          </div>
                         </div>
-                        <div className="col-sm-5 ms-3 ml-5 mr-2">
-                          {errors.father_contact && (
-                            <div style={{ color: "red" }}>
-                              {errors.father_contact.message}
-                            </div>
-                          )}
+                        <div className="col-md-6">
+                          <label for="inputdesignation" className="col-form-label ititle">Contact Number/संपर्क क्रमांक:</label>
+                          <input
+                            {...register("father_contact")}
+                            type="text"
+                            className="my-form-control"
+                            id="contactno" />
                         </div>
                       </div>
+
                       <div className="row">
-                        <label for="inputincome" className="col-sm-6 col-form-label text-center">
-                          Mother Name/आईचे नाव:
-                        </label>
-                        <label for="inputdesignation" className="col-sm-6 col-form-label text-center">
-                          Contact Number/संपर्क क्रमांक:
-                        </label>
-                      </div>
-                      <div className="row input-group ">
-                        <input
-                          type="text"
-                          className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
-                          id="exampleInputname"
-                          {...register("mother", {
-                            required: "Enter Your Father Name/आईचे नाव",
-                          })} />
-                        <input
-                          type="text"
-                          className="my-form-control col-sm-5 ml-4 "
-                          id="contactno"
-                          {...register("mother_contact", {
-                            required: "Enter Your Father Name/संपर्क क्रमांक",
-                          })} />
-                      </div>
-                      <div className="row">
-                        <div className="col-sm-5 ms-3 ml-5 mr-2">
-                          {errors.mother && (
-                            <span style={{ color: "red" }}>
-                              {errors.mother.message}
-                            </span>
-                          )}
+                        <div className="col-lg-6">
+                          {errors.father && (<span style={{ color: "red" }}>{errors.father.message}</span>)}
                         </div>
-                        <div className="col-sm-5 ms-3 ml-5 mr-2">
-                          {errors.mother_contact && (
-                            <div style={{ color: "red" }}>
-                              {errors.mother_contact.message}
-                            </div>
-                          )}
+                        <div className="col-lg-6">
+                          {errors.father_contact && (<div style={{ color: "red" }}>{errors.father_contact.message}</div>)}
                         </div>
                       </div>
+
                       <div className="row">
-                        <label for="inputincome" className="col-sm-6 col-form-label text-center">
-                          Brother Name/भावाचे नाव
-                        </label>
-                        <label for="inputdesignation" className="col-sm-6 col-form-label text-center">
-                          Contact Number/संपर्क क्रमांक
-                        </label>
-                      </div>
-                      <div className="row input-group ">
-                        <input
-                          type="text"
-                          className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
-                          id="exampleInputname"
-                          {...register("brother", {
-                            required: "Enter Your Father Name/भावाचे नाव",
-                          })} />
-                        <input
-                          type="text"
-                          className="my-form-control col-sm-5 ml-4 "
-                          id="contactno"
-                          {...register("brother_contact", {
-                            required: "Enter Your Father Name/संपर्क क्रमांक",
-                          })} />
-                      </div>
-                      <div className="row">
-                        <div className="col-sm-5 ms-3 ml-5 mr-2">
-                          {errors.brother && (
-                            <span style={{ color: "red" }}>
-                              {errors.brother.message}
-                            </span>
-                          )}
+                        <div className="col-md-6">
+                          <label for="inputincome" className="col-form-label ititle">Mother Name/आईचे नाव:</label>
+                          <div className="input-group ">
+                            <input
+                              type="text"
+                              className="my-form-control"
+                              id="exampleInputname"
+                              {...register("mother")} />
+                          </div>
                         </div>
-                        <div className="col-sm-5 ms-3 ml-5 mr-2">
-                          {errors.brother_contact && (
-                            <div style={{ color: "red" }}>
-                              {errors.brother_contact.message}
-                            </div>
-                          )}
+                        <div className="col-md-6">
+                          <label for="inputdesignation" className="col-form-label ititle">Contact Number/संपर्क क्रमांक:</label>
+                          <input
+                            type="text"
+                            className="my-form-control"
+                            id="contactno"
+                            {...register("mother_contact")} />
                         </div>
                       </div>
+
                       <div className="row">
-                        <label for="inputincome" className="col-sm-6 col-form-label text-center">
-                          Sister Name/बहिणीचे नाव:
-                        </label>
-                        <label for="inputdesignation" className="col-sm-6 col-form-label text-center">
-                          Contact Number/संपर्क क्रमांक:
-                        </label>
+                        <div className="col-lg-6">
+                          {errors.mother && (<span style={{ color: "red" }}> {errors.mother.message}</span>)}
+                        </div>
+                        <div className="col-lg-6">
+                          {errors.mother_contact && (<div style={{ color: "red" }}>{errors.mother_contact.message}</div>)}
+                        </div>
                       </div>
-                      <div className="row input-group ">
-                        <input
-                          type="text"
-                          className="my-form-control col-sm-5 ms-3 ml-5 mr-2"
-                          id="exampleInputname"
-                          {...register("sister", {
-                            required: "Enter Your Father Name/बहिणीचे नाव",
-                          })} />
-                        <input
-                          type="text"
-                          className="my-form-control col-sm-5 ml-4 "
-                          id="contactno"
-                          placeholder="Enter your mobile no"
-                          {...register("sister_contact", {
-                            required: "Enter Your Father Name/संपर्क क्रमांक",
-                          })} />
+
+                      <div className="row">
+                        <div className="col-md-6">
+                          <label for="inputincome" className="col-form-label ititle">Brother Name/भावाचे नाव</label>
+                          <div className="input-group ">
+                            <input
+                              type="text"
+                              className="my-form-control"
+                              id="exampleInputname"
+                              {...register("brother")} />
+                          </div>
+                        </div>
+                        <div className="col-md-6">
+                          <label for="inputdesignation" className="col-form-label ititle">Contact Number/संपर्क क्रमांक</label>
+                          <input
+                            type="text"
+                            className="my-form-control"
+                            id="contactno"
+                            {...register("brother_contact")} />
+                        </div>
+                      </div>
+
+                      <div className="row">
+                        <div className="col-sm-5 ms-3 ml-5 mr-2">
+                          {errors.brother && (<span style={{ color: "red" }}>{errors.brother.message}</span>)}
+                        </div>
+                        <div className="col-sm-5 ms-3 ml-5 mr-2">
+                          {errors.brother_contact && (<div style={{ color: "red" }}>{errors.brother_contact.message}</div>)}
+                        </div>
+                      </div>
+
+                      <div className="row">
+                        <div className="col-md-6">
+                          <label for="inputincome" className="col-form-label ititle">Sister Name/बहिणीचे नाव:</label>
+                          <div className="input-group">
+                            <input
+                              type="text"
+                              className="my-form-control"
+                              id="exampleInputname"
+                              {...register("sister")} />
+                          </div>
+                        </div>
+                        <div className="col-md-6">
+                          <label for="inputdesignation" className="col-form-label ititle">Contact Number/संपर्क क्रमांक:</label>
+                          <input
+                            type="text"
+                            className="my-form-control"
+                            id="contactno"
+                            {...register("sister_contact")} />
+                        </div>
+
                       </div>
                       <div className="row">
                         <div className="col-sm-5 ms-3 ml-5 mr-2">
-                          {errors.sister && (
-                            <span style={{ color: "red" }}>
-                              {errors.sister.message}
-                            </span>
-                          )}
+                          {errors.sister && (<span style={{ color: "red" }}>{errors.sister.message}</span>)}
                         </div>
                         <div className="col-sm-5 ms-3 ml-5 mr-2">
-                          {errors.sister_contact && (
-                            <div style={{ color: "red" }}>
-                              {errors.sister_contact.message}
-                            </div>
-                          )}
+                          {errors.sister_contact && (<div style={{ color: "red" }}>{errors.sister_contact.message}</div>)}
                         </div>
                       </div>
-                      <div className="button-wrapper d-grid gap-2 col-6 mx-auto mt-3">
-                        {/* <Link to="/expectation"> */}
-                        <button type="submit" className="custom-button ml-5">
-                          Save and Continue
-                        </button>
-                        {/* </Link> */}
+
+                      <div className="button-wrapper mt-5 text-center">
+                        <button type="submit" className="custom-button w-75">Save and Continue</button>
                       </div>
                     </form>
                   </div>
