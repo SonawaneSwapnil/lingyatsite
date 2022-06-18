@@ -19,7 +19,7 @@ export default function Family() {
 
   useEffect(() => {
     loadAllData();
-  }, [userUpdateData]);
+  }, []);
 
   var USERID = JSON.parse(localStorage.getItem("USERID"));
 
@@ -33,7 +33,6 @@ export default function Family() {
   };
 
   // Update
-
   const updateRecord = () => {
     var data = {
       father: getValues("father"),

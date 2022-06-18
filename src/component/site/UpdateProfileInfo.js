@@ -93,26 +93,10 @@ export default function UpdateProfileInfo() {
                 <div className="col-xl-8 col-lg-7">
                   <div className="profile-main-content">
                     <ul className="top-menu">
-                      <li>
-                        <NavLink to="/profile" activeclassname="active-class">
-                          Profile
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/update-profile" activeclassname="active-class">
-                          Add/Update Information
-                        </NavLink>
-                      </li>
-                      {/* <li>
-                        <NavLink to="/single_profile3"  activeclassname="active-class">
-                          Members
-                        </NavLink>
-                      </li> */}
-                      <li>
-                        <NavLink to="/Search" activeclassname="active-class">
-                          search
-                        </NavLink>
-                      </li>
+                      <li><NavLink to="/profile" activeclassname="active-class">Profile</NavLink></li>
+                      <li><NavLink to="/update-profile" activeclassname="active-class">Add/Update Information</NavLink></li>
+                      {/* <li><NavLink to="/single_profile3"  activeclassname="active-class">Members</NavLink></li> */}
+                      <li><NavLink to="/Search" activeclassname="active-class">Search</NavLink></li>
                     </ul>
 
                     <div className="mt-4">
