@@ -1,7 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function About() {
+
+  let navigate = useNavigate();
+
+  var isLoggedin = localStorage.getItem("USERID");
+
   return (
     <div>
       {/* <!-- ==========Breadcrumb-Section========== --> */}
@@ -57,7 +63,7 @@ export default function About() {
                     True Sole Mate
                   </h2>
                 </div>
-                <Link to="#" className="custom-button">Join Now !</Link>
+                <Link to='' onClick={navigate(isLoggedin ? '/profile' : '/login')} className="custom-button">Join Now !</Link>
               </div>
             </div>
           </div>

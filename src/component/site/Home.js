@@ -6,6 +6,8 @@ export default function Home() {
 
   let navigate = useNavigate();
 
+  var isLoggedin = localStorage.getItem("USERID");
+
   return (
     <div>
       {/* <!-- ==========Banner-Section========== --> */}
@@ -171,7 +173,7 @@ export default function Home() {
                   <div className='number'>01</div>
                 </div>
                 <h4 className='title'>Tell us who you are!</h4>
-                <Link to='/login' className='custom-button'>Join Now !</Link>
+                {/* <Link to='/login' className='custom-button'>Join Now !</Link> */}
               </div>
             </div>
             <div className='col-lg-4 col-md-6'>
@@ -181,7 +183,7 @@ export default function Home() {
                   <div className='number'>02</div>
                 </div>
                 <h4 className='title'>Find the right person</h4>
-                <Link to='/login' className='custom-button'>Join Now !</Link>
+                {/* <Link to='/login' className='custom-button'>Join Now !</Link> */}
               </div>
             </div>
             <div className='col-lg-4 col-md-6'>
@@ -191,8 +193,11 @@ export default function Home() {
                   <div className='number'>03</div>
                 </div>
                 <h4 className='title'>Get Connect/Contact</h4>
-                <Link to='/login' className='custom-button'>Join Now !</Link>
+                {/* <Link to='/login' className='custom-button'>Join Now !</Link> */}
               </div>
+            </div>
+            <div className='col-12 text-center mt-5'>
+              <Link to='' onClick={navigate(isLoggedin ? '/profile' : '/login')} className='custom-button'>Join Now !</Link>
             </div>
           </div>
         </div>

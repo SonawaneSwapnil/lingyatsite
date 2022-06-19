@@ -105,179 +105,108 @@ export default function UpdateProfileInfo() {
                         <div className="form-group">
                           <label htmlFor="exampleInputname" className="form-label ititle">Name/नाव*</label>
                           <input
-                            {...register("user_name", {
-                              required: "Enter Your FullName/पूर्ण नाव",
-                            })}
+                            {...register("user_name", { required: "Enter Your FullName/पूर्ण नाव" })}
                             type="text"
                             className="my-form-control"
                             id="exampleInputname"
                             value={index.user_name} />
-                          {errors.user_name && (
-                            <span style={{ color: "red" }}>
-                              {errors.user_name.message}
-                            </span>
-                          )}
+                          {errors.user_name && (<span style={{ color: "red" }}>{errors.user_name.message}</span>)}
                           <br />
                         </div>
 
                         <div className="form-group">
                           <label htmlFor="exampleInputdate" className="form-label ititle">Date Of Birth/जन्मतारीख </label>
                           <input
-                            {...register("dob", {
-                              required: "Enter Your Date Of Birth/जन्मतारीख",
-                            })}
+                            {...register("dob", { required: "Enter Your Date Of Birth/जन्मतारीख" })}
                             value={moment(`${index.dob}`).format('DD/MM/YYYY')}
                             type="text"
                             className="my-form-control"
                             id="exampleInputdate" />
-                          {errors.dob && (
-                            <span style={{ color: "red" }}>
-                              {errors.dob.message}
-                            </span>
-                          )}
+                          {errors.dob && (<span style={{ color: "red" }}>{errors.dob.message}</span>)}
                           <br />
                         </div>
 
                         <div className="form-group">
                           <label htmlFor="exampleInputdateplace" className="form-label ititle">Birth Place/जन्मतारीख ठिकाण</label>
                           <input
-                            {...register("birth_place", {
-                              required:
-                                "Enter Your Birth Place/जन्मतारीख ठिकाण",
-                            })}
+                            {...register("birth_place", { required: "Enter Your Birth Place/जन्मतारीख ठिकाण" })}
                             type="text"
                             className="my-form-control"
-                            id="exampleInputplace"
-
-                          />
-                          {errors.birth_place && (
-                            <span style={{ color: "red" }}>
-                              {errors.birth_place.message}
-                            </span>
-                          )}
+                            id="exampleInputplace" />
+                          {errors.birth_place && (<span style={{ color: "red" }}>{errors.birth_place.message}</span>)}
                           <br />
                         </div>
 
                         <div className="form-group">
                           <label htmlFor="appt" className="form-label ititle">Birth time/जन्म वेळ</label>
                           <input
-                            {...register("birth_time", {
-                              required: "Enter Your  Birth time/जन्म वेळ",
-                            })}
+                            {...register("birth_time", { required: "Enter Your  Birth time/जन्म वेळ" })}
                             type="time"
                             className="my-form-control"
                             id="exampleInputtime"
                           />
-                          {errors.birth_time && (
-                            <span style={{ color: "red" }}>
-                              {errors.birth_time.message}
-                            </span>
-                          )}
+                          {errors.birth_time && (<span style={{ color: "red" }}>{errors.birth_time.message}</span>)}
                           <br />
                         </div>
 
                         <div className="form-group">
-                          <div className="dropdown-menu">
-                            <label htmlFor="branch" className="me-5 ititle">Branch/शाखा</label>
-                            <select
-                              id="branch"
-                              name="branch"
-                              {...register("branch", {
-                                required: "Enter Your branch Name/शाखा:",
-                              })}
-                              onChange={(e) => handleshowhide(e)}>
-                              <option className="dropdown-item" value="">
-                                -------Select Branch-----
-                              </option>
-                              <option className="dropdown-item" value="Lingayat-Wani/लिंगायत-वाणी">
-                                Lingayat-Wani/लिंगायत-वाणी
-                              </option>
-                              <option className="dropdown-item" value=" Dixiwant/दीक्षिवंत">
-                                Dixiwant/दीक्षिवंत
-                              </option>
-                              <option className="dropdown-item" value="Pancham/पंचम">
-                                Pancham/पंचम
-                              </option>
-                              <option className="dropdown-item" value=" Shilvant(Chilwant)/शिलवंत (चिलवंत)">
-                                Shilvant(Chilwant)/शिलवंत (चिलवंत)
-                              </option>
-                              <option className="dropdown-item" value="Jangam(swami)/जंगम (स्वामी)">
-                                Jangam(swami)/जंगम (स्वामी)
-                              </option>
-                              <option className="dropdown-item" value="Chaturth/चतुर्थ">
-                                Chaturth/चतुर्थ
-                              </option>
-                              <option className="dropdown-item" value="Other/इतर">
-                                Other/इतर
-                              </option>
-                            </select>
-                            {showhide === "7" && (
-                              <div className="form-group">
-                                <label>Branch</label>
-                                <input type="text" className="form-control"></input>
-                              </div>
-                            )}
-                          </div>{" "}
-                          {errors.branch && (
-                            <span style={{ color: "red" }}>
-                              {errors.branch.message}
-                            </span>
+                          <label htmlFor="branch" className="ititle">Branch/शाखा</label>
+                          <select
+                            id="branch"
+                            name="branch"
+                            {...register("branch", { required: "Enter Your branch Name/शाखा:" })}
+                            onChange={(e) => handleshowhide(e)}>
+                            <option className="dropdown-item" value="">--Select Branch--</option>
+                            <option className="dropdown-item" value="Lingayat-Wani/लिंगायत-वाणी">Lingayat-Wani/लिंगायत-वाणी</option>
+                            <option className="dropdown-item" value=" Dixiwant/दीक्षिवंत">Dixiwant/दीक्षिवंत</option>
+                            <option className="dropdown-item" value="Pancham/पंचम">Pancham/पंचम</option>
+                            <option className="dropdown-item" value=" Shilvant(Chilwant)/शिलवंत (चिलवंत)">Shilvant(Chilwant)/शिलवंत (चिलवंत)</option>
+                            <option className="dropdown-item" value="Jangam(swami)/जंगम (स्वामी)">Jangam(swami)/जंगम (स्वामी)</option>
+                            <option className="dropdown-item" value="Chaturth/चतुर्थ">Chaturth/चतुर्थ</option>
+                            <option className="dropdown-item" value="Other/इतर">Other/इतर</option>
+                          </select>
+                          {showhide === "7" && (
+                            <div className="form-group">
+                              <label>Branch</label>
+                              <input type="text" className="form-control"></input>
+                            </div>
                           )}
+                          {errors.branch && (<span style={{ color: "red" }}>{errors.branch.message}</span>)}
                         </div>
 
                         <div className="form-group">
                           <label htmlFor="exampleInputdatetime" className="form-label ititle me-5">Zodiac Name/राशि नाव:</label>
                           <input
-                            {...register("zodiac", {
-                              required: "Enter Your Zodiac Name/राशि नाव:",
-                            })}
+                            {...register("zodiac", { required: "Enter Your Zodiac Name/राशि नाव:" })}
                             type="text"
                             className="my-form-control"
                             id="exampleInputtime"
                           />
-                          {errors.zodiac && (
-                            <span style={{ color: "red" }}>
-                              {errors.zodiac.message}
-                            </span>
-                          )}
+                          {errors.zodiac && (<span style={{ color: "red" }}>{errors.zodiac.message}</span>)}
                           <br />
                         </div>
 
                         <div className="form-group">
                           <label htmlFor="exampleInputedu" className="form-label ititle">Educational Qualification/शैक्षणिक पात्रता</label>
                           <input
-                            {...register("education", {
-                              required:
-                                "Enter Your Educational Qualification/शैक्षणिक पात्रता",
-                            })}
+                            {...register("education", { required: "Enter Your Educational Qualification/शैक्षणिक पात्रता" })}
                             type="text"
                             className="my-form-control"
                             id="exampleInputedu"
                           />
-                          {errors.education && (
-                            <span style={{ color: "red" }}>
-                              {errors.education.message}
-                            </span>
-                          )}
+                          {errors.education && (<span style={{ color: "red" }}>{errors.education.message}</span>)}
                           <br />
                         </div>
 
                         <div className="form-group">
                           <label htmlFor="exampleInputser" className="form-label ititle"> Service or Business/सेवा किंवा व्यवसाय</label>
                           <input
-                            {...register("bussiness", {
-                              required:
-                                "Enter Your Service or Business/सेवा किंवा व्यवसाय",
-                            })}
+                            {...register("bussiness", { required: "Enter Your Service or Business/सेवा किंवा व्यवसाय" })}
                             type="text"
                             className="my-form-control"
                             id="exampleInputser"
                           />
-                          {errors.bussiness && (
-                            <span style={{ color: "red" }}>
-                              {errors.bussiness.message}
-                            </span>
-                          )}
+                          {errors.bussiness && (<span style={{ color: "red" }}>{errors.bussiness.message}</span>)}
                           <br />
                         </div>
 
@@ -286,9 +215,7 @@ export default function UpdateProfileInfo() {
                             <label htmlFor="inputincome" className="col-form-label ititle">Income/उत्पन्न</label>
                             <div className="input-group">
                               <input
-                                {...register("income", {
-                                  required: "Enter Your  Income/उत्पन्न",
-                                })}
+                                {...register("income", { required: "Enter Your  Income/उत्पन्न" })}
                                 type="number"
                                 className="my-form-control"
                                 id="exampleInputincome" />
@@ -298,9 +225,7 @@ export default function UpdateProfileInfo() {
                             <label htmlFor="inputdesignation" className="col-form-label ititle" > Designation/हुद्दा</label>
                             <div className="input-group">
                               <input
-                                {...register("designation", {
-                                  required: "Enter Your Designation/हुद्दा",
-                                })}
+                                {...register("designation", { required: "Enter Your Designation/हुद्दा" })}
                                 type="text"
                                 className="my-form-control"
                                 id="exampleInputdesig" />
@@ -311,18 +236,10 @@ export default function UpdateProfileInfo() {
 
                         <div className="row">
                           <div className="col-sm-5 ml-2 mr-5">
-                            {errors.income && (
-                              <span style={{ color: "red" }}>
-                                {errors.income.message}
-                              </span>
-                            )}
+                            {errors.income && (<span style={{ color: "red" }}>{errors.income.message}</span>)}
                           </div>
                           <div className="col-sm-5 ml-4">
-                            {errors.designation && (
-                              <div style={{ color: "red" }}>
-                                {errors.designation.message}
-                              </div>
-                            )}
+                            {errors.designation && (<div style={{ color: "red" }}>{errors.designation.message}</div>)}
                           </div>
                         </div>
 
@@ -331,9 +248,7 @@ export default function UpdateProfileInfo() {
                             <label htmlFor="inputincome" className="col-form-label ititle">Workplace/कामाची जागा</label>
                             <div className="input-group">
                               <input
-                                {...register("workplace", {
-                                  required: "Enter Your Workplace/कामाची जागा",
-                                })}
+                                {...register("workplace", { required: "Enter Your Workplace/कामाची जागा" })}
                                 type="text"
                                 className="my-form-control"
                                 id="exampleInputdate" />
@@ -343,9 +258,7 @@ export default function UpdateProfileInfo() {
                             <label htmlFor="inputdesignation" className="col-form-label ititle">Height/उंची</label>
                             <div className="input-group">
                               <input
-                                {...register("height", {
-                                  required: "Enter Your Height/उंची",
-                                })}
+                                {...register("height", { required: "Enter Your Height/उंची" })}
                                 type="text"
                                 className="my-form-control"
                                 id="exampleInputdate" />
@@ -355,18 +268,10 @@ export default function UpdateProfileInfo() {
 
                         <div className="row">
                           <div className="col-sm-5 ml-2 mr-5">
-                            {errors.workplace && (
-                              <span style={{ color: "red" }}>
-                                {errors.workplace.message}
-                              </span>
-                            )}
+                            {errors.workplace && (<span style={{ color: "red" }}>{errors.workplace.message}</span>)}
                           </div>
                           <div className="col-sm-5 ml-4">
-                            {errors.height && (
-                              <div style={{ color: "red" }}>
-                                {errors.height.message}
-                              </div>
-                            )}
+                            {errors.height && (<div style={{ color: "red" }}>{errors.height.message}</div>)}
                           </div>
                         </div>
 
@@ -375,9 +280,7 @@ export default function UpdateProfileInfo() {
                             <label htmlFor="inputincome" className="col-form-label ititle">Blood-Group/रक्त गट</label>
                             <div className="input-group">
                               <input
-                                {...register("blood_group", {
-                                  required: "Enter Your Blood-Group/रक्त गट",
-                                })}
+                                {...register("blood_group", { required: "Enter Your Blood-Group/रक्त गट" })}
                                 type="text"
                                 className="my-form-control"
                                 id="exampleInputblood" />
@@ -387,9 +290,7 @@ export default function UpdateProfileInfo() {
                             <label htmlFor="inputdesignation" className="col-form-label ititle ">Color/रंग</label>
                             <div className="input-group">
                               <input
-                                {...register("color", {
-                                  required: "Enter Your Color/रंग",
-                                })}
+                                {...register("color", { required: "Enter Your Color/रंग" })}
                                 type="text"
                                 className="my-form-control"
                                 id="exampleInputcolor" />
@@ -399,18 +300,10 @@ export default function UpdateProfileInfo() {
 
                         <div className="row">
                           <div className="col-sm-5 ml-2 mr-5">
-                            {errors.blood_group && (
-                              <span style={{ color: "red" }}>
-                                {errors.blood_group.message}
-                              </span>
-                            )}
+                            {errors.blood_group && (<span style={{ color: "red" }}>{errors.blood_group.message}</span>)}
                           </div>
                           <div className="col-sm-5 ml-4">
-                            {errors.color && (
-                              <div style={{ color: "red" }}>
-                                {errors.color.message}
-                              </div>
-                            )}
+                            {errors.color && (<div style={{ color: "red" }}>{errors.color.message}</div>)}
                           </div>
                         </div>
 
@@ -419,9 +312,7 @@ export default function UpdateProfileInfo() {
                             <label htmlFor="inputincome" className="col-form-label ititle">Weight/वजन</label>
                             <div className="input-group">
                               <input
-                                {...register("weight", {
-                                  required: "Enter Your Weight/वजन",
-                                })}
+                                {...register("weight", { required: "Enter Your Weight/वजन" })}
                                 type="number"
                                 className="my-form-control"
                                 id="exampleInputdate" />
@@ -431,9 +322,7 @@ export default function UpdateProfileInfo() {
                             <label htmlFor="inputdesignation" className="col-form-label ititle">Address/पत्ता</label>
                             <div className="input-group">
                               <input
-                                {...register("address", {
-                                  required: "Enter Your Address/पत्ता",
-                                })}
+                                {...register("address", { required: "Enter Your Address/पत्ता" })}
                                 type="text"
                                 className="my-form-control"
                                 id="exampleInputdate" />
@@ -443,18 +332,10 @@ export default function UpdateProfileInfo() {
 
                         <div className="row">
                           <div className="col-sm-5 ml-2 mr-5">
-                            {errors.weight && (
-                              <span style={{ color: "red" }}>
-                                {errors.weight.message}
-                              </span>
-                            )}
+                            {errors.weight && (<span style={{ color: "red" }}>{errors.weight.message}</span>)}
                           </div>
                           <div className="col-sm-5 ml-4">
-                            {errors.address && (
-                              <div style={{ color: "red" }}>
-                                {errors.address.message}
-                              </div>
-                            )}
+                            {errors.address && (<div style={{ color: "red" }}>{errors.address.message}</div>)}
                           </div>
                         </div>
                         <div className="mt-5 text-center">

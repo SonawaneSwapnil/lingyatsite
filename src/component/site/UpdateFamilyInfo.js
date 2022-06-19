@@ -87,7 +87,7 @@ export default function Family() {
               <div className="col-xl-8 col-lg-7">
                 <div className="profile-main-content">
                   <ul className="top-menu">
-                    <li><NavLink to="/single_profile2">Profile</NavLink></li>
+                    <li><NavLink to="/profile">Profile</NavLink></li>
                     <li><NavLink to="/details" className="active">Add/Update Information</NavLink></li>
                     {/* <li><NavLink to="/single_profile3">Members</NavLink></li> */}
                     <li><NavLink to="/Search" >search</NavLink></li>
