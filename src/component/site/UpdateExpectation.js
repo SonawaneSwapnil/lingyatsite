@@ -22,9 +22,8 @@ export default function Expectation() {
   }, [userUpdateData]);
 
   const loadAllData = () => {
-
     setuser_id(JSON.parse(localStorage.getItem("USERID")));
-    Service.getSingleUser(user_id).then((res) => {
+    Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then((res) => {
       setuserUpdateData(res.data);
       reset(res.data[0]);
     });

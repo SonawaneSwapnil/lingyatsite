@@ -98,7 +98,7 @@ export default function Site() {
                   <ul className="row f-solial-links">
                     <li className='col-lg-4'><Link to="/about"><i className="fas fa-angle-double-right"></i>About Us</Link></li>
                     <li className='col-lg-4'><Link to="/contact"><i className="fas fa-angle-double-right"></i>Contact Us</Link></li>
-                    <li className='col-lg-4'><Link to="#"><i className="fas fa-angle-double-right"></i> Privacy policy</Link></li>
+                    {/* <li className='col-lg-4'><Link to="#"><i className="fas fa-angle-double-right"></i> Privacy policy</Link></li> */}
                   </ul>
                 </div>
               </div>

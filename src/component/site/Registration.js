@@ -39,6 +39,11 @@ export default function Registration() {
     });
   };
 
+  var text = 'घोषणा(Declaration): \n    मी नोंदणी करणारा/करणारी व्यक्ती लेखी स्वरूपात खालील प्रमाणे घोषणा(Declaration) करीत आहे.वेब साईट मध्ये दिली जाणारी सर्व माहिती पुर्णपणे खरी आहे व ती आपल्या बेबसाईटवर व कुटुंब व व्हॉट्स ॲपवर प्रसिद्ध करण्यासाठी माझ्या जबाबदारीवर स्वतः विनाअट परवानगी देत आहे.यासाठी कोणतेही शुल्क मी वेब साईटला दिले नाही किंवा घेतले नाही.नोंदणी केलेल्या उमेदवाराचे विवाह ठरल्यावर मी ही माहिती आपल्या बेबपेजवरुन कमी करण्यासाठी लवकरात लवकर कळवेन. \n\n' +
+    'Declaration: \n    I, write here full name, age and full address, hereby declare that with full knowledge and belief that the entire information given in this Format Application is true and correct.I authorise and permit you without reservation and unconditionally, at my risk, to circulate and publish it on your website and WhatsApp Family Group for Marriage Proposals and search for suitable Life Partner, Bride or Groom. I have not paid any money or in kinds for this publication or circulation of my family information for this purpose to this website or WA Group Administrator.This is my voluntary act for my benefits and entirely at my risk only, if any. I shall inform you in writing as soon as, say within a week, after my search or purpose is over for deletion of this information from this website and or WA Group.'
+
+  var declaration = text.replace(/\r?\n/g, '\n');
+
   let navigate = useNavigate();
 
   return (
@@ -201,6 +206,15 @@ export default function Registration() {
                         className="my-form-control mr-5" />
                       {errors.city && (<span style={{ color: "red" }}>{errors.city.message}</span>)}
                       <br />
+                    </div>
+                    <div className="form-group">
+                      <textarea className="text-justify" style={{ 'height': 100 }}>{declaration}</textarea>
+                    </div>
+                    <div className="form-group">
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1" required />
+                        <label class="custom-control-label" for="customCheck1">Agree terms & conditions.</label>
+                      </div>
                     </div>
                     <div className="text-center">
                       <button type="submit" className="custom-button w-75">Create Your Profile</button>

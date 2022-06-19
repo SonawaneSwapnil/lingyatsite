@@ -127,9 +127,9 @@ export default function UpdateProfileInfo() {
                         </div>
 
                         <div className="form-group">
-                          <label htmlFor="exampleInputdateplace" className="form-label ititle">Birth Place/जन्मतारीख ठिकाण</label>
+                          <label htmlFor="exampleInputdateplace" className="form-label ititle">Birth Place/जन्म ठिकाण</label>
                           <input
-                            {...register("birth_place", { required: "Enter Your Birth Place/जन्मतारीख ठिकाण" })}
+                            {...register("birth_place", { required: "Enter Your Birth Place/जन्म ठिकाण" })}
                             type="text"
                             className="my-form-control"
                             id="exampleInputplace" />
