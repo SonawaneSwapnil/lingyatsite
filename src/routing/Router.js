@@ -12,6 +12,9 @@ import UpdateFamilyInfo from '../component/site/UpdateFamilyInfo'
 import UpdateExpectation from '../component/site/UpdateExpectation'
 import Search from '../component/site/Search'
 import UserProfileOtherInfo from '../component/site/UserProfileOtherInfo'
+import ForgotPassword from "../component/site/ForgotPassword"
+import ResetNewPassword from "../component/site/ResetNewPassword"
+import VerifyOtp from "../component/site/VerifyOtp"
 
 export default function Router() {
   return (
@@ -20,6 +23,7 @@ export default function Router() {
         <Routes>
           <Route path="login" element={<Login />} />
           <Route path="registration" element={<Registration />} />
+          
           <Route path="" element={<Site />}>
             <Route path="" element={<Home />} />
             <Route path="about" element={<About />} />
@@ -30,6 +34,9 @@ export default function Router() {
             <Route path="update-expectation" element={<UpdateExpectation />} />
             <Route path="search" element={<Search />} />
             <Route path="other-info" element={<UserProfileOtherInfo />} />
+            <Route path="forgot-password" element={<ForgotPassword />} />
+            <Route path="reset-password" element={<ResetNewPassword />} />
+            <Route path="verify-otp" element={<VerifyOtp />} />
           </Route>
         </Routes>
       </BrowserRouter>

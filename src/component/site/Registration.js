@@ -34,9 +34,11 @@ export default function Registration() {
       married_status: getValues("married_status"),
       age: getAge(getValues("dob"))
     }
-    Service.saveAllUsers(data).then((res) => {
-      navigate("/login");
-    });
+    localStorage.setItem("RUser",JSON.stringify(data));
+    navigate("/verify-otp");
+    // Service.saveAllUsers(data).then((res) => {
+    //   navigate("/login");
+    // });
   };
 
   var text = 'घोषणा(Declaration): \n    मी नोंदणी करणारा/करणारी व्यक्ती लेखी स्वरूपात खालील प्रमाणे घोषणा(Declaration) करीत आहे.वेब साईट मध्ये दिली जाणारी सर्व माहिती पुर्णपणे खरी आहे व ती आपल्या बेबसाईटवर व कुटुंब व व्हॉट्स ॲपवर प्रसिद्ध करण्यासाठी माझ्या जबाबदारीवर स्वतः विनाअट परवानगी देत आहे.यासाठी कोणतेही शुल्क मी वेब साईटला दिले नाही किंवा घेतले नाही.नोंदणी केलेल्या उमेदवाराचे विवाह ठरल्यावर मी ही माहिती आपल्या बेबपेजवरुन कमी करण्यासाठी लवकरात लवकर कळवेन. \n\n' +
@@ -187,7 +189,7 @@ export default function Registration() {
                         <div className="s-input nice-select-wraper">
                           <select
                             className="select-bar"
-                            {...register("married_status", { required: "Enter your Marital status" })}>
+                            {...register("married_status")}>
                             <option value="">---Marital status---</option>
                             <option value="Never Married">Never Married</option>
                             <option value="Re-Marriage">Re-Marriage</option>
