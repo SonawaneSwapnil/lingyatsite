@@ -53,7 +53,7 @@ export default function Registration() {
               </div>
               <div className="col-lg-6">
                 <div className="logo">
-                  <img src="assets/images/logo/logo.png" alt="logo" className="w-50" />
+                  <img src="assets/images/logo/logo-old.png" alt="logo" className="w-50" />
                 </div>
               </div>
             </div>

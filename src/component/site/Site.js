@@ -20,8 +20,10 @@ export default function Site() {
 
   const goProfile = () => {
     localStorage.setItem("LOGGEDIN", true);
-    localStorage.removeItem('SearchUserID');
-    window.location.reload(false);
+    if (localStorage.getItem('SearchUserID')) {
+      localStorage.removeItem('SearchUserID');
+      window.location.reload(true);
+    }
   }
 
 

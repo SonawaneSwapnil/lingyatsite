@@ -103,7 +103,7 @@ export default function UserProfileInfo() {
                         </li>
                         <li>
                           <span className="ititle">Date Of Birth/जन्मतारीख:</span>
-                          <span>{moment(`${index.dob}`).format('YYYY/MM/DD')}</span>
+                          <span>{moment(`${index.dob}`).format('DD/MM/YYYY')}</span>
                         </li>
                         <li>
                           <span className="ititle">Birth Place/जन्मतारीख ठिकाण:</span>

@@ -126,7 +126,7 @@ export default function UpdateProfileInfo() {
                             {...register("dob", {
                               required: "Enter Your Date Of Birth/जन्मतारीख",
                             })}
-                            value={moment(`${index.dob}`).format('YYYY-MM-DD')}
+                            value={moment(`${index.dob}`).format('DD/MM/YYYY')}
                             type="text"
                             className="my-form-control"
                             id="exampleInputdate" />

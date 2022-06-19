@@ -29,7 +29,7 @@ const UserProfileOtherInfo = () => {
   let navigate = useNavigate();
 
   const generatePdf = () => {
-    var doc = new jsPDF('portrait', 'pt', 'a4', 'false');
+    var doc = new jsPDF('portrait', 'pt', 'a4', true);
     // A4 Page size in point width=595 x height=842
     //Important Site for study
     // https://mrrio.github.io/jsPDF/examples/basic.html
@@ -39,106 +39,127 @@ const UserProfileOtherInfo = () => {
     var printFooter = new Image();
     printFooter.src = 'assets/images/print/print-footer.png';
 
-    doc.addImage(printHeader, 'png', 0, 0, 595, 150, 'header');
+    doc.addImage(printHeader, 'png', 0, 0, 595, 120, 'header');
 
-    doc.setFontSize(10);
+    doc.setFontSize(14);
+    doc.setTextColor(158, 0, 53);
     doc.setFont(undefined, 'bold')
+    doc.text("Personal Detail:", 50, 160);
+    doc.line(50, 165, 545, 165);
+
+    doc.setFontSize(12);
+    doc.setFont(undefined, 'bold')
+    doc.setTextColor(0, 0, 0);
     doc.text("Name : ", 50, 180);
-    doc.text(usersData[0].user_name, 200, 180);
+    doc.text(usersData[0].user_name, 300, 180);
 
-    doc.setFontSize(10);
-    doc.text("Marital status: ", 50, 210);
+    doc.setFontSize(12);
+    doc.text("Marital status: ", 50, 200);
     doc.setFont(undefined, 'bold')
-    doc.text(usersData[0].married_status, 200, 210);
+    doc.text(usersData[0].married_status, 300, 200);
 
-    doc.setFontSize(10);
-    doc.text("City : ", 50, 240);
+    doc.setFontSize(12);
+    doc.text("City : ", 50, 220);
     doc.setFont(undefined, 'bold')
-    doc.text(usersData[0].city, 200, 240);
+    doc.text(usersData[0].city, 300, 220);
 
-    doc.setFontSize(10);
-    doc.text("date of birth : ", 50, 270);
+    doc.setFontSize(12);
+    doc.text("date of birth : ", 50, 240);
     doc.setFont(undefined, 'bold')
-    doc.text(moment(`${usersData[0].dob}`).format('YYYY/MM/DD'), 200, 270);
+    doc.text(moment(`${usersData[0].dob}`).format('DD/MM/YYYY'), 300, 240);
     // doc.text(usersData[0].dob, 200 , 270);
 
-    doc.setFontSize(10);
-    doc.text("Birth-place : ", 50, 300);
+    doc.setFontSize(12);
+    doc.text("Birth-place : ", 50, 260);
     doc.setFont(undefined, 'bold')
-    doc.text(usersData[0].birth_place, 200, 300);
+    doc.text(usersData[0].birth_place, 300, 260);
 
-    doc.setFontSize(10);
-    doc.text("Birth-Time : ", 50, 330);
+    doc.setFontSize(12);
+    doc.text("Birth-Time : ", 50, 280);
     doc.setFont(undefined, 'bold')
-    doc.text(usersData[0].birth_time, 200, 330);
+    doc.text(usersData[0].birth_time, 300, 280);
 
-    doc.setFontSize(10);
-    doc.text("Educational qualification : ", 50, 360);
+    doc.setFontSize(12);
+    doc.text("Educational qualification : ", 50, 300);
     doc.setFont(undefined, 'bold')
-    doc.text(usersData[0].education, 200, 360);
+    doc.text(usersData[0].education, 300, 300);
 
-    doc.setFontSize(10);
-    doc.text(" Service-Business : ", 50, 390);
+    doc.setFontSize(12);
+    doc.text("Service-Business : ", 50, 320);
     doc.setFont(undefined, 'bold')
-    doc.text(usersData[0].bussiness, 200, 390);
+    doc.text(usersData[0].bussiness, 300, 320);
 
-    doc.setFontSize(10);
-    doc.text("Income : ", 50, 420);
+    doc.setFontSize(12);
+    doc.text("Income : ", 50, 340);
     doc.setFont(undefined, 'bold')
-    doc.text(usersData[0].income.toString(), 200, 420);
+    doc.text(usersData[0].income.toString(), 300, 340);
 
-    doc.setFontSize(10);
-    doc.text("Designation : ", 50, 450);
+    doc.setFontSize(12);
+    doc.text("Designation : ", 50, 360);
     doc.setFont(undefined, 'bold')
-    doc.text(usersData[0].designation, 200, 450);
+    doc.text(usersData[0].designation, 300, 360);
 
-    doc.setFontSize(10);
-    doc.text("Workplace : ", 50, 480);
+    doc.setFontSize(12);
+    doc.text("Workplace : ", 50, 380);
     doc.setFont(undefined, 'bold')
-    doc.text(usersData[0].workplace, 200, 480);
+    doc.text(usersData[0].workplace, 300, 380);
 
-    doc.setFontSize(10);
-    doc.text("Height : ", 50, 510);
+    doc.setFontSize(12);
+    doc.text("Height : ", 50, 400);
     doc.setFont(undefined, 'bold')
-    doc.text(usersData[0].height.toString(), 200, 510);
+    doc.text(usersData[0].height.toString(), 300, 400);
 
-    doc.setFontSize(10);
-    doc.text("Blood-group : ", 50, 540);
+    doc.setFontSize(12);
+    doc.text("Blood-group : ", 50, 420);
     doc.setFont(undefined, 'bold')
-    doc.text(usersData[0].blood_group, 200, 540);
+    doc.text(usersData[0].blood_group, 300, 420);
 
-    doc.setFontSize(10);
-    doc.text("Color : ", 50, 570);
+    doc.setFontSize(12);
+    doc.text("Color : ", 50, 440);
     doc.setFont(undefined, 'bold')
-    doc.text(usersData[0].color, 200, 570);
+    doc.text(usersData[0].color, 300, 440);
 
-    doc.setFontSize(10);
-    doc.text("Weight : ", 50, 600);
+    doc.setFontSize(12);
+    doc.text("Weight : ", 50, 460);
     doc.setFont(undefined, 'bold')
-    doc.text(usersData[0].weight.toString(), 200, 600);
+    doc.text(usersData[0].weight.toString(), 300, 460);
 
-    doc.setFontSize(10);
-    doc.text("Address : ", 50, 630);
+    doc.setFontSize(12);
+    doc.text("Address : ", 50, 480);
     doc.setFont(undefined, 'bold')
-    doc.text(usersData[0].address, 200, 630);
+    doc.text(usersData[0].address, 300, 480);
 
-    doc.setFontSize(10);
-    doc.text("Father Name : ", 50, 660);
+    doc.setFontSize(14);
+    doc.setTextColor(158, 0, 53);
+    doc.text("Family Information:", 50, 520);
+    doc.setFont(undefined, 'bold');
+    doc.line(50, 525, 545, 525);
+
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+    doc.text("Father Name : ", 50, 540);
     doc.setFont(undefined, 'bold')
-    doc.text(usersData[0].father, 200, 660);
+    doc.text(usersData[0].father, 300, 540);
 
-    doc.setFontSize(10);
-    doc.text("Contact-No : ", 50, 690);
+    doc.setFontSize(12);
+    doc.text("Contact-No : ", 50, 560);
     doc.setFont(undefined, 'bold')
-    doc.text(usersData[0].father_contact.toString(), 200, 690);
+    doc.text(usersData[0].father_contact.toString(), 300, 560);
 
-    doc.setFontSize(10);
-    doc.text("Expectation : ", 50, 720);
+    doc.setFontSize(14);
+    doc.setTextColor(158, 0, 53);
+    doc.text("Expectation:", 50, 600);
+    doc.setFont(undefined, 'bold');
+    doc.line(50, 605, 545, 605);
+
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+    doc.text("Expection : ", 50, 620);
     doc.setFont(undefined, 'bold')
-    doc.text(usersData[0].expectation, 200, 720);
+    doc.text(usersData[0].expectation, 300, 620);
 
-    doc.addImage(printFooter, 'png', 0, 740, 595, 220, 'footer')
-    doc.save("profile.pdf");
+    doc.addImage(printFooter, 'png', 0, 780, 595, 62, 'footer')
+    doc.save(usersData[0].user_name + "profile.pdf");
   }
 
   return (

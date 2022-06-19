@@ -1,23 +1,39 @@
-import React from 'react'
+import React, { useState } from "react";
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import Service from '../../service/Service';
 
 export default function Login() {
+
+  const [isShow, setIsShow] = useState(false);
+  const [alertClass, setAlertClass] = useState();
+  const [msg, setMsg] = useState();
+
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm();
 
-  const saveLoginData = (data => {
-    Service.saveAllLogin(data).then(res => {
-      localStorage.setItem("USERID", JSON.stringify(res.data.data.user_id));
-      localStorage.setItem("LOGGEDIN", true);
-      navigate('/profile');
-    })
-  });
+  const saveLoginData = (data) => {
+    Service.saveAllLogin(data).then((res) => {
+      if (res.data.success) {
+        console.log(res.data.success);
+        setIsShow(true);
+        setAlertClass("alert alert-success");
+        setMsg(res.data.success)
+        localStorage.setItem("USERID", JSON.stringify(res.data.data.user_id));
+        localStorage.setItem("LOGGEDIN", true);
+        navigate("/profile");
+      }
+      else if (res.data.warning) {
+        setIsShow(true);
+        setAlertClass("alert alert-danger");
+        setMsg(res.data.warning)
+      }
+    });
+  };
 
   let navigate = useNavigate();
   return (
@@ -48,6 +64,11 @@ export default function Login() {
                 <div className="section-header inloginp">
                   <h2 className="title">Welcome to Lingayat Matrimony</h2>
                 </div>
+                {isShow && (
+                  <div className={alertClass} role="alert">
+                    {msg}
+                  </div>
+                )}
                 <div className="main-content inloginp">
                   <form onSubmit={handleSubmit(saveLoginData)} autoComplete="off">
                     <div className="form-group">
