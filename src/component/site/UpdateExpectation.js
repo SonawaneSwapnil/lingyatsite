@@ -19,7 +19,7 @@ export default function Expectation() {
 
   useEffect(() => {
     loadAllData();
-  }, [userUpdateData]);
+  }, []);
 
   const loadAllData = () => {
     setuser_id(JSON.parse(localStorage.getItem("USERID")));
