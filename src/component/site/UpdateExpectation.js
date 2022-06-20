@@ -103,7 +103,7 @@ export default function Expectation() {
                           <textarea
                             className="my-form-control"
                             {...register("expectation", {
-                              required: "Please enter your password/पासवर्ड",
+                              required: "Please Expection/अपेक्षा वधू/वर",
                             })}
                           ></textarea>
                           {errors.expectation && (
