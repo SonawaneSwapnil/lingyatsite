@@ -109,7 +109,7 @@ export default function UpdateProfileInfo() {
                             type="text"
                             className="my-form-control"
                             id="exampleInputname"
-                            value={index.user_name} />
+                             />
                           {errors.user_name && (<span style={{ color: "red" }}>{errors.user_name.message}</span>)}
                           <br />
                         </div>
@@ -118,7 +118,7 @@ export default function UpdateProfileInfo() {
                           <label htmlFor="exampleInputdate" className="form-label ititle">Date Of Birth/जन्मतारीख </label>
                           <input
                             {...register("dob", { required: "Enter Your Date Of Birth/जन्मतारीख" })}
-                            value={moment(`${index.dob}`).format('DD/MM/YYYY')}
+                            // value={moment(`${index.dob}`).format('DD/MM/YYYY')}
                             type="text"
                             className="my-form-control"
                             id="exampleInputdate" />

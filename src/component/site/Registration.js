@@ -1,13 +1,15 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Service from "../../service/Service";
 
 export default function Registration() {
+  const [gender, setGender] = useState();
+  const [looking_for_gender, setLookingForGender] = useState();
   const {
     register,
     handleSubmit,
-    getValues,
+    getValues,setValue,
     formState: { errors },
   } = useForm();
 
@@ -39,6 +41,27 @@ export default function Registration() {
     // Service.saveAllUsers(data).then((res) => {
     //   navigate("/login");
     // });
+  };
+
+  // seslect opposite genders
+  const handleChange = (ctrl,value) => {
+    if(ctrl=="gender"){
+      setValue("gender",value);
+      if(value=="male"){
+        setValue("looking_for_gender","female");
+      } else{
+        setValue("looking_for_gender","male");
+      }
+    }
+    if(ctrl=="looking_for_gender"){
+      setValue("looking_for_gender",value);
+      if(value=="male"){
+        setValue("gender","female");
+      } else{
+        setValue("gender","male");
+      }
+    }
+   
   };
 
   var text = 'घोषणा(Declaration): \n    मी नोंदणी करणारा/करणारी व्यक्ती लेखी स्वरूपात खालील प्रमाणे घोषणा(Declaration) करीत आहे.वेब साईट मध्ये दिली जाणारी सर्व माहिती पुर्णपणे खरी आहे व ती आपल्या बेबसाईटवर व कुटुंब व व्हॉट्स ॲपवर प्रसिद्ध करण्यासाठी माझ्या जबाबदारीवर स्वतः विनाअट परवानगी देत आहे.यासाठी कोणतेही शुल्क मी वेब साईटला दिले नाही किंवा घेतले नाही.नोंदणी केलेल्या उमेदवाराचे विवाह ठरल्यावर मी ही माहिती आपल्या बेबपेजवरुन कमी करण्यासाठी लवकरात लवकर कळवेन. \n\n' +
@@ -146,7 +169,9 @@ export default function Registration() {
                             name="gender"
                             value="male"
                             id="male"
-                            {...register("gender", { required: "select gender" })} />
+                            {...register("gender", { required: "select gender" })}
+                            onClick={()=>handleChange("gender","male")}
+                            />
                           <label htmlFor="male">Male</label>
                         </div>
                         <div className="s-input">
@@ -155,7 +180,8 @@ export default function Registration() {
                             name="gender"
                             value="female"
                             id="female"
-                            {...register("gender", { required: "select gender" })} />
+                            {...register("gender", { required: "select gender" })} 
+                            onClick={()=>handleChange("gender","female")}/>
                           <label htmlFor="female">Female</label>
                         </div>
                       </div>
@@ -169,7 +195,8 @@ export default function Registration() {
                             name="looking_for_gender"
                             value="male"
                             id="males"
-                            {...register("looking_for_gender", { required: "select gender" })} />
+                            {...register("looking_for_gender", { required: "select gender" })}
+                            onClick={()=>handleChange("looking_for_gender","male")} />
                           <label htmlFor="males">Male</label>
                         </div>
                         <div className="s-input">
@@ -178,7 +205,8 @@ export default function Registration() {
                             name="looking_for_gender"
                             value="female"
                             id="females"
-                            {...register("looking_for_gender", { required: "select gender" })} />
+                            {...register("looking_for_gender", { required: "select gender" })}
+                            onClick={()=>handleChange("looking_for_gender","female")} />
                           <label htmlFor="females">Female</label>
                         </div>
                       </div>

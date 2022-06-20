@@ -29,7 +29,7 @@ export default function Expectation() {
     });
   };
 
-  const changeHandler = (event) => {
+  const passportHandler = (event) => {
     setPassportPhoto(event.target.files[0]);
 
   };
@@ -126,7 +126,7 @@ export default function Expectation() {
                               {...register("passport", {
                                 required: "Please enter passport photo",
                               })}
-                              onChange={changeHandler} />
+                              onChange={passportHandler} />
                             {errors.passport && (
                               <span style={{ color: "red" }}>
                                 {errors.passport.message}

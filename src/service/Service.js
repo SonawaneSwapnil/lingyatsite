@@ -59,5 +59,14 @@ class Service {
   updatePassword(data) {
     return axios.post(Base_url + "users/update-reset-password", data);
   }
+
+  // getImage path
+getDomainPath() {
+  return axios.get(Base_url + "users/get-domainPath");
+}
+  // save feedback
+  saveAllFeedback(data) {
+    return axios.post(Base_url + "users/save_feedback", data);
+  }
 }
 export default new Service();
