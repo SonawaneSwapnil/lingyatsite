@@ -110,7 +110,7 @@ export default function Site() {
               <div className="align-self-center">
                 <div className="copyr-text">
                   <span className='text-end'>Copyright © 2022.All Rights Reserved By</span>
-                  <Link to="#"><strong>&nbsp;ATJOIN PVT. LTD.</strong></Link>
+                  <a href='https://atjoin.in'><strong>&nbsp;ATJOIN PVT. LTD.</strong></a>
                 </div>
               </div>
             </div>

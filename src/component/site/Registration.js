@@ -34,7 +34,7 @@ export default function Registration() {
       married_status: getValues("married_status"),
       age: getAge(getValues("dob"))
     }
-    localStorage.setItem("RUser",JSON.stringify(data));
+    localStorage.setItem("RUser", JSON.stringify(data));
     navigate("/verify-otp");
     // Service.saveAllUsers(data).then((res) => {
     //   navigate("/login");
@@ -189,7 +189,7 @@ export default function Registration() {
                         <div className="s-input nice-select-wraper">
                           <select
                             className="select-bar"
-                            {...register("married_status")}>
+                            {...register("married_status", { required: 'Please select marital status' })}>
                             <option value="">---Marital status---</option>
                             <option value="Never Married">Never Married</option>
                             <option value="Re-Marriage">Re-Marriage</option>
