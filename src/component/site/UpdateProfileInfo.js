@@ -263,13 +263,12 @@ export default function UpdateProfileInfo() {
                               Other/इतर
                             </option>
                           </select>
-                          {showhide === "7" && (
+                          {showhide === "Other/इतर" && (
                             <div className="form-group">
-                              <label>Branch</label>
-                              <input
-                                type="text"
-                                className="form-control"
-                              ></input>
+
+                              <label htmlFor="branch" className="ititle">Branch/शाखा</label>
+                              <input type="text"    className="my-form-control" name="branch" id="branch"></input>
+
                             </div>
                           )}
                           {errors.branch && (

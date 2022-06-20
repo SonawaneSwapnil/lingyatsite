@@ -86,14 +86,23 @@ export default function Home() {
           </div>
           <div className="col-lg-2 col-sm-12 p-1">
             <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername">Marital Status:</label>
-            <div className="input-group">
-              <select className="form-select ddown" id="specificSizeSelect">
-                <option defaultValue>Choose...</option>
-                <option className="textTru chosenDropWid" id="N" value="N">Never Married</option>
-                <option className="textTru chosenDropWid" id="S" value="S">Awaiting Divorce</option>
-                <option className="textTru chosenDropWid" id="D" value="D">Divorced</option>
-                <option className="textTru chosenDropWid" id="W" value="W">Widowed</option>
-                <option className="textTru chosenDropWid" id="A" value="A">Annulled</option>
+          
+            <div class="input-group">
+              <select class="form-select ddown" id="specificSizeSelect">
+              <option selected>Choose...</option>
+                      <option
+                        className="textTru chosenDropWid"
+                        id="N"
+                        value="single" >
+                        Never Married
+                      </option>
+                      <option
+                        className="textTru chosenDropWid"
+                        id="S"
+                        value="married" >
+                        Re Marriage
+                      </option>
+             
               </select>
             </div>
           </div>
