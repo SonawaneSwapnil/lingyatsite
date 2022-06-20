@@ -37,13 +37,10 @@ export default function Registration() {
       looking_for_gender: getValues("looking_for_gender"),
       city: getValues("city"),
       married_status: getValues("married_status"),
-      age: getAge(getValues("dob")),
+      age: getAge(moment(getValues("dob")).format("YYYY-MM-DD")),
     };
     localStorage.setItem("RUser", JSON.stringify(data));
     navigate("/verify-otp");
-    // Service.saveAllUsers(data).then((res) => {
-    //   navigate("/login");
-    // });
   };
 
 
@@ -290,7 +287,7 @@ export default function Registration() {
                           <select
                             className="select-bar"
                             {...register("married_status", {
-                              required: "Please select marital status",
+                              // required: "Please select marital status",
                             })}
                           >
                             <option value="">---Marital status---</option>

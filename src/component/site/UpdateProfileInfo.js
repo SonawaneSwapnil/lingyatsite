@@ -9,7 +9,7 @@ import LeftProfileArea from "../common/LeftProfileArea";
 export default function UpdateProfileInfo() {
   const [userUpdateData, setuserUpdateData] = useState();
   const [showhide, setshowhide] = useState("");
-  const [defaultDateValue,setDefaultDateValue]=useState();
+  const [defaultDateValue, setDefaultDateValue] = useState();
   const [oldDate, setOldDate] = useState(
     moment().subtract(18, "years").format("YYYY-MM-DD")
   );
@@ -43,12 +43,22 @@ export default function UpdateProfileInfo() {
     });
   };
 
+  function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
   const updateRecord = (fdata) => {
     var data = fdata;
+    data.age=getAge(moment(data.dob).format("YYYY-MM-DD"))
     data.user_id = userID;
     data.dob = moment(data.dob).format("YYYY-MM-DD");
-    console.log(data);
-
     Service.updateUsers(data)
       .then((res) => {
         loadAllData();
@@ -155,7 +165,6 @@ export default function UpdateProfileInfo() {
                             className="my-form-control"
                             id="exampleInputdate"
                             max={oldDate}
-                           value={defaultDateValue}
                           />
                           {errors.dob && (
                             <span style={{ color: "red" }}>
@@ -265,10 +274,15 @@ export default function UpdateProfileInfo() {
                           </select>
                           {showhide === "Other/इतर" && (
                             <div className="form-group">
-
-                              <label htmlFor="branch" className="ititle">Branch/शाखा</label>
-                              <input type="text"    className="my-form-control" name="branch" id="branch"></input>
-
+                              <label htmlFor="branch" className="ititle">
+                                Branch/शाखा
+                              </label>
+                              <input
+                                type="text"
+                                className="my-form-control"
+                                name="branch"
+                                id="branch"
+                              ></input>
                             </div>
                           )}
                           {errors.branch && (
