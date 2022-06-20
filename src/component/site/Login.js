@@ -70,6 +70,7 @@ export default function Login() {
               <div className="log-reg-inner">
                 <div className="section-header inloginp">
                   <h2 className="title">Welcome to Lingayat Matrimony</h2>
+                  <marquee className="bg-danger text-white font-weight-bold">If you have already an account sign in else please register to find your dream  partner./ जर तुमच्याकडे आधीपासूनच खाते असेल तर साइन इन करा अन्यथा कृपया तुमचा स्वप्नातील जोडीदार शोधण्यासाठी नोंदणी करा.</marquee>
                 </div>
                 {isShow && (
                   <div className={alertClass} role="alert">
