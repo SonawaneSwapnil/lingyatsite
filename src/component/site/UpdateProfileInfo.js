@@ -165,7 +165,7 @@ export default function UpdateProfileInfo() {
                             <option className="dropdown-item" value="Chaturth/चतुर्थ">Chaturth/चतुर्थ</option>
                             <option className="dropdown-item" value="Other/इतर">Other/इतर</option>
                           </select>
-                          {showhide === "7" && (
+                          {showhide === "Other/इतर" && (
                             <div className="form-group">
                               <label>Branch</label>
                               <input type="text" className="form-control"></input>
