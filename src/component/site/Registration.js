@@ -5,11 +5,14 @@ import Service from "../../service/Service";
 import moment from 'moment'
 
 export default function Registration() {
-  const [oldDate,setOldDate]=useState(moment().subtract(18, "years").format("YYYY-MM-DD"))
-  const {
+
+ const [gender, setGender] = useState();
+ const [looking_for_gender, setLookingForGender] = useState();
+ const [oldDate,setOldDate]=useState(moment().subtract(18, "years").format("YYYY-MM-DD"))
+ const {
     register,
     handleSubmit,
-    getValues,
+    getValues,setValue,
     formState: { errors },
   } = useForm();
 
@@ -43,9 +46,32 @@ export default function Registration() {
     // });
   };
 
+
+  // seslect opposite genders
+  const handleChange = (ctrl,value) => {
+    if(ctrl=="gender"){
+      setValue("gender",value);
+      if(value=="male"){
+        setValue("looking_for_gender","female");
+      } else{
+        setValue("looking_for_gender","male");
+      }
+    }
+    if(ctrl=="looking_for_gender"){
+      setValue("looking_for_gender",value);
+      if(value=="male"){
+        setValue("gender","female");
+      } else{
+        setValue("gender","male");
+      }
+    }
+   
+  };
+
   var text =
     "घोषणा(Declaration): \n    मी नोंदणी करणारा/करणारी व्यक्ती लेखी स्वरूपात खालील प्रमाणे घोषणा(Declaration) करीत आहे.वेब साईट मध्ये दिली जाणारी सर्व माहिती पुर्णपणे खरी आहे व ती आपल्या बेबसाईटवर व कुटुंब व व्हॉट्स ॲपवर प्रसिद्ध करण्यासाठी माझ्या जबाबदारीवर स्वतः विनाअट परवानगी देत आहे.यासाठी कोणतेही शुल्क मी वेब साईटला दिले नाही किंवा घेतले नाही.नोंदणी केलेल्या उमेदवाराचे विवाह ठरल्यावर मी ही माहिती आपल्या बेबपेजवरुन कमी करण्यासाठी लवकरात लवकर कळवेन. \n\n" +
     "Declaration: \n    I, write here full name, age and full address, hereby declare that with full knowledge and belief that the entire information given in this Format Application is true and correct.I authorise and permit you without reservation and unconditionally, at my risk, to circulate and publish it on your website and WhatsApp Family Group for Marriage Proposals and search for suitable Life Partner, Bride or Groom. I have not paid any money or in kinds for this publication or circulation of my family information for this purpose to this website or WA Group Administrator.This is my voluntary act for my benefits and entirely at my risk only, if any. I shall inform you in writing as soon as, say within a week, after my search or purpose is over for deletion of this information from this website and or WA Group.";
+
 
   var declaration = text.replace(/\r?\n/g, "\n");
 
@@ -204,10 +230,11 @@ export default function Registration() {
                             name="gender"
                             value="male"
                             id="male"
-                            {...register("gender", {
-                              required: "select gender",
-                            })}
-                          />
+
+                            {...register("gender", { required: "select gender" })}
+                            onClick={()=>handleChange("gender","male")}
+                            />
+
                           <label htmlFor="male">Male</label>
                         </div>
                         <div className="s-input">
@@ -216,10 +243,9 @@ export default function Registration() {
                             name="gender"
                             value="female"
                             id="female"
-                            {...register("gender", {
-                              required: "select gender",
-                            })}
-                          />
+                            {...register("gender", { required: "select gender" })} 
+                            onClick={()=>handleChange("gender","female")}/>
+
                           <label htmlFor="female">Female</label>
                         </div>
                       </div>
@@ -235,10 +261,10 @@ export default function Registration() {
                             name="looking_for_gender"
                             value="male"
                             id="males"
-                            {...register("looking_for_gender", {
-                              required: "select gender",
-                            })}
-                          />
+
+                            {...register("looking_for_gender", { required: "select gender" })}
+                            onClick={()=>handleChange("looking_for_gender","male")} />
+
                           <label htmlFor="males">Male</label>
                         </div>
                         <div className="s-input">
@@ -247,10 +273,10 @@ export default function Registration() {
                             name="looking_for_gender"
                             value="female"
                             id="females"
-                            {...register("looking_for_gender", {
-                              required: "select gender",
-                            })}
-                          />
+
+                            {...register("looking_for_gender", { required: "select gender" })}
+                            onClick={()=>handleChange("looking_for_gender","female")} />
+
                           <label htmlFor="females">Female</label>
                         </div>
                       </div>
