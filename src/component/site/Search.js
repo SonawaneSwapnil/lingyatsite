@@ -41,7 +41,8 @@ export default function Search() {
     ).then((res) => {
       setFilterUser(res.data);
       reset();
-      navigate("/search")
+      document.getElementById('closeModal').click();
+      // navigate("/search")
     });
   };
 
@@ -185,6 +186,7 @@ export default function Search() {
                 className="close"
                 data-dismiss="modal"
                 aria-label="Close"
+                id="closeModal"
               >
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -207,7 +209,7 @@ export default function Search() {
                     className="visually-hidden text-light ititle"
                     htmlFor="specificSizeInputGroupUsername"
                   >
-                    Looking htmlFor:
+                    Looking For:
                   </label>
                   <div className="form-check">
                     <div className="row p-0 m-0">
