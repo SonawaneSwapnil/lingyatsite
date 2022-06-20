@@ -12,7 +12,7 @@ export default function Search() {
 
   useEffect(() => {
     loadAllUserData();
-    loadAllFilterData();
+    // loadAllFilterData();
   }, []);
 
   const loadAllUserData = () => {
@@ -30,19 +30,20 @@ export default function Search() {
       workplace: getValues("workplace"),
       income: getValues("income"),
       married_status: getValues("married_status"),
+      agefrom: ageFrom,
+      ageto: ageTo,
+      userId: JSON.parse(localStorage.getItem("USERID")),
     };
-    Service.getFilterUser(
-      data.workplace,
-      data.looking_for_gender,
-      data.income,
-      data.married_status,
-      ageFrom,
-      ageTo
-    ).then((res) => {
-      setFilterUser(res.data);
-      reset();
-      document.getElementById('closeModal').click();
-      // navigate("/search")
+    console.log(data);
+    Service.getFilterUser(data).then((res) => {
+      console.log(res.data);
+      if (res.data.warning) {
+        setFilterUser();
+      } else {
+        setFilterUser(res.data);
+        reset();
+      }
+      document.getElementById("closeModal").click();
     });
   };
 
@@ -108,9 +109,9 @@ export default function Search() {
             </div>
           </div>
           <div className="row">
-            {filteredUser &&
+            {filteredUser ? (
               filteredUser.map((index, i) => (
-                <div className="col-lg-6 col-xl-6">
+                <div key={i} className="col-lg-6 col-xl-6">
                   <div className="single-friend">
                     <img src={index.passport} alt="" />
                     <div className="content">
@@ -158,7 +159,14 @@ export default function Search() {
                     </div>
                   </div>
                 </div>
-              ))}
+              ))
+            ) : (
+              <div className="col-lg-12 col-xl-12">
+              <div className="alert alert-secondary" role="alert">
+                Records not found..!
+              </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -167,7 +175,7 @@ export default function Search() {
       <div
         className="modal fade filter-p"
         id="exampleModalCenter"
-        tabindex="-1"
+        tabIndex="-1"
         role="dialog"
         aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true"
@@ -354,16 +362,16 @@ export default function Search() {
                       <option
                         className="textTru chosenDropWid"
                         id="N"
-                        value="single"
+                        value="Never Married"
                       >
                         Never Married
                       </option>
                       <option
                         className="textTru chosenDropWid"
                         id="S"
-                        value="married"
+                        value="Re-Marriage"
                       >
-                        Re Marriage
+                        Re-Marriage
                       </option>
                     </select>
                   </div>

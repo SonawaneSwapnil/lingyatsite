@@ -27,29 +27,8 @@ class Service {
     return axios.put(Base_url + "users/update-expectation", data);
   }
   // FilterData
-  getFilterUser(
-    workplace,
-    looking_for_gender,
-    income,
-    married_status,
-    agefrom,
-    ageto
-  ) {
-    return axios.get(
-      Base_url +
-        "users/get-filterdata/" +
-        workplace +
-        "/" +
-        looking_for_gender +
-        "/" +
-        income +
-        "/" +
-        married_status +
-        "/" +
-        agefrom +
-        "/" +
-        ageto
-    );
+  getFilterUser(data) {
+    return axios.post(Base_url + "users/get-filterdata", data);
   }
 
   getUserByContact(contact) {
@@ -61,9 +40,9 @@ class Service {
   }
 
   // getImage path
-getDomainPath() {
-  return axios.get(Base_url + "users/get-domainPath");
-}
+  getDomainPath() {
+    return axios.get(Base_url + "users/get-domainPath");
+  }
   // save feedback
   saveAllFeedback(data) {
     return axios.post(Base_url + "users/save_feedback", data);
