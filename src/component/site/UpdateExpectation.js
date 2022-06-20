@@ -29,7 +29,7 @@ export default function Expectation() {
     });
   };
 
-  const changeHandler = (event) => {
+  const passportHandler = (event) => {
     setPassportPhoto(event.target.files[0]);
 
   };
@@ -123,10 +123,8 @@ export default function Expectation() {
                               id="inputGroupFile04"
                               aria-describedby="inputGroupFileAddon04"
                               aria-label="Upload"
-                              {...register("passport", {
-                                required: "Please enter passport photo",
-                              })}
-                              onChange={changeHandler} />
+                              {...register("passport")}
+                              onChange={passportHandler} />
                             {errors.passport && (
                               <span style={{ color: "red" }}>
                                 {errors.passport.message}
@@ -142,9 +140,7 @@ export default function Expectation() {
                               id="inputGroupFile04"
                               aria-describedby="inputGroupFileAddon04"
                               aria-label=""
-                              {...register("fullphoto", {
-                                required: "Please enter fullphoto photo",
-                              })}
+                              {...register("fullphoto")}
                               onChange={fullphotoHandler}
                             />
                             {errors.fullphoto && (
