@@ -32,7 +32,7 @@ export default function ForgotPassword() {
   };
 
   const checkUsername = (data) => {
-    if (!isOtpSend) {
+    // if (!isOtpSend) {
       Service.getUserByContact(data.contact).then((res) => {
         if (res.data.warning) {
           setErrMsg(res.data.warning);
@@ -43,10 +43,10 @@ export default function ForgotPassword() {
           setIsOtpSend(true);
         }
       });
-    } else {
-      setErrMsg("OTP already sent..!");
-      setShowErrMsg(true);
-    }
+    // } else {
+    //   setErrMsg("OTP already sent..!");
+    //   setShowErrMsg(true);
+    // }
   };
 
   const sendOTP = (contact) => {

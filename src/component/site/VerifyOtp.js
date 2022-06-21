@@ -40,14 +40,9 @@ export default function VerifyOtp() {
   };
 
   const initVerify = (data) => {
-    if (!isOtpSend) {
       setNewContact(data.contact);
       sendOTP("+91" + data.contact);
-     
-    } else {
-      setErrMsg("OTP already sent..!");
-      setShowErrMsg(true);
-    }
+
   };
 
   const sendOTP = (contact) => {
