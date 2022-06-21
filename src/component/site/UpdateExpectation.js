@@ -123,7 +123,9 @@ export default function Expectation() {
                               id="inputGroupFile04"
                               aria-describedby="inputGroupFileAddon04"
                               aria-label="Upload"
-                              {...register("passport")}
+                              {...register("passport",{
+                                required:"Please select photo"
+                              })}
                               onChange={passportHandler} />
                             {errors.passport && (
                               <span style={{ color: "red" }}>
@@ -140,7 +142,9 @@ export default function Expectation() {
                               id="inputGroupFile04"
                               aria-describedby="inputGroupFileAddon04"
                               aria-label=""
-                              {...register("fullphoto")}
+                              {...register("fullphoto",{
+                                required:"Please select photo"
+                              })}
                               onChange={fullphotoHandler}
                             />
                             {errors.fullphoto && (

@@ -24,7 +24,13 @@ export default function Login() {
         setMsg(res.data.success);
         localStorage.setItem("USERID", JSON.stringify(res.data.data.user_id));
         localStorage.setItem("LOGGEDIN", true);
-        navigate("/profile");
+        if(JSON.parse(localStorage.getItem("filterData"))){
+          // navigate("/search");
+          window.location.replace("/search");
+        } else{
+          window.location.replace("/profile");
+        // navigate("/profile");
+        }
       } else if (res.data.warning) {
         setIsShow(true);
         setAlertClass("alert alert-danger");

@@ -9,15 +9,31 @@ export default function Search() {
   const [filteredUser, setFilterUser] = useState();
   let navigate = useNavigate();
   const { register, handleSubmit, getValues, reset } = useForm();
-
+  const filterData = JSON.parse(localStorage.getItem("filterData"));
   useEffect(() => {
     loadAllUserData();
-    // loadAllFilterData();
+    if (filterData) {
+      loadPreFilterData();
+    }
   }, []);
 
   const loadAllUserData = () => {
     Service.getAllUsers().then((res) => {
       setFilterUser(res.data);
+    });
+  };
+
+  const loadPreFilterData = () => {
+    Service.getFilterUser(filterData).then((res) => {
+      console.log(res.data);
+      if (res.data.warning) {
+        setFilterUser();
+      } else {
+        setFilterUser(res.data);
+        reset();
+        localStorage.removeItem("filterData");
+      }
+      document.getElementById("closeModal").click();
     });
   };
 
@@ -162,9 +178,9 @@ export default function Search() {
               ))
             ) : (
               <div className="col-lg-12 col-xl-12">
-              <div className="alert alert-secondary" role="alert">
-                Records not found..!
-              </div>
+                <div className="alert alert-secondary" role="alert">
+                  Records not found..!
+                </div>
               </div>
             )}
           </div>
@@ -324,25 +340,30 @@ export default function Search() {
                     Income:
                   </label>
                   <div className="input-group mb-2">
-                    <div className="input-group-text">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        className="bi bi-cash-stack"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
-                        <path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z" />
-                      </svg>
-                    </div>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="specificSizeInputGroupUsername"
+                    <select
+                      className="form-select ddown"
+                      id="specificSizeSelect"
                       {...register("income")}
-                    />
+                    >
+                      <option defaultValue>Choose...</option>
+                      <option className="textTru chosenDropWid" value="100000">
+                        1,00,000 To 5,00,000
+                      </option>
+                      <option
+                        className="textTru chosenDropWid"
+                        id="S"
+                        value="500000"
+                      >
+                        5,00,000 To 10,00,000
+                      </option>
+                      <option
+                        className="textTru chosenDropWid"
+                        id="S"
+                        value="1000000"
+                      >
+                        Above 10,00,000
+                      </option>
+                    </select>
                   </div>
                   <label
                     className="visually-hidden text-light ititle"
