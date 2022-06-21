@@ -260,9 +260,7 @@ export default function Search() {
                           name="flexRadioDefault"
                           id="flexRadioDefault2"
                           value="female"
-                          {...register("looking_for_gender", {
-                            required: false,
-                          })}
+                          {...register("looking_for_gender")}
                         />
                       </div>
                     </div>
@@ -278,7 +276,7 @@ export default function Search() {
                     <select
                       className="form-select ddown"
                       id="specificSizeSelect"
-                      {...register("age", { required: false })}
+                      {...register("age")}
                     >
                       <option defaultValue>Choose...</option>
                       <option value="18-20">18-20</option>
@@ -314,7 +312,7 @@ export default function Search() {
                       type="text"
                       className="form-control"
                       id="specificSizeInputGroupUsername"
-                      {...register("workplace", { required: false })}
+                      {...register("workplace")}
                     />
                   </div>
 
@@ -343,7 +341,7 @@ export default function Search() {
                       type="text"
                       className="form-control"
                       id="specificSizeInputGroupUsername"
-                      {...register("income", { required: false })}
+                      {...register("income")}
                     />
                   </div>
                   <label
@@ -356,7 +354,7 @@ export default function Search() {
                     <select
                       className="form-select ddown"
                       id="specificSizeSelect"
-                      {...register("married_status", { required: false })}
+                      {...register("married_status")}
                     >
                       <option defaultValue>Choose...</option>
                       <option
