@@ -56,7 +56,7 @@ export default function Home() {
               className="visually-hidden text-light ititle"
               htmlFor="specificSizeInputGroupUsername"
             >
-              Looking For:
+              I am looking for:
             </label>
             <div className="row p-0 m-0">
               <div className="col-3 p-0">
