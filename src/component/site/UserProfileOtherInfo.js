@@ -246,7 +246,7 @@ const UserProfileOtherInfo = () => {
                                   </div>
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">
-                                    Mother Name/आईचे नाव:
+                                      Mother Name/आईचे नाव:
                                     </div>
                                     <div className="col-6 text-right ititle">
                                       {index.mother}
@@ -254,7 +254,7 @@ const UserProfileOtherInfo = () => {
                                   </div>
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">
-                                    Contact Number/संपर्क क्रमांक:
+                                      Contact Number/संपर्क क्रमांक:
                                     </div>
                                     <div className="col-6 text-right ititle">
                                       {index.mother_contact}
@@ -262,7 +262,7 @@ const UserProfileOtherInfo = () => {
                                   </div>
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">
-                                    Brother Name/भावाचे नाव:
+                                      Brother Name/भावाचे नाव:
                                     </div>
                                     <div className="col-6 text-right ititle">
                                       {index.brother}
@@ -270,7 +270,7 @@ const UserProfileOtherInfo = () => {
                                   </div>
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">
-                                    Contact Number/संपर्क क्रमांक:
+                                      Contact Number/संपर्क क्रमांक:
                                     </div>
                                     <div className="col-6 text-right ititle">
                                       {index.brother_contact}
@@ -278,7 +278,7 @@ const UserProfileOtherInfo = () => {
                                   </div>
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">
-                                    Sister Name/बहिणीचे नाव
+                                      Sister Name/बहिणीचे नाव
                                     </div>
                                     <div className="col-6 text-right ititle">
                                       {index.sister}
@@ -286,7 +286,7 @@ const UserProfileOtherInfo = () => {
                                   </div>
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">
-                                    Contact Number/संपर्क क्रमांक:
+                                      Contact Number/संपर्क क्रमांक:
                                     </div>
                                     <div className="col-6 text-right ititle">
                                       {index.sister_contact}
@@ -296,7 +296,7 @@ const UserProfileOtherInfo = () => {
                                   {/* caretaker */}
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">
-                                    Care Taker Name/ काळजी घेणारे नाव
+                                      Care Taker Name/ काळजी घेणारे नाव
                                     </div>
                                     <div className="col-6 text-right ititle">
                                       {index.caretaker}
@@ -304,29 +304,29 @@ const UserProfileOtherInfo = () => {
                                   </div>
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">
-                                    Contact Number/संपर्क क्रमांक:
+                                      Contact Number/संपर्क क्रमांक:
                                     </div>
                                     <div className="col-6 text-right ititle">
                                       {index.caretaker_contact}
                                     </div>
                                   </div>
                                 </div>
-                            
+
                               </div>
                               <div className="info-box">
                                 <div className="header">
                                   <h4 className="content-title info-main-title text-center mb-3">Expectation/अपेक्षा वधू/वर</h4>
                                 </div>
                                 <div className="content">
-                                <div className="row mb-2">
+                                  <div className="row mb-2">
                                     <div className="col-6 ititle">
-                                    Expection/अपेक्षा वधू/वर:
+                                      Expection/अपेक्षा वधू/वर:
                                     </div>
                                     <div className="col-6 text-right ititle">
                                       {index.expectation}
                                     </div>
                                   </div>
-                                  
+
                                 </div>
                               </div>
                             </div>
