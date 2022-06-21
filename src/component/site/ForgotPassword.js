@@ -33,16 +33,16 @@ export default function ForgotPassword() {
 
   const checkUsername = (data) => {
     // if (!isOtpSend) {
-      Service.getUserByContact(data.contact).then((res) => {
-        if (res.data.warning) {
-          setErrMsg(res.data.warning);
-          setShowErrMsg(true);
-        } else {
-          localStorage.setItem("FUser",JSON.stringify(res.data));
-          sendOTP("+91" + data.contact);
-          setIsOtpSend(true);
-        }
-      });
+    Service.getUserByContact(data.contact).then((res) => {
+      if (res.data.warning) {
+        setErrMsg(res.data.warning);
+        setShowErrMsg(true);
+      } else {
+        localStorage.setItem("FUser", JSON.stringify(res.data));
+        sendOTP("+91" + data.contact);
+        setIsOtpSend(true);
+      }
+    });
     // } else {
     //   setErrMsg("OTP already sent..!");
     //   setShowErrMsg(true);
@@ -90,7 +90,7 @@ export default function ForgotPassword() {
       <section className="breadcrumb-area profile-bc-area">
         <div className="container">
           <div className="content">
-            <h2 className="title extra-padding">Recover Password</h2>
+            <h4 className="title extra-padding">Recover Password</h4>
             <ul className="breadcrumb-list extra-padding">
               <li>
                 <Link to="">Home</Link>

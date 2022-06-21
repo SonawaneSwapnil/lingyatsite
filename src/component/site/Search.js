@@ -82,7 +82,7 @@ export default function Search() {
       {/* <!-- ==========Breadcrumb-Section========== --> */}
       {/* <!-- ==========Community-Section========== --> */}
       <section className="community-section inner-page">
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-lg-12">
               <div className="top-filter">
@@ -137,18 +137,15 @@ export default function Search() {
                             to="/profile"
                             className="name"
                             onClick={() => {
-                              localStorage.setItem(
-                                "SearchUserID",
-                                JSON.stringify(index.user_id)
-                              );
-                            }}
-                          >
+                              localStorage.setItem("SearchUserID", JSON.stringify(index.user_id));
+                            }}>
                             {index.user_name}
-                            <span className="isvarify">
+                            {/* <span className="isvarify">
                               <i className="fas fa-check-circle"></i>
-                            </span>
+                            </span> */}
                           </Link>
-                          <p className="date">Age: {index.age}</p>
+                          <p className="date ititle">Age: {index.age}</p>
+                          <p className="date ititle">Workplace: {index.workplace}</p>
                         </div>
                         <div className="col-lg-6 col-sm-6">
                           <Link to="/profile" className="w-100">

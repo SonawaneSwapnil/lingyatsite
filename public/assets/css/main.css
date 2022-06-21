@@ -1751,7 +1751,7 @@ input[type=submit] {
 }
 
 .footer-section .copyright-wrapper .copyr-text a {
-  color: #ff5e00;
+  color: #fff;
 }
 
 .footer-section .copyright-wrapper .footer-social-links {
@@ -4243,7 +4243,7 @@ input[type=submit] {
 /* Contact-Section Starts Here*/
 .contact-section {
   position: relative;
-  padding: 118px 0px 120px;
+  padding: 20px 0px 120px;
 }
 
 .contact-section .section-header {
@@ -4833,7 +4833,7 @@ input[type=submit] {
 
 /*  Profile Section Start */
 .profile-section {
-  padding: 120px 0px 120px;
+  padding: 20px 0px 120px;
 }
 
 .profile-section .left-profile-area .profile-about-box {
@@ -5837,7 +5837,7 @@ input[type=submit] {
 
 /*  Avout Section Start */
 .about-section {
-  padding-top: 116px;
+  padding-top: 20px;
   padding-bottom: 116px;
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navigate,Outlet, Link, useNavigate } from 'react-router-dom'
+import { Navigate, Outlet, Link, useNavigate } from 'react-router-dom'
 
 // const useAuth=()=>{
 //   const userLogin=JSON.parse(localStorage.getItem('USERID'));
@@ -52,9 +52,9 @@ export default function Site() {
               <li><Link to="/" activeclassname="active">Home</Link></li>
               <li><Link to="/about" activeclassname="active">About Us</Link></li>
               <li><Link to="/contact" activeclassname="active">Contact</Link></li>
-              {!isLoggedin && <li><a style={{cursor: 'pointer'}} onClick={login}>Login</a></li>} 
+              {!isLoggedin && <li><a style={{ cursor: 'pointer' }} onClick={login}>Login</a></li>}
               {!isLoggedin && <li><Link to="/registration" activeclassname="active">Registration</Link></li>}
-              
+
               <li className="separator"><span>|</span></li>
               {/* <li>
                 <div className="serch-icon">
@@ -97,7 +97,7 @@ export default function Site() {
       {/* <!-- ==========Header-Section========== --> */}
 
       {/* {auth?<Outlet/>: <Navigate to="/login"/>} */}
-      <Outlet/>
+      <Outlet />
 
       {/* <!-- ==========Footer-Section========== --> */}
       <div className="footer-section">
@@ -122,7 +122,7 @@ export default function Site() {
               <div className="align-self-center">
                 <div className="copyr-text">
                   <span className='text-end'>Copyright © 2022.All Rights Reserved By</span>
-                  <a href='https://atjoin.in'><strong>&nbsp;ATJOIN PVT. LTD.</strong></a>
+                  <a href='https://mkvlvivah.com'><strong>&nbsp;महाराष्ट्र कर्नाटक वीरशैव लिंगायत निःशुल्क विवाह डॉट कॉम</strong></a>
                 </div>
               </div>
             </div>

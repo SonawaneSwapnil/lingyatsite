@@ -66,7 +66,7 @@ export default function Expectation() {
       <section className="breadcrumb-area profile-bc-area">
         <div className="container">
           <div className="content">
-            <h2 className="title extra-padding">Add/Update Expectation Information</h2>
+            <h4 className="title extra-padding">Add/Update Expectation Information</h4>
             <ul className="breadcrumb-list extra-padding">
               <li><Link to="/">Home</Link></li>
               <li>Add/Update Expectation Information</li>
@@ -123,8 +123,8 @@ export default function Expectation() {
                               id="inputGroupFile04"
                               aria-describedby="inputGroupFileAddon04"
                               aria-label="Upload"
-                              {...register("passport",{
-                                required:"Please select photo"
+                              {...register("passport", {
+                                required: "Please select photo"
                               })}
                               onChange={passportHandler} />
                             {errors.passport && (
@@ -142,8 +142,8 @@ export default function Expectation() {
                               id="inputGroupFile04"
                               aria-describedby="inputGroupFileAddon04"
                               aria-label=""
-                              {...register("fullphoto",{
-                                required:"Please select photo"
+                              {...register("fullphoto", {
+                                required: "Please select photo"
                               })}
                               onChange={fullphotoHandler}
                             />

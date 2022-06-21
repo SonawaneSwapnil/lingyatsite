@@ -30,7 +30,7 @@ export default function UserProfileInfo() {
       <section className="breadcrumb-area profile-bc-area">
         <div className="container">
           <div className="content">
-            <h2 className="title extra-padding">Profile</h2>
+            <h4 className="title extra-padding">Profile</h4>
             <ul className="breadcrumb-list extra-padding">
               <li><Link to="/">Home</Link></li>
               <li>Profile</li>

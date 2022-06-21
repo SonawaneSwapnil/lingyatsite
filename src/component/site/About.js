@@ -14,7 +14,7 @@ export default function About() {
       <section className="breadcrumb-area profile-bc-area">
         <div className="container">
           <div className="content">
-            <h2 className="title">About us</h2>
+            <h4 className="title">About us</h4>
             <ul className="breadcrumb-list">
               <li><Link to="/">Home</Link></li>
               <li>About us</li>

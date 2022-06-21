@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Service from "../../service/Service";
 
 export default function Contact() {
-  
+
   const {
     register,
     handleSubmit,
@@ -28,7 +28,7 @@ export default function Contact() {
       <section className="breadcrumb-area profile-bc-area">
         <div className="container">
           <div className="content">
-            <h2 className="title">contact us</h2>
+            <h4 className="title">contact us</h4>
             <ul className="breadcrumb-list">
               <li><Link to="/">Home</Link></li>
               <li>contact us</li>
@@ -106,8 +106,8 @@ export default function Contact() {
                         </div>
                       </div>
                     </div>
-                    <div className="button-wrapper d-grid gap-2 col-6 mx-auto mt-3">
-                      <button type="submit" className="custom-button ml-5">Submit</button>
+                    <div className="button-wrapper mt-3">
+                      <button type="submit" className="custom-button">Submit</button>
                     </div>
                   </form>
                 </div>

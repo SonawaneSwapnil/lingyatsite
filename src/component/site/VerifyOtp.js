@@ -40,8 +40,8 @@ export default function VerifyOtp() {
   };
 
   const initVerify = (data) => {
-      setNewContact(data.contact);
-      sendOTP("+91" + data.contact);
+    setNewContact(data.contact);
+    sendOTP("+91" + data.contact);
 
   };
 
@@ -71,7 +71,7 @@ export default function VerifyOtp() {
         .then((result) => {
           setShowErrMsg(false);
           const user = result.user;
-          userData.contact=newContact;
+          userData.contact = newContact;
           console.log(userData);
           Service.saveAllUsers(userData).then((res) => {
             navigate("/login");
@@ -91,7 +91,7 @@ export default function VerifyOtp() {
       <section className="breadcrumb-area profile-bc-area">
         <div className="container">
           <div className="content">
-            <h2 className="title extra-padding">Contact Verification</h2>
+            <h4 className="title extra-padding">Contact Verification</h4>
             <ul className="breadcrumb-list extra-padding">
               <li>
                 <Link to="">Home</Link>

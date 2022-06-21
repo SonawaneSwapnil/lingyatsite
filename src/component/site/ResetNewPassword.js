@@ -28,7 +28,7 @@ export default function ResetNewPassword() {
       <section className="breadcrumb-area profile-bc-area">
         <div className="container">
           <div className="content">
-            <h2 className="title extra-padding">Setup New Password</h2>
+            <h4 className="title extra-padding">Setup New Password</h4>
             <ul className="breadcrumb-list extra-padding">
               <li>
                 <Link to="">Home</Link>
