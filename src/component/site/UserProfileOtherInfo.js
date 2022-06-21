@@ -150,37 +150,43 @@ const UserProfileOtherInfo = () => {
     doc.setFont('Poppins-Bold', 'bold');
     doc.text(usersData[0].address.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 480);
 
-    doc.setFontSize(14);
-    doc.setTextColor(158, 0, 53);
-    doc.setFont('Poppins-Bold', 'bold');
-    doc.text("Family Information:", 50, 520);
-    doc.line(50, 525, 545, 525);
-
-    doc.setFontSize(12);
-    doc.setTextColor(0, 0, 0);
-    doc.setFont('Poppins-Regular', 'normal');
-    doc.text("Father Name : ", 50, 540);
-    doc.setFont('Poppins-Bold', 'bold');
-    doc.text(usersData[0].father.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 540);
-
     doc.setFontSize(12);
     doc.setFont('Poppins-Regular', 'normal');
-    doc.text("Contact-No : ", 50, 560);
+    doc.text("Contact No : ", 50, 500);
     doc.setFont('Poppins-Bold', 'bold');
-    doc.text(usersData[0].father_contact.toString(), 300, 560);
+    doc.text(usersData[0].contact.toString(), 300, 500);
 
     doc.setFontSize(14);
     doc.setTextColor(158, 0, 53);
     doc.setFont('Poppins-Bold', 'bold');
-    doc.text("Expectation:", 50, 600);
-    doc.line(50, 605, 545, 605);
+    doc.text("Family Information:", 50, 540);
+    doc.line(50, 545, 545, 545);
 
     doc.setFontSize(12);
     doc.setTextColor(0, 0, 0);
     doc.setFont('Poppins-Regular', 'normal');
-    doc.text("Expection : ", 50, 620);
+    doc.text("Father Name : ", 50, 560);
     doc.setFont('Poppins-Bold', 'bold');
-    doc.text(usersData[0].expectation.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 620);
+    doc.text(usersData[0].father.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 560);
+
+    doc.setFontSize(12);
+    doc.setFont('Poppins-Regular', 'normal');
+    doc.text("Contact-No : ", 50, 580);
+    doc.setFont('Poppins-Bold', 'bold');
+    doc.text(usersData[0].father_contact.toString(), 300, 580);
+
+    doc.setFontSize(14);
+    doc.setTextColor(158, 0, 53);
+    doc.setFont('Poppins-Bold', 'bold');
+    doc.text("Expectation:", 50, 620);
+    doc.line(50, 625, 545, 625);
+
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+    doc.setFont('Poppins-Regular', 'normal');
+    doc.text("Expection : ", 50, 645);
+    doc.setFont('Poppins-Bold', 'bold');
+    doc.text(usersData[0].expectation.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 645);
 
     // doc.addImage(printFooter, 'png', 0, 780, 595, 62, 'footer')
     doc.save(usersData[0].user_name + "profile.pdf");
