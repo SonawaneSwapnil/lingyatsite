@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Service from "../../service/Service";
 import LeftProfileArea from "../common/LeftProfileArea";
+import UserPanelMenu from "../common/UserPanelMenu";
 
 export default function UserProfileInfo() {
   const [usersData, setUsersData] = useState();
@@ -49,13 +50,7 @@ export default function UserProfileInfo() {
 
                 <div className="col-xl-8 col-lg-7">
                   <div className="profile-main-content">
-                    <ul className="top-menu">
-                      <li><NavLink to="/profile" activeclassname="active-class">Profile</NavLink></li>
-                      {!SearchUserID ? (
-                        <li><NavLink to="/update-profile" activeclassname="active-class" >Add/Update Information</NavLink></li>
-                      ) : null}
-                      <li><NavLink to="/search" activeclassname="active-class">Search</NavLink></li>
-                    </ul>
+                    <UserPanelMenu data={usersData} />
 
                     {/* Display User data */}
 
@@ -197,9 +192,7 @@ export default function UserProfileInfo() {
                     </div>
                     <div className="button-wrapper text-center">
                       <Link to="/other-info">
-                        <button type="submit" className="custom-button">
-                          View More Information
-                        </button>
+                        <button type="submit" className="custom-button">View More Information</button>
                       </Link>
                     </div>
                   </div>
