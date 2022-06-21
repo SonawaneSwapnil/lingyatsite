@@ -34,8 +34,7 @@ function LeftProfileArea(props) {
               <div className="img">
                 <img src={data.fullphoto} className="img-fluid" alt="" />
                 <div className="overlay">
-                  <Link to="assets/images/profile/up1.jpg" className="light-box mfp-iframe">
-                    <i className="fas fa-plus"></i></Link>
+                  <a href={data.fullphoto} target='_blank' className="light-box mfp-iframe"><i className="fas fa-plus"></i></a>
                 </div>
               </div>
             </div>
