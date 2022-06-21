@@ -63,7 +63,7 @@ export default function ResetNewPassword() {
                     </div>
                     <div className="row input-group d-flex justify-content-center ">
                       <input
-                        type="newpassword"
+                        type="password"
                         className="my-form-control col-sm-8 ml-5"
                         id="exampleInputPassword1"
                         aria-describedby="emailHelp"
@@ -94,7 +94,7 @@ export default function ResetNewPassword() {
                     </div>
                     <div className="row input-group d-flex justify-content-center ">
                       <input
-                        type="confirmpassword"
+                        type="password"
                         className="my-form-control col-sm-8 ml-5"
                         id="exampleInputPassword1"
                         aria-describedby="emailHelp"

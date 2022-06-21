@@ -14,6 +14,8 @@ export default function UpdateProfileInfo() {
     moment().subtract(18, "years").format("YYYY-MM-DD")
   );
 
+  let navigate = useNavigate();
+
   const handleshowhide = (event) => {
     const getuser = event.target.value;
     setshowhide(getuser);
@@ -23,8 +25,6 @@ export default function UpdateProfileInfo() {
     register,
     handleSubmit,
     formState: { errors },
-    getValues,
-    setValue,
     reset,
   } = useForm();
 
@@ -39,7 +39,6 @@ export default function UpdateProfileInfo() {
       setuserUpdateData(res.data);
       reset(res.data[0]);
       setDefaultDateValue(moment(res.data[0].dob).format("YYYY-MM-DD"));
-      console.log(res.data);
     });
   };
 
@@ -56,7 +55,7 @@ export default function UpdateProfileInfo() {
 
   const updateRecord = (fdata) => {
     var data = fdata;
-    data.age=getAge(moment(data.dob).format("YYYY-MM-DD"))
+    data.age = getAge(moment(data.dob).format("YYYY-MM-DD"))
     data.user_id = userID;
     data.dob = moment(data.dob).format("YYYY-MM-DD");
     Service.updateUsers(data)
@@ -68,8 +67,6 @@ export default function UpdateProfileInfo() {
         console.log(err);
       });
   };
-
-  let navigate = useNavigate();
   return (
     <div>
       {/* <!-- ==========Breadcrumb-Section========== --> */}
