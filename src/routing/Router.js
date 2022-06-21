@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Navigate,BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from '../component/site/Home'
 import Site from '../component/site/Site'
 import About from "../component/site/About"
@@ -14,9 +14,19 @@ import Search from '../component/site/Search'
 import UserProfileOtherInfo from '../component/site/UserProfileOtherInfo'
 import ForgotPassword from "../component/site/ForgotPassword"
 import ResetNewPassword from "../component/site/ResetNewPassword"
-import VerifyOtp from "../component/site/VerifyOtp"
+import VerifyOtp from "../component/site/VerifyOtp";
+
+const useAuth=()=>{
+  const userLogin=JSON.parse(localStorage.getItem('USERID'));
+  if(userLogin){
+    return true
+  } else {
+    return false
+  }
+}
 
 export default function Router() {
+  const auth=useAuth();
   return (
     <div>
       <BrowserRouter>
@@ -28,12 +38,12 @@ export default function Router() {
             <Route path="" element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
-            <Route path="profile" element={<UserProfileInfo />} />
-            <Route path="update-profile" element={<UpdateProfileInfo />} />
-            <Route path="update-family" element={<UpdateFamilyInfo />} />
-            <Route path="update-expectation" element={<UpdateExpectation />} />
-            <Route path="search" element={<Search />} />
-            <Route path="other-info" element={<UserProfileOtherInfo />} />
+            <Route path="profile"  element={auth?<UserProfileInfo />: <Navigate to="/login"/>} />
+            <Route path="update-profile" element={auth?<UpdateProfileInfo />: <Navigate to="/login"/>} />
+            <Route path="update-family" element={auth?<UpdateFamilyInfo />: <Navigate to="/login"/>} />
+            <Route path="update-expectation" element={auth?<UpdateExpectation />: <Navigate to="/login"/>} />
+            <Route path="search" element={auth?<Search />: <Navigate to="/login"/>} />
+            <Route path="other-info" element={auth?<UserProfileOtherInfo />: <Navigate to="/login"/>} />
             <Route path="forgot-password" element={<ForgotPassword />} />
             <Route path="reset-password" element={<ResetNewPassword />} />
             <Route path="verify-otp" element={<VerifyOtp />} />

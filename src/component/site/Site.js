@@ -1,8 +1,17 @@
 import React from 'react'
-import { Outlet, Link, useNavigate } from 'react-router-dom'
+import { Navigate,Outlet, Link, useNavigate } from 'react-router-dom'
+
+// const useAuth=()=>{
+//   const userLogin=JSON.parse(localStorage.getItem('USERID'));
+//   if(userLogin){
+//     return true
+//   } else {
+//     return false
+//   }
+// }
 
 export default function Site() {
-
+  // const auth=useAuth();
   let navigate = useNavigate();
 
   var isLoggedin = localStorage.getItem("USERID");
@@ -40,10 +49,12 @@ export default function Site() {
               <Link to=""><img src="./assets/images/logo/logo-1.png" alt="logo" /></Link>
             </div>
             <ul className="menu">
-              <li><Link to="" activeclassname="active">Home</Link></li>
+              <li><Link to="/" activeclassname="active">Home</Link></li>
               <li><Link to="/about" activeclassname="active">About Us</Link></li>
               <li><Link to="/contact" activeclassname="active">Contact</Link></li>
-
+              {!isLoggedin && <li><a style={{cursor: 'pointer'}} onClick={login}>Login</a></li>} 
+              {!isLoggedin && <li><Link to="/registration" activeclassname="active">Registration</Link></li>}
+              
               <li className="separator"><span>|</span></li>
               {/* <li>
                 <div className="serch-icon">
@@ -85,7 +96,8 @@ export default function Site() {
       </div>
       {/* <!-- ==========Header-Section========== --> */}
 
-      <Outlet />
+      {/* {auth?<Outlet/>: <Navigate to="/login"/>} */}
+      <Outlet/>
 
       {/* <!-- ==========Footer-Section========== --> */}
       <div className="footer-section">
