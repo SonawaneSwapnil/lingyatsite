@@ -22,8 +22,8 @@ function UserPanelMenu(props) {
 
     var printHeader = new Image();
     printHeader.src = 'assets/images/print/print-header.png';
-    // var printFooter = new Image();
-    // printFooter.src = 'assets/images/print/print-footer.png';
+    var printFooter = new Image();
+    printFooter.src = 'assets/images/print/print-footer.png';
 
     doc.addImage(printHeader, 'png', 0, 0, 595, 120, 'header');
 
@@ -38,7 +38,7 @@ function UserPanelMenu(props) {
     doc.setFont('Poppins-Regular', 'normal');
     doc.text("Name : ", 50, 180);
     doc.setFont('Poppins-Bold', 'bold');
-    doc.text(usersData[0].user_name.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 180);
+    doc.text(usersData[0].user_name.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 180 || " ");
 
     doc.setFontSize(12);
     doc.setFont('Poppins-Regular', 'normal');
@@ -132,41 +132,155 @@ function UserPanelMenu(props) {
 
     doc.setFontSize(12);
     doc.setFont('Poppins-Regular', 'normal');
-    doc.text("Contact No : ", 50, 500);
+    doc.text("Contact-No  : ", 50, 500);
     doc.setFont('Poppins-Bold', 'bold');
-    doc.text(usersData[0].contact.toString(), 300, 500);
+    doc.text(usersData[0].contact.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 500);
+
 
     doc.setFontSize(14);
     doc.setTextColor(158, 0, 53);
     doc.setFont('Poppins-Bold', 'bold');
-    doc.text("Family Information:", 50, 540);
-    doc.line(50, 545, 545, 545);
+    doc.text("Family Information:", 50, 520);
+    doc.line(50, 525, 545, 525);
 
     doc.setFontSize(12);
     doc.setTextColor(0, 0, 0);
     doc.setFont('Poppins-Regular', 'normal');
-    doc.text("Father Name : ", 50, 560);
+    doc.text("Father Name : ", 50, 540);
     doc.setFont('Poppins-Bold', 'bold');
-    doc.text(usersData[0].father.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 560);
+    // doc.text(usersData[0].father.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 540);
+
+    if (usersData[0].father == "") {
+      doc.text(300, 540, "Information not available");
+    } else {
+      doc.text(usersData[0].father.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 540);
+    }
 
     doc.setFontSize(12);
     doc.setFont('Poppins-Regular', 'normal');
-    doc.text("Contact-No : ", 50, 580);
+    doc.text("Contact-No : ", 50, 560);
     doc.setFont('Poppins-Bold', 'bold');
-    doc.text(usersData[0].father_contact.toString(), 300, 580);
+    doc.text(usersData[0].father_contact.toString(), 300, 560);
+
+    if (usersData[0] == "") {
+      doc.text(300, 560, "Information not available");
+    } else {
+      doc.text(usersData[0].father_contact.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 560);
+    }
+
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+    doc.setFont('Poppins-Regular', 'normal');
+    doc.text("Mother Name : ", 50, 580);
+    doc.setFont('Poppins-Bold', 'bold');
+    doc.text(usersData[0].mother.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 580);
+
+    if (usersData[0].mother == "") {
+      doc.text(300, 580, "Information not available");
+    } else {
+      doc.text(usersData[0].mother.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 580);
+    }
+
+    doc.setFontSize(12);
+    doc.setFont('Poppins-Regular', 'normal');
+    doc.text("Contact-No : ", 50, 600);
+    doc.setFont('Poppins-Bold', 'bold');
+    doc.text(usersData[0].mother_contact.toString(), 300, 600);
+
+    if (usersData[0].mother_contact == "") {
+      doc.text(300, 600, "Information not available");
+    } else {
+      doc.text(usersData[0].mother_contact.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 600);
+    }
+
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+    doc.setFont('Poppins-Regular', 'normal');
+    doc.text("Brother Name : ", 50, 620);
+    doc.setFont('Poppins-Bold', 'bold');
+    doc.text(usersData[0].brother.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 620);
+
+    if (usersData[0].brother == "") {
+      doc.text(300, 620, "Information not available");
+    } else {
+      doc.text(usersData[0].brother.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 620);
+    }
+
+    doc.setFontSize(12);
+    doc.setFont('Poppins-Regular', 'normal');
+    doc.text("Contact-No : ", 50, 640);
+    doc.setFont('Poppins-Bold', 'bold');
+    doc.text(usersData[0].brother_contact.toString(), 300, 640);
+
+    if (usersData[0].brother_contact == "") {
+      doc.text(300, 640, "Information not available");
+    } else {
+      doc.text(usersData[0].brother_contact.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 640);
+    }
+
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+    doc.setFont('Poppins-Regular', 'normal');
+    doc.text("Sister Name : ", 50, 660);
+    doc.setFont('Poppins-Bold', 'bold');
+    doc.text(usersData[0].sister.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 660);
+
+    if (usersData[0].sister == "") {
+      doc.text(300, 660, "Information not available");
+    } else {
+      doc.text(usersData[0].sister.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 660);
+    }
+
+    doc.setFontSize(12);
+    doc.setFont('Poppins-Regular', 'normal');
+    doc.text("Contact-No : ", 50, 680);
+    doc.setFont('Poppins-Bold', 'bold');
+    doc.text(usersData[0].sister_contact.toString(), 300, 680);
+
+    if (usersData[0].sister_contact == "") {
+      doc.text(300, 680, "Information not available");
+    } else {
+      doc.text(usersData[0].sister_contact.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 680);
+    }
+
+
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+    doc.setFont('Poppins-Regular', 'normal');
+    doc.text("CareTaker Name : ", 50, 700);
+    doc.setFont('Poppins-Bold', 'bold');
+    doc.text(usersData[0].caretaker.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 700);
+
+    if (usersData[0].caretaker == "") {
+      doc.text(300, 700, "Information not available");
+    } else {
+      doc.text(usersData[0].caretaker.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 700);
+    }
+
+    doc.setFontSize(12);
+    doc.setFont('Poppins-Regular', 'normal');
+    doc.text("Contact-No : ", 50, 720);
+    doc.setFont('Poppins-Bold', 'bold');
+    doc.text(usersData[0].caretaker_contact.toString(), 300, 720);
+
+    if (usersData[0].caretaker_contact == "") {
+      doc.text(300, 720, "Information not available");
+    } else {
+      doc.text(usersData[0].caretaker_contact.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 720);
+    }
 
     doc.setFontSize(14);
     doc.setTextColor(158, 0, 53);
     doc.setFont('Poppins-Bold', 'bold');
-    doc.text("Expectation:", 50, 620);
-    doc.line(50, 625, 545, 625);
+    doc.text("Expectation:", 50, 740);
+    doc.line(50, 745, 545, 745);
 
     doc.setFontSize(12);
     doc.setTextColor(0, 0, 0);
     doc.setFont('Poppins-Regular', 'normal');
-    doc.text("Expection : ", 50, 645);
+    doc.text("Expectation : ", 50, 760);
     doc.setFont('Poppins-Bold', 'bold');
-    doc.text(usersData[0].expectation.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 645);
+    doc.text(usersData[0].expectation.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 760);
 
     // doc.addImage(printFooter, 'png', 0, 780, 595, 62, 'footer')
     doc.save(usersData[0].user_name + " Profile.pdf");

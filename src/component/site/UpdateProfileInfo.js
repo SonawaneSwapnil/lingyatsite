@@ -38,7 +38,7 @@ export default function UpdateProfileInfo() {
   const loadAllData = () => {
     Service.getSingleUser(userID).then((res) => {
       setuserUpdateData(res.data);
-      reset({...res.data[0],dob:moment(res.data[0].dob).format("YYYY-MM-DD")});
+      reset({ ...res.data[0], dob: moment(res.data[0].dob).format("YYYY-MM-DD") });
     });
   };
 
@@ -121,8 +121,8 @@ export default function UpdateProfileInfo() {
                             type="date"
                             className="my-form-control"
                             id="exampleInputdate"
-                            max={oldDate} 
-                            />
+                            max={oldDate}
+                          />
                           {errors.dob && (<span style={{ color: "red" }}>{errors.dob.message}</span>)}
                           <br />
                         </div>
@@ -346,7 +346,7 @@ export default function UpdateProfileInfo() {
                           </div>
                         </div>
                         <div className="col-12 mt-5 text-center">
-                          <Link to='/profile' className="col-lg-5 col-md-5"><button className="custom-button w-100">back</button></Link>
+                          <Link to='/profile' className="col-lg-5 col-md-5"><button className="custom-button w-100">Back</button></Link>
                           <button type="submit" className="col-lg-5 col-md-5 btn-mt custom-button w-100">Save and Continue</button>
                         </div>
                       </form>

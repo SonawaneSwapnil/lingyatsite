@@ -42,43 +42,39 @@ export default function Home() {
         className="container"
         style={{ backgroundColor: "rgb(158, 0, 53)", padding: 50, borderRadius: 16 }} >
         <form className="row" onSubmit={handleSubmit(searchFilter)}>
-          <div className="col-lg-2 col-sm-12 p-1">
+          <div className="row">
             <label
-              className="visually-hidden text-light ititle"
+              className="visually-hidden text-light ititle col-5"
               htmlFor="specificSizeInputGroupUsername" >
               I am looking for:
             </label>
-            <div className="row p-0 m-0">
-              <div className="col-3 p-0">
-                <label className="form-check-label text-light ititle mb-2" htmlFor="flexRadioDefault1" >
-                  Groom
-                </label>
-              </div>
-              <div className="col-1 ml-2">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
-                  value="male"
-                  {...register("looking_for_gender", { required: true })} />
-              </div>
-              <div className="col-3 p-0">
-                <label
-                  className="form-check-label text-light ititle mb-2"
-                  htmlFor="flexRadioDefault2">
-                  Bride
-                </label>
-              </div>
-              <div className="col-1">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault2"
-                  value="female"
-                  {...register("looking_for_gender", { required: true })} />
-              </div>
+            <div className="col-2">
+              <label className="form-check-label text-light ititle mb-2" htmlFor="flexRadioDefault1" >Groom</label>
+            </div>
+            <div className="col-1 ml-2">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+                value="male"
+                {...register("looking_for_gender", { required: 'Select looking for' })} />
+            </div>
+            <div className="col-2">
+              <label
+                className="form-check-label text-light ititle mb-2"
+                htmlFor="flexRadioDefault2">
+                Bride
+              </label>
+            </div>
+            <div className="col-1">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault2"
+                value="female"
+                {...register("looking_for_gender", { required: 'Select looking for' })} />
             </div>
           </div>
           <div className="col-lg-2 col-sm-12 p-1">

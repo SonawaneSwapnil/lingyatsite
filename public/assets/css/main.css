@@ -10007,24 +10007,3 @@ input[type=submit] {
   color: #fff;
   padding: 12px 10px 12px;
 }
-
-/* Custom CSS */
-
-.ititle {
-  font-size: 14px !important;
-  font-weight: 600;
-  top: 7px;
-}
-
-.ddown {
-  height: 38px;
-}
-
-.s-modal {
-  overflow-y: auto;
-  overflow-y: scroll;
-}
-
-.th {
-  margin-left: 50px;
-}

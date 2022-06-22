@@ -172,7 +172,7 @@ export default function Family() {
                       </div>
 
                       <div className="col-12 mt-5 text-center">
-                        <Link to='/update-profile' className="col-lg-5 col-md-5"><button className="custom-button w-100">back</button></Link>
+                        <Link to='/update-profile' className="col-lg-5 col-md-5"><button className="custom-button w-100">Back</button></Link>
                         <button type="submit" className="col-lg-5 col-md-5 btn-mt custom-button w-100">Save and Continue</button>
                       </div>
                     </form>

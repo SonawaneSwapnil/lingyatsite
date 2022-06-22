@@ -75,7 +75,7 @@ export default function Site() {
                   </ul> :
                   <ul className="submenu">
                     <div className='row'>
-                      <li className='col-9'><Link to="/profile" onClick={goProfile} activeclassname="active">{USERNAME}</Link></li>
+                      <li className='col-9'><Link to="/profile" onClick={goProfile} activeclassname="active">{USERNAME ? USERNAME : "Profile"}</Link></li>
                       <i className="fa fa-cog col-3 p-3" aria-hidden="true"></i>
                     </div>
                     {/* <li> <Link to="/profile" onClick={goProfile} activeclassname="active">Profile</Link></li> */}
