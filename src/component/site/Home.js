@@ -41,102 +41,104 @@ export default function Home() {
       <div
         className="container"
         style={{ backgroundColor: "rgb(158, 0, 53)", padding: 50, borderRadius: 16 }} >
-        <form className="row" onSubmit={handleSubmit(searchFilter)}>
+        <form onSubmit={handleSubmit(searchFilter)}>
           <div className="row">
-            <label
-              className="visually-hidden text-light ititle col-5"
-              htmlFor="specificSizeInputGroupUsername" >
-              I am looking for:
-            </label>
-            <div className="col-2">
-              <label className="form-check-label text-light ititle mb-2" htmlFor="flexRadioDefault1" >Groom</label>
-            </div>
-            <div className="col-1 ml-2">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="flexRadioDefault"
-                id="flexRadioDefault1"
-                value="male"
-                {...register("looking_for_gender", { required: 'Select looking for' })} />
-            </div>
-            <div className="col-2">
+            <div className="row mt-lg-5">
               <label
-                className="form-check-label text-light ititle mb-2"
-                htmlFor="flexRadioDefault2">
-                Bride
+                className="visually-hidden text-light ititle col-5"
+                htmlFor="specificSizeInputGroupUsername" >
+                I am looking for:
               </label>
-            </div>
-            <div className="col-1">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="flexRadioDefault"
-                id="flexRadioDefault2"
-                value="female"
-                {...register("looking_for_gender", { required: 'Select looking for' })} />
-            </div>
-          </div>
-          <div className="col-lg-2 col-sm-12 p-1">
-            <label className="visually-hidden text-light ititle" htmlFor="specificSizeSelect" >
-              Age Preference:
-            </label>
-            <select className="form-select ddown" id="specificSizeSelect" {...register("age")} >
-              <option defaultValue>Choose...</option>
-              <option value="18-20">18-25</option>
-              <option value="26-30">26-30</option>
-              <option value="31-35">31-35</option>
-              <option value="36-40">36-40</option>
-              <option value="41-45">41-45</option>
-            </select>
-          </div>
-          <div className="col-lg-2 col-sm-12 p-1">
-            <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername" >
-              WorkPlace:
-            </label>
-            <div className="input-group">
-              <div className="input-group-text">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-person-workspace"
-                  viewBox="0 0 16 16" >
-                  <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
-                  <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z" />
-                </svg>
+              <div className="col-2">
+                <label className="form-check-label text-light ititle mb-2" htmlFor="flexRadioDefault1" >Groom</label>
               </div>
-              <input type="text" className="form-control" id="specificSizeInputGroupUsername" {...register("workplace")} />
+              <div className="col-1 ml-2">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault1"
+                  value="male"
+                  {...register("looking_for_gender", { required: 'Select looking for' })} />
+              </div>
+              <div className="col-2">
+                <label
+                  className="form-check-label text-light ititle mb-2"
+                  htmlFor="flexRadioDefault2">
+                  Bride
+                </label>
+              </div>
+              <div className="col-1">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                  value="female"
+                  {...register("looking_for_gender", { required: 'Select looking for' })} />
+              </div>
             </div>
-          </div>
-          <div className="col-lg-2 col-sm-12 p-1">
-            <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername" >
-              Income:
-            </label>
-            <div className="input-group">
-              <select className="form-select ddown" id="specificSizeSelect" {...register("income")} >
-                <option selected>Choose...</option>
-                <option className="textTru chosenDropWid" value="100000">1,00,000 To 5,00,000</option>
-                <option className="textTru chosenDropWid" id="S" value="500000">5,00,000 To 10,00,000</option>
-                <option className="textTru chosenDropWid" id="S" value="1000000" >Above 10,00,000</option>
+            <div className="col-lg-2 col-sm-12 p-1">
+              <label className="visually-hidden text-light ititle" htmlFor="specificSizeSelect" >
+                Age Preference:
+              </label>
+              <select className="form-select ddown" id="specificSizeSelect" {...register("age")} >
+                <option defaultValue>Choose...</option>
+                <option value="18-20">18-25</option>
+                <option value="26-30">26-30</option>
+                <option value="31-35">31-35</option>
+                <option value="36-40">36-40</option>
+                <option value="41-45">41-45</option>
               </select>
             </div>
-          </div>
+            <div className="col-lg-2 col-sm-12 p-1">
+              <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername" >
+                WorkPlace:
+              </label>
+              <div className="input-group">
+                <div className="input-group-text">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-person-workspace"
+                    viewBox="0 0 16 16" >
+                    <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                    <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z" />
+                  </svg>
+                </div>
+                <input type="text" className="form-control" id="specificSizeInputGroupUsername" {...register("workplace")} />
+              </div>
+            </div>
+            <div className="col-lg-2 col-sm-12 p-1">
+              <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername" >
+                Income:
+              </label>
+              <div className="input-group">
+                <select className="form-select ddown" id="specificSizeSelect" {...register("income")} >
+                  <option selected>Choose...</option>
+                  <option className="textTru chosenDropWid" value="100000">1,00,000 To 5,00,000</option>
+                  <option className="textTru chosenDropWid" id="S" value="500000">5,00,000 To 10,00,000</option>
+                  <option className="textTru chosenDropWid" id="S" value="1000000" >Above 10,00,000</option>
+                </select>
+              </div>
+            </div>
 
-          <div className="col-lg-2 col-sm-12 p-1">
-            <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername" >
-              Marital Status:
-            </label>
-            <div className="input-group">
-              <select className="form-select ddown" id="specificSizeSelect" {...register("married_status")} >
-                <option selected>Choose...</option>
-                <option className="textTru chosenDropWid" id="N" value="Never Married" >Never Married</option>
-                <option className="textTru chosenDropWid" id="S" value="Re-Marriage" >Re Marriage</option>
-              </select>
+            <div className="col-lg-2 col-sm-12 p-1">
+              <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername" >
+                Marital Status:
+              </label>
+              <div className="input-group">
+                <select className="form-select ddown" id="specificSizeSelect" {...register("married_status")} >
+                  <option selected>Choose...</option>
+                  <option className="textTru chosenDropWid" id="N" value="Never Married" >Never Married</option>
+                  <option className="textTru chosenDropWid" id="S" value="Re-Marriage" >Re Marriage</option>
+                </select>
+              </div>
             </div>
           </div>
-          <div className="col-lg-2 col-sm-12 col-sm-12 text-center p-1" style={{ marginTop: 36, height: 40 }} >
+          <div className="col-12 button-wrapper text-center" style={{ marginTop: 36, height: 40 }} >
             <button type="submit" className="custom-button">Search</button>
           </div>
         </form>
