@@ -53,11 +53,11 @@ export default function Site() {
               <Link to=""><img src="./assets/images/logo/logo-1.png" alt="logo" /></Link>
             </div>
             <ul className="menu">
-              <li><Link to="/" activeclassname="active">Home</Link></li>
-              <li><Link to="/about" activeclassname="active">About Us</Link></li>
-              <li><Link to="/contact" activeclassname="active">Contact</Link></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/contact">Contact</a></li>
               {!isLoggedin && <li><a style={{ cursor: 'pointer' }} onClick={login}>Login</a></li>}
-              {!isLoggedin && <li><Link to="/registration" activeclassname="active">Registration</Link></li>}
+              {!isLoggedin && <li><a href="/registration">Registration</a></li>}
 
               <li className="separator"><span>|</span></li>
               {/* <li>
@@ -75,7 +75,7 @@ export default function Site() {
                   </ul> :
                   <ul className="submenu">
                     <div className='row'>
-                      <li className='col-9'><Link to="/profile" onClick={goProfile} activeclassname="active">{USERNAME ? USERNAME : "Profile"}</Link></li>
+                      <li className='col-9'><Link to="/profile" onClick={goProfile}>{USERNAME || "Profile"}</Link></li>
                       <i className="fa fa-cog col-3 p-3" aria-hidden="true"></i>
                     </div>
                     {/* <li> <Link to="/profile" onClick={goProfile} activeclassname="active">Profile</Link></li> */}

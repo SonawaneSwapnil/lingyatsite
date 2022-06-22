@@ -53,7 +53,7 @@ export default function Home() {
         style={{ backgroundColor: "rgb(158, 0, 53)", padding: 50, borderRadius: 16 }} >
         <form onSubmit={handleSubmit(searchFilter)}>
           <div className="row">
-            <div className="row mt-lg-5 col-4">
+            <div className="row mt-lg-5 ml-3">
               <label
                 className="visually-hidden text-light ititle"
                 htmlFor="specificSizeInputGroupUsername" >
@@ -133,7 +133,7 @@ export default function Home() {
               <div className="input-group">
                 <select className="form-select ddown" id="specificSizeSelect" name="income"
                   {...register("income", { required: "Select Your Income" })} >
-                  <option selected>Choose...</option>
+                  <option defaultValue>Choose...</option>
                   <option className="textTru chosenDropWid" value="100000">1,00,000 To 5,00,000</option>
                   <option className="textTru chosenDropWid" id="S" value="500000">5,00,000 To 10,00,000</option>
                   <option className="textTru chosenDropWid" id="S" value="1000000" >Above 10,00,000</option>
@@ -150,7 +150,7 @@ export default function Home() {
               <div className="input-group">
                 <select className="form-select ddown" id="specificSizeSelect"
                   {...register("married_status", { required: "Please select marital status" })} >
-                  <option selected>Choose...</option>
+                  <option defaultValue>Choose...</option>
                   <option className="textTru chosenDropWid" id="N" value="Never Married" >Never Married</option>
                   <option className="textTru chosenDropWid" id="S" value="Re-Marriage" >Re Marriage</option>
                 </select>
