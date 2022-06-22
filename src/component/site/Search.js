@@ -99,7 +99,7 @@ export default function Search() {
             </div>
           </div>
           <div className="row">
-            {filteredUser.length>0 ? (
+            {filteredUser && filteredUser.length>0 ? (
               filteredUser.map((index, i) => (
                 <div key={i} className="col-lg-6 col-xl-6">
                   <div className="single-friend">
