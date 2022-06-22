@@ -87,8 +87,7 @@ export default function Home() {
             </label>
             <select className="form-select ddown" id="specificSizeSelect" {...register("age")} >
               <option defaultValue>Choose...</option>
-              <option value="18-20">18-20</option>
-              <option value="21-25">21-25</option>
+              <option value="18-20">18-25</option>
               <option value="26-30">26-30</option>
               <option value="31-35">31-35</option>
               <option value="36-40">36-40</option>
