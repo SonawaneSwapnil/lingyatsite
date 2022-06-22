@@ -65,27 +65,19 @@ export default function UserProfileInfo() {
                         </div>
                         <div className="row mb-2">
                           <div className="col-6 ititle">I am a:</div>
-                          <div className="col-6 text-right ititle">
-                            {index.gender}
-                          </div>
+                          <div className="col-6 text-right ititle">{index.gender}</div>
                         </div>
                         <div className="row mb-2">
                           <div className="col-6 ititle">Looking for a:</div>
-                          <div className="col-6 text-right ititle">
-                            {index.looking_for_gender}
-                          </div>
+                          <div className="col-6 text-right ititle">{index.looking_for_gender}</div>
                         </div>
                         <div className="row mb-2">
                           <div className="col-6 ititle"> Marital status/वैवाहिक स्थिती:</div>
-                          <div className="col-6 text-right ititle">
-                            {index.married_status}
-                          </div>
+                          <div className="col-6 text-right ititle">{index.married_status}</div>
                         </div>
                         <div className="row mb-2">
                           <div className="col-6 ititle"> City/शहर:</div>
-                          <div className="col-6 text-right ititle">
-                            {index.city}
-                          </div>
+                          <div className="col-6 text-right ititle">{index.city}</div>
                         </div>
                       </div>
                     </div>
@@ -99,95 +91,64 @@ export default function UserProfileInfo() {
                       <div className="content">
                         <div className="row mb-2">
                           <div className="col-6 ititle">Name/नाव:</div>
-                          <div className="col-6 text-right ititle">
-                            {index.user_name}
-                          </div>
+                          <div className="col-6 text-right ititle">{index.user_name}</div>
                         </div>
                         <div className="row mb-2">
                           <div className="col-6 ititle"> Date Of Birth/जन्मतारीख:</div>
-                          <div className="col-6 text-right ititle">
-                            {moment(`${index.dob}`).format("DD/MM/YYYY")}
-                          </div>
+                          <div className="col-6 text-right ititle">{moment(`${index.dob}`).format("DD/MM/YYYY")}</div>
                         </div>
                         <div className="row mb-2">
                           <div className="col-6 ititle">Birth Place/जन्मतारीख ठिकाण:</div>
-                          <div className="col-6 text-right ititle">
-                            {index.birth_place}
-                          </div>
+                          <div className="col-6 text-right ititle">{index.birth_place}</div>
                         </div>
                         <div className="row mb-2">
                           <div className="col-6 ititle">Birth time/जन्म वेळ:</div>
-                          <div className="col-6 text-right ititle">
-                            {index.birth_time}
-                          </div>
+                          <div className="col-6 text-right ititle">{index.birth_time}</div>
                         </div>
                         <div className="row mb-2">
                           <div className="col-6 ititle"> Marital status/वैवाहिक स्थिती:</div>
-                          <div className="col-6 text-right ititle">
-                            {index.married_status}
-                          </div>
+                          <div className="col-6 text-right ititle">{index.married_status}</div>
                         </div>
                         <div className="row mb-2">
                           <div className="col-6 ititle">Educational Qualification/शैक्षणिक पात्रता:</div>
-                          <div className="col-6 text-right ititle">
-                            {index.education}
-                          </div>
+                          <div className="col-6 text-right ititle">{index.education}</div>
                         </div>
                         <div className="row mb-2">
                           <div className="col-6 ititle">Service or Business/सेवा किंवा व्यवसाय:</div>
-                          <div className="col-6 text-right ititle">
-                            {index.bussiness}
-                          </div>
+                          <div className="col-6 text-right ititle">{index.bussiness}</div>
                         </div>
                         <div className="row mb-2">
                           <div className="col-6 ititle">Income/उत्पन्न:</div>
-                          <div className="col-6 text-right ititle">
-                            {index.income}
-                          </div>
+                          <div className="col-6 text-right ititle">{index.income}</div>
                         </div>
                         <div className="row mb-2">
                           <div className="col-6 ititle">Designation/हुद्दा:</div>
-                          <div className="col-6 text-right ititle">
-                            {index.designation}
-                          </div>
+                          <div className="col-6 text-right ititle">{index.designation}</div>
                         </div>
                         <div className="row mb-2">
                           <div className="col-6 ititle"> Workplace/कामाची जागा:</div>
-                          <div className="col-6 text-right ititle">
-                            {index.workplace}
-                          </div>
+                          <div className="col-6 text-right ititle">{index.workplace}</div>
                         </div>
                         <div className="row mb-2">
                           <div className="col-6 ititle">Height/उंची:</div>
-                          <div className="col-6 text-right ititle">
-                            {index.height}
-                          </div>
+                          <div className="col-6 text-right ititle">{index.height}</div>
                         </div>
                         <div className="row mb-2">
                           <div className="col-6 ititle">Blood-Group/रक्त गट:</div>
-                          <div className="col-6 text-right ititle">
-                            {index.blood_group}
-                          </div>
+                          <div className="col-6 text-right ititle">{index.blood_group}</div>
                         </div>
                         <div className="row mb-2">
                           <div className="col-6 ititle">Color/रंग:</div>
-                          <div className="col-6 text-right ititle">
-                            {index.color}
-                          </div>
+                          <div className="col-6 text-right ititle">{index.color}</div>
                         </div>
                         <div className="row mb-2">
                           <div className="col-6 ititle">Weight/वजन:</div>
-                          <div className="col-6 text-right ititle">
-                            {index.weight}
-                          </div>
+                          <div className="col-6 text-right ititle">{index.weight}</div>
                         </div>
                         <div className="row mb-2">
                           <div className="col-6 ititle">Address/पत्ता:</div>
-                          <div className="col-6 text-right ititle">
-                            {index.address}
-                          </div>
+                          <div className="col-6 text-right ititle">{index.address}</div>
                         </div>
-
                       </div>
                     </div>
                     <div className="button-wrapper text-center">

@@ -30,9 +30,7 @@ export default function ResetNewPassword() {
           <div className="content">
             <h4 className="title extra-padding">Setup New Password</h4>
             <ul className="breadcrumb-list extra-padding">
-              <li>
-                <Link to="">Home</Link>
-              </li>
+              <li><Link to="">Home</Link></li>
               <li>Setup New Password</li>
             </ul>
           </div>
@@ -44,83 +42,52 @@ export default function ResetNewPassword() {
       <section className="flirting-section mt-3">
         <div className="container">
           <div className="row d-flex justify-content-center">
-            <div className="col-xl-6 col-lg-6">
+            <div className="col-xl-6 col-lg-6" style={{ 'margin': '0 0 60px 0' }}>
               <div className="profile-main-content border border-dark">
                 <div className="mt-4">
                   <form onSubmit={handleSubmit(updatePass)} autoComplete="off">
                     <div className="row d-flex justify-content-center">
-                      <h4 className="content-title text-center">
-                        Setup New Password
-                      </h4>
+                      <h4 className="content-title text-center">Setup New Password</h4>
                     </div>
-                    <div className="row d-flex justify-content-center">
-                      <label
-                        htmlFor="inputdesignation"
-                        className="col-sm-8 col-form-label text-center"
-                      >
-                        Enter Your New Password
-                      </label>
-                    </div>
+                    <label htmlFor="inputdesignation" className="ititle ml-5 mt-3" >
+                      Enter Your New Password
+                    </label>
                     <div className="row input-group d-flex justify-content-center ">
                       <input
                         type="password"
-                        className="my-form-control col-sm-8 ml-5"
+                        className="my-form-control ml-5 mr-3"
                         id="exampleInputPassword1"
                         aria-describedby="emailHelp"
-                        placeholder="Enter new password/पासवर्ड"
                         autoComplete="off"
                         {...register("password", {
                           required: "Please enter your password/पासवर्ड",
-                          minLength: {
-                            value: 8,
-                            message:
-                              "Use 8 characters or more for your password",
-                          },
-                        })}
-                      />
-                      {errors.password && (
-                        <span style={{ color: "red" }}>
-                          {errors.password.message}
-                        </span>
-                      )}
+                          minLength: { value: 8, message: "Use 8 characters or more for your password" },
+                        })} />
+                      {errors.password && (<span style={{ color: "red" }}>{errors.password.message}</span>)}
                     </div>
-                    <div className="row d-flex justify-content-center">
-                      <label
-                        htmlFor="inputdesignation"
-                        className="col-sm-8 col-form-label text-center"
-                      >
+
+                    <div className="row">
+                      <label htmlFor="inputdesignation" className="ititle ml-5" >
                         Enter Your Confirm Password
                       </label>
                     </div>
-                    <div className="row input-group d-flex justify-content-center ">
+                    <div className="row input-group">
                       <input
                         type="password"
-                        className="my-form-control col-sm-8 ml-5"
+                        className="my-form-control ml-5 mr-3"
                         id="exampleInputPassword1"
                         aria-describedby="emailHelp"
-                        placeholder="Enter confirm password/पासवर्ड"
                         autoComplete="off"
                         {...register("confirmpassword", {
                           required: "Please enter confirm password/पासवर्ड",
-                          validate: (val) => {
-                            if (watch("password") != val) {
-                              return "Passwords does not match.";
-                            }
-                          },
-                        })}
-                      />
-                      {errors.confirmpassword && (
-                        <span style={{ color: "red" }}>
-                          {errors.confirmpassword.message}
-                        </span>
-                      )}
+                          validate: (val) => { if (watch("password") != val) { return "Passwords does not match."; } },
+                        })} />
+                      {errors.confirmpassword && (<span style={{ color: "red" }}>{errors.confirmpassword.message}</span>)}
                     </div>
 
                     <div className="row  d-flex justify-content-center ">
                       <div className="button-wrapper mb-3">
-                        <button type="submit" className="custom-button mt-3">
-                          Submit
-                        </button>
+                        <button type="submit" className="custom-button mt-3">Submit</button>
                       </div>
                     </div>
                   </form>

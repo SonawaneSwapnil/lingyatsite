@@ -106,45 +106,25 @@ export default function ForgotPassword() {
       <section className="flirting-section mt-3">
         <div className="container">
           <div className="row d-flex justify-content-center">
-            <div className="col-xl-6 col-lg-6">
+            <div className="col-xl-6 col-lg-6" style={{ 'margin': '0 0 60px 0' }} >
               <div className="profile-main-content border border-dark">
-                {showErrMsg && (
-                  <div className="alert alert-danger" role="alert">
-                    {errMsg}
-                  </div>
-                )}
+                {showErrMsg && (<div className="alert alert-danger" role="alert">{errMsg}</div>)}
                 <div className="mt-4">
-                  <form
-                    onSubmit={handleSubmit(checkUsername)}
-                    autoComplete="off"
-                  >
+                  <form onSubmit={handleSubmit(checkUsername)} autoComplete="off" >
                     <div className="row d-flex justify-content-center">
-                      <h4 className="content-title text-center">
-                        Recover Password
-                      </h4>
+                      <h4 className="content-title text-center">Recover Password</h4>
                     </div>
                     <div className="row d-flex justify-content-center">
-                      <label
-                        htmlFor="inputdesignation"
-                        className="col-sm-8 col-form-label text-center"
-                      >
+                      <label htmlFor="inputdesignation" className="col-sm-8 col-form-label text-center">
                         Contact Number/संपर्क क्रमांक
                       </label>
                     </div>
-                    <div className="row input-group d-flex justify-content-center ">
+                    <div className="row input-group d-flex justify-content-center">
                       <input
                         {...register("contact", {
                           required: "Enter contact number/संपर्क क्रमांक",
-                          minLength: {
-                            value: 10,
-                            message:
-                              "Enter At least 10 digit contact no/संपर्क क्रमांक",
-                          },
-                          maxLength: {
-                            value: 10,
-                            message:
-                              "Enter max 10 digit contact no/संपर्क क्रमांक",
-                          },
+                          minLength: { value: 10, message: "Enter At least 10 digit contact no/संपर्क क्रमांक" },
+                          maxLength: { value: 10, message: "Enter max 10 digit contact no/संपर्क क्रमांक" },
                         })}
                         type="number"
                         className="my-form-control col-sm-8 ml-5"
@@ -152,11 +132,7 @@ export default function ForgotPassword() {
                         placeholder="Please enter contact number/संपर्क क्रमांक"
                         autoComplete="off"
                       />
-                      {errors.contact && (
-                        <span style={{ color: "red" }}>
-                          {errors.contact.message}
-                        </span>
-                      )}
+                      {errors.contact && (<span style={{ color: "red" }}>{errors.contact.message}</span>)}
                       <br />
                       <div id="recaptcha-container"></div>
                     </div>
@@ -171,13 +147,7 @@ export default function ForgotPassword() {
                           onChange={verifyOTP}
                         />
                       ) : null}
-
-                      <button
-                        type="submit"
-                        className="custom-button"
-                      >
-                        Verify and Continue
-                      </button>
+                      <button type="submit" className="custom-button" >Verify and Continue</button>
                     </div>
                   </form>
                 </div>
@@ -186,7 +156,6 @@ export default function ForgotPassword() {
           </div>
         </div>
       </section>
-
       {/* <!-- ========= Profile Section Start -- */}
     </div>
   );

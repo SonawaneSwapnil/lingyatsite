@@ -551,7 +551,7 @@
     .home2-statistics-section .stat-content .counter-item,
     .pricing-plan-wrapper .single-plan .number,
     .breadcrumb-area .content .title {
-        font-size: 30px;
+        font-size: 24px;
         line-height: 40px;
     }
 
@@ -1071,7 +1071,7 @@
     }
 
     .profile-bc-area {
-        padding: 185px 0 110px;
+        padding: 128px 0 48px;
     }
 
     .left-profile-area .c-group-info .profile-image {

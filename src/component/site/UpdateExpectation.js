@@ -89,28 +89,19 @@ export default function Expectation() {
                   <div className="profile-main-content">
                     <ul className="top-menu">
                       <li><NavLink to="/profile">Profile</NavLink></li>
-                      <li><NavLink to="/details" className="active">Add/Update Information</NavLink></li>
+                      <li><NavLink to="/update-profile" className="active">Add/Update Information</NavLink></li>
                       {/* <li><NavLink to="/single_profile3">Members</NavLink></li> */}
                       <li><NavLink to="/Search">search</NavLink></li>
                     </ul>
                     <div className="mt-4">
                       <form onSubmit={handleSubmit(updateRecord)}>
-                        <h4 className="content-title text-center info-main-title">
-                          Expectation/अपेक्षा वधू/वर
-                        </h4>
+                        <h4 className="content-title text-center info-main-title">Expectation/अपेक्षा वधू/वर</h4>
                         <div className="mx-5">
                           <label className="form-label ititle">Expection/अपेक्षा वधू/वर</label>
                           <textarea
                             className="my-form-control"
-                            {...register("expectation", {
-                              required: "Please Expection/अपेक्षा वधू/वर",
-                            })}
-                          ></textarea>
-                          {errors.expectation && (
-                            <span style={{ color: "red" }}>
-                              {errors.expectation.message}
-                            </span>
-                          )}
+                            {...register("expectation", { required: "Please Expection/अपेक्षा वधू/वर", })} />
+                          {errors.expectation && (<span style={{ color: "red" }}>{errors.expectation.message}</span>)}
                         </div>
 
                         <div className="mx-5">
@@ -123,16 +114,11 @@ export default function Expectation() {
                               id="inputGroupFile04"
                               aria-describedby="inputGroupFileAddon04"
                               aria-label="Upload"
-                              {...register("passport", {
-                                required: "Please select photo"
-                              })}
+                              {...register("passport", { required: "Please select photo" })}
                               onChange={passportHandler} />
-                            {errors.passport && (
-                              <span style={{ color: "red" }}>
-                                {errors.passport.message}
-                              </span>
-                            )}
+                            {errors.passport && (<span style={{ color: "red" }}>{errors.passport.message}</span>)}
                           </div>
+
                           <div className="input-group">
                             <label className="form-label ititle">2.Full Photo/पूर्ण फोटो</label>
                             <input
@@ -142,23 +128,15 @@ export default function Expectation() {
                               id="inputGroupFile04"
                               aria-describedby="inputGroupFileAddon04"
                               aria-label=""
-                              {...register("fullphoto", {
-                                required: "Please select photo"
-                              })}
+                              {...register("fullphoto", { required: "Please select photo" })}
                               onChange={fullphotoHandler}
                             />
-                            {errors.fullphoto && (
-                              <span style={{ color: "red" }}>
-                                {errors.fullphoto.message}
-                              </span>
-                            )}
+                            {errors.fullphoto && (<span style={{ color: "red" }}>{errors.fullphoto.message}</span>)}
                           </div>
                         </div>
 
                         <div className="button-wrapper text-center">
-                          {/* <Link to="/profile"> */}
                           <button type="submit" className="custom-button w-50">Submit</button>
-                          {/* </Link> */}
                         </div>
                       </form>
                     </div>

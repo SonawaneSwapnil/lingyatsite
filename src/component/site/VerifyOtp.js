@@ -93,9 +93,7 @@ export default function VerifyOtp() {
           <div className="content">
             <h4 className="title extra-padding">Contact Verification</h4>
             <ul className="breadcrumb-list extra-padding">
-              <li>
-                <Link to="">Home</Link>
-              </li>
+              <li><Link to="">Home</Link></li>
               <li>Contact Verification</li>
             </ul>
           </div>
@@ -107,72 +105,42 @@ export default function VerifyOtp() {
       <section className="flirting-section mt-3">
         <div className="container">
           <div className="row d-flex justify-content-center">
-            <div className="col-xl-6 col-lg-6">
+            <div className="col-xl-6 col-lg-6" style={{ 'margin': '0 0 60px 0' }}>
               <div className="profile-main-content border border-dark">
-                {showErrMsg && (
-                  <div className="alert alert-danger" role="alert">
-                    {errMsg}
-                  </div>
-                )}
+                {showErrMsg && (<div className="alert alert-danger" role="alert">{errMsg}</div>)}
                 <div className="mt-4">
                   <form onSubmit={handleSubmit(initVerify)} autoComplete="off">
                     <div className="row d-flex justify-content-center">
-                      <h4 className="content-title text-center">
-                        Verify Your Contact
-                      </h4>
+                      <h4 className="content-title text-center">Verify Your Contact</h4>
                     </div>
                     <div className="row d-flex justify-content-center">
-                      <label
-                        htmlFor="inputdesignation"
-                        className="col-sm-8 col-form-label text-center"
-                      >
+                      <label htmlFor="inputdesignation" className="ititle ml-5 mt-3">
                         Contact Number/संपर्क क्रमांक
                       </label>
                     </div>
-                    <div className="row input-group d-flex justify-content-center ">
+                    <div className="row input-group d-flex justify-content-center">
                       <input
                         {...register("contact", {
                           required: "Enter contact number/संपर्क क्रमांक",
-                          minLength: {
-                            value: 10,
-                            message:
-                              "Enter At least 10 digit contact no/संपर्क क्रमांक",
-                          },
-                          maxLength: {
-                            value: 10,
-                            message:
-                              "Enter max 10 digit contact no/संपर्क क्रमांक",
-                          },
+                          minLength: { value: 10, message: "Enter At least 10 digit contact no/संपर्क क्रमांक" },
+                          maxLength: { value: 10, message: "Enter max 10 digit contact no/संपर्क क्रमांक" },
                         })}
                         type="number"
-                        className="my-form-control col-sm-8 ml-5"
+                        className="my-form-control ml-5 mr-3"
                         id="contactno"
-                        placeholder="Please enter contact number/संपर्क क्रमांक"
-                        autoComplete="off"
-                      />
-                      {errors.contact && (
-                        <span style={{ color: "red" }}>
-                          {errors.contact.message}
-                        </span>
-                      )}
+                        autoComplete="off" />
+                      {errors.contact && (<span style={{ color: "red" }}>{errors.contact.message}</span>)}
                       <br />
                       <div id="recaptcha-container"></div>
                     </div>
 
                     <div className="button-wrapper d-grid gap-2 col-6 mx-auto mt-3 mb-3">
-                      {show ? (
-                        <input
-                          type="text"
-                          placeholder="Enter Your OTP"
-                          className="mb-3"
-                          value={OTP}
-                          onChange={verifyOTP}
-                        />
-                      ) : null}
+                      {show ?
+                        (<input type="text" placeholder="Enter Your OTP" className="mb-3" value={OTP} onChange={verifyOTP} />)
+                        : null
+                      }
 
-                      <button type="submit" className="custom-button">
-                        Verify and Continue
-                      </button>
+                      <button type="submit" className="custom-button">Verify and Continue</button>
                     </div>
                   </form>
                 </div>

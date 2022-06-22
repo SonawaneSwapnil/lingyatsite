@@ -179,7 +179,7 @@ function UserPanelMenu(props) {
         <li><NavLink to="/update-profile" activeclassname="active-class" >Add/Update Information</NavLink></li>
       ) : null}
       <li><NavLink to="/search" activeclassname="active-class">Search</NavLink></li>
-      <button type="submit" onClick={generatePdf} className="custom-button">Download My Profile</button>
+      <button type="submit" onClick={generatePdf} className="custom-button">Download Profile</button>
     </ul>
   )
 }

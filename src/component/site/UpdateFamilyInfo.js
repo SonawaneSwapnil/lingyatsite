@@ -66,9 +66,7 @@ export default function Family() {
           <div className="content">
             <h4 className="title extra-padding">Add/Update Family Information</h4>
             <ul className="breadcrumb-list extra-padding">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
+              <li><Link to="/">Home</Link></li>
               <li>Add/Update Information</li>
             </ul>
           </div>

@@ -2,12 +2,10 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, NavLink } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import Service from "../../service/Service";
 
 export default function Search() {
   const [filteredUser, setFilterUser] = useState();
-  let navigate = useNavigate();
   const { register, handleSubmit, getValues, reset } = useForm();
   const filterData = JSON.parse(localStorage.getItem("filterData"));
   useEffect(() => {
@@ -69,11 +67,9 @@ export default function Search() {
       <section className="breadcrumb-area profile-bc-area">
         <div className="container">
           <div className="content">
-            <h2 className="title extra-padding">Search</h2>
+            <h4 className="title extra-padding">Search</h4>
             <ul className="breadcrumb-list extra-padding">
-              <li>
-                <Link to="index.html">Home</Link>
-              </li>
+              <li><Link to="index.html">Home</Link></li>
               <li>Search</li>
             </ul>
           </div>
@@ -82,7 +78,7 @@ export default function Search() {
       {/* <!-- ==========Breadcrumb-Section========== --> */}
       {/* <!-- ==========Community-Section========== --> */}
       <section className="community-section inner-page">
-        <div className="container-fluid">
+        <div className="container">
           <div className="row">
             <div className="col-lg-12">
               <div className="top-filter">
@@ -90,10 +86,9 @@ export default function Search() {
                   <Link
                     to=""
                     data-toggle="modal"
-                    data-target="#exampleModalCenter"
-                  >
-                    <i className="fas fa-sliders-h"></i> Find Your Perfect
-                    Partner
+                    data-target="#exampleModalCenter" >
+                    <i className="fas fa-sliders-h"></i>
+                    Find Your Perfect Partner
                   </Link>
                 </div>
                 <div className="profile-section p-0">
@@ -103,20 +98,12 @@ export default function Search() {
                         <NavLink
                           to="/profile"
                           activeclassname="active-class"
-                          onClick={() =>
-                            localStorage.removeItem("SearchUserID")
-                          }
-                        >
+                          onClick={() => localStorage.removeItem("SearchUserID")} >
                           Profile
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink
-                          to="/update-profile"
-                          activeclassname="active-class"
-                        >
-                          Add/Update Information
-                        </NavLink>
+                        <NavLink to="/update-profile" activeclassname="active-class">Add/Update Information</NavLink>
                       </li>
                     </ul>
                   </div>
@@ -132,7 +119,7 @@ export default function Search() {
                     <img src={index.passport} alt="" />
                     <div className="content">
                       <div className="row">
-                        <div className="col-lg-6 col-sm-6">
+                        <div className="col-lg-8 col-sm-8">
                           <Link
                             to="/profile"
                             className="name"
@@ -147,23 +134,11 @@ export default function Search() {
                           <p className="date ititle">Age: {index.age}</p>
                           <p className="date ititle">Workplace: {index.workplace}</p>
                         </div>
-                        <div className="col-lg-6 col-sm-6">
-                          <Link to="/profile" className="w-100">
+                        <div className="col-lg-4 col-sm-4">
+                          <Link to="/profile">
                             <button
                               className="custom-button"
-                              onClick={() => {
-                                localStorage.setItem(
-                                  "SearchUserID",
-                                  JSON.stringify(index.user_id)
-                                );
-                                console.log(
-                                  "SearchUserID",
-                                  JSON.parse(
-                                    localStorage.getItem("SearchUserID")
-                                  )
-                                );
-                              }}
-                            >
+                              onClick={() => { localStorage.setItem("SearchUserID", JSON.stringify(index.user_id)) }}>
                               View Profile
                             </button>
                           </Link>
@@ -191,54 +166,28 @@ export default function Search() {
         tabIndex="-1"
         role="dialog"
         aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true"
-      >
+        aria-hidden="true" >
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
             <div className="modal-header justify-content-between">
-              <h6
-                className="modal-title text-center"
-                id="exampleModalCenterTitle"
-              >
+              <h6 className="modal-title text-center" id="exampleModalCenterTitle" >
                 Find Your Perfect Partner
               </h6>
-              <button
-                type="button"
-                className="close"
-                data-dismiss="modal"
-                aria-label="Close"
-                id="closeModal"
-              >
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close" id="closeModal" >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
 
             <div className="modal-body">
-              <div
-                className="container"
-                style={{
-                  backgroundColor: "rgb(158, 0, 53)",
-                  padding: 50,
-                  borderRadius: 16,
-                }}
-              >
-                <form
-                  className="row gx-3 gy-2 align-items-center"
-                  onSubmit={handleSubmit(loadAllFilterData)}
-                >
-                  <label
-                    className="visually-hidden text-light ititle"
-                    htmlFor="specificSizeInputGroupUsername"
-                  >
+              <div className="container" style={{ backgroundColor: "rgb(158, 0, 53)", padding: 50, borderRadius: 16 }} >
+                <form className="row gx-3 gy-2 align-items-center" onSubmit={handleSubmit(loadAllFilterData)} >
+                  <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername" >
                     Looking For:
                   </label>
                   <div className="form-check">
                     <div className="row p-0 m-0">
                       <div className="col-8">
-                        <label
-                          className="form-check-label text-light ititle mb-2"
-                          htmlFor="flexRadioDefault1"
-                        >
+                        <label className="form-check-label text-light ititle mb-2" htmlFor="flexRadioDefault1" >
                           Groom
                         </label>
                       </div>
@@ -249,9 +198,7 @@ export default function Search() {
                           name="flexRadioDefault"
                           id="flexRadioDefault1"
                           value="male"
-                          {...register("looking_for_gender", {
-                            required: false,
-                          })}
+                          {...register("looking_for_gender", { required: false })}
                         />
                       </div>
                     </div>
@@ -259,10 +206,7 @@ export default function Search() {
                   <div className="form-check">
                     <div className="row p-0 m-0">
                       <div className="col-8">
-                        <label
-                          className="form-check-label text-light ititle mb-2"
-                          htmlFor="flexRadioDefault2"
-                        >
+                        <label className="form-check-label text-light ititle mb-2" htmlFor="flexRadioDefault2" >
                           Bride
                         </label>
                       </div>
@@ -280,17 +224,10 @@ export default function Search() {
                   </div>
 
                   <div className="input-group">
-                    <label
-                      className="visually-hidden text-light ititle"
-                      htmlFor="specificSizeSelect"
-                    >
+                    <label className="visually-hidden text-light ititle" htmlFor="specificSizeSelect" >
                       Age Preference:
                     </label>
-                    <select
-                      className="form-select ddown"
-                      id="specificSizeSelect"
-                      {...register("age")}
-                    >
+                    <select className="form-select ddown" id="specificSizeSelect" {...register("age")} >
                       <option defaultValue>Choose...</option>
                       <option value="18-20">18-20</option>
                       <option value="21-25">21-25</option>
@@ -301,10 +238,7 @@ export default function Search() {
                     </select>
                   </div>
 
-                  <label
-                    className="visually-hidden text-light ititle mt-2"
-                    htmlFor="specificSizeInputGroupUsername"
-                  >
+                  <label className="visually-hidden text-light ititle mt-2" htmlFor="specificSizeInputGroupUsername" >
                     WorkPlace:
                   </label>
                   <div className="input-group">
@@ -315,87 +249,38 @@ export default function Search() {
                         height="16"
                         fill="currentColor"
                         className="bi bi-person-workspace"
-                        viewBox="0 0 16 16"
-                      >
+                        viewBox="0 0 16 16" >
                         <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
                         <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z" />
                       </svg>
                     </div>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="specificSizeInputGroupUsername"
-                      {...register("workplace")}
-                    />
+                    <input type="text" className="form-control" id="specificSizeInputGroupUsername" {...register("workplace")} />
                   </div>
 
-                  <label
-                    className="visually-hidden text-light ititle mt-2"
-                    htmlFor="specificSizeInputGroupUsername"
-                  >
-                    {" "}
+                  <label className="visually-hidden text-light ititle mt-2" htmlFor="specificSizeInputGroupUsername" >
                     Income:
                   </label>
                   <div className="input-group mb-2">
-                    <select
-                      className="form-select ddown"
-                      id="specificSizeSelect"
-                      {...register("income")}
-                    >
+                    <select className="form-select ddown" id="specificSizeSelect" {...register("income")} >
                       <option defaultValue>Choose...</option>
-                      <option className="textTru chosenDropWid" value="100000">
-                        1,00,000 To 5,00,000
-                      </option>
-                      <option
-                        className="textTru chosenDropWid"
-                        id="S"
-                        value="500000"
-                      >
-                        5,00,000 To 10,00,000
-                      </option>
-                      <option
-                        className="textTru chosenDropWid"
-                        id="S"
-                        value="1000000"
-                      >
-                        Above 10,00,000
-                      </option>
+                      <option className="textTru chosenDropWid" value="100000">1,00,000 To 5,00,000</option>
+                      <option className="textTru chosenDropWid" id="S" value="500000">5,00,000 To 10,00,000</option>
+                      <option className="textTru chosenDropWid" id="S" value="1000000">Above 10,00,000</option>
                     </select>
                   </div>
-                  <label
-                    className="visually-hidden text-light ititle"
-                    htmlFor="specificSizeInputGroupUsername"
-                  >
+                  <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername">
                     Marital Status:
                   </label>
                   <div className="input-group">
-                    <select
-                      className="form-select ddown"
-                      id="specificSizeSelect"
-                      {...register("married_status")}
-                    >
+                    <select className="form-select ddown" id="specificSizeSelect" {...register("married_status")}>
                       <option defaultValue>Choose...</option>
-                      <option
-                        className="textTru chosenDropWid"
-                        id="N"
-                        value="Never Married"
-                      >
-                        Never Married
-                      </option>
-                      <option
-                        className="textTru chosenDropWid"
-                        id="S"
-                        value="Re-Marriage"
-                      >
-                        Re-Marriage
-                      </option>
+                      <option className="textTru chosenDropWid" id="N" value="Never Married">Never Married</option>
+                      <option className="textTru chosenDropWid" id="S" value="Re-Marriage">Re-Marriage</option>
                     </select>
                   </div>
                   <div className="row w-100">
                     <div className="col-12 text-center">
-                      <button type="submit" className="custom-button mt-2 w-75">
-                        Search
-                      </button>
+                      <button type="submit" className="custom-button mt-2 w-75">Search</button>
                     </div>
                   </div>
                 </form>

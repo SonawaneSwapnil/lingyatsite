@@ -70,13 +70,8 @@ export default function Site() {
                     <li><Link to="/registration">Registration</Link></li>
                   </ul> :
                   <ul className="submenu">
-                    <li>
-                      <Link
-                        to="/profile"
-                        onClick={goProfile}
-                        activeclassname="active">Profile</Link></li>
-                    <li>
-                      <Link to="" onClick={logout}>Logout</Link></li>
+                    <li><Link to="/profile" onClick={goProfile} activeclassname="active">Profile</Link></li>
+                    <li><Link to="" onClick={logout}>Logout</Link></li>
                   </ul>}
               </li>
             </ul>
@@ -90,9 +85,7 @@ export default function Site() {
       </div>
       <div className="search-overlay">
         <div className="close"><i className="fas fa-times"></i></div>
-        <form action="#">
-          <input type="text" placeholder="Write what you want.." />
-        </form>
+        <form action="#"><input type="text" placeholder="Write what you want.." /></form>
       </div>
       {/* <!-- ==========Header-Section========== --> */}
 
