@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Service from "../../service/Service";
-import moment from "moment";
+import * as moment from 'moment'
 import { useNavigate } from "react-router-dom";
 import LeftProfileArea from "../common/LeftProfileArea";
 
 export default function UpdateProfileInfo() {
   const [userUpdateData, setuserUpdateData] = useState();
   const [showhide, setshowhide] = useState("");
-  const [defaultDateValue, setDefaultDateValue] = useState();
   const [oldDate, setOldDate] = useState(moment().subtract(18, "years").format("YYYY-MM-DD"));
 
   let navigate = useNavigate();
@@ -35,8 +34,7 @@ export default function UpdateProfileInfo() {
   const loadAllData = () => {
     Service.getSingleUser(userID).then((res) => {
       setuserUpdateData(res.data);
-      reset(res.data[0]);
-      setDefaultDateValue(moment(res.data[0].dob).format("YYYY-MM-DD"));
+      reset({...res.data[0],dob:moment(res.data[0].dob).format("YYYY-MM-DD")});
     });
   };
 
@@ -119,7 +117,8 @@ export default function UpdateProfileInfo() {
                             type="date"
                             className="my-form-control"
                             id="exampleInputdate"
-                            max={oldDate} />
+                            max={oldDate} 
+                            />
                           {errors.dob && (<span style={{ color: "red" }}>{errors.dob.message}</span>)}
                           <br />
                         </div>
