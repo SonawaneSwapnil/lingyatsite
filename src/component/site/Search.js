@@ -23,14 +23,8 @@ export default function Search() {
 
   const loadPreFilterData = () => {
     Service.getFilterUser(filterData).then((res) => {
-      console.log(res.data);
-      if (res.data.warning) {
-        setFilterUser();
-      } else {
-        setFilterUser(res.data);
-        reset();
-        localStorage.removeItem("filterData");
-      }
+      setFilterUser(res.data);
+      localStorage.removeItem("filterData");
       document.getElementById("closeModal").click();
     });
   };
@@ -48,15 +42,8 @@ export default function Search() {
       ageto: ageTo,
       userId: JSON.parse(localStorage.getItem("USERID")),
     };
-    console.log(data);
     Service.getFilterUser(data).then((res) => {
-      console.log(res.data);
-      if (res.data.warning) {
-        setFilterUser();
-      } else {
-        setFilterUser(res.data);
-        reset();
-      }
+      setFilterUser(res.data);
       document.getElementById("closeModal").click();
     });
   };
@@ -112,7 +99,7 @@ export default function Search() {
             </div>
           </div>
           <div className="row">
-            {filteredUser ? (
+            {filteredUser.length>0 ? (
               filteredUser.map((index, i) => (
                 <div key={i} className="col-lg-6 col-xl-6">
                   <div className="single-friend">
