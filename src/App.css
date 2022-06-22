@@ -34,3 +34,8 @@ input[type=radio] {
   font-size: 18px;
   color: #ac216c;
 }
+
+.justify-both-side {
+  text-align: justify;
+  text-justify: inter-word;
+}

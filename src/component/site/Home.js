@@ -2,10 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+
 export default function Home() {
   let navigate = useNavigate();
-  const { register, handleSubmit } = useForm();
   var isLoggedin = JSON.stringify(localStorage.getItem("USERID"));
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    console.log(data.name);
+    navigate(localStorage.getItem("USERID") ? "/search" : "/login");
+  };
 
   const searchFilter = (data) => {
     var age = data.age;
@@ -43,18 +53,18 @@ export default function Home() {
         style={{ backgroundColor: "rgb(158, 0, 53)", padding: 50, borderRadius: 16 }} >
         <form onSubmit={handleSubmit(searchFilter)}>
           <div className="row">
-            <div className="row mt-lg-5">
+            <div className="row mt-lg-5 col-4">
               <label
-                className="visually-hidden text-light ititle col-5"
+                className="visually-hidden text-light ititle"
                 htmlFor="specificSizeInputGroupUsername" >
                 I am looking for:
               </label>
               <div className="col-2">
                 <label className="form-check-label text-light ititle mb-2" htmlFor="flexRadioDefault1" >Groom</label>
               </div>
-              <div className="col-1 ml-2">
+              <div className="col-1">
                 <input
-                  className="form-check-input"
+                  className="form-check-input" style={{ 'marginLeft': -10 }}
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
@@ -62,11 +72,7 @@ export default function Home() {
                   {...register("looking_for_gender", { required: 'Select looking for' })} />
               </div>
               <div className="col-2">
-                <label
-                  className="form-check-label text-light ititle mb-2"
-                  htmlFor="flexRadioDefault2">
-                  Bride
-                </label>
+                <label className="form-check-label text-light ititle mb-2" htmlFor="flexRadioDefault2">Bride</label>
               </div>
               <div className="col-1">
                 <input
@@ -77,12 +83,15 @@ export default function Home() {
                   value="female"
                   {...register("looking_for_gender", { required: 'Select looking for' })} />
               </div>
+              {errors.looking_for_gender && (
+                <span style={{ color: "white" }} className="text-light ititle">{errors.looking_for_gender.message}</span>)}
             </div>
             <div className="col-lg-2 col-sm-12 p-1">
               <label className="visually-hidden text-light ititle" htmlFor="specificSizeSelect" >
                 Age Preference:
               </label>
-              <select className="form-select ddown" id="specificSizeSelect" {...register("age")} >
+              <select className="form-select ddown" id="specificSizeSelect"
+                {...register("age", { required: "Enter Your Age Preference" })} >
                 <option defaultValue>Choose...</option>
                 <option value="18-20">18-25</option>
                 <option value="26-30">26-30</option>
@@ -90,6 +99,9 @@ export default function Home() {
                 <option value="36-40">36-40</option>
                 <option value="41-45">41-45</option>
               </select>
+              {errors.age && (
+                <span style={{ color: "white" }} className="text-light ititle">{errors.age.message}</span>
+              )}
             </div>
             <div className="col-lg-2 col-sm-12 p-1">
               <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername" >
@@ -108,7 +120,10 @@ export default function Home() {
                     <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z" />
                   </svg>
                 </div>
-                <input type="text" className="form-control" id="specificSizeInputGroupUsername" {...register("workplace")} />
+                <input type="text" className="form-control" id="specificSizeInputGroupUsername"
+                  {...register("workplace")} />
+                {/* {errors.workplace && (
+                  <span style={{ color: "white" }} className="text-light ititle">{errors.workplace.message}</span>)} */}
               </div>
             </div>
             <div className="col-lg-2 col-sm-12 p-1">
@@ -116,12 +131,15 @@ export default function Home() {
                 Income:
               </label>
               <div className="input-group">
-                <select className="form-select ddown" id="specificSizeSelect" {...register("income")} >
+                <select className="form-select ddown" id="specificSizeSelect" name="income"
+                  {...register("income", { required: "Select Your Income" })} >
                   <option selected>Choose...</option>
                   <option className="textTru chosenDropWid" value="100000">1,00,000 To 5,00,000</option>
                   <option className="textTru chosenDropWid" id="S" value="500000">5,00,000 To 10,00,000</option>
                   <option className="textTru chosenDropWid" id="S" value="1000000" >Above 10,00,000</option>
                 </select>
+                {errors.income && (
+                  <span style={{ color: "white" }} className="text-light ititle">{errors.income.message}</span>)}
               </div>
             </div>
 
@@ -130,11 +148,15 @@ export default function Home() {
                 Marital Status:
               </label>
               <div className="input-group">
-                <select className="form-select ddown" id="specificSizeSelect" {...register("married_status")} >
+                <select className="form-select ddown" id="specificSizeSelect"
+                  {...register("married_status", { required: "Please select marital status" })} >
                   <option selected>Choose...</option>
                   <option className="textTru chosenDropWid" id="N" value="Never Married" >Never Married</option>
                   <option className="textTru chosenDropWid" id="S" value="Re-Marriage" >Re Marriage</option>
                 </select>
+                {errors.married_status && (
+                  <span style={{ color: "white" }} className="text-light ititle">{errors.married_status.message}</span>
+                )}
               </div>
             </div>
           </div>
@@ -224,7 +246,7 @@ export default function Home() {
               </div>
             </div>
             <div className="col-12 text-center mt-5">
-              <Link to="" onClick={navigate(isLoggedin ? "/profile" : "/login")} className="custom-button" >
+              <Link to={isLoggedin ? "/profile" : "/login"} className="custom-button" >
                 Join Now !
               </Link>
             </div>
