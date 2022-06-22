@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 export default function Home() {
   let navigate = useNavigate();
-  const { register, handleSubmit, getValues, reset } = useForm();
-  var isLoggedin = localStorage.getItem("USERID");
+  const { register, handleSubmit } = useForm();
+  var isLoggedin = JSON.stringify(localStorage.getItem("USERID"));
 
   const searchFilter = (data) => {
     var age = data.age;
@@ -14,7 +14,7 @@ export default function Home() {
     data.agefrom = ageFrom;
     data.ageto = ageTo;
     localStorage.setItem("filterData", JSON.stringify(data));
-    navigate(localStorage.getItem("USERID") ? "/search" : "/login")
+    navigate(isLoggedin ? "/search" : "/login")
   };
 
   return (
@@ -29,11 +29,7 @@ export default function Home() {
               </h3>
             </div>
             <div className="col-lg-6">
-              <img
-                src="assets/images/banner/aimg1.png"
-                style={{ maxWidth: "100%" }}
-                alt=""
-              />
+              <img src="assets/images/banner/aimg1.png" style={{ maxWidth: "100%" }} alt="" />
             </div>
           </div>
         </div>
@@ -65,14 +61,12 @@ export default function Home() {
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
                   value="male"
-                  {...register("looking_for_gender", { required: true })}
-                />
+                  {...register("looking_for_gender", { required: true })} />
               </div>
               <div className="col-3 p-0">
                 <label
                   className="form-check-label text-light ititle mb-2"
-                  htmlFor="flexRadioDefault2"
-                >
+                  htmlFor="flexRadioDefault2">
                   Bride
                 </label>
               </div>

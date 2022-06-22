@@ -1,5 +1,6 @@
-import React from 'react'
-import { Navigate, Outlet, Link, useNavigate } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
+import Service from '../../service/Service';
 
 // const useAuth=()=>{
 //   const userLogin=JSON.parse(localStorage.getItem('USERID'));
@@ -14,7 +15,9 @@ export default function Site() {
   // const auth=useAuth();
   let navigate = useNavigate();
 
-  var isLoggedin = localStorage.getItem("USERID");
+  var isLoggedin = JSON.parse(localStorage.getItem("LOGGEDIN"));
+  var USERNAME = JSON.parse(localStorage.getItem("USERNAME"));
+
 
   const login = () => {
     navigate(isLoggedin ? '/profile' : '/login')
@@ -24,6 +27,7 @@ export default function Site() {
   const logout = () => {
     localStorage.removeItem('USERID');
     localStorage.setItem("LOGGEDIN", false);
+    localStorage.removeItem('USERNAME')
     navigate("/")
   };
 
@@ -70,7 +74,11 @@ export default function Site() {
                     <li><Link to="/registration">Registration</Link></li>
                   </ul> :
                   <ul className="submenu">
-                    <li><Link to="/profile" onClick={goProfile} activeclassname="active">Profile</Link></li>
+                    <div className='row'>
+                      <li className='col-9'><Link to="/profile" onClick={goProfile} activeclassname="active">{USERNAME}</Link></li>
+                      <i className="fa fa-cog col-3 p-3" aria-hidden="true"></i>
+                    </div>
+                    {/* <li> <Link to="/profile" onClick={goProfile} activeclassname="active">Profile</Link></li> */}
                     <li><Link to="" onClick={logout}>Logout</Link></li>
                   </ul>}
               </li>

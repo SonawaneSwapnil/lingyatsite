@@ -23,6 +23,7 @@ export default function Login() {
         setAlertClass("alert alert-success");
         setMsg(res.data.success);
         localStorage.setItem("USERID", JSON.stringify(res.data.data.user_id));
+        localStorage.setItem("USERNAME", JSON.stringify(res.data.data.user_name));
         localStorage.setItem("LOGGEDIN", true);
         if (JSON.parse(localStorage.getItem("filterData"))) {
           // navigate("/search");
