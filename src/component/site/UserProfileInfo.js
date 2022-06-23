@@ -7,21 +7,26 @@ import UserPanelMenu from "../common/UserPanelMenu";
 
 export default function UserProfileInfo() {
   const [usersData, setUsersData] = useState();
-
-  useEffect(() => {
-    loadAllUsersData();
-  }, []);
-
+  
   var isLoggedin = JSON.parse(localStorage.getItem("LOGGEDIN"));
   var USERID = JSON.parse(localStorage.getItem("USERID"));
   var SearchUserID = JSON.parse(localStorage.getItem("SearchUserID"));
 
   var userID = isLoggedin && !SearchUserID ? USERID : SearchUserID;
+  useEffect(() => {
+    loadAllUsersData();
+  }, []);
 
   const loadAllUsersData = () => {
-    Service.getSingleUser(userID).then((res) => {
-      setUsersData(res.data);
-    });
+    if(userID){
+      Service.getSingleUser(userID).then((res) => {
+        setUsersData(res.data);
+      });
+    } else{
+      Service.getSingleUser(JSON.parse(localStorage.getItem("USERID"))).then((res) => {
+        setUsersData(res.data);
+      });
+    }
   };
 
   return (
