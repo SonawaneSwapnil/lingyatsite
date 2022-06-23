@@ -11,6 +11,10 @@ export default function UpdateProfileInfo() {
   const [showhide, setshowhide] = useState("");
   const [oldDate, setOldDate] = useState(moment().subtract(18, "years").format("YYYY-MM-DD"));
 
+  const bloodGroups = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
+  const branchName = ['Lingayat-Wani/लिंगायत-वाणी', 'Dixiwant/दीक्षिवंत', 'Pancham/पंचम', 'Shilvant(Chilwant)/शिलवंत (चिलवंत)', 'Jangam(swami)/जंगम (स्वामी)', 'Chaturth/चतुर्थ', 'Other/इतर'];
+  const zodiacName = ['Aries/मेष', 'Taurus/वृषभ', 'Gemini/मिथुन', 'Cancer/कर्क', 'Leo/सिंह', 'Virgo/कन्या', 'Libra/तुला', 'Scorpius/वृश्चिक', 'Sagittarius/धनु', 'Capricornus/मकर', 'Aquarius/कुंभ', 'Pisces/मीन']
+
   let navigate = useNavigate();
 
   const handleshowhide = (event) => {
@@ -34,7 +38,7 @@ export default function UpdateProfileInfo() {
   const loadAllData = () => {
     Service.getSingleUser(userID).then((res) => {
       setuserUpdateData(res.data);
-      reset({...res.data[0],dob:moment(res.data[0].dob).format("YYYY-MM-DD")});
+      reset({ ...res.data[0], dob: moment(res.data[0].dob).format("YYYY-MM-DD") });
     });
   };
 
@@ -43,9 +47,7 @@ export default function UpdateProfileInfo() {
     var birthDate = new Date(dateString);
     var age = today.getFullYear() - birthDate.getFullYear();
     var m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-    }
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) { age--; }
     return age;
   }
 
@@ -58,10 +60,7 @@ export default function UpdateProfileInfo() {
       .then((res) => {
         loadAllData();
         navigate("/update-family");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      }).catch((err) => { console.log(err); });
   };
   return (
     <div>
@@ -117,8 +116,8 @@ export default function UpdateProfileInfo() {
                             type="date"
                             className="my-form-control"
                             id="exampleInputdate"
-                            max={oldDate} 
-                            />
+                            max={oldDate}
+                          />
                           {errors.dob && (<span style={{ color: "red" }}>{errors.dob.message}</span>)}
                           <br />
                         </div>
@@ -150,20 +149,10 @@ export default function UpdateProfileInfo() {
                           <select id="branch" name="branch"
                             {...register("branch", { required: "Enter Your branch Name/शाखा:" })}
                             onChange={(e) => handleshowhide(e)}>
-                            <option className="dropdown-item" value="">--Select Branch--</option>
-                            <option className="dropdown-item" value="Lingayat-Wani/लिंगायत-वाणी">
-                              Lingayat-Wani/लिंगायत-वाणी
-                            </option>
-                            <option className="dropdown-item" value=" Dixiwant/दीक्षिवंत">Dixiwant/दीक्षिवंत</option>
-                            <option className="dropdown-item" value="Pancham/पंचम">Pancham/पंचम</option>
-                            <option className="dropdown-item" value=" Shilvant(Chilwant)/शिलवंत (चिलवंत)">
-                              Shilvant(Chilwant)/शिलवंत (चिलवंत)
-                            </option>
-                            <option className="dropdown-item" value="Jangam(swami)/जंगम (स्वामी)">
-                              Jangam(swami)/जंगम (स्वामी)
-                            </option>
-                            <option className="dropdown-item" value="Chaturth/चतुर्थ">Chaturth/चतुर्थ</option>
-                            <option className="dropdown-item" value="Other/इतर">Other/इतर</option>
+                            <option className="dropdown-item" value=''>--Select Branch--</option>
+                            {branchName && branchName.map((brc, i) =>
+                              <option className="dropdown-item" value={brc}>{brc}</option>
+                            )}
                           </select>
                           {showhide === "Other/इतर" && (
                             <div className="form-group">
@@ -178,11 +167,13 @@ export default function UpdateProfileInfo() {
                           <label htmlFor="exampleInputdatetime" className="form-label ititle me-5">
                             Zodiac Name/राशि नाव:
                           </label>
-                          <input
-                            {...register("zodiac", { required: "Enter Your Zodiac Name/राशि नाव:" })}
-                            type="text"
-                            className="my-form-control"
-                            id="exampleInputtime" />
+                          <select id="zodiac" name="zodiac"
+                            {...register("zodiac", { required: "Enter Your Zodiac Name/राशि नाव:" })} >
+                            <option className="dropdown-item" value=''>--Select Zodiac Name--</option>
+                            {zodiacName && zodiacName.map((zod, i) =>
+                              <option className="dropdown-item" value={zod}>{zod}</option>
+                            )}
+                          </select>
                           {errors.zodiac && (<span style={{ color: "red" }}>{errors.zodiac.message}</span>)}
                           <br />
                         </div>
@@ -259,7 +250,7 @@ export default function UpdateProfileInfo() {
                             </div>
                           </div>
                           <div className="col-lg-6">
-                            <label htmlFor="inputdesignation" className="col-form-label ititle">Height/उंची</label>
+                            <label htmlFor="inputdesignation" className="col-form-label ititle">Height/उंची(in Feet/फुट मध्ये)</label>
                             <div className="input-group">
                               <input
                                 {...register("height", { required: "Enter Your Height/उंची" })}
@@ -281,15 +272,25 @@ export default function UpdateProfileInfo() {
 
                         <div className="row">
                           <div className="col-lg-6">
-                            <label htmlFor="inputincome" className="col-form-label ititle">Blood-Group/रक्त गट</label>
+                            {/* <label htmlFor="inputincome" className="col-form-label ititle">Blood-Group/रक्त गट</label>
                             <div className="input-group">
                               <input
                                 {...register("blood_group", { required: "Enter Your Blood-Group/रक्त गट" })}
                                 type="text"
                                 className="my-form-control"
                                 id="exampleInputblood" />
-                            </div>
+                            </div> */}
+
+                            <label htmlFor="blood_group" className="ititle">Blood-Group/रक्त गट</label>
+                            <select id="blood_group" name="blood_group"
+                              {...register("blood_group", { required: "Select blood group/रक्त गट" })}>
+                              <option className="dropdown-item" value=''>--Select Blood Group--</option>
+                              {bloodGroups && bloodGroups.map((grp, i) =>
+                                <option className="dropdown-item" value={grp}>{grp}</option>)}
+                            </select>
+                            {errors.branch && (<span style={{ color: "red" }}>{errors.blood_group.message}</span>)}
                           </div>
+
                           <div className="col-lg-6">
                             <label htmlFor="inputdesignation" className="col-form-label ititle">Color/रंग</label>
                             <div className="input-group">
@@ -313,7 +314,7 @@ export default function UpdateProfileInfo() {
 
                         <div className="row">
                           <div className="col-lg-6">
-                            <label htmlFor="inputincome" className="col-form-label ititle">Weight/वजन</label>
+                            <label htmlFor="inputincome" className="col-form-label ititle">Weight/वजन(in KG/किलोग्राम मध्ये)</label>
                             <div className="input-group">
                               <input
                                 {...register("weight", { required: "Enter Your Weight/वजन" })}
@@ -342,8 +343,9 @@ export default function UpdateProfileInfo() {
                             {errors.address && (<div style={{ color: "red" }}>{errors.address.message}</div>)}
                           </div>
                         </div>
-                        <div className="mt-5 text-center">
-                          <button type="submit" className="custom-button w-50">Save and Continue</button>
+                        <div className="col-12 mt-5 text-center">
+                          <Link to='/profile' className="col-lg-5 col-md-5"><button className="custom-button w-100">Back</button></Link>
+                          <button type="submit" className="col-lg-5 col-md-5 btn-mt custom-button w-100">Save and Continue</button>
                         </div>
                       </form>
                     </div>

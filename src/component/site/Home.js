@@ -2,10 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+
 export default function Home() {
   let navigate = useNavigate();
-  const { register, handleSubmit, getValues, reset } = useForm();
-  var isLoggedin = localStorage.getItem("USERID");
+  var isLoggedin = JSON.stringify(localStorage.getItem("USERID"));
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    console.log(data.name);
+    navigate(localStorage.getItem("USERID") ? "/search" : "/login");
+  };
 
   const searchFilter = (data) => {
     var age = data.age;
@@ -14,7 +24,7 @@ export default function Home() {
     data.agefrom = ageFrom;
     data.ageto = ageTo;
     localStorage.setItem("filterData", JSON.stringify(data));
-    navigate(localStorage.getItem("USERID") ? "/search" : "/login")
+    navigate(isLoggedin ? "/search" : "/login")
   };
 
   return (
@@ -29,11 +39,7 @@ export default function Home() {
               </h3>
             </div>
             <div className="col-lg-6">
-              <img
-                src="assets/images/banner/aimg1.png"
-                style={{ maxWidth: "100%" }}
-                alt=""
-              />
+              <img src="assets/images/banner/aimg1.png" style={{ maxWidth: "100%" }} alt="" />
             </div>
           </div>
         </div>
@@ -45,36 +51,28 @@ export default function Home() {
       <div
         className="container"
         style={{ backgroundColor: "rgb(158, 0, 53)", padding: 50, borderRadius: 16 }} >
-        <form className="row" onSubmit={handleSubmit(searchFilter)}>
-          <div className="col-lg-2 col-sm-12 p-1">
-            <label
-              className="visually-hidden text-light ititle"
-              htmlFor="specificSizeInputGroupUsername" >
-              I am looking for:
-            </label>
-            <div className="row p-0 m-0">
-              <div className="col-3 p-0">
-                <label className="form-check-label text-light ititle mb-2" htmlFor="flexRadioDefault1" >
-                  Groom
-                </label>
+        <form onSubmit={handleSubmit(searchFilter)}>
+          <div className="row">
+            <div className="row mt-lg-5 ml-3">
+              <label
+                className="visually-hidden text-light ititle"
+                htmlFor="specificSizeInputGroupUsername" >
+                I am looking for:
+              </label>
+              <div className="col-2">
+                <label className="form-check-label text-light ititle mb-2" htmlFor="flexRadioDefault1" >Groom</label>
               </div>
-              <div className="col-1 ml-2">
+              <div className="col-1">
                 <input
-                  className="form-check-input"
+                  className="form-check-input" style={{ 'marginLeft': -10 }}
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
                   value="male"
-                  {...register("looking_for_gender", { required: true })}
-                />
+                  {...register("looking_for_gender", { required: 'Select looking for' })} />
               </div>
-              <div className="col-3 p-0">
-                <label
-                  className="form-check-label text-light ititle mb-2"
-                  htmlFor="flexRadioDefault2"
-                >
-                  Bride
-                </label>
+              <div className="col-2">
+                <label className="form-check-label text-light ititle mb-2" htmlFor="flexRadioDefault2">Bride</label>
               </div>
               <div className="col-1">
                 <input
@@ -83,70 +81,86 @@ export default function Home() {
                   name="flexRadioDefault"
                   id="flexRadioDefault2"
                   value="female"
-                  {...register("looking_for_gender", { required: true })} />
+                  {...register("looking_for_gender", { required: 'Select looking for' })} />
               </div>
+              {errors.looking_for_gender && (
+                <span style={{ color: "white" }} className="text-light ititle">{errors.looking_for_gender.message}</span>)}
             </div>
-          </div>
-          <div className="col-lg-2 col-sm-12 p-1">
-            <label className="visually-hidden text-light ititle" htmlFor="specificSizeSelect" >
-              Age Preference:
-            </label>
-            <select className="form-select ddown" id="specificSizeSelect" {...register("age")} >
-              <option defaultValue>Choose...</option>
-              <option value="18-20">18-25</option>
-              <option value="26-30">26-30</option>
-              <option value="31-35">31-35</option>
-              <option value="36-40">36-40</option>
-              <option value="41-45">41-45</option>
-            </select>
-          </div>
-          <div className="col-lg-2 col-sm-12 p-1">
-            <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername" >
-              WorkPlace:
-            </label>
-            <div className="input-group">
-              <div className="input-group-text">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-person-workspace"
-                  viewBox="0 0 16 16" >
-                  <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
-                  <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z" />
-                </svg>
-              </div>
-              <input type="text" className="form-control" id="specificSizeInputGroupUsername" {...register("workplace")} />
-            </div>
-          </div>
-          <div className="col-lg-2 col-sm-12 p-1">
-            <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername" >
-              Income:
-            </label>
-            <div className="input-group">
-              <select className="form-select ddown" id="specificSizeSelect" {...register("income")} >
-                <option selected>Choose...</option>
-                <option className="textTru chosenDropWid" value="100000">1,00,000 To 5,00,000</option>
-                <option className="textTru chosenDropWid" id="S" value="500000">5,00,000 To 10,00,000</option>
-                <option className="textTru chosenDropWid" id="S" value="1000000" >Above 10,00,000</option>
+            <div className="col-lg-2 col-sm-12 p-1">
+              <label className="visually-hidden text-light ititle" htmlFor="specificSizeSelect" >
+                Age Preference:
+              </label>
+              <select className="form-select ddown" id="specificSizeSelect"
+                {...register("age", { required: "Enter Your Age Preference" })} >
+                <option defaultValue>Choose...</option>
+                <option value="18-20">18-25</option>
+                <option value="26-30">26-30</option>
+                <option value="31-35">31-35</option>
+                <option value="36-40">36-40</option>
+                <option value="41-45">41-45</option>
               </select>
+              {errors.age && (
+                <span style={{ color: "white" }} className="text-light ititle">{errors.age.message}</span>
+              )}
             </div>
-          </div>
+            <div className="col-lg-2 col-sm-12 p-1">
+              <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername" >
+                WorkPlace:
+              </label>
+              <div className="input-group">
+                <div className="input-group-text">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-person-workspace"
+                    viewBox="0 0 16 16" >
+                    <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                    <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z" />
+                  </svg>
+                </div>
+                <input type="text" className="form-control" id="specificSizeInputGroupUsername"
+                  {...register("workplace")} />
+                {/* {errors.workplace && (
+                  <span style={{ color: "white" }} className="text-light ititle">{errors.workplace.message}</span>)} */}
+              </div>
+            </div>
+            <div className="col-lg-2 col-sm-12 p-1">
+              <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername" >
+                Income:
+              </label>
+              <div className="input-group">
+                <select className="form-select ddown" id="specificSizeSelect" name="income"
+                  {...register("income", { required: "Select Your Income" })} >
+                  <option defaultValue>Choose...</option>
+                  <option className="textTru chosenDropWid" value="100000">1,00,000 To 5,00,000</option>
+                  <option className="textTru chosenDropWid" id="S" value="500000">5,00,000 To 10,00,000</option>
+                  <option className="textTru chosenDropWid" id="S" value="1000000" >Above 10,00,000</option>
+                </select>
+                {errors.income && (
+                  <span style={{ color: "white" }} className="text-light ititle">{errors.income.message}</span>)}
+              </div>
+            </div>
 
-          <div className="col-lg-2 col-sm-12 p-1">
-            <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername" >
-              Marital Status:
-            </label>
-            <div className="input-group">
-              <select className="form-select ddown" id="specificSizeSelect" {...register("married_status")} >
-                <option selected>Choose...</option>
-                <option className="textTru chosenDropWid" id="N" value="Never Married" >Never Married</option>
-                <option className="textTru chosenDropWid" id="S" value="Re-Marriage" >Re Marriage</option>
-              </select>
+            <div className="col-lg-2 col-sm-12 p-1">
+              <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername" >
+                Marital Status:
+              </label>
+              <div className="input-group">
+                <select className="form-select ddown" id="specificSizeSelect"
+                  {...register("married_status", { required: "Please select marital status" })} >
+                  <option defaultValue>Choose...</option>
+                  <option className="textTru chosenDropWid" id="N" value="Never Married" >Never Married</option>
+                  <option className="textTru chosenDropWid" id="S" value="Re-Marriage" >Re Marriage</option>
+                </select>
+                {errors.married_status && (
+                  <span style={{ color: "white" }} className="text-light ititle">{errors.married_status.message}</span>
+                )}
+              </div>
             </div>
           </div>
-          <div className="col-lg-2 col-sm-12 col-sm-12 text-center p-1" style={{ marginTop: 36, height: 40 }} >
+          <div className="col-12 button-wrapper text-center" style={{ marginTop: 36, height: 40 }} >
             <button type="submit" className="custom-button">Search</button>
           </div>
         </form>
@@ -232,7 +246,7 @@ export default function Home() {
               </div>
             </div>
             <div className="col-12 text-center mt-5">
-              <Link to="" onClick={navigate(isLoggedin ? "/profile" : "/login")} className="custom-button" >
+              <Link to={isLoggedin ? "/profile" : "/login"} className="custom-button" >
                 Join Now !
               </Link>
             </div>

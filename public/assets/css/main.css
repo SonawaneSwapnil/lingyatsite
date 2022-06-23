@@ -5838,7 +5838,7 @@ input[type=submit] {
 /*  Avout Section Start */
 .about-section {
   padding-top: 20px;
-  padding-bottom: 116px;
+  padding-bottom: 20px;
 }
 
 .about-section .content .section-header {
@@ -10006,25 +10006,4 @@ input[type=submit] {
   text-align: center;
   color: #fff;
   padding: 12px 10px 12px;
-}
-
-/* Custom CSS */
-
-.ititle {
-  font-size: 14px !important;
-  font-weight: 600;
-  top: 7px;
-}
-
-.ddown {
-  height: 38px;
-}
-
-.s-modal {
-  overflow-y: auto;
-  overflow-y: scroll;
-}
-
-.th {
-  margin-left: 50px;
 }

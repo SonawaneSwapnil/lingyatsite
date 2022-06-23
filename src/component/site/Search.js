@@ -56,7 +56,7 @@ export default function Search() {
           <div className="content">
             <h4 className="title extra-padding">Search</h4>
             <ul className="breadcrumb-list extra-padding">
-              <li><Link to="index.html">Home</Link></li>
+              <li><Link to="/">Home</Link></li>
               <li>Search</li>
             </ul>
           </div>
@@ -168,45 +168,35 @@ export default function Search() {
             <div className="modal-body">
               <div className="container" style={{ backgroundColor: "rgb(158, 0, 53)", padding: 50, borderRadius: 16 }} >
                 <form className="row gx-3 gy-2 align-items-center" onSubmit={handleSubmit(loadAllFilterData)} >
-                  <label className="visually-hidden text-light ititle" htmlFor="specificSizeInputGroupUsername" >
-                    Looking For:
-                  </label>
-                  <div className="form-check">
-                    <div className="row p-0 m-0">
-                      <div className="col-8">
-                        <label className="form-check-label text-light ititle mb-2" htmlFor="flexRadioDefault1" >
-                          Groom
-                        </label>
-                      </div>
-                      <div className="col-4">
-                        <input
-                          className="form-check-input"
-                          type="radio"
-                          name="flexRadioDefault"
-                          id="flexRadioDefault1"
-                          value="male"
-                          {...register("looking_for_gender", { required: false })}
-                        />
-                      </div>
+                  <div className="row">
+                    <label className="visually-hidden text-light ititle col-4 pr-0" htmlFor="specificSizeInputGroupUsername" >
+                      Looking For:
+                    </label>
+                    <label className="form-check-label text-light ititle mb-2 col-2 mr-3" htmlFor="flexRadioDefault1" >
+                      Groom
+                    </label>
+                    <div className="col-1">
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault1"
+                        value="male"
+                        {...register("looking_for_gender", { required: false })}
+                      />
                     </div>
-                  </div>
-                  <div className="form-check">
-                    <div className="row p-0 m-0">
-                      <div className="col-8">
-                        <label className="form-check-label text-light ititle mb-2" htmlFor="flexRadioDefault2" >
-                          Bride
-                        </label>
-                      </div>
-                      <div className="col-4">
-                        <input
-                          className="form-check-input"
-                          type="radio"
-                          name="flexRadioDefault"
-                          id="flexRadioDefault2"
-                          value="female"
-                          {...register("looking_for_gender")}
-                        />
-                      </div>
+                    <label className="form-check-label text-light ititle mb-2 col-2 mr-2" htmlFor="flexRadioDefault2" >
+                      Bride
+                    </label>
+                    <div className="col-1">
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="flexRadioDefault"
+                        id="flexRadioDefault2"
+                        value="female"
+                        {...register("looking_for_gender")}
+                      />
                     </div>
                   </div>
 

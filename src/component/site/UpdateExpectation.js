@@ -241,7 +241,7 @@ export default function Expectation() {
                                 {errors.passport.message}
                               </span>
                             )}
-                            
+
                           </div>
 
                           <div className="input-group">
@@ -266,13 +266,12 @@ export default function Expectation() {
                               </span>
                             )}
                           </div>
-                          {invalidImage !== null ? <span style={{ color: "red" }}> {invalidImage} </span> :null }
+                          {invalidImage !== null ? <span style={{ color: "red" }}> {invalidImage} </span> : null}
                         </div>
 
-                        <div className="button-wrapper text-center mt-3">
-                          <button type="submit" className="custom-button w-50">
-                            Submit
-                          </button>
+                        <div className="col-12 mt-5 text-center">
+                          <Link to='/update-family' className="col-lg-5 col-md-5"><button className="custom-button w-100">BSack</button></Link>
+                          <button type="submit" className="col-lg-5 col-md-5 btn-mt custom-button w-100">Submit</button>
                         </div>
                       </form>
                     </div>

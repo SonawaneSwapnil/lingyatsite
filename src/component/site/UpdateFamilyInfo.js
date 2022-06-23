@@ -86,7 +86,7 @@ export default function Family() {
                 <div className="profile-main-content">
                   <ul className="top-menu">
                     <li><NavLink to="/profile">Profile</NavLink></li>
-                    <li><NavLink to="/details" className="active">Add/Update Information</NavLink></li>
+                    <li><NavLink to="/update-profile" className="active">Add/Update Information</NavLink></li>
                     {/* <li><NavLink to="/single_profile3">Members</NavLink></li> */}
                     <li><NavLink to="/Search" >search</NavLink></li>
                   </ul>
@@ -171,8 +171,9 @@ export default function Family() {
                         </div>
                       </div>
 
-                      <div className="button-wrapper text-center mt-5">
-                        <button type="submit" className="custom-button w-50">Save and Continue</button>
+                      <div className="col-12 mt-5 text-center">
+                        <Link to='/update-profile' className="col-lg-5 col-md-5"><button className="custom-button w-100">Back</button></Link>
+                        <button type="submit" className="col-lg-5 col-md-5 btn-mt custom-button w-100">Save and Continue</button>
                       </div>
                     </form>
                   </div>

@@ -306,11 +306,13 @@ export default function Registration() {
                       <div className="option">
                         <div className="s-input nice-select-wraper">
                           <select
+
                             style={{
                               background: "transparent",
                               border: "none",
                               padding: "0 20px",
                             }}
+
                             // className="select-bar"
                             {...register("married_status", {
                               required: "Please select marital status",
