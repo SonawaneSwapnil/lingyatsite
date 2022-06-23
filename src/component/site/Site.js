@@ -18,6 +18,13 @@ export default function Site() {
   var isLoggedin = JSON.parse(localStorage.getItem("LOGGEDIN"));
   var USERNAME = JSON.parse(localStorage.getItem("USERNAME"));
 
+  useEffect(() => {
+    if (!window.location.hash) {
+      window.location = window.location + '#loaded';
+      window.location.reload();
+    }
+  }, [])
+
 
   const login = () => {
     navigate(isLoggedin ? '/profile' : '/login')
@@ -36,6 +43,7 @@ export default function Site() {
     if (localStorage.getItem('SearchUserID')) {
       localStorage.removeItem('SearchUserID');
       window.location.reload(true);
+      navigate('/profile')
     }
   }
 
@@ -75,11 +83,11 @@ export default function Site() {
                   </ul> :
                   <ul className="submenu">
                     <div className='row'>
-                      <li className='col-9'><Link to="/profile" onClick={goProfile}>{USERNAME || "Profile"}</Link></li>
+                      <li className='col-9'><a href='/profile' onClick={goProfile}>{USERNAME || "Profile"}</a></li>
                       <i className="fa fa-cog col-3 p-3" aria-hidden="true"></i>
                     </div>
                     {/* <li> <Link to="/profile" onClick={goProfile} activeclassname="active">Profile</Link></li> */}
-                    <li><Link to="" onClick={logout}>Logout</Link></li>
+                    <li><a href='/' onClick={logout}>Logout</a></li>
                   </ul>}
               </li>
             </ul>

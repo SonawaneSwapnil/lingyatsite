@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import * as pdfFonts from "../pdffonts/pdfFonts";
 import jsPDF from 'jspdf';
@@ -6,8 +6,45 @@ import moment from "moment";
 
 function UserPanelMenu(props) {
   var SearchUserID = JSON.parse(localStorage.getItem("SearchUserID"));
-
+  var [baseImgData, setBaseImgData] = useState();
   const usersData = props.data;
+
+  var base64;
+
+  function toDataUrl(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+      var reader = new FileReader();
+      reader.onloadend = function () {
+        callback(reader.result);
+      }
+      reader.readAsDataURL(xhr.response);
+    };
+    xhr.open('GET', url);
+    xhr.responseType = 'blob';
+    xhr.send();
+  }
+
+  useEffect(() => {
+    // toDataUrl(usersData[0].passport, function (myBase64) {
+    //   setBaseImgData(myBase64);
+    //   base64 = myBase64;
+    //   console.log(myBase64); // myBase64 is the base64 string
+    // });
+  }, [])
+
+
+  // function getBase64Image(img) {
+  //   var canvas = document.createElement("canvas");
+  //   canvas.width = '100px';
+  //   canvas.height = '100px';
+  //   var ctx = canvas.getContext("2d");
+  //   ctx.drawImage(img, 100, 100);
+  //   var dataURL = canvas.toDataURL("image/png");
+  //   return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+  // }
+
+  // var base64 = getBase64Image(document.getElementById("baseImg"));
 
   const generatePdf = () => {
     var doc = new jsPDF('portrait', 'pt', 'a4', true);
@@ -22,8 +59,10 @@ function UserPanelMenu(props) {
 
     var printHeader = new Image();
     printHeader.src = 'assets/images/print/print-header.png';
-    var printFooter = new Image();
-    printFooter.src = 'assets/images/print/print-footer.png';
+    // var printFooter = new Image();
+    // printFooter.src = 'assets/images/print/print-footer.png';
+    var profileImage = new Image();
+    profileImage.src = 'assets/images/print/print-footer.png';
 
     doc.addImage(printHeader, 'png', 0, 0, 595, 120, 'header');
 
@@ -32,6 +71,8 @@ function UserPanelMenu(props) {
     doc.setFont('Poppins-Bold', 'bold');
     doc.text("Personal Detail:", 50, 160);
     doc.line(50, 165, 545, 165);
+
+    // doc.addImage(baseImgData, 200, 200, 100, 100);
 
     doc.setFontSize(12);
     doc.setTextColor(0, 0, 0);
@@ -294,6 +335,9 @@ function UserPanelMenu(props) {
       ) : null}
       <li><NavLink to="/search" activeclassname="active-class">Search</NavLink></li>
       <button type="submit" onClick={generatePdf} className="custom-button">Download Profile</button>
+
+      <img id='baseImg' src={usersData[0].passport} width='100px' height='100px' hidden />
+
     </ul>
   )
 }
