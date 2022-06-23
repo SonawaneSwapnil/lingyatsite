@@ -817,7 +817,7 @@ input[type=submit] {
   -webkit-transform: translateY(150px);
   -ms-transform: translateY(150px);
   transform: translateY(150px);
-  background: #5650ce;
+  background: #ff7272;
   text-align: center;
 }
 
@@ -5948,6 +5948,7 @@ input[type=submit] {
 
 .community-section.inner-page .single-friend img {
   max-width: 80px;
+  max-height: 80px;
   margin-right: 20px;
 }
 
