@@ -23,6 +23,14 @@ export default function Site() {
       window.location = window.location + '#loaded';
       window.location.reload();
     }
+
+    // To Clear All Cache
+    // caches.keys().then((names) => {
+    //   names.forEach((name) => {
+    //     caches.delete(name);
+    //   });
+    // });
+    // alert('Complete Cache Cleared')
   }, [])
 
 

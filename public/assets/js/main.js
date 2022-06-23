@@ -136,6 +136,7 @@ $(document).ready(function () {
         $(".menu").toggleClass("active");
         $(".header-bar").toggleClass("active");
         $('.overlay').toggleClass('active');
+        $('body').css('overflow', 'hidden');
     });
     $('.overlay').on('click', function () {
         $(".menu").removeClass("active");
