@@ -321,8 +321,8 @@ export default function Search() {
                       {...register("income")}
                     >
                       <option defaultValue>Choose...</option>
-                      <option className="textTru chosenDropWid" value="100000">
-                        1,00,000 To 5,00,000
+                      <option className="textTru chosenDropWid" value="0">
+                        0 To 5,00,000
                       </option>
                       <option
                         className="textTru chosenDropWid"
