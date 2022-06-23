@@ -142,7 +142,7 @@ export default function Home() {
                 <select className="form-select ddown" id="specificSizeSelect" name="income"
                   {...register("income", { required: "Select Your Income" })} >
                   <option defaultValue>Choose...</option>
-                  <option className="textTru chosenDropWid" value="100000">1,00,000 To 5,00,000</option>
+                  <option className="textTru chosenDropWid" value="0">0 To 5,00,000</option>
                   <option className="textTru chosenDropWid" id="S" value="500000">5,00,000 To 10,00,000</option>
                   <option className="textTru chosenDropWid" id="S" value="1000000" >Above 10,00,000</option>
                 </select>
