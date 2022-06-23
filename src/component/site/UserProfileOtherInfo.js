@@ -63,45 +63,45 @@ const UserProfileOtherInfo = () => {
                                 <div className="content">
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">Father Name/वडीलांचे नावं:</div>
-                                    <div className="col-6 text-right ititle">{index.father}</div>
+                                    <div className="col-6 text-right ititle font-weight-bold">{index.father}</div>
                                   </div>
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">Contact Number/संपर्क क्रमांक:</div>
-                                    <div className="col-6 text-right ititle">{index.father_contact}</div>
+                                    <div className="col-6 text-right ititle font-weight-bold">{index.father_contact}</div>
                                   </div>
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">Mother Name/आईचे नाव:</div>
-                                    <div className="col-6 text-right ititle">{index.mother}</div>
+                                    <div className="col-6 text-right ititle font-weight-bold">{index.mother}</div>
                                   </div>
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">Contact Number/संपर्क क्रमांक:</div>
-                                    <div className="col-6 text-right ititle">{index.mother_contact}</div>
+                                    <div className="col-6 text-right ititle font-weight-bold">{index.mother_contact}</div>
                                   </div>
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">Brother Name/भावाचे नाव:</div>
-                                    <div className="col-6 text-right ititle">{index.brother}</div>
+                                    <div className="col-6 text-right ititle font-weight-bold">{index.brother}</div>
                                   </div>
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">Contact Number/संपर्क क्रमांक:</div>
-                                    <div className="col-6 text-right ititle">{index.brother_contact}</div>
+                                    <div className="col-6 text-right ititle font-weight-bold">{index.brother_contact}</div>
                                   </div>
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">Sister Name/बहिणीचे नाव</div>
-                                    <div className="col-6 text-right ititle">{index.sister}</div>
+                                    <div className="col-6 text-right ititle font-weight-bold">{index.sister}</div>
                                   </div>
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">Contact Number/संपर्क क्रमांक:</div>
-                                    <div className="col-6 text-right ititle">{index.sister_contact}</div>
+                                    <div className="col-6 text-right ititle font-weight-bold">{index.sister_contact}</div>
                                   </div>
 
                                   {/* caretaker */}
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">Care Taker Name/ काळजी घेणारे नाव</div>
-                                    <div className="col-6 text-right ititle">{index.caretaker}</div>
+                                    <div className="col-6 text-right ititle font-weight-bold">{index.caretaker}</div>
                                   </div>
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">Contact Number/संपर्क क्रमांक:</div>
-                                    <div className="col-6 text-right ititle">{index.caretaker_contact}</div>
+                                    <div className="col-6 text-right ititle font-weight-bold">{index.caretaker_contact}</div>
                                   </div>
                                 </div>
 
@@ -113,7 +113,7 @@ const UserProfileOtherInfo = () => {
                                 <div className="content">
                                   <div className="row mb-2">
                                     <div className="col-6 ititle">Expection/अपेक्षा वधू/वर:</div>
-                                    <div className="col-6 text-right ititle">{index.expectation}</div>
+                                    <div className="col-6 text-right ititle font-weight-bold">{index.expectation}</div>
                                   </div>
                                 </div>
                               </div>

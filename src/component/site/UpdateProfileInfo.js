@@ -207,7 +207,7 @@ export default function UpdateProfileInfo() {
 
                         <div className="row">
                           <div className="col-lg-6">
-                            <label htmlFor="inputincome" className="col-form-label ititle">Income/उत्पन्न</label>
+                            <label htmlFor="inputincome" className="col-form-label ititle">Income/उत्पन्न(Annual/वार्षिक)</label>
                             <div className="input-group">
                               <input
                                 {...register("income", { required: "Enter Your  Income/उत्पन्न" })}
@@ -250,7 +250,7 @@ export default function UpdateProfileInfo() {
                             </div>
                           </div>
                           <div className="col-lg-6">
-                            <label htmlFor="inputdesignation" className="col-form-label ititle">Height/उंची(in Feet/फुट मध्ये)</label>
+                            <label htmlFor="inputdesignation" className="col-form-label ititle">Height/उंची(In Feet/फुट मध्ये)</label>
                             <div className="input-group">
                               <input
                                 {...register("height", { required: "Enter Your Height/उंची" })}
@@ -314,7 +314,7 @@ export default function UpdateProfileInfo() {
 
                         <div className="row">
                           <div className="col-lg-6">
-                            <label htmlFor="inputincome" className="col-form-label ititle">Weight/वजन(in KG/किलोग्राम मध्ये)</label>
+                            <label htmlFor="inputincome" className="col-form-label ititle">Weight/वजन(In KG/किलोग्राम मध्ये)</label>
                             <div className="input-group">
                               <input
                                 {...register("weight", { required: "Enter Your Weight/वजन" })}
@@ -343,9 +343,13 @@ export default function UpdateProfileInfo() {
                             {errors.address && (<div style={{ color: "red" }}>{errors.address.message}</div>)}
                           </div>
                         </div>
-                        <div className="col-12 mt-5 text-center">
-                          <Link to='/profile' className="col-lg-5 col-md-5"><button className="custom-button w-100">Back</button></Link>
-                          <button type="submit" className="col-lg-5 col-md-5 btn-mt custom-button w-100">Save and Continue</button>
+                        <div className="row mt-5 text-center">
+                          <Link to='/profile' className="col-lg-6 col-md-6">
+                            <button className="custom-button w-100">Back</button>
+                          </Link>
+                          <div className="col-lg-6 col-md-6 btn-mt">
+                            <button type="submit" className="custom-button w-100">Save and Continue</button>
+                          </div>
                         </div>
                       </form>
                     </div>

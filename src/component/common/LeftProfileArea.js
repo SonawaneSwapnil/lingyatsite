@@ -14,8 +14,8 @@ function LeftProfileArea(props) {
               <img src={data.passport} style={{ maxHeight: 120, width: 120 }} alt="" />
               <div className="active-online"></div>
             </div>
-            <h5 className="name">{data.user_name}</h5>
-            <ul className="p-b-meta-one">
+            <h5>{data.user_name}</h5>
+            <ul className="p-b-meta-one ititle">
               <li><span>{data.age} Years Old</span></li>
               <li>
                 <span><i className="fas fa-map-marker-alt"></i>{data.city}</span>
@@ -23,9 +23,9 @@ function LeftProfileArea(props) {
             </ul>
           </div>
         </div>
-        <div className="profile-meta-box"></div>
+        {/* <div className="profile-meta-box"></div> */}
         <div className="profile-uplodate-photo">
-          <h4 className="p-u-p-header"><i className="fas fa-camera"></i>Uploaded Photos</h4>
+          <h5 className="p-u-p-header"><i className="fas fa-camera"></i>Uploaded Photos</h5>
           <div className="p-u-p-list">
             <div className="my-col">
               <div className="img">

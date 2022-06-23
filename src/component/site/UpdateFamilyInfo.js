@@ -170,10 +170,13 @@ export default function Family() {
                           <input type="number" className="my-form-control" id="contactno" {...register("caretaker_contact")} />
                         </div>
                       </div>
-
-                      <div className="col-12 mt-5 text-center">
-                        <Link to='/update-profile' className="col-lg-5 col-md-5"><button className="custom-button w-100">Back</button></Link>
-                        <button type="submit" className="col-lg-5 col-md-5 btn-mt custom-button w-100">Save and Continue</button>
+                      <div className="row mt-5 text-center">
+                        <Link to='/update-profil' className="col-lg-6 col-md-6">
+                          <button className="custom-button w-100">Back</button>
+                        </Link>
+                        <div className="col-lg-6 col-md-6 btn-mt">
+                          <button type="submit" className="custom-button w-100">Save and Continue</button>
+                        </div>
                       </div>
                     </form>
                   </div>

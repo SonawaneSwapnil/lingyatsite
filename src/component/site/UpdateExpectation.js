@@ -269,9 +269,13 @@ export default function Expectation() {
                           {invalidImage !== null ? <span style={{ color: "red" }}> {invalidImage} </span> : null}
                         </div>
 
-                        <div className="col-12 mt-5 text-center">
-                          <Link to='/update-family' className="col-lg-5 col-md-5"><button className="custom-button w-100">BSack</button></Link>
-                          <button type="submit" className="col-lg-5 col-md-5 btn-mt custom-button w-100">Submit</button>
+                        <div className="row mt-5 text-center">
+                          <Link to='/update-family' className="col-lg-6 col-md-6">
+                            <button className="custom-button w-100">Back</button>
+                          </Link>
+                          <div className="col-lg-6 col-md-6 btn-mt">
+                            <button type="submit" className="custom-button w-100">Save and Continue</button>
+                          </div>
                         </div>
                       </form>
                     </div>

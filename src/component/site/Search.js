@@ -127,7 +127,9 @@ export default function Search() {
               filteredUser.map((index, i) => (
                 <div key={i} className="col-lg-6 col-xl-6">
                   <div className="single-friend">
-                    <img src={index.passport} alt="" />
+                    <div>
+                      <img height={100} width={100} src={index.passport} alt="" />
+                    </div>
                     <div className="content">
                       <div className="row">
                         <div className="col-lg-8 col-sm-8">
@@ -136,26 +138,20 @@ export default function Search() {
                             className="name ititle"
                             onClick={() => { localStorage.setItem("SearchUserID", JSON.stringify(index.user_id)); }}>
                             <strong>{index.user_name}</strong>
-                            {/* <span className="isvarify">
+                            <span className="isvarify">
                               <i className="fas fa-check-circle"></i>
-                            </span> */}
+                            </span>
                           </Link>
                           <p className="date ititle">Age: {index.age}</p>
                           <p className="date ititle">
                             Workplace: {index.workplace}
                           </p>
                         </div>
-                        <div className="col-lg-4 col-sm-4">
+                        <div className="col-lg-4 p-0 col-sm-4 text-center">
                           <Link to="/profile">
                             <button
-                              className="custom-button"
-                              onClick={() => {
-                                localStorage.setItem(
-                                  "SearchUserID",
-                                  JSON.stringify(index.user_id)
-                                );
-                              }}
-                            >
+                              className="custom-button mt-3 px-3 ititle"
+                              onClick={() => { localStorage.setItem("SearchUserID", JSON.stringify(index.user_id)); }}>
                               View Profile
                             </button>
                           </Link>
