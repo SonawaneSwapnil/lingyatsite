@@ -228,7 +228,7 @@ export default function Registration() {
                         <div className="s-input nice-select-wraper">
                           <select
                             className="select-bar"
-                            {...register("married_status", { required: 'Please select marital status' })}>
+                            {...register("married_status")}>
                             <option value="">--Marital status--</option>
                             <option value="Never Married">Never Married</option>
                             <option value="Re-Marriage">Re-Marriage</option>
