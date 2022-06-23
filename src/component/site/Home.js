@@ -14,7 +14,11 @@ export default function Home() {
   } = useForm();
   const onSubmit = (data) => {
     console.log(data.name);
-    navigate(localStorage.getItem("USERID") ? "/search" : "/login");
+    if(JSON.parse(localStorage.getItem("USERID"))){
+      window.location.replace("/search");
+    }else{
+      window.location.replace("/login");
+    }
   };
 
   const searchFilter = (data) => {
@@ -24,7 +28,11 @@ export default function Home() {
     data.agefrom = ageFrom;
     data.ageto = ageTo;
     localStorage.setItem("filterData", JSON.stringify(data));
-    navigate(isLoggedin ? "/search" : "/login")
+    if(JSON.parse(localStorage.getItem("USERID"))){
+      window.location.replace("/search");
+    }else{
+      window.location.replace("/login");
+    }
   };
 
   return (
