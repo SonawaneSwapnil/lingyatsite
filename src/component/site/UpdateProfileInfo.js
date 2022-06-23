@@ -11,8 +11,8 @@ export default function UpdateProfileInfo() {
   const [showhide, setshowhide] = useState("");
   const [oldDate, setOldDate] = useState(moment().subtract(18, "years").format("YYYY-MM-DD"));
 
-  const bloodGroups = ['--Select Blood Group--', 'A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
-  const branchName = ['--Select Branch--', 'Lingayat-Wani/लिंगायत-वाणी', 'Dixiwant/दीक्षिवंत', 'Pancham/पंचम', 'Shilvant(Chilwant)/शिलवंत (चिलवंत)', 'Jangam(swami)/जंगम (स्वामी)', 'Chaturth/चतुर्थ', 'Other/इतर'];
+  const bloodGroups = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
+  const branchName = ['Lingayat-Wani/लिंगायत-वाणी', 'Dixiwant/दीक्षिवंत', 'Pancham/पंचम', 'Shilvant(Chilwant)/शिलवंत (चिलवंत)', 'Jangam(swami)/जंगम (स्वामी)', 'Chaturth/चतुर्थ', 'Other/इतर'];
   const zodiacName = ['Aries/मेष', 'Taurus/वृषभ', 'Gemini/मिथुन', 'Cancer/कर्क', 'Leo/सिंह', 'Virgo/कन्या', 'Libra/तुला', 'Scorpius/वृश्चिक', 'Sagittarius/धनु', 'Capricornus/मकर', 'Aquarius/कुंभ', 'Pisces/मीन']
 
   let navigate = useNavigate();
@@ -47,9 +47,7 @@ export default function UpdateProfileInfo() {
     var birthDate = new Date(dateString);
     var age = today.getFullYear() - birthDate.getFullYear();
     var m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-    }
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) { age--; }
     return age;
   }
 
@@ -62,10 +60,7 @@ export default function UpdateProfileInfo() {
       .then((res) => {
         loadAllData();
         navigate("/update-family");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      }).catch((err) => { console.log(err); });
   };
   return (
     <div>
@@ -154,6 +149,7 @@ export default function UpdateProfileInfo() {
                           <select id="branch" name="branch"
                             {...register("branch", { required: "Enter Your branch Name/शाखा:" })}
                             onChange={(e) => handleshowhide(e)}>
+                            <option className="dropdown-item" value=''>--Select Branch--</option>
                             {branchName && branchName.map((brc, i) =>
                               <option className="dropdown-item" value={brc}>{brc}</option>
                             )}
@@ -173,6 +169,7 @@ export default function UpdateProfileInfo() {
                           </label>
                           <select id="zodiac" name="zodiac"
                             {...register("zodiac", { required: "Enter Your Zodiac Name/राशि नाव:" })} >
+                            <option className="dropdown-item" value=''>--Select Zodiac Name--</option>
                             {zodiacName && zodiacName.map((zod, i) =>
                               <option className="dropdown-item" value={zod}>{zod}</option>
                             )}
@@ -287,6 +284,7 @@ export default function UpdateProfileInfo() {
                             <label htmlFor="blood_group" className="ititle">Blood-Group/रक्त गट</label>
                             <select id="blood_group" name="blood_group"
                               {...register("blood_group", { required: "Select blood group/रक्त गट" })}>
+                              <option className="dropdown-item" value=''>--Select Blood Group--</option>
                               {bloodGroups && bloodGroups.map((grp, i) =>
                                 <option className="dropdown-item" value={grp}>{grp}</option>)}
                             </select>
