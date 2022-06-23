@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from "react-router-dom";
 
 function LeftProfileArea(props) {
 
@@ -12,9 +11,7 @@ function LeftProfileArea(props) {
           <div className="top-bg"></div>
           <div className="p-inner-content">
             <div className="profile-img">
-              <img
-                src={data.passport} className="img-fluid"
-                alt="" />
+              <img src={data.passport} style={{ maxHeight: 120, width: 120 }} alt="" />
               <div className="active-online"></div>
             </div>
             <h5 className="name">{data.user_name}</h5>

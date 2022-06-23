@@ -99,7 +99,7 @@ export default function Search() {
             </div>
           </div>
           <div className="row">
-            {filteredUser && filteredUser.length>0 ? (
+            {filteredUser && filteredUser.length > 0 ? (
               filteredUser.map((index, i) => (
                 <div key={i} className="col-lg-6 col-xl-6">
                   <div className="single-friend">
@@ -109,11 +109,9 @@ export default function Search() {
                         <div className="col-lg-8 col-sm-8">
                           <Link
                             to="/profile"
-                            className="name"
-                            onClick={() => {
-                              localStorage.setItem("SearchUserID", JSON.stringify(index.user_id));
-                            }}>
-                            {index.user_name}
+                            className="name ititle"
+                            onClick={() => { localStorage.setItem("SearchUserID", JSON.stringify(index.user_id)); }}>
+                            <strong>{index.user_name}</strong>
                             {/* <span className="isvarify">
                               <i className="fas fa-check-circle"></i>
                             </span> */}

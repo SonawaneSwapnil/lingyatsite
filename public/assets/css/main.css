@@ -5948,6 +5948,7 @@ input[type=submit] {
 
 .community-section.inner-page .single-friend img {
   max-width: 80px;
+  max-height: 80px;
   margin-right: 20px;
 }
 
