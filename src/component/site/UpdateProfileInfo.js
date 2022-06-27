@@ -253,7 +253,10 @@ export default function UpdateProfileInfo() {
                             <label htmlFor="inputdesignation" className="col-form-label ititle">Height/उंची(In Feet/फुट मध्ये)</label>
                             <div className="input-group">
                               <input
-                                {...register("height", { required: "Enter Your Height/उंची" })}
+                                {...register("height", { required: "Enter Your Height/उंची",pattern:{
+                                  value: /^(0|[1-9]\d*)(\.\d+)?$/,
+                                  message:'Enter valid height.'
+                               } })}
                                 type="text"
                                 className="my-form-control"
                                 id="exampleInputdate" />

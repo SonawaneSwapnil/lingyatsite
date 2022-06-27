@@ -37,7 +37,6 @@ export default function Registration() {
   }
 
   const saveData = (data) => {
-    console.log(data);
     var data = {
       user_name: getValues("user_name"),
       dob: getValues("dob"),
@@ -49,14 +48,17 @@ export default function Registration() {
       married_status: getValues("married_status"),
       age: getAge(moment(getValues("dob")).format("YYYY-MM-DD")),
     };
-    // localStorage.setItem("RUser", JSON.stringify(data));
-    // navigate("/verify-otp");
+    console.log(data);
     Service.saveAllUsers(data).then((res) => {
-      console.log(res.data);
-      // if (res.data.success) {
+      if (res.data.warning) {
+        console.log(res.data.warning);
+      } else {
+        console.log(res.data);
         localStorage.setItem("USERID", JSON.stringify(res.data.user_id));
         window.location.replace("/profile");
-      // }
+      }
+    }).catch(err=>{
+      console.log(err);
     });
   };
 
@@ -306,13 +308,11 @@ export default function Registration() {
                       <div className="option">
                         <div className="s-input nice-select-wraper">
                           <select
-
                             style={{
                               background: "transparent",
                               border: "none",
                               padding: "0 20px",
                             }}
-
                             // className="select-bar"
                             {...register("married_status", {
                               required: "Please select marital status",
