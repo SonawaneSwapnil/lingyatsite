@@ -14,7 +14,9 @@ import { useNavigate } from "react-router-dom";
 function IncompleteProfile() {
   let navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const [profileData, setprofileData] = useState();
   const [usersData, setUsersData] = useState();
+
   var printHeader = new Image();
   printHeader.src = header;
   useEffect(() => {
@@ -25,6 +27,7 @@ function IncompleteProfile() {
     setIsLoading(true);
     Service.getAllInCompletedUsers()
       .then((res) => {
+        setprofileData(res.data)
         setUsersData(res.data);
         setIsLoading(false);
       })
@@ -49,8 +52,28 @@ function IncompleteProfile() {
     }
   };
 
+  const handleSearch = (event) => {
+    const text = event.target.value;
+    if (text) {
+      const filtered = usersData.filter(
+        (item) =>{
+          var search = new RegExp(text , 'i');
+            return search.test(item.user_name) ||
+            search.test(item.gender) ||
+            search.test(item.contact) ||
+            search.test(item.address) ||
+            search.test(item.education) 
+        });
+        setUsersData(filtered);
+    } else {
+      setUsersData(profileData);
+    }
+  };
+
   const resetPass = (item) => {
-    navigate("/admin/admin-reset-pass",{state:{UID:item.user_id,Name:item.user_name}});
+    navigate("/admin/admin-reset-pass", {
+      state: { UID: item.user_id, Name: item.user_name },
+    });
   };
 
   const download = (item) => {
@@ -454,20 +477,31 @@ function IncompleteProfile() {
           <h4>Incomplete Profiles</h4>
           <hr />
         </div>
-        {usersData && (
+        {profileData && (
           <div className="col-md-12">
             <h5 className="text-danger">
-              Total Incomplete Profiles: {usersData.length}
+              Total Incomplete Profiles: {profileData.length}
             </h5>
             <hr />
           </div>
         )}
         <div className="col-md-12">
+          <div className="form-group">
+            <input
+              placeholder="Search..."
+              className="form-control"
+              onChange={handleSearch}
+            />
+          </div>
+        </div>
+        <div className="col-md-12">
           <div className="tblresponsive">
             <table className="table">
               <thead className="thead-dark">
                 <tr>
-                  <th width="100px" scope="col">Action</th>
+                  <th width="100px" scope="col">
+                    Action
+                  </th>
                   <th scope="col">Sr.No</th>
                   <th scope="col">Name</th>
                   <th scope="col">Contact</th>
@@ -482,6 +516,12 @@ function IncompleteProfile() {
                     <tr>
                       <td width="100px">
                         <img
+                          onClick={() => resetPass(item)}
+                          src={key}
+                          width="16px"
+                          className="mr-2"
+                        />
+                        <img
                           onClick={() => download(item)}
                           src={downloadsvg}
                           width="21px"
@@ -490,12 +530,6 @@ function IncompleteProfile() {
                         <img
                           onClick={() => deletRec(item)}
                           src={trash}
-                          width="16px"
-                          className="mr-2"
-                        />
-                        <img
-                          onClick={() => resetPass(item)}
-                          src={key}
                           width="16px"
                         />
                       </td>
