@@ -47,5 +47,21 @@ class Service {
   saveAllFeedback(data) {
     return axios.post(Base_url + "users/save_feedback", data);
   }
+
+  // dashboard apis
+
+  getAllCompletedUsers() {
+    return axios.get(Base_url + "dashboard/get-completed-users");
+  }
+  getAllInCompletedUsers() {
+    return axios.get(Base_url + "dashboard/get-incomplete-users");
+  }
+  deleteUser(id) {
+    return axios.delete(Base_url + "users/delete-users/"+id);
+  }
+
+  resetPassword(data) {
+    return axios.put(Base_url + "dashboard/update-user-pass",data);
+  }
 }
 export default new Service();

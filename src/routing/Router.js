@@ -16,7 +16,14 @@ import ForgotPassword from "../component/site/ForgotPassword"
 import ResetNewPassword from "../component/site/ResetNewPassword"
 import VerifyOtp from "../component/site/VerifyOtp";
 
-const useAuth=()=>{
+//admin componenets
+import Admin from "../component/admin/Admin";
+import AdminHome from "../component/admin/AdminHome";
+import Profiles from "../component/admin/Profiles";
+import IncompleteProfile from "../component/admin/IncompleteProfile";
+import ResetPass from "../component/admin/ResetPass";
+
+const useUserAuth=()=>{
   const userLogin=JSON.parse(localStorage.getItem('USERID'));
   if(userLogin){
     return true
@@ -25,8 +32,18 @@ const useAuth=()=>{
   }
 }
 
+const useAdminAuth=()=>{
+  const adminLogin=JSON.parse(localStorage.getItem('ADMINLOGIN'));
+  if(adminLogin){
+    return true
+  } else {
+    return true
+  }
+}
+
 export default function Router() {
-  const auth=useAuth();
+  const auth=useUserAuth();
+  const adminAuth=useAdminAuth();
   return (
     <div>
       <BrowserRouter>
@@ -47,6 +64,14 @@ export default function Router() {
             <Route path="forgot-password" element={<ForgotPassword />} />
             <Route path="reset-password" element={<ResetNewPassword />} />
             <Route path="verify-otp" element={<VerifyOtp />} />
+          </Route>
+
+          {/* admin routes begins */}
+          <Route path="admin" element={adminAuth?<Admin />: <Navigate to="/login"/>}>
+            <Route path="" element={<AdminHome />} />
+            <Route path="admin-allprofiles" element={<Profiles />} />
+            <Route path="admin-incomplete-profiles" element={<IncompleteProfile />} />
+            <Route path="admin-reset-pass" element={<ResetPass />} />
           </Route>
         </Routes>
       </BrowserRouter>
