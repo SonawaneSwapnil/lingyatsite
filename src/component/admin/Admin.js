@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Outlet, Link, useNavigate } from "react-router-dom";
-import "./css/bootstrap.min.css";
+// import "./css/bootstrap.min.css";
 import "./css/admin.css";
 import Service from "../../service/Service";
 
@@ -25,16 +25,21 @@ function Admin() {
     }
   };
 
+  const logout=()=>{
+    localStorage.clear();
+    window.location.replace("/admin-login")
+  }
+
   return (
     <div>
       <div id="mySidebar" className="sidebar">
-        <div className="closebtn text-white">Dashboard</div>
+        {/* <div className="closebtn text-white">Dashboard</div> */}
         <a
           target="_blank"
           href="/registration"
           className="navItem"
         >
-          Add new profile
+          Add New Profile
         </a>
         <Link
           onClick={toggleNav}
@@ -57,16 +62,16 @@ function Admin() {
         >
           Reset Password
         </Link> */}
-        <a className="navItem" href="#">
+        <a onClick={logout} className="navItem curpointer">
           Logout
         </a>
       </div>
 
       <div id="main">
         <div className="adminheader">
-          <button className="openbtn" onClick={toggleNav}>
+          <div className="openbtn" onClick={toggleNav}>
             ☰
-          </button>
+          </div>
         </div>
         <div className="childContainer">
           <Outlet />

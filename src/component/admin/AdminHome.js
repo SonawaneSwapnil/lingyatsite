@@ -2,7 +2,7 @@ import React from 'react'
 
 function AdminHome() {
   return (
-    <div>AdminHome</div>
+    <div className="container-fluid my-3">Welcome, Admin</div>
   )
 }
 

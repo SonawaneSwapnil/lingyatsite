@@ -5,6 +5,7 @@ import Site from '../component/site/Site'
 import About from "../component/site/About"
 import Contact from '../component/site/Contact'
 import Login from '../component/site/Login'
+import AdminLogin from '../component/site/AdminLogin'
 import Registration from "../component/site/Registration"
 import UserProfileInfo from '../component/site/UserProfileInfo'
 import UpdateProfileInfo from '../component/site/UpdateProfileInfo'
@@ -37,7 +38,7 @@ const useAdminAuth=()=>{
   if(adminLogin){
     return true
   } else {
-    return true
+    return false
   }
 }
 
@@ -50,7 +51,7 @@ export default function Router() {
         <Routes>
           <Route path="login" element={<Login />} />
           <Route path="registration" element={<Registration />} />
-          
+          <Route path="admin-login" element={<AdminLogin />} />
           <Route path="" element={<Site />}>
             <Route path="" element={<Home />} />
             <Route path="about" element={<About />} />
@@ -64,10 +65,11 @@ export default function Router() {
             <Route path="forgot-password" element={<ForgotPassword />} />
             <Route path="reset-password" element={<ResetNewPassword />} />
             <Route path="verify-otp" element={<VerifyOtp />} />
+            
           </Route>
 
           {/* admin routes begins */}
-          <Route path="admin" element={adminAuth?<Admin />: <Navigate to="/login"/>}>
+          <Route path="admin" element={adminAuth?<Admin />: <Navigate to="/admin-login"/>}>
             <Route path="" element={<AdminHome />} />
             <Route path="admin-allprofiles" element={<Profiles />} />
             <Route path="admin-incomplete-profiles" element={<IncompleteProfile />} />

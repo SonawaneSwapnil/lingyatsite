@@ -63,5 +63,9 @@ class Service {
   resetPassword(data) {
     return axios.put(Base_url + "dashboard/update-user-pass",data);
   }
+
+  adminLogin(data) {
+    return axios.post(Base_url + "dashboard/admin-login",data);
+  }
 }
 export default new Service();
