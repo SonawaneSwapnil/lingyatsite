@@ -16,6 +16,8 @@ function IncompleteProfile() {
   const [isLoading, setIsLoading] = useState(false);
   const [profileData, setprofileData] = useState();
   const [usersData, setUsersData] = useState();
+  const [groomCount, setgroomCount] = useState(0);
+  const [brideCount, setbrideCount] = useState(0);
 
   var printHeader = new Image();
   printHeader.src = header;
@@ -29,6 +31,10 @@ function IncompleteProfile() {
       .then((res) => {
         setprofileData(res.data)
         setUsersData(res.data);
+        const groom = res.data.filter((item) => item.gender == "male");
+        setgroomCount(groom.length);
+        const bride = res.data.filter((item) => item.gender == "female");
+        setbrideCount(bride.length);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -478,12 +484,23 @@ function IncompleteProfile() {
           <hr />
         </div>
         {profileData && (
-          <div className="col-md-12">
-            <h5 className="text-danger">
-              Total Incomplete Profiles: {profileData.length}
-            </h5>
-            <hr />
-          </div>
+           <div className="col-md-12">
+           <div className="row">
+             <div className="col-md-4">
+               <h5 className="text-primary">
+                 Total Profiles: {profileData.length}
+               </h5>
+             </div>
+             <div className="col-md-4">
+               <h5 className="text-primary">Total Groom: {groomCount}</h5>
+             </div>
+             <div className="col-md-4">
+               <h5 className="text-primary">Total Bride: {brideCount}</h5>
+             </div>
+           </div>
+
+           <hr />
+         </div>
         )}
         <div className="col-md-12">
           <div className="form-group">

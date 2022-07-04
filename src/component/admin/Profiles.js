@@ -16,7 +16,9 @@ function Profiles() {
   const [isLoading, setIsLoading] = useState(false);
   const [profileData, setprofileData] = useState();
   const [usersData, setUsersData] = useState();
- 
+  const [groomCount, setgroomCount] = useState(0);
+  const [brideCount, setbrideCount] = useState(0);
+
   var printHeader = new Image();
   printHeader.src = header;
   useEffect(() => {
@@ -27,8 +29,12 @@ function Profiles() {
     setIsLoading(true);
     Service.getAllCompletedUsers()
       .then((res) => {
-        setprofileData(res.data)
+        setprofileData(res.data);
         setUsersData(res.data);
+        const groom = res.data.filter((item) => item.gender == "male");
+        setgroomCount(groom.length);
+        const bride = res.data.filter((item) => item.gender == "female");
+        setbrideCount(bride.length);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -61,16 +67,17 @@ function Profiles() {
   const handleSearch = (event) => {
     const text = event.target.value;
     if (text) {
-      const filtered = usersData.filter(
-        (item) =>{
-          var search = new RegExp(text , 'i');
-            return search.test(item.user_name) ||
-            search.test(item.gender) ||
-            search.test(item.contact) ||
-            search.test(item.address) ||
-            search.test(item.education) 
-        });
-        setUsersData(filtered);
+      const filtered = usersData.filter((item) => {
+        var search = new RegExp(text, "i");
+        return (
+          search.test(item.user_name) ||
+          search.test(item.gender) ||
+          search.test(item.contact) ||
+          search.test(item.address) ||
+          search.test(item.education)
+        );
+      });
+      setUsersData(filtered);
     } else {
       setUsersData(profileData);
     }
@@ -479,7 +486,20 @@ function Profiles() {
         </div>
         {profileData && (
           <div className="col-md-12">
-            <h5 className="text-primary">Total Profiles: {profileData.length}</h5>
+            <div className="row">
+              <div className="col-md-4">
+                <h5 className="text-primary">
+                  Total Profiles: {profileData.length}
+                </h5>
+              </div>
+              <div className="col-md-4">
+                <h5 className="text-primary">Total Groom: {groomCount}</h5>
+              </div>
+              <div className="col-md-4">
+                <h5 className="text-primary">Total Bride: {brideCount}</h5>
+              </div>
+            </div>
+
             <hr />
           </div>
         )}
