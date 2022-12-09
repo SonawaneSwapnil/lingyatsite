@@ -36,7 +36,7 @@ export default function Login() {
             // navigate("/search");
             window.location.replace("/search");
           } else {
-            window.location.replace("/profile");
+            window.location.replace("/update-profile");
             // navigate("/profile");
           }
         } else if (res.data.warning) {
@@ -50,6 +50,7 @@ export default function Login() {
         setIsLoading(false);
         console.log(err);
       });
+    navigate("/update-profile");
   };
 
   let navigate = useNavigate();
@@ -57,7 +58,7 @@ export default function Login() {
     <div>
       {/* <!-- ========== Login & Registation Section ========== --> */}
       <section className="log-reg">
-      {isLoading && <Loader />}
+        {isLoading && <Loader />}
         <div className="top-menu-area">
           <div className="container">
             <div className="row">

@@ -24,12 +24,10 @@ export default function Family() {
   var USERID = JSON.parse(localStorage.getItem("USERID"));
 
   const loadAllData = () => {
-    Service.getSingleUser(USERID).then(
-      (res) => {
-        setuserUpdateData(res.data);
-        reset(res.data[0]);
-      }
-    );
+    Service.getSingleUser(USERID).then((res) => {
+      setuserUpdateData(res.data);
+      reset(res.data[0]);
+    });
   };
 
   // Update
@@ -45,7 +43,7 @@ export default function Family() {
       sister_contact: getValues("sister_contact"),
       caretaker: getValues("caretaker"),
       caretaker_contact: getValues("caretaker_contact"),
-      user_id: USERID
+      user_id: USERID,
     };
 
     Service.updateFamily(data)
@@ -64,9 +62,13 @@ export default function Family() {
       <section className="breadcrumb-area profile-bc-area">
         <div className="container">
           <div className="content">
-            <h4 className="title extra-padding">Add/Update Family Information</h4>
+            <h4 className="title extra-padding">
+              Add/Update Family Information
+            </h4>
             <ul className="breadcrumb-list extra-padding">
-              <li><Link to="/">Home</Link></li>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
               <li>Add/Update Information</li>
             </ul>
           </div>
@@ -76,69 +78,121 @@ export default function Family() {
 
       {/* <!-- ========= Profile Section Start --> */}
       <section className="profile-section">
-        {userUpdateData && userUpdateData.map((index, i) => (
-          <div className="container" key={i}>
-            <div className="row justify-content-center">
+        {userUpdateData &&
+          userUpdateData.map((index, i) => (
+            <div className="container" key={i}>
+              <div className="row justify-content-center">
+                <LeftProfileArea data={userUpdateData} />
 
-              <LeftProfileArea data={userUpdateData} />
+                <div className="col-xl-8 col-lg-7">
+                  <div className="profile-main-content">
+                    <ul className="top-menu">
+                      <li>
+                        <NavLink to="/profile">Profile</NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/update-profile" className="active">
+                          Add/Update Information
+                        </NavLink>
+                      </li>
+                      {/* <li><NavLink to="/single_profile3">Members</NavLink></li> */}
+                      <li>
+                        <NavLink to="/Search">search</NavLink>
+                      </li>
+                    </ul>
+                    <div className="mt-4">
+                      <form onSubmit={handleSubmit(updateRecord)}>
+                        <h4 className="content-title text-center info-main-title">
+                          Family Information/कौटुंबिक माहिती
+                        </h4>
 
-              <div className="col-xl-8 col-lg-7">
-                <div className="profile-main-content">
-                  <ul className="top-menu">
-                    <li><NavLink to="/profile">Profile</NavLink></li>
-                    <li><NavLink to="/update-profile" className="active">Add/Update Information</NavLink></li>
-                    {/* <li><NavLink to="/single_profile3">Members</NavLink></li> */}
-                    <li><NavLink to="/Search" >search</NavLink></li>
-                  </ul>
-                  <div className="mt-4">
-                    <form onSubmit={handleSubmit(updateRecord)}>
-                      <h4 className="content-title text-center info-main-title">Family Information/कौटुंबिक माहिती</h4>
+                        <div className="row">
+                          <div className="col-lg-6">
+                            <label htmlFor="inputincome" className="ititle">
+                              Father Name/वडीलांचे नावं:
+                            </label>
+                            <input
+                              {...register("father", {
+                                required: "Enter Your Father Name/वडीलांचे नाव",
+                              })}
+                              type="text"
+                              className="my-form-control"
+                              id="exampleInputname"
+                            />
+                          </div>
+                          <div className="col-lg-6">
+                            <label
+                              htmlFor="inputdesignation"
+                              className="ititle"
+                            >
+                              Contact Number/संपर्क क्रमांक:
+                            </label>
+                            <input
+                              {...register("father_contact", {
+                                required: " Enter Contact No/संपर्क क्रमांक",
+                                minLength: {
+                                  value: 10,
+                                  message: "At least 10 digit",
+                                },
+                                maxLength: {
+                                  value: 10,
+                                  message: "Enter max 10 digit",
+                                },
+                              })}
+                              type="number"
+                              className="my-form-control"
+                              id="contactno"
+                            />
+                          </div>
+                        </div>
 
-                      <div className="row">
-                        <div className="col-lg-6">
-                          <label htmlFor="inputincome" className="ititle">Father Name/वडीलांचे नावं:</label>
-                          <input
-                            {...register("father", { required: "Enter Your Father Name/वडीलांचे नाव" })}
-                            type="text"
-                            className="my-form-control"
-                            id="exampleInputname" />
+                        <div className="row">
+                          <div className="col-lg-6">
+                            {errors.father && (
+                              <span style={{ color: "red" }}>
+                                {errors.father.message}
+                              </span>
+                            )}
+                          </div>
+                          <div className="col-lg-6">
+                            {errors.father_contact && (
+                              <div style={{ color: "red" }}>
+                                {errors.father_contact.message}
+                              </div>
+                            )}
+                          </div>
                         </div>
-                        <div className="col-lg-6">
-                          <label htmlFor="inputdesignation" className="ititle">Contact Number/संपर्क क्रमांक:</label>
-                          <input
-                            {...register("father_contact", {
-                              required: " Enter Contact No/संपर्क क्रमांक",
-                              minLength: { value: 10, message: "At least 10 digit" },
-                              maxLength: { value: 10, message: "Enter max 10 digit" },
-                            })}
-                            type="number"
-                            className="my-form-control"
-                            id="contactno"
-                          />
-                        </div>
-                      </div>
 
-                      <div className="row">
-                        <div className="col-lg-6">
-                          {errors.father && (<span style={{ color: "red" }}>{errors.father.message}</span>)}
+                        <div className="row">
+                          <div className="col-lg-6">
+                            <label htmlFor="inputincome" className="ititle">
+                              {" "}
+                              Mother Name/आईचे नाव:
+                            </label>
+                            <input
+                              type="text"
+                              className="my-form-control"
+                              id="exampleInputname"
+                              {...register("mother")}
+                            />
+                          </div>
+                          <div className="col-lg-6">
+                            <label
+                              htmlFor="inputdesignation"
+                              className="ititle"
+                            >
+                              Contact Number/संपर्क क्रमांक:
+                            </label>
+                            <input
+                              type="number"
+                              className="my-form-control"
+                              id="contactno"
+                              {...register("mother_contact")}
+                            />
+                          </div>
                         </div>
-                        <div className="col-lg-6">
-                          {errors.father_contact && (<div style={{ color: "red" }}>{errors.father_contact.message}</div>)}
-                        </div>
-                      </div>
 
-                      <div className="row">
-                        <div className="col-lg-6">
-                          <label htmlFor="inputincome" className="ititle"> Mother Name/आईचे नाव:</label>
-                          <input type="text" className="my-form-control" id="exampleInputname" {...register("mother")} />
-                        </div>
-                        <div className="col-lg-6">
-                          <label htmlFor="inputdesignation" className="ititle">Contact Number/संपर्क क्रमांक:</label>
-                          <input type="number" className="my-form-control" id="contactno" {...register("mother_contact")} />
-                        </div>
-                      </div>
-
-                      <div className="row">
+                        {/* <div className="row">
                         <div className="col-lg-6">
                           <label htmlFor="inputincome" className="ititle">Brother Name/भावाचे नाव</label>
                           <input type="text" className="my-form-control" id="exampleInputname" {...register("brother")} />
@@ -169,22 +223,32 @@ export default function Family() {
                           <label htmlFor="inputdesignation" className="ititle">Contact Number/संपर्क क्रमांक</label>
                           <input type="number" className="my-form-control" id="contactno" {...register("caretaker_contact")} />
                         </div>
-                      </div>
-                      <div className="row mt-5 text-center">
-                        <Link to='/update-profil' className="col-lg-6 col-md-6">
-                          <button className="custom-button w-100">Back</button>
-                        </Link>
-                        <div className="col-lg-6 col-md-6 btn-mt">
-                          <button type="submit" className="custom-button w-100">Save and Continue</button>
+                      </div> */}
+                        <div className="row mt-5 text-center">
+                          <Link
+                            to="/update-profil"
+                            className="col-lg-6 col-md-6"
+                          >
+                            <button className="custom-button w-100">
+                              Back
+                            </button>
+                          </Link>
+                          <div className="col-lg-6 col-md-6 btn-mt">
+                            <button
+                              type="submit"
+                              className="custom-button w-100"
+                            >
+                              Save and Continue
+                            </button>
+                          </div>
                         </div>
-                      </div>
-                    </form>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
       </section>
 
       {/* <!-- ========= Profile Section Start -- */}

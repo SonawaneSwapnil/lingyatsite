@@ -1,5 +1,5 @@
 import axios from "axios";
-const Base_url = "https://atjoin.in/lingayat_matrimony_api/";
+const Base_url = "http://localhost:8080/";
 class Service {
   getAllUsers() {
     return axios.get(Base_url + "users/get-users");
@@ -57,15 +57,15 @@ class Service {
     return axios.get(Base_url + "dashboard/get-incomplete-users");
   }
   deleteUser(id) {
-    return axios.delete(Base_url + "users/delete-users/"+id);
+    return axios.delete(Base_url + "users/delete-users/" + id);
   }
 
   resetPassword(data) {
-    return axios.put(Base_url + "dashboard/update-user-pass",data);
+    return axios.put(Base_url + "dashboard/update-user-pass", data);
   }
 
   adminLogin(data) {
-    return axios.post(Base_url + "dashboard/admin-login",data);
+    return axios.post(Base_url + "dashboard/admin-login", data);
   }
 }
 export default new Service();

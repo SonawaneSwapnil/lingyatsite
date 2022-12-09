@@ -30,16 +30,16 @@ export default function Registration() {
     formState: { errors },
   } = useForm();
 
-  function getAge(dateString) {
-    var today = new Date();
-    var birthDate = new Date(dateString);
-    var age = today.getFullYear() - birthDate.getFullYear();
-    var m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-    }
-    return age;
-  }
+  // function getAge(dateString) {
+  //   var today = new Date();
+  //   var birthDate = new Date(dateString);
+  //   var age = today.getFullYear() - birthDate.getFullYear();
+  //   var m = today.getMonth() - birthDate.getMonth();
+  //   if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+  //     age--;
+  //   }
+  //   return age;
+  // }
 
   const saveData = (data) => {
     var data = {
@@ -51,25 +51,28 @@ export default function Registration() {
       looking_for_gender: getValues("looking_for_gender"),
       city: getValues("city"),
       married_status: getValues("married_status"),
-      age: getAge(moment(getValues("dob")).format("YYYY-MM-DD")),
+      // age: getAge(moment(getValues("dob")).format("YYYY-MM-DD")),
     };
     console.log(data);
     setIsLoading(true);
-    Service.saveAllUsers(data).then((res) => {
-      if (res.data.warning) {
-        console.log(res.data.warning);
-        setIsShow(true);
-        setAlertClass("alert alert-danger");
-        setMsg(res.data.warning);
-      } else {
-        localStorage.setItem("USERID", JSON.stringify(res.data.user_id));
-        window.location.replace("/profile");
-      }
-      setIsLoading(false);
-    }).catch(err=>{
-      setIsLoading(false);
-      console.log(err);
-    });
+    Service.saveAllUsers(data)
+      .then((res) => {
+        if (res.data.warning) {
+          console.log(res.data.warning);
+          setIsShow(true);
+          setAlertClass("alert alert-danger");
+          setMsg(res.data.warning);
+        } else {
+          localStorage.setItem("USERID", JSON.stringify(res.data.user_id));
+          window.location.replace("/profile");
+        }
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        console.log(err);
+      });
+    navigate("/update-profile");
   };
 
   // seslect opposite genders
@@ -104,7 +107,7 @@ export default function Registration() {
     <div>
       {/* <!-- ========== Login & Registration Section ========== --> */}
       <section className="log-reg">
-      {isLoading && <Loader />}
+        {isLoading && <Loader />}
         <div className="top-menu-area">
           <div className="container">
             <div className="row">
@@ -137,13 +140,17 @@ export default function Registration() {
                     and we’ll get a new account.
                   </p>
                 </div>
-                
+
                 <div className="main-content">
                   <form onSubmit={handleSubmit(saveData)}>
                     <h4 className="content-title text-center">
                       Personal Detail/वैयक्तिक माहिती
                     </h4>
-                    {isShow && (<div className={alertClass} role="alert">{msg}</div>)}
+                    {isShow && (
+                      <div className={alertClass} role="alert">
+                        {msg}
+                      </div>
+                    )}
                     <div className="form-group">
                       <label
                         htmlFor="exampleInputname"
@@ -230,8 +237,8 @@ export default function Registration() {
                         {...register("dob", {
                           required: "Enter your Date Of Birth/जन्मतारीख",
                         })}
-                        type="date"
-                        max={oldDate}
+                        type="text"
+                        // max={oldDate}
                         // minDate={moment().subtract(500, "years")}
                         // max={moment().subtract(18, "years")}
                         className="my-form-control"
