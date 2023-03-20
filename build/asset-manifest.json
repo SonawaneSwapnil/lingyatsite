@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/lingyaat/static/css/main.f9df6da9.css",
+    "main.js": "/lingyaat/static/js/main.bf7b07c1.js",
+    "static/js/498.d40c1ee0.chunk.js": "/lingyaat/static/js/498.d40c1ee0.chunk.js",
+    "static/js/703.1f9e9491.chunk.js": "/lingyaat/static/js/703.1f9e9491.chunk.js",
+    "static/js/513.73c7d69f.chunk.js": "/lingyaat/static/js/513.73c7d69f.chunk.js",
+    "static/js/787.3390cd34.chunk.js": "/lingyaat/static/js/787.3390cd34.chunk.js",
+    "static/media/print-header.png": "/lingyaat/static/media/print-header.9eaddc4e8264a84c8ba7.png",
+    "index.html": "/lingyaat/index.html",
+    "static/media/key.svg": "/lingyaat/static/media/key.9dda4ca606a0827b45bd80a9f2673b60.svg",
+    "static/media/download.svg": "/lingyaat/static/media/download.a81a17a67e53404cbda43d44142a6bd2.svg",
+    "static/media/trash-alt.svg": "/lingyaat/static/media/trash-alt.72eb76a3f8d5da4f9cdb89b329237053.svg",
+    "static/media/eye.svg": "/lingyaat/static/media/eye.e4021988b8bd5ed1e8992e0658bf7721.svg",
+    "main.f9df6da9.css.map": "/lingyaat/static/css/main.f9df6da9.css.map",
+    "main.bf7b07c1.js.map": "/lingyaat/static/js/main.bf7b07c1.js.map",
+    "498.d40c1ee0.chunk.js.map": "/lingyaat/static/js/498.d40c1ee0.chunk.js.map",
+    "703.1f9e9491.chunk.js.map": "/lingyaat/static/js/703.1f9e9491.chunk.js.map",
+    "513.73c7d69f.chunk.js.map": "/lingyaat/static/js/513.73c7d69f.chunk.js.map",
+    "787.3390cd34.chunk.js.map": "/lingyaat/static/js/787.3390cd34.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f9df6da9.css",
+    "static/js/main.bf7b07c1.js"
+  ]
+}
