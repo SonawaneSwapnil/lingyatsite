@@ -29,11 +29,11 @@ function IncompleteProfile() {
     setIsLoading(true);
     Service.getAllInCompletedUsers()
       .then((res) => {
-        setprofileData(res.data)
+        setprofileData(res.data);
         setUsersData(res.data);
-        const groom = res.data.filter((item) => item.gender == "male");
+        const groom = res.data.filter((item) => item.gender === "male");
         setgroomCount(groom.length);
-        const bride = res.data.filter((item) => item.gender == "female");
+        const bride = res.data.filter((item) => item.gender === "female");
         setbrideCount(bride.length);
         setIsLoading(false);
       })
@@ -61,16 +61,17 @@ function IncompleteProfile() {
   const handleSearch = (event) => {
     const text = event.target.value;
     if (text) {
-      const filtered = usersData.filter(
-        (item) =>{
-          var search = new RegExp(text , 'i');
-            return search.test(item.user_name) ||
-            search.test(item.gender) ||
-            search.test(item.contact) ||
-            search.test(item.address) ||
-            search.test(item.education) 
-        });
-        setUsersData(filtered);
+      const filtered = usersData.filter((item) => {
+        var search = new RegExp(text, "i");
+        return (
+          search.test(item.user_name) ||
+          search.test(item.gender) ||
+          search.test(item.contact) ||
+          search.test(item.address) ||
+          search.test(item.education)
+        );
+      });
+      setUsersData(filtered);
     } else {
       setUsersData(profileData);
     }
@@ -277,7 +278,7 @@ function IncompleteProfile() {
     doc.setFont("Poppins-Bold", "bold");
     // doc.text(usersData[0].father.replace(/\b(\w)/g, s => s.toUpperCase()), 300, 540);
 
-    if (usersData[0].father == "") {
+    if (usersData[0].father === "") {
       doc.text(300, 540, "Information not available");
     } else {
       doc.text(
@@ -293,7 +294,7 @@ function IncompleteProfile() {
     doc.setFont("Poppins-Bold", "bold");
     doc.text(usersData[0].father_contact.toString(), 300, 560);
 
-    if (usersData[0] == "") {
+    if (usersData[0] === "") {
       doc.text(300, 560, "Information not available");
     } else {
       doc.text(
@@ -314,7 +315,7 @@ function IncompleteProfile() {
       580
     );
 
-    if (usersData[0].mother == "") {
+    if (usersData[0].mother === "") {
       doc.text(300, 580, "Information not available");
     } else {
       doc.text(
@@ -330,7 +331,7 @@ function IncompleteProfile() {
     doc.setFont("Poppins-Bold", "bold");
     doc.text(usersData[0].mother_contact.toString(), 300, 600);
 
-    if (usersData[0].mother_contact == "") {
+    if (usersData[0].mother_contact === "") {
       doc.text(300, 600, "Information not available");
     } else {
       doc.text(
@@ -351,7 +352,7 @@ function IncompleteProfile() {
       620
     );
 
-    if (usersData[0].brother == "") {
+    if (usersData[0].brother === "") {
       doc.text(300, 620, "Information not available");
     } else {
       doc.text(
@@ -367,7 +368,7 @@ function IncompleteProfile() {
     doc.setFont("Poppins-Bold", "bold");
     doc.text(usersData[0].brother_contact.toString(), 300, 640);
 
-    if (usersData[0].brother_contact == "") {
+    if (usersData[0].brother_contact === "") {
       doc.text(300, 640, "Information not available");
     } else {
       doc.text(
@@ -388,7 +389,7 @@ function IncompleteProfile() {
       660
     );
 
-    if (usersData[0].sister == "") {
+    if (usersData[0].sister === "") {
       doc.text(300, 660, "Information not available");
     } else {
       doc.text(
@@ -404,7 +405,7 @@ function IncompleteProfile() {
     doc.setFont("Poppins-Bold", "bold");
     doc.text(usersData[0].sister_contact.toString(), 300, 680);
 
-    if (usersData[0].sister_contact == "") {
+    if (usersData[0].sister_contact === "") {
       doc.text(300, 680, "Information not available");
     } else {
       doc.text(
@@ -425,7 +426,7 @@ function IncompleteProfile() {
       700
     );
 
-    if (usersData[0].caretaker == "") {
+    if (usersData[0].caretaker === "") {
       doc.text(300, 700, "Information not available");
     } else {
       doc.text(
@@ -441,7 +442,7 @@ function IncompleteProfile() {
     doc.setFont("Poppins-Bold", "bold");
     doc.text(usersData[0].caretaker_contact.toString(), 300, 720);
 
-    if (usersData[0].caretaker_contact == "") {
+    if (usersData[0].caretaker_contact === "") {
       doc.text(300, 720, "Information not available");
     } else {
       doc.text(
@@ -484,23 +485,23 @@ function IncompleteProfile() {
           <hr />
         </div>
         {profileData && (
-           <div className="col-md-12">
-           <div className="row">
-             <div className="col-md-4">
-               <h5 className="text-primary">
-                 Total Profiles: {profileData.length}
-               </h5>
-             </div>
-             <div className="col-md-4">
-               <h5 className="text-primary">Total Groom: {groomCount}</h5>
-             </div>
-             <div className="col-md-4">
-               <h5 className="text-primary">Total Bride: {brideCount}</h5>
-             </div>
-           </div>
+          <div className="col-md-12">
+            <div className="row">
+              <div className="col-md-4">
+                <h5 className="text-primary">
+                  Total Profiles: {profileData.length}
+                </h5>
+              </div>
+              <div className="col-md-4">
+                <h5 className="text-primary">Total Groom: {groomCount}</h5>
+              </div>
+              <div className="col-md-4">
+                <h5 className="text-primary">Total Bride: {brideCount}</h5>
+              </div>
+            </div>
 
-           <hr />
-         </div>
+            <hr />
+          </div>
         )}
         <div className="col-md-12">
           <div className="form-group">
